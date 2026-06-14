@@ -98,12 +98,18 @@ class KnowledgeBase:
         self._vectorizer = TfidfVectorizer(analyzer="word", ngram_range=(1, 2), max_features=10000)
         self._matrix = None
         self._load(csv_path)
+        # Also load procedures.csv from same directory
+        data_dir = str(Path(csv_path).parent)
+        proc_path = os.path.join(data_dir, "procedures.csv")
+        if Path(proc_path).exists():
+            self._load(proc_path)
 
     def _load(self, path: str):
         if not Path(path).exists():
             logger.warning(f"CSV not found at {path}. Knowledge base empty.")
             return
-        with open(path, encoding="utf-8") as f:
+        encoding = "utf-8-sig" if "procedures" in path else "utf-8"
+        with open(path, encoding=encoding) as f:
             reader = csv.DictReader(f)
             for row in reader:
                 self.responses.append(CannedResponse(
@@ -116,7 +122,7 @@ class KnowledgeBase:
         if self.responses:
             corpus = [f"{r.title} {r.content}" for r in self.responses]
             self._matrix = self._vectorizer.fit_transform(corpus)
-            logger.info(f"Knowledge base loaded: {len(self.responses)} templates")
+            logger.info(f"Knowledge base loaded: {len(self.responses)} templates total")
 
     def search(self, query: str, top_k: int = 5) -> list[CannedResponse]:
         """Return top_k most relevant canned responses for a query."""
@@ -150,8 +156,9 @@ class ErrorCodeBase:
         logger.info(f"Error code base loaded: {len(self.codes)} unique codes")
 
     def _load_all(self, data_dir: str):
+        skip = {"canned_responses", "procedures"}
         for path in glob.glob(os.path.join(data_dir, "*.csv")):
-            if "canned_responses" in os.path.basename(path):
+            if any(s in os.path.basename(path) for s in skip):
                 continue
             self._load_file(path)
 
