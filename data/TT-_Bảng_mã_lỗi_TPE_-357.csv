@@ -1,0 +1,34 @@
+﻿Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8
+"Rule mã lỗi -357
+KH cần liên hệ đúng SDT",,,,,,,,
+Nội dung rule,Nội dung thông báo user,Thẻ ATM/TKNH,Thẻ CC,Tạo case,Note,,,
+White list - User có thể thanh toán mà không bị hạn chế,,,,,,,,
+1 userID ZaloPay chỉ thanh toán được cho 5 ID Game PUBGm trong vòng 30 ngày gần nhất. ,Đã quá giới hạn số lượng ID Game PUBGM được thanh toán trong 30 ngày gần đây,,,"KN_Thanh toán_TPE Thất bại - BC không có giao dịch
+
+Chọn mã lỗi: -244 (note rõ lỗi hiển thị trên màn hình của KH)",đây là quy định do phía sản phẩm PUBGm yêu cầu chứ không phải là do hệ thống ZaloPay.,,,
+"KH thanh toán trong vòng 24h sau khi được Auto Rest PIN thành công:
+
+User thanh toán cho AppID 454 - Nạp tiền bằng thẻ NH liên kết bị báo lỗi: -244","Giao dịch bị từ chối do có dấu hiệu không an toàn sau khi cấp lại mật khẩu thanh toán. ZaloPay ưu tiên bảo vệ tài khoản của bạn khỏi những rủi ro truy cập trái phép. Để thực hiện giao dịch tương tự, bạn vui lòng thực hiện hủy liên kết và liên kết lại thẻ/tài khoản ngân hàng bị từ chối, hoặc thủ lại sau 24h.",,,,". Cách 1: đợi sau 24h kể từ thời điểm reset PIN thành công gần nhất mà có giữ lại NH liên kết, user thực hiện lại GD trên thẻ/tài khoản bị từ chối.
+
+. Cách 2: Khách hàng hủy liên kết và liên kết lại thẻ/tài khoản bị từ chối sau khi PIN reset thành công và thực hiện lại giao dịch.",,,
+"01 TK ZaloPay chỉ được sử dụng 03 thẻ CC giao dịch trong 30 ngày. Nếu dùng thẻ thứ 04, sẽ bị báo lỗi -244.",,,,,Hướng dẫn KH dùng 01 trong 03 thẻ để thanh toán,,,
+Risk chặn các giao dịch có dấu hiệu spam dò số dư thẻ/ tài khoản ngân hàng đối với tài khoản chưa định danh,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh để tiếp tục nhé.,x,,,"""Do hệ thống đánh giá GD của anh/chị chưa đảm bảo an toàn rủi ro cho chủ ví. Anh/chị vui lòng định danh TKZP và thanh toán lại sau 24h kể từ thời điểm giao dịch thất bại cuối cùng.""
+
+Trường hợp KH không muốn KYC / giấy tờ đã KYC cho 2 TKZP trước đó, không thể KYC thêm cho TKZP này >> KH có thể rút tiền từ số dư ví ZP về thẻ NHLK.",,,
+Risk chặn các giao dịch có dấu hiệu spam dò số dư thẻ/ tài khoản ngân hàng đối với tài khoản đã định danh,“Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.”,,,,"KH liên hệ lần 1: CS báo
+- Do hệ thống đánh giá GD của anh/chị chưa đảm bảo an toàn rủi ro cho chủ ví. Anh/chị vui lòng thanh toán lại sau 24h kể từ thời điểm giao dịch thất bại lần cuối cùng. 
+- Ngoài ra, nếu Anh/ Chị cần hỗ trợ nhanh chóng và an toàn cho tài khoản, Anh/ Chị vui lòng cung cấp giúp em các chứng từ sau để bên em hỗ trợ sớm cho Anh/ Chị ạ:
++ Hình ảnh CCCD chip*.
++ Hình Selfie cầm CCCD chip*.
++ Tất cả các ảnh IB/ ảnh thẻ ngân hàng có phát sinh giao dịch lỗi -357 (ví dụ khách hàng có liên kết 1 tài khoản A và 1 thẻ B, thẻ B bị lỗi -357 thì cần xin đúng thẻ B, nếu tài khoản A và B đều bị lỗi thì xin cả 2).
+
+
+Trường hợp KH thực hiện lại gd sau 24h kể từ lần thất bại cuối cùng nhưng vẫn bị lỗi -357: CS thông báo  KH ""Em rất tiếc về bất tiện Anh/ Chị gặp phải, vì hệ thống đánh giá GD của mình vẫn chưa đảm bảo về rủi ro cho chủ ví rất mong Anh/ Chị cung cấp giúp em các chứng từ sau để bên em chuyển phòng ban liên quan hỗ trợ kiểm tra sớm cho mình ạ:
++ Hình ảnh CCCD chip*.
++ Hình Selfie cầm CCCD chip*.
++ Tất cả các ảnh IB/ ảnh thẻ ngân hàng có phát sinh giao dịch lỗi -357 (ví dụ khách hàng có liên kết 1 tài khoản A và 1 thẻ B, thẻ B bị lỗi -357 thì cần xin đúng thẻ B, nếu tài khoản A và B đều bị lỗi thì xin cả 2).
+==>Trường hợp khách hàng gay gắt CS sẽ chuyển Risk kiểm tra trước khi từ chối.
+
+(*) Nếu KH không cung cấp được CCCD có chip: Kiểm tra KH đang định danh theo giấy tờ nào?
++ KH đang định danh bằng CCCD chip nhưng không cung cấp được hình ảnh CCCD: CS từ chối.
++ KH đang định danh bằng giấy tờ khác: hướng dẫn KH cung cấp giấy tờ định danh.",,,Z

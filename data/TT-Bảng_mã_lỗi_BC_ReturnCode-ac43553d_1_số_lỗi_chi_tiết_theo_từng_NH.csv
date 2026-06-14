@@ -1,0 +1,198 @@
+﻿Return code, Name,Render System,Bank name,Message Display,Ghi chú
+-5029.0,BANK_CARD_NOT_REGISTERED_ONLINE_PAYMENT,BC,,Thẻ/ Tài khoản chưa đăng ký dịch vụ Thanh toán trực tuyến. Vui lòng liên hệ với Ngân hàng để được hướng dẫn đăng ký.,
+,,BC|SCB|ZPSTB2,Sacombank,"Thẻ chưa đăng ký dịch vụ e-commerce. Để đăng ký, bạn vui lòng gọi hotline ngân hàng 1800585888 hoặc soạn tin nhắn SMS gửi 8149 theo cú pháp: THE MO_ECOM [4 số cuối của số thẻ].",
+,,BC|HDB|ZPHDB,HDbank,"Thẻ/ tài khoản chưa đăng ký dịch vụ thanh toán trực tuyến. Để đăng ký, bạn soạn tin nhắn theo cú pháp HDB STAONE [Tên đăng nhập Ebanking] [Mật khẩu SMS Banking] gửi 8149; hoặc truy cập vào Internet Banking HDBank, chọn mục Quản lý dịch vụ để cài đặt.",
+,,BC|VARB|ZPAGBC	,,"Thẻ/ Tài khoản chưa đăng ký dịch vụ Thanh toán trực tuyến
+Trong trường hợp bạn vừa chuyển từ thẻ từ sang thẻ chip, vui lòng thực hiện đăng ký thanh toán trực tuyến mới tại ứng dụng Agribank E-Mobile Banking hoặc tại ATM
+Bạn có thể liên hệ ngân hàng qua số hotline <b>1900 55 88 18</b> để được hỗ trợ.        ",
+,,Ngân hàng liên kết thông qua napas,,"1. Tư vấn theo Script:
+
+""Chào bạn,
+Cảm ơn bạn đã quan tâm và sử dụng dịch vụ của ví điện tử ZaloPay.
+
+Yêu cầu kiểm tra giao dịch liên kết thẻ của bạn đã được ZaloPay chuyển thông tin đến ngân hàng kiểm tra, hiện tại đối với một số ngân hàng dịch vụ Internet Banking (ngân hàng điện tử) và Ecommerce (thanh toán trực tuyến) là 2 dịch vụ khác nhau, bạn vui lòng đến chi nhánh/phòng giao dịch của ngân hàng sau đó nêu rõ với giao dịch viên về việc cần hỗ trợ đăng ký dịch vụ thanh toán trực tuyến tại cổng NAPAS để được kiểm tra việc đăng ký dịch vụ và hỗ trợ chi tiết nhé.
+
+Nếu cần hỗ trợ thêm thông tin bạn vui lòng phản hồi lại email này hoặc gửi yêu cầu tại Trung tâm hỗ trợ để được phản hồi nhanh chóng.
+ZaloPay xin chân thành cảm ơn.""
+ 
+2. KH phản ánh đã liên hệ NH và  đăng ký đầy đủ dịch vụ nhưng vẫn không liên kết được thì ghi nhận case chuyển SL.",Hình ảnh liên kết thẻ trong BC
+-5033.0,BANK_INACTIVE_CARD,BC,,"Thẻ/Tài khoản chưa kích hoạt hoặc đang bị khóa, vui lòng liên hệ Ngân hàng phát hành để được hỗ trợ.",
+,,BC|CC|ZPSTB2,Sacombank,"Hướng dẫn KH kiểm tra lại với NH có thể xảy ra 2 trường hợp sau:
+- Thẻ/ Tài khoản chưa kích hoạt hoặc đang bị khóa. Bạn vui lòng gọi hotline 1800585888 của ngân hàng Sacombank để được hỗ trợ.
+- Phương thức xác thực của thẻ (OTP/ SMS) có đang hoạt động hay không, nếu không cần kích hoạt lại dịch vụ thì sẽ liên kết được ",
+,,BC|SCB|ZPSTB2,,,
+,,,BIDV,"Theo thông tin từ BIDV, từ 18h ngày 8/12/2024, BIDV đã ngưng hỗ trợ Thẻ Từ.
+Vì vậy các Thẻ Từ BIDV đã được liên kết trước đó khi giao dịch sẽ xuất hiện lỗi ""BANK_INACTIVE_CARD (-5033)"".
+
+HXL: những trường hợp này BIDV báo cần unlink & liên kết lại với Thẻ Ngân hàng gắn Chip để giao dịch được trở lại.
+",
+-5036.0,,BC,,Loại thẻ của bạn không hỗ trợ cho giao dịch này. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,
+,,BC|CC|ZPSTB2,Sacombank,Loại thẻ của bạn không hỗ trợ cho giao dịch này. Bạn vui lòng gọi hotline 1800585888 của ngân hàng Sacombank để được hỗ trợ.,
+,,BC|SCB|ZPSTB2,,,
+,,BC|OCB|ZPOCB,OCB,Gói tài khoản OCB OMNI không được hỗ trợ. Vui lòng liên hệ Ngân hàng để được hỗ trợ trước khi thực hiện lại giao dịch,
+,,BC|BIDV|ZPBIDV,BIDV,"Theo chính sách của ngân hàng, tài khoản BIDV này chưa được hỗ trợ để liên kết ví điện tử vì đang dùng gói phi tài chính. Vui lòng đến chi nhánh BIDV gần nhất để nâng cấp thành gói tài chính hoặc liên hệ hotline ngân hàng 1900 9247 để được hỗ trợ.",
+-5038.0,,BC,,Thẻ/tài khoản không hợp lệ. Có thể xảy ra do một trong các lý do sau:,
+,,,,"- Số thẻ/tài khoản, tên chủ thẻ/tài khoản hoặc ngày phát hành thẻ v.v... không đúng",
+,,,,- Thẻ/tài khoản chưa được kích hoạt hoặc đang ở trạng thái không giao dịch được,
+,,,,Vui lòng nhập lại thông tin thẻ/tài khoản hoặc liên hệ ngân hàng phát hành để được hỗ trợ.,
+,,BC|MB|,MBBank,Thẻ không hợp lệ. Có thể xảy ra do một trong các lý do sau:,
+,,,,"- Số thẻ, tên chủ thẻ hoặc ngày phát hành thẻ v.v... không đúng",
+,,,,- Thẻ chưa được kích hoạt hoặc đang ở trạng thái không giao dịch được,
+,,,,Vui lòng nhập lại thông tin thẻ hoặc gọi hotline 1900 54 54 26 của ngân hàng MBBank để được hỗ trợ.,
+,,BC|VARB|ZPAGBC,Agribank,"Có thể do một số nguyên nhân sau:
+- Số thẻ, tên chủ thẻ, ngày phát hành thẻ v.v. không đúng
+- Thẻ chưa đăng ký giao dịch Internet/ dịch vụ thanh toán trực tuyến. Xem hướng dẫn đăng ký tại đây
+
+Để liên kết thành công, bạn thử các cách sau:
+- Kiểm tra và nhập đúng thông tin: Tên chủ thẻ, thời gian phát hành thẻ
+- Nếu thẻ chưa đăng ký giao dịch Internet/ dịch vụ thanh toán trực tuyến, bạn có thể bật trên ứng dụng E-Mobile Banking của Agribank và liên kết lại. Bạn xem hướng dẫn theo video (bên dưới) hoặc gọi 1900 55 88 18 để được ngân hàng Agribank hỗ trợ.
+
+<Link video https://www.youtube.com/watch?v=oPCnDtveD5w>
+",
+,,BC|VCB|ZPVCBC,Vietcombank,"Thẻ không hợp lệ. Có thể xảy ra do một trong các lý do sau:<br>
+- Số thẻ, tên chủ thẻ hoặc ngày phát hành thẻ v.v... không đúng<br>
+- Thẻ chưa được kích hoạt hoặc đang ở trạng thái không giao dịch được<br>
+-Thẻ vừa chuyển từ thẻ từ sang thẻ chip<br>
+Vui lòng nhập lại thông tin thẻ hoặc gọi hotline 1900 54 54 13 ngân hàng Vietcombank để được hỗ trợ. ",
+,,BC|VCB|ZPVCB2,Vietcombank,Tài khoản không hợp lệ. Có thể xảy ra do một trong các lý do sau:,
+,,,,"- Số tài khoản, tên chủ tài khoản hoặc số CMND/ hộ chiếu v.v... không đúng",
+,,,,- Số điện thoại gắn với ví ZaloPay không trùng khớp số điện thoại đăng ký dịch vụ SMS Banking/ VCB Digibank,
+,,,,Vui lòng nhập lại thông tin tài khoản hoặc gọi đến hotline 1900 545413 để được ngân hàng Vietcombank hỗ trợ.,
+,,BC|CC|ZPSTB2,Sacombank,"Sai thông tin thẻ (Số thẻ hoặc, tên chủ thẻ hoặc, ngày phát hành thẻ không đúng). Vui lòng thực hiện lại.",
+,,BC|SCB|ZPSTB2,Sacombank,Thẻ/Tài khoản không hợp lệ. Có thể xảy ra do một trong các lý do sau:,
+,,,,"- Số thẻ/tài khoản, họ tên, số CMND/Hộ chiếu không đúng",
+,,,,- Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng,
+,,,,Vui lòng nhập lại thông tin thẻ/tài khoản hoặc liên hệ hotline ngân hàng 1800585888 để được hỗ trợ.,
+-5039.0,,BC,,Không tìm thấy thông tin thẻ hoặc tài khoản. Vui lòng thực hiện lại.,
+,,BC|VCB|ZPVCB2,Vietcombank,Tài khoản Vietcombank này chưa được hỗ trợ để liên kết ví điện tử vì được mở bằng hình thức trực tuyến trên VCB Digibank. Bạn vui lòng đến chi nhánh Vietcombank để xác thực tài khoản hoặc gọi hotline ngân hàng 1900 545413 để được hỗ trợ.,
+-5040.0,,BC,,Thẻ hoặc tài khoản của bạn đã được liên kết trước đó.,
+,,BC|SCB|ZPSTB2,Sacombank,"Ngân hàng quy định bạn chỉ được liên kết duy nhất 1 thẻ hoặc 1 tài khoản Sacombank với ví ZaloPay. Nếu đã liên kết trước đó, vui lòng huỷ liên kết với thẻ/ tài khoản cũ hoặc gọi hotline Sacombank 1800585888 để được hỗ trợ",
+-5041.0,,BC,,Thẻ/tài khoản ở trạng thái không giao dịch được. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ,
+,,BC|BIDV|ZPBIDVC,BIDV,Thẻ/ tài khoản ở trạng thái không giao dịch được. Vui lòng gọi hotline 1900 9247 của ngân hàng BIDV để được hỗ trợ,
+,,BC|VTB|ZPCTG,Vietinbank,Thẻ/ tài khoản ở trạng thái không giao dịch được. Vui lòng gọi hotline 1900 558 868 của ngân hàng VietinBank để được hỗ trợ,
+-5042.0,,BC,,Thẻ/Tài khoản ngân hàng đã bị khóa hoặc tạm ngừng hoạt động. Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.,
+,,BC|VARB|ZPAGBC,Agribank,Thẻ/ Tài khoản ngân hàng đã bị khóa hoặc tạm ngừng hoạt động. Vui lòng gọi hotline 1900 55 88 18 của ngân hàng Agribank để được hỗ trợ.,
+,,BC|VTB|ZPCTG,Vietinbank,Thẻ/ Tài khoản ngân hàng đã bị khóa hoặc tạm ngừng hoạt động. Vui lòng gọi hotline 1900 558 868 của ngân hàng VietinBank để được hỗ trợ.,
+,,BC|MB|,MBBank,Thẻ/ Tài khoản ngân hàng đã bị khóa hoặc tạm ngừng hoạt động. Vui lòng gọi hotline 1900 54 54 26 của ngân hàng MBBank để được hỗ trợ.,
+,,BC|EIB|ZPEIBA,Eximbank,Tài khoản ngân hàng ở trạng thái không giao dịch được. Bạn vui lòng gọi hotline 1800 1199 của ngân hàng Eximbank để được hỗ trợ.,
+,,BC|BIDV|ZPBIDV,BIDV,Thẻ/ Tài khoản ngân hàng đã bị khóa hoặc tạm ngừng hoạt động. Vui lòng gọi hotline 1900 9247 của ngân hàng BIDV để được hỗ trợ.,
+-5047.0,,BC,,Tài khoản ngân hàng không hợp lệ. Vui lòng thực hiện lại.,
+,,BC|MB|ZPMB2,MBBank,Tài khoản ngân hàng không tồn tại hoặc đã bị khoá. Vui lòng kiểm tra lại hoặc gọi đến tổng đài 1900 545426 để nhận hỗ trợ từ ngân hàng MBBank.,
+-5074.0,,BC,,Ngân hàng không chấp nhận giao dịch. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,
+,,BC|CC|ZPVCBC,Vietcombank,Ngân hàng không chấp nhận giao dịch. Vui lòng gọi hotline 1900 54 54 13 của ngân hàng Vietcombank để được hỗ trợ.,
+,,BC|SCB|ZPSTB2,Sacombank,"Tài khoản Sacombank chưa đăng ký dịch vụ Internet Banking. Bạn vui lòng đến chi nhánh Sacombank gần nhất để đăng ký. Nếu cần hỗ trợ, bạn vui lòng gọi hotline ngân hàng Sacombank 1800585888.",
+,,BC|VCB|ZPVCBC,Vietcombank,Ngân hàng không chấp nhận giao dịch. Vui lòng gọi hotline 1900 54 54 13 của ngân hàng Vietcombank để được hỗ trợ.,
+-5077.0,,BC,,Thẻ ở trạng thái không hoạt động hoặc ngân hàng phát hành thẻ từ chối giao dịch. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,
+,,BC|MB,MBBank,"Có thể xảy ra do một trong các lý do sau:
+- Thẻ ở trạng thái không hoạt động. Nếu thẻ của bạn là thẻ online trên ứng dụng MBBank thì xem thông tin chi tiết tại đây  
+- Ngân hàng MBBank từ chối giao dịch. > Bạn vui lòng gọi hotline ngân hàng MBBank 1900 545426 để được hỗ trợ.",
+,,,,,
+-5218.0,,BC,,Thông tin cá nhân chưa trùng khớp với thông tin đã đăng ký với Ngân hàng. Vui lòng nhập lại số CMND/ Hộ chiếu hoặc số điện thoại,
+,,BC|TPB|ZPTPB,TPbank,Liên kết tài khoản TPBank không thành công do chưa định danh tài khoản. Vui lòng đến chi nhánh ngân hàng để thực hiện định danh hoặc gọi đến hotline ngân hàng 1900 58 58 85 để được TPBank hỗ trợ.,
+,,BC|SCB|ZPSTB2,Sacombank,"Bạn không đủ điều kiện mở tài khoản do 1 trong các nguyên nhân sau:<br>- Thông tin định danh ví ZaloPay (CMND/ Căn cước, số điện thoại) không trùng khớp thông tin lưu trữ tại ngân hàng Sacombank. Bạn vui lòng đến quầy giao dịch Sacombank để cập nhật thông tin.<br>- Bạn đã có tài khoản tại Sacombank. Theo quy định, tính năng mở tài khoản Sacombank trên Ví ZaloPay chỉ áp dụng cho khách hàng chưa có tài khoản Sacombank",
+,,BC|TPB|ZPTPB	,Techcombank,Liên kết tài khoản TPBank không thành công do chưa định danh tài khoản. Vui lòng đến chi nhánh ngân hàng để thực hiện định danh hoặc gọi đến hotline ngân hàng 1900 58 58 85 để được TPBank hỗ trợ.	,
+,,BC|ACB|ZPACB,ACB,"Thông tin tài khoản ngân hàng không hợp lệ. Có thể xảy ra do một trong các lý do sau:<br>- Số tài khoản, tên chủ tài khoản hoặc số CMND/ Căn cước không trùng khớp với thông tin đăng ký tại ngân hàng<br>- Số điện thoại ZaloPay không trùng khớp số điện thoại đăng ký tại ngân hàng <br>Vui lòng nhập lại thông tin tài khoản hoặc gọi đến hotline 1900 54 54 86 để được ngân hàng ACB hỗ trợ.        ",
+,,,,,
+-5219.0,,BC,,Khách hàng chưa đăng ký dịch vụ Internet Banking/ Ebank. Vui lòng liên hệ hotline ngân hàng để được hỗ trợ.,
+,,BC|HDB|ZPHDB,HDBank,Thẻ/ tài khoản chưa đăng ký dịch vụ Internet Banking/ Ebank. Vui lòng đến chi nhánh ngân hàng gần nhất để đăng ký hoặc gọi hotline ngân hàng HDBank 1900 6060 để được hỗ trợ,
+-5700.0,,BC,,Tài khoản đăng nhập Ngân hàng điện tử (Internet banking/E-bank) đang bị khoá. Vui lòng liên hệ Ngân hàng để được hỗ trợ trước khi thực hiện lại giao dịch.,
+,,BC|OCB|ZPOCB,OCB,Gói tài khoản OCB OMNI không hợp lệ. Vui lòng liên hệ Ngân hàng để được hỗ trợ trước khi thực hiện lại giao dịch.,
+-5207.0,BANK_USER_HAS_NOT_BEEN_REGISTER_SMS,BC,,Khách hàng chưa đăng ký dịch vụ SMS tại ngân hàng.,
+,,BC|EIB|ZPEIBA,Eximbank,"Tài khoản chưa đăng ký dịch vụ SMS Banking. Để đăng ký, bạn soạn tin nhắn SMS gửi 8149 theo cú pháp: EIB SMS [số tài khoản]; hoặc truy cập Mobile Banking/ Internet Banking của Eximbank để đăng ký.",
+,,BC|VCB|ZPVCBC,Vietcombank,"Số điện thoại gắn với ví ZaloPay chưa đăng ký dịch vụ SMS Banking hoặc VCB Digibank tại ngân hàng. Để đăng ký, bạn vui lòng đến chi nhánh ngân hàng Vietcombank gần nhất để được hỗ trợ.
+
+Nếu bạn đã đăng ký dịch vụ SMS banking/ VCB Digibank bằng số điện thoại khác thì thử đổi số điện thoại gắn với ví ZaloPay theo hướng dẫn tại đây; hoặc đến chi nhánh Vietcombank để đổi số điện thoại đăng ký ở ngân hàng trùng với số điện thoại ZaloPay.",
+,,BC|TPB|ZPTPB,TPBank,"Bạn chưa đăng kí dịch vụ SMS banking tại ngân hàng TPBank. Để đăng kí SMS Banking, bạn có thể thực hiện theo các bước sau:",
+,,,,- Bước 1: Đăng nhập vào app TPBank Mobile hoặc đăng nhập Internet Banking,
+,,,,- Bước 2: Vào “Cài Đặt” chọn SMS Banking,
+,,,,- Bước 3: Chọn “Đăng kí”,
+,,,,- Bước 4: Xác nhận yêu cầu,
+,,,,- Bước 5: Nhập OTP và hoàn tất giao dịch.,
+,,,,Thông tin chi tiết vui lòng liên hệ hotline ngân hàng 1900 58 58 85 để được TPBank hỗ trợ.,
+,,NAB,Nam Á Bank,"Lv1/OUT/GS hướng dẫn KH liên hệ với ngân hàng Nam Á (1900 6679) để kiểm tra SĐT đang liên kết ví  có trùng với SĐT đăng ký ở NH không?
+- Nếu chưa trùng : nhờ NH đổi số điện thoại đăng kí tại NH trùng khớp với SĐT tại ZaloPay => đóng case
+- Nếu KH báo đã kiểm tra và xác  nhận NH là trùng khớp => Lv1/OUT/GS xin thông tin sau chuyển SL kiểm tra thêm với bank""
++ UserID: 
++ TransID: 
++ 6 đầu - 4 cuối số thẻ: 
++ Số tài khoản NH: 
++  Tên chủ thẻ: 
++ SĐT đăng ký NH: 
++ Số CMND: ",
+-5036.0,BANK_CARD_TYPE_NOT_ACCEPTED,Bank Connector,,Loại thẻ của bạn không hỗ trợ cho giao dịch này. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,
+,,BankGateway,,Loại thẻ của bạn không hỗ trợ cho giao dịch này. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,
+,,BC|CC|ZPSTB2,,Loại thẻ của bạn không hỗ trợ cho giao dịch này. Bạn vui lòng gọi hotline 1800585888 của ngân hàng Sacombank để được hỗ trợ.,
+,,BC|OCB|ZPOCB,,Gói tài khoản OCB OMNI không được hỗ trợ. Vui lòng liên hệ Ngân hàng để được hỗ trợ trước khi thực hiện lại giao dịch.,
+,,BC|BIDV|ZPBIDV,,"Theo chính sách của ngân hàng, tài khoản BIDV này chưa được hỗ trợ để liên kết ví điện tử vì đang dùng gói phi tài chính. Vui lòng đến chi nhánh BIDV gần nhất để nâng cấp thành gói tài chính hoặc liên hệ hotline ngân hàng 1900 9247 để được hỗ trợ.",
+,,BC|SCB|ZPSTB2,,Loại thẻ của bạn không hỗ trợ cho giao dịch này. Bạn vui lòng gọi hotline 1800585888 của ngân hàng Sacombank để được hỗ trợ.,
+-5091.0,BANK_INVALID_PHONE_NUMBER,Bank Connector,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Liên hệ với hotline ngân hàng để cập nhật số điện thoại.,
+,BANK_INVALID_PHONE_NUMBER,BC|TPB|ZPTPB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 58 58 85 của ngân hàng TPBank để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|VCCB|,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 555 596 của ngân hàng Bản Việt để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|HDB|ZPHDB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 6060 của ngân hàng HDBank để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|VIB|ZPVIB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800 8195 của ngân hàng VIB để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|SCB|ZPSTB2,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800585888 để nhận hỗ trợ từ ngân hàng Sacombank hoặc thử đổi số điện thoại gắn với ví ZaloPay.,
+,BANK_INVALID_PHONE_NUMBER,BC|MB|ZPMB2,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Vui lòng gọi đến tổng đài 1900 54 54 26 để nhận hỗ trợ từ ngân hàng MBBank hoặc thử đổi số điện thoại gắn với ví ZaloPay.,
+,BANK_INVALID_PHONE_NUMBER,BC|CC|ZPSTB2,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800585888 để nhận hỗ trợ từ ngân hàng Sacombank.,
+,BANK_INVALID_PHONE_NUMBER,BC|BIDV|ZPBIDV,,Số điện thoại gắn với ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng đổi số điện thoại gắn với ví ZaloPay; hoặc gọi hotline 1900 9247 để được ngân hàng BIDV hỗ trợ.,"Nguyên nhân:
+- KH đã từng đăng ký / thay đổi bằng hoặc hơn 3 số điện thoại với ngân hàng BIDV. SĐT bây giờ đang đăng kí với ngân hàng là trùng khớp với ZLP nhưng đó là sdt đang đứng ở vị trí thứ 3 trong danh sách các sdt đã từng đăng kí với ngân hàng. (số (MP))
+- Và theo Chương trình liên kết giữa BIDV và ZLP chỉ cho phép liên kết đến số điện thoại (MP) đầu tiên trong danh sách số điện thoại của khách hàng đăng ký tại ngân hàng.
+Hướng xử lý:
+Cách 1 : Liên kết ví ZLP với sdt đăng kí đầu tiên của KH ở hệ thống BIDV
+Cách 2: KH ra BIDV điều chỉnh số sdt đầu tiên là số đang được sử dụng"
+,BANK_INVALID_PHONE_NUMBER,BC|BIDV|ZPBIDVC,,Số điện thoại gắn với ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng đổi số điện thoại gắn với ví ZaloPay; hoặc gọi hotline 1900 9247 để được ngân hàng BIDV hỗ trợ.,"Nguyên nhân:
+- KH đã từng đăng ký / thay đổi bằng hoặc hơn 3 số điện thoại với ngân hàng BIDV. SĐT bây giờ đang đăng kí với ngân hàng là trùng khớp với ZLP nhưng đó là sdt đang đứng ở vị trí thứ 3 trong danh sách các sdt đã từng đăng kí với ngân hàng. (số (MP))
+- Và theo Chương trình liên kết giữa BIDV và ZLP chỉ cho phép liên kết đến số điện thoại (MP) đầu tiên trong danh sách số điện thoại của khách hàng đăng ký tại ngân hàng.
+Hướng xử lý:
+Cách 1 : Liên kết ví ZLP với sdt đăng kí đầu tiên của KH ở hệ thống BIDV
+Cách 2: KH ra BIDV điều chỉnh số sdt đầu tiên là số đang được sử dụng"
+,BANK_INVALID_PHONE_NUMBER,BC|VARB|ZPAGBC,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký giao dịch Internet tại ngân hàng. Bạn vui lòng gọi hotline 1900 55 88 18 để nhận hỗ trợ từ ngân hàng Agribank hoặc thử đổi số điện thoại gắn với ví ZaloPay.,SĐT internet banking có thể khác với số điện thoại đăng ký tin nhắn hoặc Emobile Banking => Khách hàng liên hệ NH kiểm tra lại chính xác SĐT đăng ký internet banking 
+,BANK_INVALID_PHONE_NUMBER,BC|EIB|,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800 1199 của ngân hàng Eximbank để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|VCB|ZPVCBC,,$Bạn gọi đến hotline 1900 545413 để được ngân hàng Vietcombank hỗ trợ hoặc đổi số điện thoại gắn với ví ZaloPay. - có thể xảy ra do một trong các nguyên nhân sau: Số điện thoại không nằm trong danh sách số điện thoại mà bạn đăng ký tại ngân hàng- Số điện thoại chưa đăng ký dịch vụ SMS Banking tại ngân hàng- Bạn đã tắt dịch vụ SMS Banking cho số điện thoại ,
+,BANK_INVALID_PHONE_NUMBER,BC|SGCB|ZPSGCB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 6538 của ngân hàng TMCP Sài Gòn (SCB) để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|OJB|ZPOJB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800 58 88 15 của ngân hàng OceanBank để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|MSB|,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800 599 999 của ngân hàng MSB để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|EIB|ZPEIBA,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800 1199 của ngân hàng Eximbank để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|VCCB|ZPVCCB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 555 596 của ngân hàng Bản Việt để được hỗ trợ.,
+,PHONESUFFIX_ERROR,BC|MB|,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng MBBank. Vui lòng gọi đến tổng đài 1900 545426 để nhận hỗ trợ từ ngân hàng MBBank.Số điện thoại bạn dùng để mở tài,
+,PHONESUFFIX_ERROR,BC|VTB|ZPCTG,,"Số điện thoại bạn dùng để mở tài khoản ngân hàng VietinBank là ********} . Vui lòng thử đổi số điện thoại ZaloPay qua số điện thoại này, hoặc gọi đến tổng đài 1900 558 868 để nhận hỗ trợ từ ngân hàng VietinBank.",
+,BANK_INVALID_PHONE_NUMBER,BC|CC|ZPVIB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800 8195 của ngân hàng VIB để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|NAB|,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 6679 của ngân hàng NAM A BANK để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|SHBVN|ZPSHBVN,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 1577 để nhận hỗ trợ từ ngân hàng ShinhanBank hoặc thử đổi số điện thoại gắn với ví ZaloPay.,
+,PHONESUFFIX_ERROR,BC|VTB|,,"Số điện thoại bạn dùng để mở tài khoản ngân hàng VietinBank là ******** . Vui lòng thử thiết lập lại tài khoản ZaloPay qua số điện thoại này, hoặc gọi đến tổng đài 1900 558 868 để nhận hỗ trợ từ ngân hàng VietinBank.",
+,BANK_INVALID_PHONE_NUMBER,Transfer,,Thông tin số điện thoại đăng kí tại ngân hàng đã được thay đổi. Vui lòng liên hệ bộ phận CSKH 1900 54 54 36 để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|SGCB|,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 6538 của ngân hàng TMCP Sài Gòn (SCB) để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|OCB|ZPOCB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1800 6678 của ngân hàng OCB để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|CC|ZPVCBC,,Bạn gọi đến hotline1900 545413 để được ngân hàng Vietcombank hỗ trợ. - có thể xảy ra do một trong các nguyên nhân sau:- Số điện thoại không nằm trong danh sách số điện thoại mà bạn đăng ký tại ngân hàng- Số điện thoại chưa đăng ký dịch vụ SMS Banking tại ngân hàng- Bạn đã tắt dịch vụ SMS Banking cho số điện thoại,
+,BANK_INVALID_PHONE_NUMBER,BC|PVCB|ZPPVCB,,Số điện thoại ví ZaloPay không trùng khớp với số điện thoại đăng ký tại ngân hàng. Bạn vui lòng gọi hotline 1900 55 55 92 của ngân hàng PVcomBank để được hỗ trợ.,
+,BANK_INVALID_PHONE_NUMBER,BC|ACB|ZPACB,,,"- Lý do: Phương thức xác thực KH đăng ký với ACB và phượng thức xác thực khi đăng ký ví ZaloPay khác nhau dẫn đến bị lỗi. (Phương thức xác thực của ACB: SMS, Safekey...)
+
+- HXL: 
+Lv1/OUT/GS hướng dẫn KH liên hệ ACB kiểm tra phương thức xác thực tại NH và ZaloPay có đang trùng nhau không.
++ Nếu chưa trùng: KH báo bank hỗ trợ thay đổi (liên hệ trung tâm CSKH ACB 1900 5454 86/ (028) 38 247 247 hoặc lên trang web online.acb.com.vn).
+
++ Nếu đã trùng, nhưng vẫn bị lỗi -5091: Xin thông tin (theo lỗi liên kết NH) chuyển SL kiểm tra với NH 3-5 ngày LV."
+-5012.0,,ZPAGR,,"Bạn kiểm tra một trong các nguyên nhân sau:
+
+Bạn sử dụng quá hạn mức giao dịch internet của AGB. Xem chi tiết hạn mức
+Bạn tắt hoặc chưa kích hoạt dịch vụ thanh toán trực tuyến của AGB khiến hạn mức giao dịch mặc định hiện tại là 0 đồng theo quy định của ngân hàng.","Với thẻ Agribank phát hành sau 27/01/2021
+Hạn mức mặc định: 5 triệu
+Bạn có thể điều chỉnh hạn mức tối đa lên đến 300 triệu/ngày
+Với thẻ Agribank phát hành trước 27/01/2021
+Nếu bạn đã đăng ký thanh toán trực tuyến:
+Hạn mức mặc định: 20 triệu với thẻ chuẩn; 30 triệu với thẻ vàng
+Bạn có thể điều chỉnh hạn mức tối đa lên đến 300 triệu/ngày
+Nếu bạn chưa đăng ký thanh toán trực tuyến: Bạn cần đăng ký trước khi thanh toán. Sau khi đăng ký:
+Hạn mức mặc định: 5 triệu
+Bạn có thể điều chỉnh hạn mức tối đa lên đến 300 triệu/ngày"
+,,ZPMSB,,,"- Nguyên nhân: Giao dịch lỗi này là tài khoản/ thẻ ngân hàng của KH đang vượt hạn mức tháng, hạn mức cấu hình tại MSB (chỉ tối đa 100 triệu VNĐ/tháng) 
+
+- HXL: CS hướng dẫn KH liên hệ bank kiểm tra hạn mức tháng & thử lại giao dịch vào tháng sau"
+-5010.0,BANK_USER_NOT_FOUND,ZPNAB,,,"Vấn đề bị ảnh hưởng: Do chưa có thông tin dịch vụ thay thế nhưng có thể NH vẫn sẽ yêu cầu KH đăng ký dịch vụ Thanh toán trực tuyến. Vì vậy, khi User thanh toán hoặc liên kết NH Nam Á có thể bị báo lỗi -5010 ""BANK_USER_NOT_FOUND"". Và một trong các nguyên nhân bị ảnh hưởng:
+1. User từng liên hệ bank yêu cầu hủy liên kết thẻ/tài khoản từ phía hệ thống NH, bên mình vẫn còn token liên kết.
+2. User liên hệ bank thay đổi SĐT nên bank tự remove token liên kết.
+3. User chưa đăng ký 1 dịch vụ nào đó bên hệ thống bank để có thể liên kết với ứng dụng thanh toán ZaloPay.
+
+HXL: 
+- Đối với KH đã liên kết thẻ/tài khoản rồi nhưng không thực hiện thanh toán được > CS nhờ KH hủy liên kết cũ sau đó liên kết lại. Nếu KH không tự thao tác hủy liên kết được, CS xin thông tin và hỗ trợ theo quy trình ""Hỗ trợ KH hủy liên kết ngân hàng"". 
+
+- Trường hợp KH đã thử lại theo hướng dẫn trên hoặc thực hiện liên kết nhiều lần bị báo lỗi, CS hướng dẫn KH liên hệ với NH kiểm tra trước thông tin nguyên nhân và hướng xử lý. Nếu KH gặp khó khăn khi liên hệ bank, CS xin có thể thông tin đăng ký NH của KH, ghi nhận case chuyển SL nhờ kiểm tra với bank nguyên nhân để hướng dẫn KH."

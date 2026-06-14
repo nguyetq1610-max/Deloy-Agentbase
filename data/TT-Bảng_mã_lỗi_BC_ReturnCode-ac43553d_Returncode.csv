@@ -1,0 +1,586 @@
+﻿Mã lỗi,Name,Message (Vietnamese),Message (English),Loại lỗi,Transaction Status,Lưu ý,Unnamed: 7,Loại lỗi.1,HXL
+-10000,CALL_UM_EXCEPTION,Lỗi xảy ra khi gọi UM,,System,Fail,,, System: chủ yếu các lỗi liên quan về hệ thống.,HXL cụ thể tại mã lỗi. Thông thường hướng dẫn KH thử thực hiện lại GD.
+-9999,TRANS_FAILED,Giao dịch không thành công. Vui lòng thử lại.,"Transaction failed.
+ Please try again",Other,Fail,,,Bank: chủ yếu nguyên nhân từ hệ thống Ngân Hàng. ,- CS sẽ hướng dẫn KH liên hệ ngân hàng để kiểm tra thêm.
+-9991,OTP_HAS_BEEN_EXPIRED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,,System,Fail,,,"User: chủ yếu nguyên nhân từ thao tác, thông tin, tài khoản của User",HXL cụ thể tại mã lỗi.
+-9204,CALL_TPE_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Fail,Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại,,"- Các trường hợp sau, CS có thể ghi nhận chuyển SL kiểm tra thêm:
++ Mã lỗi nội dung chung chung, chưa có hướng xử lý cụ thể.
++ KH đã liên hệ Ngân Hàng xử lý nhưng thử lại vẫn tiếp tục bị lỗi.
++ KH thực hiện bị lỗi lập lại nhiều lần.
++ Khi kiểm tra lỗi liên quan đến hệ thống ( hệ thống lỗi thử lại sau), KH đã thực hiện liên tục nhiều ngày không được.
+
+-> Các thông tin thường sử dụng để ghi nhận các case liên quan đến lỗi thẻ/TK ngân hàng:
+- UserID: 
+- TransID: 
+- 6 đầu - 4 cuối số thẻ & tên NH: 
+- Số tài khoản/Số thẻ NH:
+- Tên chủ thẻ: 
+- SĐT đăng ký NH: 
+- Số CMND: 
+- Vấn đề lỗi : (mã lỗi, tần suất/thời gian bị lỗi)
+- Đối với lỗi phát sinh từ ngân hàng: hỏi thăm KH đã liên hệ NH chưa, NH đã tư vấn gì:",
+-9203,CALL_UM_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Fail,Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại,,,
+-9202,CALL_BANK_TIME_OUT,Quá thời gian xử lí khi gọi qua ngân hàng.,Time out while calling bank.,Bank,Pending,Giao dịch bị quá thời gian xử lý từ phía Ngân hàng => Nhờ KH thử lại,,,
+-9205,ALL_BANK_CONN_OTP_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại,Time out while calling bank.,Bank,Pending,Giao dịch bị quá thời gian xử lý từ phía Ngân hàng => Nhờ KH thử lại,,,
+-3156,CALL_BANK_EXCEPTION,Hệ thống có lỗi khi gửi yêu cầu qua ngân hàng. Vui lòng thử lai.,"System failed when sending request
+ to bank. Please try again.",Bank,Pending,Hdan kh thực hiện lại sau,,,
+-9106,DATABASE_QUERY_FAILED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,,,,
+-9105,CACHE_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,"""Đầy bộ nhớ đệm  => Nhờ KH xóa bộ nhớ đệm (cache) và thực hiện lại
+""",,,
+-9104,CACHE_TRYLOCK_FAILED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,,,,
+-9103,ENQUEUE_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+",,,
+-9102,DATABASE_UPDATE_FAILED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+",,,
+-9101,DATABASE_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+",,,
+-9100,DATABASE_INSERT_FAILED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,,,,
+-9003,BANK_DATA_CONVERTION_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+",,,
+-9002,GENERATE_TRAN_ID_FAILED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+",,,
+-9001,DATA_CONVERTION_EXCEPTION,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,,,,
+-9000,SYSTEM_ERROR,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng thử lại.,"System failed to process request. 
+ Please try again.",System,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+",,,
+-7001,BANK_CARD_TYPE_NOT_SUPPORT_ONLINE_PAYMENT,Loại thẻ không hỗ trợ thanh toán trực tuyến.,"Card type are not supported with online
+ payment.",User,Fail,,,,
+-7000,BANK_CARD_OR_ACCOUNT_NOT_REGISTERED_ONLINE_PAYMENT,Thẻ hoặc tài khoản chưa đăng ký dịch vụ thanh toán trực tuyến. Vui lòng liên hệ với ngân hàng phát hành.,"Card or account has not been registered
+ for online payment service. Please contact
+ with issuing bank.",User,Fail,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+",,,
+-6056,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_AMT_PER_INTERVAL,Vượt hạn mức giao dịch trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6055,BANK_FRAUD_DETECTION_USER_EXCEEDED_AMT_PER_INTERVAL,Vượt hạn mức giao dịch trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6054,BANK_FRAUD_DETECTION_CARD_EXCEEDED_AMT_PER_INTERVAL,Thẻ vượt hạn mức giao dịch trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6053,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_NO_TRANS_PER_INTERVAL,Vượt số lần giao dịch tối đa trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the daily transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6052,BANK_FRAUD_DETECTION_USER_EXCEEDED_NO_TRANS_PER_INTERVAL,Vượt số lần giao dịch tối đa trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the daily transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6051,BANK_FRAUD_DETECTION_CARD_EXCEEDED_NO_TRANS_PER_INTERVAL,Thẻ vượt số lần giao dịch tối đa trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6050,BANK_FRAUD_DETECTION_EXCEEDED_NO_CARD_PER_INTERVAL,Vượt giới hạn số thẻ có thể giao dịch. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the number of card limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6038,,Hệ thống chưa nhận được thông tin xác thực. Vui lòng thực hiện lại giao dịch.,,User,Fail,"Nguyên nhân: Do khi thanh toán, KH không thực hiện xác thực; hoặc xác thực không thành công.
+
+HXL:
+CS kiểm tra cột Auth Info xem giao dịch đang được hệ thống yêu cầu xác thực thông tin gì. CS tư vấn KH thực hiện lại gd khác & xác thực đúng theo loại hệ thống đang yêu cầu.",,,
+-6036,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_AMT_PER_MONTH,Vượt hạn mức giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly spending limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6035,BANK_FRAUD_DETECTION_USER_EXCEEDED_AMT_PER_MONTH,Vượt hạn mức giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly spending limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6034,BANK_FRAUD_DETECTION_CARD_EXCEEDED_AMT_PER_MONTH,Thẻ vượt hạn mức giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the monthly spending limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6033,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_NO_TRANS_PER_MONTH,Vượt số lần giao dịch tối đa trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6032,BANK_FRAUD_DETECTION_USER_EXCEEDED_NO_TRANS_PER_MONTH,Vượt số lần giao dịch tối đa trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details,User,Fail,,,,
+-6031,BANK_FRAUD_DETECTION_CARD_EXCEEDED_NO_TRANS_PER_MONTH,Thẻ vượt số lần giao dịch tối đa trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the monthly transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details,User,Fail,,,,
+-6030,BANK_FRAUD_DETECTION_EXCEEDED_NO_CARD_PER_MONTH,Vượt giới hạn số thẻ có thể giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the number of card monthly limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,,,,
+-6021,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5014,Thiết bị đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,"Device has exceeded
+ daily spending limit. Please try again with your 
+ E-Wallet. Contact hotline 1900545436 
+ for more information",User,Fail,,,,
+-6020,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5013,Thiết bị đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,"Device has exceeded
+ daily spending limit. . Please try again with your 
+ E-Wallet. Contact hotline 1900545436 
+ for more information",User,Fail,,,,
+-6019,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5015,Thiết bị đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,"Device has exceeded
+ daily spending limit. Please try again with your 
+ E-Wallet. Contact hotline 1900545436 
+ for more information.",User,Fail,,,,
+-6018,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5007,Tài khoản đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Customer account has exceeded daily spending limit. Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6017,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5008,Tài khoản đã vượt hạn mức thanh toán trong tháng. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Customer account has exceeded monthly spending limit. Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6016,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5011,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,"Card has exceeded daily spending limit. . Please try again with your 
+ E-Wallet. Contact hotline 1900545436 for more information.",User,Fail,,,,
+-6015,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5019,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,"Card has exceeded daily spending limit. . Please try again with your 
+ E-Wallet. Contact hotline 1900545436 for more information.",User,Fail,,,,
+-6014,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5012,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card has exceeded daily spending limit. . Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6013,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5018,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card has exceeded daily spending limit. . Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6012,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5017,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card has exceeded daily spending limit. . Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6011,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5009,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card has exceeded daily spending limit. Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6010,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5010,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card has exceeded daily spending limit. . Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6009,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5016,Tài khoản đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card has exceeded daily spending limit. . Please try again with your E-Wallet. Contact hotline 1900545436 for more information.,User,Fail,,,,
+-6008,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5006,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,Transaction is suspected to be fraud. Please contact hotline 1900545436 for more support.,User,Fail,,,,
+-6007,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5005,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,Transaction is suspected to be fraud. Please contact hotline 1900545436 for more support.,User,Fail,,,,
+-6006,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5004,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,Transaction is suspected to be fraud. Please contact hotline 1900545436 for more support.,User,Fail,,,,
+-6005,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5003,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,Transaction is suspected to be fraud. Please contact hotline 1900545436 for more support.,User,Fail,,,,
+-6004,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5002,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,Transaction is suspected to be fraud. Please contact hotline 1900545436 for more support.,User,Fail,,,,
+-6003,BANK_FRAUD_DETECTION_REJECTED_MVEL_R5001,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,Transaction is suspected to be fraud. Please contact hotline 1900545436 for more support.,User,Fail,,,,
+-6002,BANK_FRAUD_DETECTION_REJECTED_BY_FRAUD_SCORE,Ngân hàng từ chối giao dịch này. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,Bank has declined this transaction. Please contact the issuing bank for more support.,User,Fail,,,,
+-6001,BANK_FRAUD_DETECTION_REJECTED_BY_FILTER,Giao dịch nghi ngờ không an toàn. Vui lòng liên hệ với bộ phận chăm sóc khách hàng để được hổ trợ.,Transaction is suspected to be fraud. Please contact Customer Service for more support.,User,Fail,,,,
+-6000,BANK_CARD_NOT_REGISTERED_ONLINE_PAYMENT,Thẻ hoặc tài khoản chưa đăng ký dịch vụ thanh toán trực tuyến. Vui lòng đăng ký dịch vụ thanh toán trực tuyến với ngân hàng trước khi sử dụng dịch vụ này!,"Card or account have not been registered
+ for online payment service. Please contact
+ with issuing bank before using this service!",User,Fail,,,,
+-5970,BANK_NO_AUTHORIZATION_METHOD,"Thẻ/Tài khoản chưa đăng ký phương thức xác thực giao dịch trực tuyến (SMS OTP, Soft token v.v...). Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.","Card / Account has not been registered with an online transaction authentication method (SMS OTP, Soft token, etc.). Please contact the issuing bank for more support.",User,Fail,,,,
+-5800,BANK_ZION_ESCROW_ACCOUNT_HAS_BEEN_LOCKED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,System error while processing request. Please contact Customer Service for more support.,System,Fail,,,,
+-5703,BANK_EXCEEDED_AMOUNT_PER_WEEK,Vượt hạn mức giao dịch trong tuần tại ngân hàng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch.,,User,Fail,"KH muốn biết hạn mức bao nhiêu, hoặc vướng hạn mức như thế nào >> CS hướng dẫn KH liên hệ ngân hàng phát hành thẻ, TKNH để biết chi tiết hạn mức trong tuần. ",,,
+-5702,BANK_EXCEEDED_AMOUNT_PER_MONTH,Vượt hạn mức giao dịch trong tháng tại ngân hàng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch.,,User,Fail,"KH muốn biết hạn mức bao nhiêu, hoặc vướng hạn mức như thế nào >> CS hướng dẫn KH liên hệ ngân hàng phát hành thẻ, TKNH để biết chi tiết hạn mức trong tháng. ",,,
+-5701,BANK_TEMP_LOCKED_DUE_TO_PREVIOUS_TXN_HAS_NOT_BEEN_FINISHED,Vui lòng thực hiện lại giao dịch sau 5 phút do KH chưa thực hiện xác thực giao dịch trước đó.,,User,Fail,,,,
+-5700,BANK_IB_OR_EBANK_ACCOUNT_HAS_BEEN_LOCKED,Tài khoản ngân hàng điện tử đang tạm khóa. Vui lòng liên hệ ngân hàng để được hỗ trợ,Internet Banking or EBanking account has been locked. Please contact the issuing bank for more support.,User,Fail,NH OCB xem tại sheet bên cạnh,,,
+-5601,BANK_NON_INDIVIDUAL_CUSTOMER,Tài khoản/thẻ không phải khách hàng cá nhân. Vui lòng liên hệ ngân hàng để được hỗ trợ.,None individual customer.,User,Fail,,,,
+-5501,BANK_INQUIRY_FAILED,Không truy vấn được thông tin thẻ hoặc tài khoản phía ngân hàng.,Cannot retrieve card or account information from bank.,Bank,Fail,,,,
+-5429,BANK_REQ_INVALID_MESSAGE_FORMAT,Hệ thống có lỗi. Vui lòng thử lại.,System Error. Please try again,System,Fail,,,,
+-5428,BANK_QR_BILLNO_IS_REQUIRED,Mã hóa đơn không hợp lệ.,Invalid bill number.,Bank,Fail,,,,
+-5427,BANK_QR_END_2_END_REF_IS_REQUIRED,Giao dịch thất bại. Vui lòng thử lại.,Transaction failed. Please try again.,Bank,Fail,,,,
+-5426,BANK_QR_ORDER_INFO_IS_REQUIRED,Thiếu thông tin đơn hàng.,Order information is required.,Bank,Fail,,,,
+-5425,BANK_QR_RECIPIENT_ACC_IS_REQUIRED,Thiếu thông tin tài khoản bên nhận lệnh.,Recipient's account information is required.,Bank,Fail,,,,
+-5424,BANK_QR_RECIPIENT_IS_REQUIRED,Thiếu thông tin bên nhận lệnh.,Recipient information is required.,Bank,Fail,,,,
+-5423,BANK_QR_PARTICIPANT_IS_REQUIRED,Participant is required.,Participant is required.,Bank,Fail,,,,
+-5422,BANK_QR_SENDER_ACC_IS_REQUIRED,Thiếu thông tin tài khoản bên gửi lệnh.,Sender's account information is required.,Bank,Fail,,,,
+-5421,BANK_QR_SENDER_IS_REQUIRED,Thiếu thông tin bên gửi lệnh.,Sender information is required.,Bank,Fail,,,,
+-5420,BANK_QR_PAYMENT_IS_REQUIRED,Thông tin thanh toán không hợp lệ.,Payment information is required.,Bank,Fail,,,,
+-5417,BANK_QR_INVALID_ACCOUNT,Tài khoản không hợp lệ.,Invalid account.,User,Fail,,,,
+-5416,BANK_QR_INVALID_BILL,Hóa đơn không hợp lệ.,Invalid bill.,User,Fail,,,,
+-5415,BANK_QR_INVALID_AMOUNT,Số tiền không hợp lệ.,Invalid amount.,Bank,Fail,,,,
+-5414,BANK_QR_ISSUING_NOT_REGISTER_PAYMENT_LIMIT,Issuing not register payment limit.,Issuing not register payment limit.,Bank,Fail,,,,
+-5413,BANK_QR_RECEIVING_INSTITUTION_NOT_JOIN_QR,Tổ chức nhận lệnh chưa tham gia dịch vụ QR.,Receiving institution is not joining QR service,Bank,Fail,,,,
+-5412,BANK_QR_ISSUER_OR_SWITCH_IN_OPERATION,Issuer or switch in operation.,Issuer or switch in operation.,Bank,Fail,,,,
+-5411,BANK_QR_CUT_OFF_IN_PROGRESS,Cut off in progress.,Cut off in progress.,Bank,Fail,,,,
+-5410,BANK_QR_EXCEED_WITHDRAW_FREQUENCY_LIMIT,Vượt số lần giao dịch trong ngày.,Daily withdrawal limit exceeded.,User,Fail,,,,
+-5409,BANK_QR_EXCEED_WITHDRAW_LIMIT,Vượt hạn mức rút tiền.,Daily withdrawal amount limit exceeded.,User,Fail,,,,
+-5408,BANK_QR_EXCEED_PAYMENT_LIMIT,Vượt hạn mức thanh toán.,Payment limit exceeded.,User,Fail,,,,
+-5407,BANK_QR_TRANS_NOT_PERMITTED,Giao bị từ chối.,Transaction is not permitted,Bank,Fail,,,,
+-5406,BANK_TRANS_SUSPECTED_FRAUD,Giao dịch bị nghi ngờ gian lận. Vui lòng đăng ký dịch vụ thanh toán trực tuyến với ngân hàng trước khi sử dụng dịch vụ này!,Transaction is suspected to be fraud. Please register online payment service with issuing bank before using this service!,User,Fail,,,,
+-5405,BANK_QR_REFER_TO_CARD_ISSUER,Giao dịch không thành công. Vui lòng liên hệ ngân hàng phát hành thẻ.,Transaction failed. Please contact issuing bank.,Bank,Fail,,,,
+-5404,BANK_QR_BILL_NOT_FOUND,Không tồn tại hóa đơn.,Bill not found.,User,Fail,,,,
+-5403,BANK_QR_BILL_EXPIRED,Hóa đơn hết hạn.,Bill expired.,User,Fail,,,,
+-5402,BANK_QR_FINISHED_PAYMENT,Finished payment.,Finished payment.,User,Fail,,,,
+-5401,BANK_QR_INVALID_MERCHANT,Thông tin merchant không hợp lệ.,Invalid merchant information.,Bank,Fail,,,,
+-5400,BANK_QR_GENERAL_ERROR,Giao dịch không thành công. Vui lòng thực hiện lại.,Transaction failed. Please try again.,Bank,Fail,,,,
+-5303,BANK_NOT_SUPPORTED_FOREIGN_CURRENCY_ACCOUNT,Tài khoản thanh toán là tài khoản ngoại tệ. Quý khách vui lòng lựa chọn tài khoản khác.,Payment account is foreign currency account. Please choose another account.,User,Fail,,,,
+-5302,BANK_VPB_ACCOUNT_OR_CARD_ALREADY_LINKED,Ngân hàng xảy ra lỗi. Vui lòng thử lại sau hoặc liên hệ hotline 1900545415 để được hỗ trợ.,Bank error. Please try again or contact hotline 1900545415 for more support.,Bank,Fail,,,,
+-5301,BANK_MB_CARD_NOT_SUPPORTED,"Thẻ không hỗ trợ, yêu cầu thẻ Active Plus. Để biết thông tin chi tiết về thẻ của bạn, liên hệ hotline MBBank 1900545426","Card is not supported, Active Plus card is required. For more information, contact MB hotline 1900545426",User,Fail,,,,
+-5265,BANK_TRANS_PENDING,"Giao dịch đang chờ xử lý, Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ",,Bank,Pending,,,,
+-5264,BANK_TRANS_INVALID,Giao dịch không hợp lệ. Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.,,Bank,Fail,,,,
+-5263,BANK_INVALID_USER_ID,Mã định danh khách hàng không hợp lệ.,Invalid user id.,System,Fail,,,,
+-5262,BANK_DUPLICATED_USER,Khách hàng đã đang ký dịch vụ.,Customer has already registered service.,Bank,Fail,,,,
+-5261,BANK_INVALID_MPIN,Mã mPIN không hợp lệ.,Invalid mPIN.,Bank,Fail,,,,
+-5260,BANK_USER_HAS_NOT_BEEN_REGISTERED,Khách hàng chưa đăng ký dịch vụ liên kết ví.,Customer has not registered with E-Wallet service.,Bank,Fail,,,,
+-5223,BANK_USER_HAS_NOT_BEEN_REGISTERED_BIOMETRICS	,Khách hàng không thể thực hiện giao dịch vì chưa đăng ký sinh trắc học tại ngân hàng. Vui lòng đăng ký sinh trắc học tại ứng dụng ngân hàng hoặc tại điểm giao dịch ngân hàng gần nhất.,,Bank,Fail,"Nguyên nhân:  Do Thông tư 17 của NHNN thì chỉ chấp nhận thanh toán khi GTTT còn hiệu lực, hợp lệ và đã cập nhật sinh trắc học đầy đủ với ngân hàng. Nếu GTTT của khách hàng không hợp với ngân hàng user thanh toán qua Zalopay sẽ xuất hiện các mã lỗi này.
+
+HXL: Khách hàng cần liên hệ ngân hàng cập nhật GTTT sau đó thực hiện thanh toán lại.
+
+Link video hướng dẫn KH thực hiện NFC tại hệ thống bank: LINK",,,
+-5224,BANK_IDENTITY_INFO_EXPIRED	,"Khách hàng không thể thực hiện giao dịch vì Giấy tờ tuỳ thân đã hết hạn. Vui lòng vào ứng dụng hoặc liên hệ điểm giao dịch ngân hàng gần nhất để cập nhật giấy tờ tuỳ thân mới nhất.
+",,Bank,Fail,,,,
+-5221,BANK_EKYC_ACCOUNT_NEED_TO_BE_VERIFIED_AT_THE_COUNTER,Tại khoản mở bằng ekyc cần xác thực tại quầy trước khi liên kết ví điện tử.,,Bank,Fail,,,,
+-5220,BANK_CARD_OR_ACCOUNT_INVALID_PACKAGE_TYPE,Gói tài khoản không được hỗ trợ. Vui lòng liên hệ NH để được hỗ trợ.,,User,Fail,,,,
+-5219,BANK_USER_HAS_NOT_BEEN_REGISTER_EBANK,Khách hàng chưa đăng ký dịch vụ Internet Banking/Ebank. Vui lòng đăng ký dịch vụ này với NH trước khi thực hiện giao dịch.,Customer has not registered with Internet Banking/Ebank service. Please register this service before making transaction.,User,Fail,,,,
+-5218,BANK_INVALID_USER_INFORMATION,"Thông tin khách hàng (Số CMND/Căn cước/Hộ chiếu, số điện thoai v.v...) không khớp với thông tin đã đăng ký với ngân hàng.","Customer information (ID/Passport, Phone number,etc...) does not match with the information registered with bank.",User,Fail,Nếu ngân hàng TPBank xem HXL tại sheet bên cạnh,,,
+-5217,BANK_WALLET_ACCOUNT_ALREADY_LINKED,Tài khoản ví đã được liên kết.,Wallet account is already linked.,Bank,Fail,"Lv1/OUT xin thông tin
+- 6 số đầu và 4 số cuối in trên mặt trước thẻ hoặc Số tài khoản ngân hàng
+- Tên chủ thẻ
+- Số CMND chủ thẻ 
+- Số điện thoại đăng ký với ngân hàng
+ Chuyển case SL check với team BC để remove token thẻ",,,
+-5216,BANK_INVALID_BENEFICIARY_ACCOUNT,Sai thông tin tài khoản thụ hưởng. Vui lòng liên hệ ngân hàng để được hỗ trợ.,Invalid beneficiary account. Please contact issuing bank for more support.,Bank,Fail,Nếu AppID: 888 - Nạp tiền Gửi tiết kiệm >> thì CS cần ghi nhận chuyển SL check dev về STK nhận tiền (thụ hưởng).,,,
+-5215,BANK_INVALID_BENEFICIARY,Sai thông thông người thụ hưởng. Vui lòng liên hệ ngân hàng để được hỗ trợ.,Invalid beneficiary. Please contact issuing bank for more support.,Bank,Fail,,,,
+-5214,BANK_ISSUER_OR_SWITCH_INOPERATIVE,Giao dịch không thành công do lỗi hệ thống ngân hàng thụ hưởng hoặc hệ thống chuyển mạch. Vui lòng thực hiện lại.,Transaction failed because of beneficiary bank error or switch system error. Please try again.,Bank,Fail,,,,
+-5213,BANK_TRANS_EXEEDED_REFUND_LIMITED_DAYS,Giao dịch quá thời hạn cho phép hoàn tiền.,Transaction exceeded time for refund.,Bank,Fail,,,,
+-5212,BANK_REFUND_AMOUNT_EXCEEDED_ORIGINAL_AMOUNT,Số tiền hoàn trả vượt quá số tiền gốc.,Refund amount exceeded original amount.,ClientService,Fail,,,,
+-5211,BANK_TOKEN_EXPIRED,Token đã hết hạn. Vui lòng hủy liên kết và liên kết lại hoặc liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,Token expired. Please unlink and relink or contact Customer Service for more support.,Bank,Fail,,,,
+-5210,BANK_INVALID_CONFIG,Lỗi cấu hình hệ thống ngân hàng.,Invalid bank system configuration.,Bank,Fail,,,,
+-5209,BANK_REQ_INVALID_SIGNATURE,Ngân hàng xác thực chữ ký không hợp lệ.,Bank verified invalid signature.,Bank,Fail,,,,
+-5208,BANK_CARD_HAS_NOT_CHANGED_PIN_YET,Thẻ chưa được đổi mã PIN. Vui lòng đổi mã PIN trước khi thực hiện giao dịch.,Card PIN has not been changed. Please change card PIN before making transaction.,User,Fail,,,,
+-5207,BANK_USER_HAS_NOT_BEEN_REGISTER_SMS,Khách hàng chưa đăng ký dịch vụ SMS tại ngân hàng. Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.,Customer has not registered SMS service. Please contact issuing bank for more support.,User,Fail,"Nếu NH Eximbank, Vietcombank, TPBank , Nam Á xem tại sheet bên cạnh",,,
+-5206,BANK_CARD_OR_ACCOUNT_NOT_LINKED,Thẻ hoặc tài khoản chưa được liên kết ví.,Card or account has not been linked.,Bank,Fail,,,,
+-5205,BANK_ORIGINAL_TRANS_HAS_BEEN_FAILED,Giao dịch gốc ghi nhận thất bại.,Original transaction has failed.,Bank,Fail,,,,
+-5204,BANK_REQ_INVALID_PARAMETER,Tham số gửi qua ngân hàng không hợp lệ.,Invalid bank request parameter.,System,Fail,"Đối với GD rút tiền Tài khoản tiết kiệm: CS kiểm tra số tiền KH rút có bị vượt 90% giá trị số tiền của gói hay không 
+> CS tư vấn: Hạn mức rút tiền tối đa: 110 triệu/giao dịch. Nếu muốn rút 1 phần: Số tiền còn lại tối thiểu: 100.000đ VÀ ≥ 10% giá trị của gói (Có nghĩa: Số tiền rút cần ≤ 90% giá trị gói, Ví dụ: KH có gói tiết kiệm 2tr, KH chỉ được rút tối đa 1tr8 và giữ lại số tiền tối thiểu là 200k)",,,
+-5203,BANK_TRANS_HAS_BEEN_EXPIRED,Thời gian giao dịch hết hạn. Vui lòng thực hiện hiện lại giao dịch.,Transaction has expired. Please try again.,Bank,Fail,,,,
+-5202,BANK_INVALID_REQUEST_TIME,Tham số thời gian giao dịch không hợp lệ.,Invalid transaction time parameter.,System,Fail,,,,
+-5201,BANK_INVALID_CURRENCY,Số CMND/CCCD/Hộ chiếu xác thực với ngân hàng không chính xác. Bạn vui lòng kiểm tra và thử lại.,Invalid currency.,System,Fail,Số CMND/Hộ chiếu xác thực với ngân hàng không chính xác. Hướng dẫn KH  kiểm tra lại thông tin giấy tờ với ngân hàng.,,,
+-5200,BANK_TRANS_HAS_BEEN_CANCELED,Khách hàng đã hủy giao dịch tại ngân hàng.,Transaction has been canceled.,User,Fail,,,,
+-5118,BANK_VCB_EXCEEDED_AMOUNT_PER_DAY,"Giao dịch vượt quá hạn mức nạp tiền vào Ví điện tử. Khách hàng thực hiện giao dịch trên VCB Digibank hoặc liên hệ bank nếu có thắc mắc.
+
+(Fail GD C/D) ",,,Fail,Liên quan QĐ 2345 ,,,
+-5117,BANK_VCB_NOT_REGISTER_FACE_AUTH,Quý khách cần xác thực giao dịch bằng Facepay trên ứng dụng VCB Digibank. Quý khách hãy kích hoạt phương thức xác thực Facepay trên ứng dụng VCB Digibank để thực hiện giao dịch này.,,,Fail,"Liên quan QĐ 2345 
+
++ GD < 2,000,000 và giao dịch thuộc giao dịch loại B: bypass xác thực này.
++ GD >= 2,000,0000 và giao dịch thuộc giao dịch loại B, C,D: từ app Zalopay chuyển sang app ngân hàng để xác thực.",,,
+-5116,BANK_VCB_NOT_REGISTER_SOFT_OTP,Quý khách cần kích hoạt Smart OTP và thực hiện 2 giao dịch tài chính để thực hiện xác thực giao dịch bằng Smart OTP trên ứng dụng VCB Digibank.,,,Fail,"Liên quan QĐ 2345 
+
++ GD < 2,000,000 và giao dịch thuộc giao dịch loại B: bypass xác thực này.
++ GD >= 2,000,0000 và giao dịch thuộc giao dịch loại B, C,D: từ app Zalopay chuyển sang app ngân hàng để xác thực.",,,
+-5115,BANK_VCB_NOT_REGISTER_OR_INSTALL_DIGIBANK,Quý khách cần xác thực giao dịch trên ứng dụng VCB Digibank. Quý khách hãy tải và kích hoạt ứng dụng VCB Digibank phiên bản mới nhất để xác thực giao dịch này.,,,Fail,"Liên quan QĐ 2345 
+
++ GD < 2,000,000 và giao dịch thuộc giao dịch loại B: bypass xác thực này.
++ GD >= 2,000,0000 và giao dịch thuộc giao dịch loại B, C,D: từ app Zalopay chuyển sang app ngân hàng để xác thực.",,,
+-5114,BANK_BIDV_SMART_BANKING_EXCEEDED_AMOUNT_PER_DAY,Tổng số tiền giao dịch trong ngày lớn hơn hạn mức tối đa/ngày áp dụng cho gói dịch vụ SmartBanking khách hàng đang sử dụng. Vui lòng liên hệ ngân hàng để nâng cấp gói SmartBanking.,,User,Fail,,,,
+-5113,BANK_BIDV_SMART_BANKING_EXCEEDED_AMOUNT_PER_TRANS,Số tiền giao dịch lớn hơn hạn mức giao dịch tối đa áp dụng cho gói dịch vụ SmartBanking của hiện tại. Vui lòng liên hệ ngân hàng để nâng cấp gói SmartBanking.,,User,Fail,,,,
+-5112,BANK_BIDV_SMART_BANKING_IS_INACTIVE,Dịch vụ BIDV SmartBanking chưa được kích hoạt. Vui lòng cần đến quầy giao dịch của BIDV để kích hoạt lai dich vu BIDV SmartBanking.,,User,Fail,,,,
+-5111,BANK_INVALID_PROVIDER,Thông tin cấu hình của ZaloPay trên hệ thống của NH không hợp lệ.,Provider not found.,Bank,Fail,,,,
+-5110,BANK_INVALID_USER_INFO,Thông tin khách hàng không khớp với thông tin đã đăng ký với ngân hàng.,Customer information does not match with the information registered with bank.,User,Fail,"1. Riêng với KH mở tài khoản ACB mã lỗi này có nghĩa Ảnh định danh không đủ chất lượng (bị mờ, mất góc, loé sáng,...). Bạn vui lòng thực hiện lại. 
+HXL: CS hướng dẫn KH định danh lại chụp hình chân dung rõ nét không bị nhòe, lóe sáng và sau khi nhận được thông báo cập nhật định danh thành công thì thực hiện mở lại tài khoản ACB
+2. Riêng Sacombank thì tham khảo bảng mã lỗi Sacombank",,,
+-5109,BANK_BIDV_MUST_CHANGE_PASS_BIDV_ONLINE,Bạn cần thay đổi mật khẩu BIDV Online để tiếp tục giao dịch.,Please change your BIDV Online passwords before making transaction.,User,Fail,,,,
+-5108,BANK_BIDV_NOT_REGISTER_ONLINE_FINANCE,Quý khách đang sử dụng BIDV Online gói phi tài chính. Quý khách cần đăng ký BIDV Online gói tài chính để sử dụng dịch vụ.,Customer is using non-financial package of BIDV Online. Please register financial package before using this service.,User,Fail,,,,
+-5107,BANK_USERNAME_PASSWORD_INCORRECT,Thông tin đăng nhập hệ thống Internet Banking/E-banking của NH không đúng (Sai tên đăng nhập hoặc mật khẩu. hoặc tài khoản đã bị khóa).,Signing in information for bank Internet Banking/E-Banking system is incorrect. (Username or passwords is incorrect or account has been locked).,User,Fail,,,,
+-5106,BANK_BIDV_SB_PASSWORD_NOT_FIRST_CHANGE,Quý khách CHƯA đổi mật khẩu DV BIDV Smart Banking lần đầu. Vui lòng đổi mật khẩu lần đầu tại ứng dụng BIDV Smart Banking,Customer has not changed BIDV Smart Banking service's passwords for the first times. Please change it at BIDV Smart Banking application.,User,Fail,,,,
+-5105,BANK_BIDV_NOT_REGISTER_BIDV_OR_INACTIVE,Khách hàng chưa đăng ký dịch vụ tại BIDV hoặc đang không ở trạng thái hoạt động,Customer has not registered BIDV service or customer is in inactive state.,User,Fail,,,,
+-5104,BANK_BIDV_CIF_ALREADY_REGISTERED_BUNO,Số CIF đã sử dụng đăng ký BUNO hoặc đang xử lý tại quầy,CIF number has already been used for registering BUNO or it is being processed at the counter.,User,Fail,,,,
+-5103,BANK_BIDV_WALLET_ID_ALREADY_REGISTERED_BIDV_ONL,Mã ví đã liên kết đúng với user BIDV online xác thực,Wallet ID is already registered BIDV Online.,User,Fail,,,,
+-5102,BANK_BIDV_BUNO_PHONE_NOT_MATCH,Số điện thoại BUNO không trùng số điện thoại BIDV Online,BIDV BUNO phone number does not match with BIDV Online phone number.,User,Fail,,,,
+-5101,BANK_BIDV_NOT_REGISTER_SMARTBANKING_FINANCE,Quý khách đang sử dụng BIDV Smart Banking gói phi tài chính. Quý khách cần đăng ký BIDV Smart Banking gói tài chính để sử dụng dịch vụ.,Customer is using non-financial package of BIDV Smart Banking. Please register financial package before using this service.,User,Fail,,,,
+-5099,BANK_ACCOUNT_OR_CARD_NOT_ALLOWED,Tài khoản NH hoặc thẻ không được phép giao dịch. Vui lòng liên hệ ngân hàng để được hỗ trợ.,Account or card is not allowed for making transaction. Please contact issuing bank for more support.,User,Fail,,,,
+-5095,BANK_PHONE_NEED_CHANGE_FORMAT,Khách hàng cần thay đổi số điện thẻo theo format của bộ thông tin truyền thông.,Phone format needs to be changed following the Ministry of Information and Communications format.,User,Fail,"Nếu Kh đã đổi số điện thoại từ 11-10 số, KH cần gỡ liên kết VCb sau đó liên kết lại. ",,,
+-5094,BANK_PHONE_ALREADY_CHANGED_FORMAT,Khách hàng đã chuyển đổi số điện thoại từ phía ngân hàng. Vui lòng liên hệ với ngân hàng để được hỗ trợ.,Customer has already changed phone format at bank. Please contact bank for more support.,User,Fail,"Nếu Kh đã đổi số điện thoại từ 11-10 số, KH cần gỡ liên kết VCb sau đó liên kết lại. ",,,
+-5093,BANK_USER_CANCEL_TRANS,Khách hàng huỷ giao dịch.,Customer cancel transaction.,User,Fail,,,,
+-5092,BANK_INVALID_IDENTITY_INFO,Số chứng minh thư/căn cước/hộ chiếu không trùng khớp với thông tin đăng ký tại ngân hàng.,The ID/Passport number does not match the information registered at the bank,User,Fail,"Nếu MSB: CS khai thác thêm STK NH, nếu 3 ký tự đầu 888 => chưa hỗ trợ liên kết ví, khách hàng liên hệ ngân hàng MSB để được tư vấn thêm thông tin
+Sacombank:  Nếu KH báo đã đổi CCCD trên hệ thống ngân hàng ( trùng với KYC ở ZLP) nhưng khi KH liên kết ZLP bị báo lỗi 5092 
+Nguyên nhân lỗi: Do KH chỉ mới cập nhật CCCD trên hệ thống tài khoản nhưng chưa cập nhật trên hệ thống thẻ
+HXL hiện tại: báo KH liên kết bằng CMND cũ hoặc đến Sacombank để cập nhật lại CCCD trên hệ thống thẻ 
+Trong thời gian sắp tới : Trong Qúy3 và Quý 4/2022 thì STB fix lỗi này 
+
+Các Ngân hàng khác:
+Khi liên kết, ở mục Giấy tờ tùy thân, hệ thống đang mặc định lấy theo Giấy tờ đang KYC TK ZaloPay. Nếu Giấy tờ đăng ký với NH là thông tin khác, KH có thể điều chỉnh thông tin này khi liên kết như sau:
+Chọn mũi tên xuống >> Chọn loại giấy tờ (chọn loại khác mà cho phép KH nhập tay số giấy tờ) + nhập số giấy tờ đang đăng ký với NH >> Liên kết ngay.",,,
+-5091,BANK_INVALID_PHONE_NUMBER,Số điện thoại không trùng khớp với số điện thoại đăng ký với ngân hàng.,Customer phone number does not match with the phone number is registered at bank.,User,Fail,"Xem hướng xử lý ở sheet bên cạnh
+Riêng đối với lien kết thẻ Agribank lưu ý thêm trường hợp sau:
+Tại thời điểm khách hàng đăng ký phát hành thẻ tại ngân hàng, KH sẽ đăng ký SĐT để kích hoạt thẻ, SĐT này mặc định sẽ là số điện thoại đăng ký giao dịch internet của thẻ, cũng là SĐT nhận được OTP và xác thực liên kết ví điện tử qua số thẻ. Khi SDT đăng ký ví điện tử trùng khớp với SDT đăng ký thẻ này thì liên kết thành công.
+
+Tại một thời điểm khác, khi KH có nhu cầu sử dụng dịch vụ báo tin nhắn hoặc Emobilebanking để chuyển khoản, SĐT đăng ký lúc này không quy định phải trùng khớp với SĐT đăng ký thẻ. Vì vậy, nếu KH đký SDT khác (vì mất SDT cũ hoặc xài song song 2 SDT) dẫn đến khi liên kết ví điện tử không được.
+
+Khách hàng bị hiểu nhầm số điện thoại đăng ký tin nhắn hoặc Emobile Banking trùng khớp với SDT đăng ký Zalopay là liên kết được nên dẫn đến các trường hợp liên kết lỗi như trên.
+
+Để xử lý các trường hợp như trên, chỉ cần yêu cầu KH ra quầy Agribank kiểm tra lại SDT đăng ký giao dịch internet của thẻ có trùng khớp với SDT đăng ký ví điện tử không là giải quyết được.",,,
+-5087,BANK_CARD_NO_SUCH_ISSUER,Không tìm thấy ngân hàng phát hành.,,User,Fail,,,,
+-5086,BANK_INVALID_CARD_EXPIRE_DATE,Ngày hết hạn của thẻ không đúng. Vui lòng thực hiện lại.,Invalid card expired date. Please try again.,User,Fail,,,,
+-5085,BANK_INVALID_CC_CARD_INFO_AT_PAYMENT,Ngân hàng từ chối giao dịch do thông tin thẻ không chính xác. Vui lòng hủy liên kết và liên kết lại để tiếp tục giao dịch.,Bank has declined transaction because of invalid card information. Please unlink and relink to continue.,User,Fail,,,,
+-5084,BANK_3DS_VALIDATION_FAILED,Giao dịch chưa xác nhận OTP từ phía ngân hàng. Vui lòng thực hiện lại giao dịch.,Transaction is not validated with OTP from bank. Please try again.,User,Fail,Hướng dẫn KH liên hệ NH phát hành thẻ để kiểm tra,,,
+-5083,BANK_INVALID_CARD_NO_OR_ACCOUNT_NO,"Số thẻ/Tài khoản không đúng, vui lòng nhập lại.","Card/Account number is invalid, please retry.",User,Fail,"NH MSB: Nhân viên khai thác thêm: Có phải khách hàng mở TK online eKYC không?
+Nếu có thì do phạm vi sử dụng chỉ trên kênh IB/MB MSB, không được liên kết ví
+HXL: KH cần qua CN/PGD MSB để thực hiện xác thực KH, chuyển đổi gói tài khoản. Sau khi chuyển đổi mã sản phẩm tài khoản thì TK của KH có thể liên kết ví.",,,
+-5082,BANK_TRANS_REJECTED_OR_NON_VN_CARD,"Thẻ bị Ngân hàng từ chối, hoặc do thẻ không phải phát hành tại Việt Nam. Vui lòng thử thẻ khác.",Card has been rejected or it is not issued in Vietnam. Please try another card.,User,Fail,,,,
+-5081,BANK_API_IN_MAINTERNANCE_MODE,Ngân hàng đang bảo trì dịch vụ. Vui thực hiện lại.,Bank service is under maintenance. Please try again later.,Bank,Fail,,,,
+-5080,BANK_NON_VN_CARD_REJECTED,Giao dịch bị từ chối do Ngân hàng phát hành thẻ không phải ở Việt Nam.,Transaction has been rejected because card issuer is not from Vietnam.,User,Fail,,,,
+-5079,BANK_INVALID_HOLDER_NAME,Tên chủ thẻ/Tài khoản không đúng. Vui lòng thực hiện lại.,Invalid holder name. Please try again.,User,Fail,,,,
+-5078,BANK_INVALID_CARD_ISSUED_DATE,Ngày phát hành thẻ không đúng. Vui lòng thực hiện lại.,Invalid card issued date. Please try again.,User,Fail,,,,
+-5077,BANK_INACTIVE_OR_NOT_AUTHORIZED_CARD,Thẻ không hoạt động hoặc chưa đăng ký dịch vụ thanh toán trực tuyến. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,,User,Fail,"CS hướng dẫn khách hàng liên hệ ngân hàng kiểm tra 
+
+- Thẻ đã kích hoạt (đổi pin) chưa
+- Trạng thái thẻ có ở trạng thái hoạt động bình thường không (khoá từ IB/app của bank, khoá do nhập sai OTP nhiều lần,...)
+
+Đối với thẻ CC Saigonbank (SCB): KH cần liên hệ ngân hàng theo hotline 1900 6538 để được NH tư vấn và hỗ trợ tốt hơn (kiểm tra dịch vụ bảo mật khi thanh toán (3DS))
+Đối với MB Bank xem hướng xử lý sheet bên bạnh",,,
+-5076,BANK_CUSTOMER_IN_DENIED_PARTIES_LIST,Khách hàng nằm trong danh sách bị từ chối giao dịch.,Customer is in denied parties list,User,Fail,"** Đối với KH liên kết Sacombank : BC|SCB|ZPSTB2: CS thông báo :""Theo quy định của ngân hàng, bạn chưa đủ điều kiện để mở tài khoản trên ZaloPay. Bạn vui lòng đến chi nhánh Sacombank gần nhất để được tư vấn thủ tục mở tài khoản"".
+** Đối với các Ngân hàng khác: CS thông báo: ""Ngân hàng đã từ chối giao dịch. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.""
+
+Nếu KH báo đã liên hệ Ngân hàng nhưng NH báo do lỗi phía ZaloPay : CS ghi nhận UID, Thông tin thẻ/tài khoản cần liên kết, thời gian KH thực hiện liên kết ==> Chuyển SL kiểm tra với dev. hẹn KH 3-5 ngày làm việc.",,,
+-5075,BANK_TRANS_HAS_BEEN_REJECTED_BY_CYBERSOURCE,Ngân hàng từ chối giao dịch này. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,Bank has rejected this transaction. Please contact issuing bank for more support.,User,Fail,,,,
+-5074,BANK_TRANS_HAS_NOT_BEEN_APPROVED,Ngân hàng không chấp nhận giao dịch. Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.,Bank has not approved this transaction. Please contact issuing bank for more support.,Bank,Fail,"1. Đối với tình huống User bị trừ tiền và thắc mắc thời gian hoàn tiền, CS tư vấn KH liên hệ bank nhờ tra soát GD. Thời gian hoàn tiền phụ thuộc vào thời gian xử lý của bank.
+
+2. Đối với tình huống User muốn biết nguyên nhân vì sao User không giao dịch được (User không bị trừ tiền): 
+*KH liên hệ lần 1: CS hướng dẫn KH liên hệ bank kiểm tra thông tin trước.
+*KH liên hệ lần 2 (hoặc báo đã liên hệ bank trước đó và được hướng dẫn KH liên hệ ZaloPay): CS xin thông tin ngân hàng của User chuyển SL kiểm tra với bank:
+- UserID: 
+- TransID: 
+- 6 đầu - 4 cuối số thẻ NH & tên NH:
+- Số tài khoản NH:
+- Tên chủ thẻ: 
+- SĐT đăng ký NH: 
+- Số CMND: 
+- Vấn đề lỗi : (mã lỗi, tần suất/thời gian bị lỗi)
+- Đối với lỗi phát sinh từ ngân hàng: hỏi thăm KH đã liên hệ NH chưa, NH đã tư vấn gì:",,,
+-5073,BANK_TRANS_INVALID_STATUS_FOR_ACTION,Trạng thái của giao dịch ở ngân hàng không hợp lệ.,Invalid transaction status at bank.,Bank,Fail,,,,
+-5072,BANK_TRANS_ALREADY_REVERTED,Giao dich đã được revert.,Transaction has already been reverted.,System,Fail,,,,
+-5071,BANK_TRANS_FAIL,Giao dịch thất bại phía ngân hàng. Vui lòng thử lại.,,Bank,Fail,,,,
+-5070,BANK_TRANS_NOT_FOUND,Khách hàng không thực hiện thanh toán.,Customer does not make payment.,User,Fail,,,,
+-5069,BANK_USER_NOT_PROCESS_TRANS,Khách hàng không thực hiện giao dịch.,Customer does not process transaction.,User,Fail,,,,
+-5068,BANK_TRANS_LOCKED_DUE_TO_MAX_OTP_ATTEMPTS,Khách hàng nhập sai OTP quá số lần quy định. Tạm khóa không cho giao dịch. Vui lòng liên hệ NH để được hỗ trợ.,Customer has been locked due to exceeded OTP attempts limit. Please contact issuing bank for more support.,User,Fail,,,,
+-5067,BANK_TRANS_HAS_BEEN_REFUNDED,Giao dịch gốc đã được hoàn tiền.,Original transaction has been refunded.,ClientService,Fail,,,,
+-5066,BANK_EXCEEDED_NO_TRANS_PER_DAY,Vượt hạn mức số lần giao dịch trong ngày.,Daily transaction limit exceeded.,User,Fail,"Đối với giao dịch rút tiền từ Tài khoản tiết kiểm về Số dư TKZP (App ID: 186)
+- Nguyên nhân: KH bị dính hạn mức giao dịch theo ngày của ngân hàng Cake
+- HXL: CS tư vấn cho KH nguyên nhân phát sinh lỗi và hướng dẫn KH liên hệ ngân hàng Cake để được hỗ trợ.",,,
+-5065,CREDIT_ACCOUNT_INVALID,,,,,,,,
+-5064,BANK_SAVING_ACCOUNT_INVALID,,,,,,,,
+-5063,BANK_PAYMENT_ACCOUNT_INVALID,,,,,,,,
+-5062,BANK_SECURITY_ERROR,,,,,,,,
+-5061,BANK_PHONE_INVALID,,,,,,,,
+-5060,BANK_ID_OR_PASSPORT_INVALID,,,,,,,,
+-5059,BANK_PHONE_NOT_REGISTERED,,,,,,,,
+-5058,BANK_TOKEN_EXPIRED,Token đã hết hạn. Vui lòng hủy liên kết và liên kết lại hoặc liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,,Bank,Fail,,,,
+-5057,BANK_DUPLICATE_TRACE_NO,Giao dịch bị trùng.,Transaction is duplicated.,System,Pending,"Thẻ/Tài khoản đang được liên kết với TK ZaloPay khác & thông tin thẻ của Khách đã được thay đổi tại ngân hàng (do thẻ hết hạn, đổi thẻ mới...) 
+*Dù KH đã unlink & link lại vẫn bị báo lỗi.
+Khai thác thông tin chuyển SL - Thời gian hỗ trợ 1-3 ngày làm việc:
+
+-UserID: 
+- TransID: 
+- 6 đầu - 4 cuối số thẻ: 
+- Số tài khoản NH: 
+- Tên chủ thẻ: 
+- SĐT đăng ký NH: 
+- Số CMND: 
+---------------------------------------------------------------------------
+*Khai thác thêm: 
+-KH có từng thay đổi thông tin số thẻ/STK với ngân hàng không 
+- KH có (từng) sử dụng SĐT khác không (LV1/Out kiểm tra SĐT >> TKZP >> có liên kết thẻ/tài khoản Sacombank cũ của KH không). Nếu có note UID.
+",,,
+-5056,BANK_CAN_NOT_SEND_OTP,Ngân hàng gửi mã xác thực (OTP) không thành công. Vui lòng liên hệ ngân hàng phát hành thẻ/tài khoản để được hỗ trợ.,Bank failed to send OTP.,Bank,Fail,,,,
+-5055,BANK_OTP_HAS_BEEN_EXPIRED,OTP đã hết hạn. Vui lòng thực hiện lại giao dịch khác.,OTP expired. Please make another transaction.,User,Fail,,,,
+-5054,BANK_ORIGINAL_TRANS_NOT_FOUND,Không tìm thấy giao dịch gốc.,Original transaction not found.,Bank,Fail,,,,
+-5053,BANK_OTP_ORIGINAL_TRANS_VERIFIED,Giao dịch gốc đã được xác thực.,Original transaction verified.,System,Fail,,,,
+-5052,BANK_OTP_EXPIRED,OTP đã hết hạn. Quý khách vui lòng thực hiện lại giao dịch khác.,,User,Fail,,,,
+-5051,BANK_OTP_VERIFY_TOO_MANY_FAILED_ATTEMPTS,Nhập sai OTP quá số lần cho phép. Vui lòng thử lại giao dịch mới.,Exceeded OTP attempts limit. Please make another transaction.,User,Fail,,,,
+-5050,BANK_OTP_VERIFY_FAILED,OTP không đúng. Vui lòng nhập lại.,OTP verification failed. Please retry.,User,Fail,,,,
+-5049,BANK_REQUEST_TIME_INVALID,Tham số thời gian giao dịch không hợp lệ.,,Bank,Fail,,,,
+-5048,BANK_INVALID_AMOUNT,Số tiền không hợp lệ,Invalid amount.,Bank,Fail,,,,
+-5047,BANK_INVALID_CARD_OR_ACCOUNT,Thẻ/Tài khoản liên kết không hợp lệ. Vui lòng liên hệ ngân hàng để được hỗ trợ.,Invalid card/account.,User,Fail,,,,
+-5046,BANK_TOKEN_NOT_USABLE,Liên kết với Ngân hàng hết hiệu lực. Vui lòng thực hiện liên kết lại để tiếp tục sử dụng.,,Bank,Fail,Hướng dẫn KH hủy liên kết & liên kết lại ngân hàng với Zalopay.,,,
+-5045,BANK_TOKEN_NOT_FOUND,Thẻ hoặc tài khoản chưa được liên kết.,Card or account has not been linked.,ClientService,Fail,"**Nếu User đang khiếu nại có liên quan đến luồng liên kết tài khoản Techcombank trực tiếp (ZPTCB2):
+Nguyên nhân: User đã liên kết thành công trước đó thì vẫn cho liên kết tiếp (User thao tác liên kết trong app Zalopay, sau đó lại thông qua noti của bank đi liên kết thêm lần nữa) >> Khi thực hiện các GD nạp/rút/thanh toán/huỷ liên kết bị báo lỗi -5045.
+
+HXL: Hướng dẫn user đi huỷ liên kết từ ứng dụng ngân hàng, sau đó vào Zalopay thực hiện liên kết lại. Sau đó mới có thể đi thực hiện các giao dịch với TCB account.
+
+Lưu ý: CS cần báo KH chỉ thao tác liên kết 1 thành công một lần là được, không thao tác link nhiều lần.
+
+***Các bank khác: Tư vấn KH liên hệ bank kiểm tra thông tin, sau đó thử lại. Sau khi liên hệ bank, KH có thể thử unlink sau đó link lại để thực hiện GD mới.",,,
+-5044,BANK_TOKEN_NOT_ACTIVATED,Giao dịch bị lỗi. Vui lòng thực hiện lại hoặc liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,Transaction failed. Please try again or contact Customer Service for more support.,Bank,Fail,,,,
+-5043,BANK_DUPLICATE_TRANSID,Giao dịch bị trùng.,Transaction is duplicated.,System,Pending,,,,
+-5042,BANK_CARD_OR_ACCOUNT_HAS_BEEN_LOCKED,Thẻ/Tài khoản ngân hàng đã bị khóa. Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.,Card or Account has been locked. Please contact issuing bank for more support.,User,Fail,,,,
+-5041,BANK_CARD_OR_ACCOUNT_INVALID_STATE,Thẻ/Tài khoản ở trạng thái không giao dịch được. Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.,Card/Account is in invalid state. Please contact issuing bank for more support.,User,Fail,,,,
+-5040,BANK_ACCOUNT_OR_CARD_ALREADY_LINKED,Thẻ/Tài khoản đang được liên kết. Vui lòng liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,Card/Account has already been linked. Please contact Customer Service for more support.,User,Fail,"CS kiểm tra UserID nào đang liên kết với Thẻ/TKNH: Vào CStool - mục: ""Thông tin giao dịch"" => ""Giao dịch liên kết ngân hàng"" => Dùng các thông tin có được, chọn đúng trường.
+.  Nếu KH còn dùng TK Zalopay cũ => Tư vấn khách hàng hủy liên kết thẻ
+.  Nếu KH không vào được Zalopay cũ để tự hủy được/ Nếu CS không tìm thấy đang liên kết với TK Zalopay nào => Khai thác thông tin chuyển case SL check & hủy liên kết giúp KH:
+- Tên chủ thẻ/TKNH: 
+- Số thẻ cần hỗ trợ hủy:
+- Số TK cần hỗ trợ hủy:       
+- Số CCCD: 
+- Số điện thoại KH từng sử dụng hoặc từng đăng ký với ngân hàng:
+(Lưu ý trong case cần note rõ mã lỗi, nếu KH không nhớ Số thẻ hoặc số tài khoản CS hỏi rõ lý do và note vào case) 
+Thời gian xử lý: 1-3 ngày LV.
+--------------------------------------------------------------------------
+Riêng đối với NH Vietinbank:
+Khai thác thêm KH có sử dụng SDT nào khác không (đang sử dụng, đã bỏ SDT, bị mất sim...) và có từng thay đổi thông tin số thẻ ở ngân hàng không, vì hiện tại mỗi 1 chủ tài khoản VTB chỉ liên kết trên Zalopay 1 lần, nếu khách hàng có thay đổi số thẻ (STK giữ nguyên) thì khi liên kết thẻ mới sẽ bị báo lỗi:
+
+- Nếu khách hàng không cung cấp được thông tin thì chuyển SL báo BC check với bank.
+- Nếu khai thác được khách hàng có SDT ZaloPay đang liên kết thẻ VTB thì khai thác như case hủy liên kết bình thường và chuyển SL hỗ trợ khách hàng, 
+*Lưu ý: Nếu KH đã cung cấp được số điện thoại cũ nhưng thông tin số thẻ không giống, NV chủ động kiểm tra họ tên chủ thẻ đang liên kết trên tool và  họ tên chủ thẻ mới KH đang cung cấp có trùng nhau không? Nếu thông tin họ tên trùng > KH đã từng thay đổi thẻ. CS hỗ trợ KH như case hủy liên kết bình thường, không cần phải rep temp nhiều lần buộc KH phải xác nhận được là KH đã từng thay đổi thẻ hay chưa?
+
+Đối với ngân hàng VIB:
+Khai thác thêm khách hàng có đang sử dụng thẻ ATM/tài khoản NH VIB không?
+Nếu có, nhân viên xin thêm 6 số đầu, 4 số cuối các thẻ/TK VIB mà khách hàng đang có.",,,
+-5039,BANK_ACCOUNT_OR_CARD_NOT_FOUND,Không tìm thấy thông tin thẻ hoặc tài khoản.,Card/Account information not found.,User,Fail,"
+* Thanh toán/ nạp tiền: CS hướng dẫn hủy liên kết sau đó liên kết lại và KH thực hiện lại giao dịch. 
+Trường hợp nếu KH thực hiện hủy liên kết bị lỗi, CS hỗ trợ theo quy trình hủy liên kết ngân hàng hiện hành.
+
+* Liên kết ngân hàng: hướng dẫn liên hệ bank để kiểm tra tình trạng tài khoản vì sao không thể liên kết được , nếu KH đã kiểm tra với ngân hàng, ngân hàng báo thẻ/tk không lỗi thì CS xin thông tin theo quy trình check lỗi bank hiện hành > sau đó chuyển SL mail bank kiểm tra
+
+Xem sheet bên cạnh nếu thuộc Vietcombank",,,
+-5038,BANK_INVALID_ACCOUNT_OR_CARD_INFO,"Thẻ/tài khoản không hợp lệ. Có thể xảy ra một trong các nguyên nhân sau:
+ -Số thẻ/tài khoản, tên chủ thẻ/tài khoản hoặc ngày phát hành thẻ v.v...không đúng
+ -Thẻ/tài khoản chưa được kích hoạt hay ở trạng thái không giao dịch được.
+ Vui lòng thực hiện lại hoặc liên hệ ngân hàng phát hành để được hỗ trợ.","Card/Account is invalid. Might happen due to following reasons:
+ - Incorrect card/account number, holder name, or card issued date, etc.
+ - Card/Account has not been activated or it is in an invalid state.
+ Please try again or contact issuing bank for more support.",User,Fail,"Xem sheet bên cạnh nếu thuộc các ngân hàng sau MBBank, Agribank, Vietcombank, Sacombank",,,
+-5037,BANK_VERIFY_ACCOUNT_INVALID_INFO,Thông tin thẻ hoặc tài khoản không trùng khớp với ngân hàng.,,User,Fail,,,,
+-5036,BANK_CARD_OR_ACCOUNT_TYPE_NOT_ACCEPTED,Ngân hàng không hỗ trợ loại Thẻ/Tài khoản này. Vui lòng liên hệ ngân hàng phát hành thẻ để được tư vấn.,Card type is not accepted. Please contact issuing bank for more support.,User,Fail,Xem hxl chi tiết từng Nh ở sheet bên cạnh,,,
+-5035,BANK_INVALID_CVV,Số CVV không đúng. Vui lòng thử lại.,Invalid CVV. Please try again.,User,Fail,,,,
+-5034,BANK_CARD_REACHED_CREDIT_LIMIT,Giao dịch vượt quá hạn mức tín dụng cho phép.,Credit limit is exceeded.,User,Fail,,,,
+-5033,BANK_INACTIVE_CARD,Thẻ không hoạt động. Vui lòng liên hệ với ngân hàng phát hành thẻ để được hỗ trợ.,Inactive card. Please contact issuing bank for more support.,User,Fail,Xem hxl chi tiết từng Nh ở sheet bên cạnh,,,
+-5032,BANK_STOLEN_OR_LOST_CARD,"Thẻ không hiệu lực do mất cắp, thu hồi thẻ. Vui lòng liên hệ với ngân hàng phát hành thẻ để được hỗ trợ.",Card is invalid due to lost or being stolen. Please contact issuing bank for more support.,User,Fail,,,,
+-5031,BANK_EXPIRED_CARD,Thẻ hết hạn sử dụng. Vui lòng liên hệ với ngân hàng phát hành thẻ để được hỗ trợ.,Card expired. Please contact issuing bank for more support.,User,Fail,,,,
+-5030,BANK_CASH_UNKNOWN_ERROR,Giao dịch thất bại phía ngân hàng. Vui lòng thử lại.,,Bank,Pending,,,,
+-5029,BANK_CARD_NOT_REGISTERED_ONLINE_PAYMENT,Thẻ hoặc tài khoản chưa đăng ký dịch vụ thanh toán trực tuyến. Vui lòng đăng ký dịch vụ thanh toán trực tuyến với ngân hàng trước khi sử dụng dịch vụ này.,Card/ Account has not been registered with online payment service. Please register online payment before using this service.,User,Fail,"- Nếu NH Sacombank và HD bank , agrbank, NH liên kết tk qua cổng napas xem sheet kế bên
+",,,
+-5028,BANK_API_NOT_SUPPORTED,Ngân hàng không hỗ trợ dịch vụ này.,Bank does not support this service.,ClientService,Fail,,,,
+-5027,BANK_CONNECTOR_SELECTOR_NOT_FOUND,Không kết nối được với ngân hàng.,Cannot connect to bank.,System,Fail,,,,
+-5026,BANK_CASH_LESS_THAN_MIN_AMOUNT_PER_TRAN,Số tiền nhỏ hơn bạn mức tối thiểu cho phép trên mỗi giao dịch.,Transaction amount is less than the minimum amount per transaction.,User,Fail,,,,
+-5025,BANK_BALANCE_EXCEEDED,Tài khoản khách hàng không đủ số dư.,Customer balance exceeds.,User,Fail,"""Bạn kiểm tra một trong các nguyên nhân sau:
+- Một số ngân hàng yêu cầu số dư tối thiểu trong tài khoản (có thể lên tới 100.000đ). Khi bạn thanh toán qua ZaloPay, số dư tối thiểu xuống dưới mức yêu cầu nên ngân hàng không chấp nhận.
+- Bạn đang chọn tài khoản ngân hàng không đủ tiền. 
+- Nếu bạn dùng thẻ tín dụng thì thẻ của bạn đã hết hạn mức thanh toán với giao dịch này.""",,,
+-5024,BANK_ISSUER_NOT_FOUND,Không tìm thấy ngân hàng phát hành.,Issuer not found.,ClientService,Fail,,,,
+-5023,BANK_TOPUP_TIMEOUT,Vượt quá thời gian xử lý giao dịch tăng số dư của ngân hàng.,Top Up transaction timeout.,Bank,Fail,,,,
+-5022,BANK_TOPUP_FAILED,Giao dịch tăng số dư từ ngân hàng (vào ví) thất bại.,Top Up transaction failed.,Bank,Fail,"Lỗi vi phạm rule hạn mức, CS kiểm tra tại link hạn mức (tại đây) ",,,
+-5021,BANK_ACCOUNT_ALREADY_EXISTS,Tài khoản đã được đăng ký.,Account has already been registered.,User,Fail,"HXL:
+Bạn đã có tài khoản tại Sacombank. Vui lòng liên kết thẻ/tài khoản vào Ví để sử dụng. Theo quy định, tính năng mở tài khoản Sacombank trên Ví ZaloPay chỉ áp dụng cho khách hàng chưa có tài khoản Sacombank",,,
+-5020,BANK_VERIFY_ACCOUNT_FAILED,Dữ liệu xác thực của ngân hàng không hợp lệ.,,Bank,Fail,,,,
+-5019,BANK_INVALID_CARD_OR_ACCOUNT,Thẻ hoặc tài khoản ngân hàng của khách hàng không hợp lệ.,,User,Fail,,,,
+-5018,BANK_LINK_ACCOUNT_FAILED,Liên kết tài khoản ngân hàng thất bại. Vui lòng thực hiện lại.,Failed to link bank account. Please try again.,Bank,Fail,,,,
+-5017,BANK_UNLINK_ACCOUNT_FAILED,Hủy liên kết tài khoản ngân hàng thất bại. Vui lòng thực hiện lại.,Failed to unlink bank account. Please try again.,Bank,Fail,,,,
+-5016,BANK_QUERY_ACCOUNT_FAILED,Kiểm tra tài khoản của ngân hàng thất bại.,Failed to query bank account.,Bank,Fail,,,,
+-5015,BANK_TRANS_TIMEOUT,Giao dịch vượt quá thời gian xử lý tại ngân hàng.,Transaction timeout at bank.,Bank,Pending,,,,
+-5014,BANK_TRANS_EXCEPTION,Lỗi hệ thống ngân hàng. Vui lòng thử lại.,Bank system error. Please try again.,Bank,Pending,,,,
+-5013,BANK_INVALID_ACCOUNT,Thông tin tài khoản ngân hàng không hợp lệ.,,Bank,Fail,,,,
+-5012,BANK_EXCEEDED_AMOUNT_PER_DAY,Vượt quá giới hạn số tiền giao dịch mỗi ngày của ngân hàng.,Bank daily transaction amount limit exceeded.,User,Fail,NH agribank/MSB xem HD sheet kế bên,,,
+-5011,BANK_EXCEEDED_AMOUNT_PER_TRAN,Vượt quá giới hạn số tiền mỗi giao dịch của ngân hàng.,Bank transaction amount limit for each transaction exceeded.,User,Fail,,,,
+-5010,BANK_USER_NOT_FOUND,Thẻ hoặc tài khoản chưa được liên kết. Vui lòng liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,Card or account has not linked. Please contact Customer Service for more support.,Bank,Fail,"* Ngân hàng Nam Á: xem sheet bên cạnh.
+
+* Các ngân hàng còn lại: 
+Khai thác thêm thông tin khách hàng có từng liên hệ NH để báo hủy liên kết với ví điện tử không?
+Ghi nhận thông tin khách hàng cung cấp + Khai thác thông tin theo quy trình Hủy liên kết NH - Chuyển case SL
+
+SL:
+- Nếu khách hàng CÓ liên hệ NH hủy liên kết - SL thực hiện Unlink force remove
+- Nếu khách hàng KHÔNG liên hệ NH hủy liên kết - SL gửi Jira cho BC check lại với bank tiếp 
+",,,
+-5009,BANK_TRANS_FAILED,Giao dịch không thành công. Vui long thử lại.,Transaction failed. Please try again.,Bank,Fail,,,,
+-5008,BANK_RESP_INVALID_PARAMETER,Dữ liệu ngân hàng trả về không hợp lệ.,Invalid bank response parameter.,Bank,Pending,,,,
+-5007,BANK_SYSTEM_ERROR,Lỗi hệ thống ngân hàng. Vui lòng thử lại.,Bank system error. Please try again.,Bank,Pending,,,,
+-5006,BANK_UNAUTHORIZED_ACCESS,Dữ liệu xác thực truy cập của ngân hàng không hợp lệ.,Bank access authentication data is invalid.,Bank,Fail,,,,
+-5005,BANK_ZP_SYSTEM_MAINTENANCE,Hệ thống ZaloPay đang bảo trì. Vui lòng thử lại sau.,ZaloPay system is under maintenance. Please try again later.,System,Fail,,,,
+-5004,BANK_RESP_INVALID_SIGNATURE,Dữ liệu xác thực của ngân hàng không hợp lệ.,Invalid bank response signature.,Bank,Pending,,,,
+-5003,BANK_IN_MAINTERNANCE_MODE,"Ngân hàng đang bảo trì, vui lòng thử lại sau.",Bank system is under maintenance. Please try again later.,Bank,Fail,,,,
+-5002,BANK_UNKNOWN_ERROR,"Ngân hàng có lỗi, vui lòng thử lại sau.",Bank system error. Please try again later.,Bank,Pending,,,,
+-5001,BANK_NOT_CONNECTED,Không thể kết nối tới ngân hàng.,Cannot connect to bank system.,Bank,Pending,,,,
+-5000,BANK_ZION_ESCROW_ACCOUNT_BALANCE_EXCEEDED,Tài khoản bảo đảm thanh toán của ZaloPay không đủ số dư. Vui lòng liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,ZaloPay escrow account balance exceeded. Please contact Customer Service for more support.,Bank,Fail,,,,
+-4003,TRANS_TYPE_NOT_SUPPORT_RETRY_NOTIFY,Không thể notify giao dịch loại này.,,User,,,,,
+-4002,NOTIFY_RETURN_FAIL,Gửi thông báo trả về kết qủa thất bại.,,System,,,,,
+-4001,NOTIFY_FAIL,Gửi thông báo thất bại!,,System,,,,,
+-3156,TRANS_HAS_BEEN_REVERTED_MANUALLY,Transaction has been reverted by operation team.,Transaction has been reverted by operation team.,User,Failed,,,,
+-3155,BANK_NO_RECEIVE_BANK_IPN_CALLBACK,Hệ thống không nhận được yêu cầu xác nhận trạng thái giao dịch từ NH (IPN) trong vòng 15 phút.,System did not receive the request to confirm the transaction status from the bank (IPN) within 15 minutes.,Bank,Pending,"HXL: 
+Cs khai thác rõ: Hiện trạng KH đang gặp : (Chưa nhận OTP/ Nhận OTP nhưng không có chỗ nhập/Không có nút để chọn gửi OTP về SMS/ Bị trắng màn hình....):
+- CS kiểm tra (tool BC lọc mã lỗi (-3155) trong mục return code) trong tháng KH có bị mã lỗi này cho cùng loại giao dịch tương tự với giao dịch hiện tại không? 
++ Nếu có lớn hơn 2 lần bị mã lỗi (-3155) và từ thời điểm lỗi (-3155) cuối cùng đến giao dịch lỗi hiện tại không có GD tương tự thành công : Hướng dẫn KH gửi thông tin (*) về để hỗ trợ
++ Nếu có lỗi (-3155) từ 2 lần trở xuống : Hướng dẫn KH thao tác lại sau 24h , CS tư vấn thêm nếu sau 24h KH vẫn còn gặp tình trạng tương tự thì hướng dẫn KH cung cấp thông tin (*) gửi về trung tâm hỗ trợ ZP để được hỗ trợ kiểm tra, nếu KH cần gấp có thể liên kết/ thanh toán bằng ngân hàng khác.
+
+(* )Thông tin CS cần khai thác để chuyển SL - Hẹn KH 3-5 ngày làm việc
+- 6 số đầu và 4 số cuối in trên mặt trước thẻ hoặc Số tài khoản ngân hàng  (KH liên kết/thanh toán hình thức nào thì xin thông tin đó)
+- Tên chủ thẻ /TK
+- Số điện thoại bạn đăng ký với ngân hàng 
+- Số CMND/CCCD chủ thẻ
+- Clip/Hình ảnh lỗi (bắt buộc đối với các mô tả lỗi liên quan đến UX/UI như màn hình trắng, không có ô nhập OTP, ...)",,,
+-3055,NO_RECEIVE_VERIFY_OTP_REQ,Hệ thống không nhận được yêu cầu xác thực giao dịch (OTP) trong vòng 15 phút.,The system did not receive a request to authenticate transactions (OTP) within 15 minutes.,Bank,Fail,"Có ba khả năng xảy ra lỗi này:
+ 01. Hệ thống gửi gửi OTP của NH hoặc đối tác NH (VNPay) bị lỗi nên KH không nhận được OTP để thực hiện bước tiếp theo.
+ 02. Tới bước nhập OTP để xác nhận giao dịch thì khách hàng chủ động hủy giao dịch.
+ 03. Tại thời điểm đó hệ thống FE/BE (App, ZPI, TPE) không submit được verify OTP request qua hệ thống BC.
+  
+  
+ There three possibilities for this error:
+  Bank OTP system error or bank partner (VNPay) error → Customer does not receive OTP to perform next step.
+ Customer intentionally cancel transaction at verify-OTP step.
+ At the time FE/BE system (App, ZPI, TPE) does not submit a verify-OTP request to BC system.",,,
+-3036,ORIGINAL_TRANS_HAS_ALREADY_FAILED,Giao dịch gốc đã thất bại.,Original transaction has already failed.,ClientService,Fail,,,,
+-3035,TRANS_TYPE_NOT_SUPPORT_OTP,Loại giao dịch không hỗ trợ OTP.,Transaction type does not support OTP.,ClientService,Fail,,,,
+-3034,ORIGINAL_TRANS_NOT_FOUND,Mã giao dịch gốc không tồn tại.,Original transaction not found.,ClientService,Fail,,,,
+-3033,ORIGINAL_TRANS_HAS_ALREADY_SUCCEEDED,Giao dịch gốc đã thực được thực hiện thành công.,Original transaction has already succeeded.,ClientService,Fail,,,,
+-3032,ORIGINAL_TRANS_WAS_NOT_SUCCESSFUL,Giao dịch gốc chưa thành công.,Original transaction was not successful.,ClientService,Fail,,,,
+-3031,TRANS_TYPE_NOT_SUPPORT_REFUND,Không hỗ trợ hoàn tiền cho loại giao dịch này.,Refund is not supported for this transaction type.,ClientService,Fail,,,,
+-3030,REFUND_AMOUNT_EXCEEDED_ORIGINAL_AMOUNT,Số tiền hoàn trả vượt quá số tiền gốc.,Refund amount exceeded original amount.,ClientService,Fail,,,,
+-3029,ACCOUNT_NOT_ALLOW_IN_THIS_ENV,Tài khoản không được phép giao dịch trên môi trường này.,Account is not allowed in this environment.,ClientService,Fail,,,,
+-3028,TRANS_TYPE_NOT_SUPPORT_REVERSAL,Không thể hủy giao dịch này.,Unable to reverse this transaction.,ClientService,Fail,,,,
+-3027,TRANS_HAS_BEEN_REVERTED,Giao dịch đã được hủy.,This transaction has been previously reverted.,ClientService,Fail,,,,
+-3026,WALLET_ACCOUNT_NOT_FOUND,Taì khoản ví không tồn tại.,Wallet account not found.,User,Fail,,,,
+-3025,WALLET_ACCOUNT_NOT_LINKED,Tài khoản chưa được liên kết.,Wallet account is not linked,User,Fail,,,,
+-3024,DUPLICATED_TRANSACTION,Giao dịch bị trùng.,Transaction is duplicated.,System,Fail,,,,
+-3023,TRANS_NOT_FOUND,Giao dịch không hợp lệ.,Invalid transaction.,ClientService,Fail,,,,
+-3022,USER_NOT_FOUND,Thông tin khách hàng không hợp lệ.,Invalid customer information.,User,Fail,,,,
+-3021,DUPLICATED_ZPTRANSID,Giao dịch bị trùng.,Transaction is duplicated.,ClientService,Fail,,,,
+-3020,DUPLICATED_BANKTRANSID,Giao dịch bị trùng.,Transaction is duplicated.,Bank,Fail,,,,
+-3004,EXCEED_MAX_NO_TRANS_PER_DAY,Vượt hạn mức số lượng giao dịch trên ngày.,,User,Fail,,,,
+-3003,EXCEED_MAX_AMOUNT_PER_DAY,Vượt hạn mức giao dịch trên ngày.,,User,Fail,,,,
+-3002,AMOUNT_GREATER_THAN_MAX_VALUE,Số tiền lớn hơn hạn mức tối đa.,,User,Fail,,,,
+-3001,AMOUNT_LESS_THAN_MIN_VALUE,Số tiền nhỏ hơn hạn mức tối thiểu.,,User,Fail,,,,
+-2202,DECRYPT_FAILED,Hệ thống có lỗi. Vui lòng thử lại.,System error. Please try again.,System,Fail,,,,
+-2001,ENCRYPT_FAILED,Hệ thống có lỗi. Vui lòng thử lại.,System error. Please try again.,System,Pending,,,,
+-1140,INVALID_MCC,Mã MCC không hợp lệ.,,ClientService,Fail,,,,
+-1103,INVALID_MERCHANT_ID,Mã định danh merchant không hợp lệ.,,ClientService,Fail,,,,
+-1102,INVALID_MERCHANT_NAME,Tên merchant không hợp lệ,,ClientService,Fail,,,,
+-1101,INVALID_MERCHANT_CODE,Mã merchant không hợp lệ.,,ClientService,Fail,,,,
+-1100,INVALID_MERCHANT_INFO,Thông tin merchant không hợp lệ,,ClientService,Fail,,,,
+-1040,INVALID_CARD_EXPIRE_DATE,Ngày hết hạn không hợp lệ,Invalid expired date,ClientService,Fail,,,,
+-1039,INVALID_BANK_USER_ID,Mã định danh khách hàng không hợp lệ.,Invalid customer id.,ClientService,Fail,". Nguyên nhân: Giao dịch bị lỗi do không nhận được bankUserId. 
+. HXL: hướng dẫn User unlink & link lại ngân hàng thì sẽ ko gặp lỗi này nữa.",,,
+-1038,INVALID_MPIN,Mã mPIN không hợp lệ.,Invalid mPIN.,ClientService,Fail,,,,
+-1037,INVALID_REF_TRANS_INFO,Ref trans info không hợp lệ.,Invalid ref trans info.,System,Fail,,,,
+-1036,INVALID_CARD_TOKEN,Thông tin card không hợp lệ.,Invalid card token.,ClientService,Fail,,,,
+-1035,INVALID_QR_DATA,QR không hợp lệ.,Invalid QR.,ClientService,Fail,,,,
+-1034,INVALID_USERIDTYPE,UserID type không hợp lệ.,Invalid UserID type.,ClientService,Fail,,,,
+-1033,INVALID_USERID,UserID không hợp lệ.,Invalid UserID.,ClientService,Fail,,,,
+-1032,INVALID_BANKMID,BankMID không hợp lệ.,Invalid BankMID.,ClientService,Fail,,,,
+-1031,INVALID_REF_AMOUNT,Ref amount không hợp lệ.,Invalid Ref amount,ClientService,Fail,,,,
+-1030,INVALID_CONN_CHANNEL,"Hệ thống có lỗi, vui lòng thử lại sau.",System error. Please try again.,ClientService,Fail,,,,
+-1029,INVALID_OTP_TRANSID,Thông tin OTP không hợp lệ.,Invalid OTP information.,ClientService,Fail,,,,
+-1028,INVALID_REQUEST_TIME,Thời gian yêu cầu không hợp lệ.,Invalid request time.,ClientService,Fail,,,,
+-1027,INVALID_REFBANKTRANSID,Ref bank trans id không hợp lệ.,Invalid ref bank trans id.,ClientService,Fail,,,,
+-1026,INVALID_USER_INFO,Thông tin khách hàng không hợp lê.,Invalid user info.,ClientService,Fail,"1. Đối với loại GD: RBA_LINK(1102) và Bankcode: ZPWOO - NH Woori:
+- Nguyên nhân: Do tài khoản KH đã sinh trắc học trước khi tiến hành mở tài khoản nên hệ thống không cập nhật kịp. Để khắc phục, Zalopay cần gỡ thông tin sinh trắc học trước đó.
+- HXL: CS hỏi KH có muốn thực hiện tab NFC lại hay không (đồng nghĩa là sẽ xoá thông tin NFC đang có và đi lấy lại)
+> Nếu KH đồng ý: CS ghi nhận chuyến SL check với HauNT2 (dev team UM) để tiến hành reset NFC cho KH
+
+2. Đối với loại GD khác, Bankcode khác: 
+- HXL: KH kiểm tra lại thông tin cá nhân/ thông tin với NH",,,
+-1025,INVALID_REFTRACENO,Mã giao dịch phía ngân hàng không hợp lệ.,Invalid ref traceno.,ClientService,Fail,,,,
+-1024,INVALID_PHONE_NO,Số điện thoại không đúng.,Invalid phone number.,ClientService,Fail,,,,
+-1023,INVALID_RESP_SIG,Chữ ký số không hợp lệ.,Invalid response signature.,ClientService,Fail,,,,
+-1022,INVALID_BANKTRANSID,Mã giao dịch ngân hàng không hợp lệ.,Invalid banktransid.,ClientService,Fail,,,,
+-1021,INVALID_TRANS_TYPE,Loại giao dịch không hợp lê.,Invalid transaction type.,ClientService,Fail,,,,
+-1020,INVALID_EXTRA_INFO,Thông tin bổ sung không hợp lệ.,Invalid extra information.,ClientService,Fail,,,,
+-1019,INVALID_REFTRANSTYPE,Hệ thống có lỗi. Vui lòng thử lại.,System error. Please try again.,ClientService,Fail,,,,
+-1018,INVALID_SUB_TRANSTYPE,Hệ thống có lỗi. Vui lòng thử lại.,System error. Please try again.,ClientService,Fail,,,,
+-1017,INVALID_OTP_VALUE,"OTP không đúng, vui lòng nhập lại.",Invalid OTP value. Please try again.,ClientService,Fail,,,,
+-1016,INVALID_REFTRANSID,Mã giao dịch tham chiếu không hợp lệ.,Invalid reftransid.,ClientService,Fail,,,,
+-1015,INVALID_CARD_OR_ACCOUNT_NO,Số thẻ hoặc số tài khoản không hợp lê.,Invalid card/account number.,ClientService,Fail,,,,
+-1014,INVALID_PAYMENT_INFO,Thông tin thanh toán không hợp lệ.,Invalid payment information.,ClientService,Fail,,,,
+-1013,INVALID_BANK_TOKEN,Chuỗi token không đúng.,Invalid bank token.,ClientService,Fail,,,,
+-1012,INVALID_PMCID,Mã kênh thanh toán không hợp lệ.,Invalid PMCID.,ClientService,Fail,,,,
+-1011,INVALID_TRANSID,Dữ liệu định danh giao dịch không hợp lệ.,Invalid transaction id.,ClientService,Fail,"+ Đối với NH MBBank: Từ ngày 1/7/2024, khi KH thanh toán/nạp tiền nhưng hệ thống báo lỗi -1011, CS hướng dẫn KH cập nhật phiên bản ứng dụng mới nhất sau đó thử lại.
+
++ Đối với các NH khác:  CS hướng dẫn KH thực hiện lại giao dịch. Nếu GD liên tục thất bại, CS xin thông tin bank chuyển SL check DEV.",,,
+-1010,INVALID_BANKCODE,Mã ngân hàng không hợp lệ.,Invalid bank code.,ClientService,Fail,,,,
+-1009,INVALID_MERCHANTTRANSID,Dữ liệu định danh giao dịch của merchant không hợp lệ.,Invalid merchant transaction id.,ClientService,Fail,,,,
+-1008,INVALID_ZALOPAYID,Mã định danh ZaloPay không hợp lệ.,Invalid ZaloPay id.,ClientService,Fail,,,,
+-1007,INVALID_AMOUNT,Số tiền không hợp lệ.,Invalid amount.,ClientService,Fail,,,,
+-1006,INVALID_SYSID,Định danh hệ thống không hợp lệ.,Invalid system id.,ClientService,Fail,,,,
+-1005,INVALID_TIME,Thời gian xử lý không hợp lệ.,Invalid time.,ClientService,Fail,,,,
+-1004,INVALID_SIG,Dữ liệu xác thực không hợp lệ.,Invalid signature.,ClientService,Fail,,,,
+-1003,INVALID_DATA,Dữ liệu không hợp lệ.,Invalid data.,ClientService,Fail,,,,
+-1002,INVALID_TRANS_STATUS,Trạng thái giao dịch không hợp lệ.,Invalid transaction status.,ClientService,Fail,,,,
+-1001,INVALID_REQUEST_DATA,Dữ liệu không hợp lệ.,Invalid request data.,ClientService,Fail,"""+ Đối với NH MBBank: Từ ngày 1/7/2024, khi KH thanh toán/nạp tiền nhưng hệ thống báo lỗi -1011, CS hướng dẫn KH cập nhật phiên bản ứng dụng mới nhất sau đó thử lại.
+
++ Đối với các NH khác:  CS hướng dẫn KH thực hiện lại giao dịch. Nếu GD liên tục thất bại, CS xin thông tin bank chuyển SL check DEV.""",,,
+0,UNKNOW_ERROR,"Hệ thống có lỗi, vui lòng thử lại sau.",System error. Please try again later.,System,Pending,,,,
+1,SUCCESSFUL,Giao dịch thành công.,Transaction is successful.,Success,Success,,,,
+2,VALIDATE_PARAM_OK,Xác thực tham số thành công!,,Processing,Pending,,,,
+3,INIT,Hệ thống đang khởi tạo giao dịch!,,Processing,Pending,,,,
+4,IN_QUEUE,Dữ liệu đang trong hàng đợi xử lý!,,Processing,Pending,,,,
+5,OTP_VERIFYING,Đang đợi xác thực OTP!,,Processing,Pending,,,,
+6,PROCESSING,Giao dịch đang xử lý.,Transaction is processing.,Processing,Pending,"HXL: Hệ thống đang xử lý (thường trong 30 phút),  báo KH đợi thêm hệ thống sẽ trả kết quả BC thành công hoặc BC pending hoặc BC thất bại.",,,
+7,REVERTED,Đã thực hiện giao dịch đảo ngược (hoàn tiền)!,,Success,Success,,,,
+8,REFUNDED_BY_TPE,Giao dịch đã được hoàn tiền,,Success,Success,,,,
+9,PROCESS_MANUAL_REFUNDING,Giao dịch dang xử lý,,Success,Success,,,,
+61,BANK_CALL_TIMEOUT,Không kết nối được với hệ thống ngân hàng.,Cannot connect to bank system.,,Pending,,,,
+62,BANK_CALL_EXCEPTION,Lỗi Timeout khi gọi qua ngân hàng.,Timeout error while calling bank.,,Pending,,,,
+63,BANK_PROCESS_TIMEOUT,Lỗi Timeout hệ thống ngân hàng.,Bank system timeout error.,,Pending,,,,
+64,BANK_PROCESS_UNKNOWN_ERROR,Lỗi không xác định tại hệ thống ngân hàng.,Bank system unknown error.,,Pending,,,,
+-5702,BANK_EXCEEDED_AMOUNT_PER_MONTH,Vượt hạn mức giao dịch trong tháng tại ngân hàng,,Bank,Fail,,,,
+-5265,BANK_TRANS_PENDING,Giao dịch đang chờ xử lý. Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.,,Bank,Fail,,,,
+-5221,BANK_EKYC_ACCOUNT_NEED_TO_BE_VERIFIED_AT_THE_COUNTER,Thẻ/ tài khoản này chưa được hỗ trợ để liên kết ví điện tử vì được mở bằng hình thức trực tuyến eKYC. Bạn vui lòng đến chi nhánh ngân hàng để xác thực tài khoản hoặc gọi hotline ngân hàng phát hành để được hỗ trợ.,,Bank,Fail,,,,
+-5800,BANK_ZION_ESCROW_ACCOUNT_HAS_BEEN_LOCKED,Hệ thống có lỗi khi xử lý yêu cầu. Vui lòng liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,,Bank,Fail,,,,
+-5702,BANK_EXCEEDED_AMOUNT_PER_MONTH,Vượt hạn mức giao dịch trong tháng tại ngân hàng.,,Bank,Fail,,,,
+-5700,BANK_IB_OR_EBANK_ACCOUNT_HAS_BEEN_LOCKED,Tài khoản ngân hàng điện tử đang tạm khóa. Vui lòng liên hệ ngân hàng để được hỗ trợ,,Bank,Fail,,,,
+-5701,BANK_TEMP_LOCKED_DUE_TO_PREVIOUS_TXN_HAS_NOT_BEEN_FINISHED,Vui lòng thực hiện lại giao dịch sau 5 phút do KH chưa thực hiện xác thực giao dịch trước đó.,,Bank,Fail,,,,
+-5704,BANK_ACCOUNT_OR_CARD_EXCEEDED_FREQUENCY_OF_USE,Thẻ của bạn đã vượt quá tần suất sử dụng cho phép của ngân hàng. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,,Bank,Fail,,,,
+-5971,BANK_NO_ADVANCE_AUTH ORIZATION_METHOD,"Các bank (Ngoại trừ MBBank) ""Giao dịch thất bại vì phương thức xác thực đăng ký tại ngân hàng không hợp lệ. Vui lòng liên hệ ngân hàng để đăng ký phương thức xác thực phù hợp.""
+(KH chưa đăng ký face authen/ soft OTP/ chưa cài app bank)
+
+Riêng MBBank ""Thẻ/Tài khoản chưa đăng ký xác thực sinh trắc học khuôn mặt trên ứng dụng MBBank. Bạn cần vào app MBBank để cập nhật thông tin cá nhân và đăng ký xác thực sinh trắc học khuôn mặt trước khi xác thực giao dịch. Đăng ký ngay. (Đăng ký ngay hyperlink https://mbbank.onelink.me/QPF5?af_dp=mbbank%3A%2F%2Finstallingnew%E2%81%A1_force_deeplink=true&ad_dp=update_personal_documents_v2)""",,Bank,Fail,"HXL: 
+- Các bank (Ngoại trừ MBBank): CS hướng dẫn KH cập nhật CCCD có chip và quét NFC trên ứng dụng ngân hàng KH đang sử dụng.
+
+- Riêng MBBank: Hướng dẫn theo message. KH cần vào app MBBank để cập nhật thông tin cá nhân và đăng ký xác thực sinh trắc học khuôn mặt trước khi xác thực giao dịch. Đăng ký ngay. (""Đăng ký ngay"" CS chèn hyperlink https://mbbank.onelink.me/QPF5?af_dp=mbbank%3A%2F%2Finstallingnew%E2%81%A1_force_deeplink=true&ad_dp=update_personal_documents_v2)""",,,
+-5972,BANK_AUTHORIZATION_METHOD_NOT_READY,Tổng số tiền giao dịch trong ngày vượt quá 20 triệu hoặc số tiền của một giao dịch lớn hơn 10 triệu. Vui lòng thử lại với số tiền nhỏ hơn hoặc thử lại vào ngày hôm sau.,,Bank,Fail,"Nguyên nhân: Do Zalopay chưa hỗ trợ phương thức xác thực phù hợp cho loại giao dịch C, D của ngân hàng liên kết. 
+
+Đồng thời, đây là hạn mức giao dịch của KH tại hệ thống bank. Bao gồm tất cả các giao dịch trực tuyến của KH qua app bank và các ứng dụng/ví điện tử khác. Đây không phải là hạn mức của Zalopay.
+
+HXL: CS hướng dẫn KH thực hiện nạp tiền/thanh toán qua chuyển khoản ngân hàng (Hình thức VietQR) hoặc thử lại vào ngày hôm sau.
+
+(*) Nếu KH không ý với hướng tư vấn do vượt quá số tiền giao dịch nhưng:
++ Liên hệ lần đầu (ngày đầu tiên bị lỗi): CS cố gắng thuyết phục KH chờ và thử lại vào ngày hôm sau hoặc liên hệ trực tiếp bank để được hỗ trợ thêm.
++ Liên hệ lại do bị lỗi tương tự nhiều ngày: CS nhận thông tin NH để chuyển SL mail bank kiểm tra.",,,
+-5423,, Thiếu thông tin tài khoản bên nhận lệnh.,,Bank,Fail,"Nguyên nhân: KH đăng ký mở khoản vay của VietCredit/Tinvay tuy nhiên ngân hàng không duyệt khoản vay cho KH do không thỏa điều kiện của ngân hàng
+
+HXL: CS tư vấn cho KH theo thông tin "" Hiện tại, Tinvay chưa có khoản vay phù hợp với bạn. Bạn có thể tham khảo các đối tác khác trên Zalopay hoặc thử lại sau 7 ngày nhé""
+
+Thông tin nội bộ CS nắm: Thông tin hiển thị lỗi đang sai, Dev đang check lại để trả kết quả lỗi đúng.",,,
+-5424,, Thiếu thông tin tài khoản bên nhận lệnh.,,Bank,Fail,,,,
+-5425,, Thiếu thông tin tài khoản bên nhận lệnh.,,Bank,Fail,"Nguyên nhân: KH đăng ký mở khoản vay của VietCredit/Tinvay tuy nhiên ngân hàng không duyệt khoản vay cho KH do không thỏa điều kiện của ngân hàng
+
+HXL: CS tư vấn cho KH theo thông tin "" Hiện tại, Tinvay chưa có khoản vay phù hợp với bạn. Bạn có thể tham khảo các đối tác khác trên Zalopay hoặc thử lại sau 30 ngày nhé""
+
+Thông tin nội bộ CS nắm: Thông tin hiển thị lỗi đang sai, Dev đang check lại để trả kết quả lỗi đúng.",,,
+-5426,, Thiếu thông tin tài khoản bên nhận lệnh.,,Bank,Fail,,,,

@@ -1,0 +1,280 @@
+﻿"BẢNG TƯ VẤN HẠN MỨC GIAO DỊCH TỐI ĐA DÀNH CHO MỘT SỐ APPID KHI THANH TOÁN BẰNG NGUỒN TIỀN TÀI KHOẢN TRẢ SAU
+ (Dành cho các trường hợp KH thanh toán nhưng không lên giao dịch trên TPE hoặc giao dịch bị chặn từ màn hình Cashier)",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5
+"Tình huống:
+- Giao dịch bằng TKTS có ghi nhận giao dịch thất bại lỗi -358 trên TPE
+- Giao dịch bằng TKTS không ghi nhận trên TPE
+- Giao dịch bằng TKTS vượt hạn mức quản lý rủi ro của nguồn tiền
+Nguyên nhân: Do risk chặn hạn mức giao dịch bằng TKTS.
+
+HXL: CS kiểm tra thêm thông tin trên tool TPE thông tin giao dịch (nếu không có GD xin dịch vụ đang thanh toán và số tiền) để đối chiếu HXL trên bảng mã lỗi TPE -358/ ErrorCode
+
+1. Giao dịch bằng TKTS có ghi nhận giao dịch thất bại lỗi -358 trên TPE
+Ví dụ: ""Giao dịch của bạn vượt quá hạn mức mua thẻ cào 150.000đ trong 30 ngày bằng TK trả sau. Bạn vui lòng thử lại bằng nguồn tiền khác""
+=> Trước tiên, CS cần kiểm tra lại thông tin giao dịch trên tool xem KH có thật sự vượt quá hạn mức 150.000đ không?
+   > Nếu có: CS tư vấn theo message lỗi, hướng dẫn KH thực hiện lại bằng nguồn tiền khác hoặc thử lại sau 30 ngày.
+   > Nếu không: CS ghi nhận chuyển SL/note file risk kiểm tra
+
+2. Số tiền cần thanh toán (Số tiền trước giảm giá)+ hạn mức đã sử dụng LỚN HƠN hạn mức được cấp 
+=> CS hướng dẫn KH sử dụng nguồn tiền khác và thử lại giao dịch sau 30 ngày.
+
+3. Số tiền cần thanh toán (Số tiền trước giảm giá)+ hạn mức đã sử dụng NHỎ HƠN hạn mức được cấp 
+4. Hạn mức đã sử dụng LỚN HƠN hạn mức được cấp 
+=> CS chuyển SL/note file risk. SLA 3-5 ngày làm việc.
+
+5. Giao dịch bằng TKTS vượt hạn mức quản lý rủi ro của nguồn tiền (mã lỗi hạn mức không rõ ràng)
+=> CS hướng dẫn KH sử dụng nguồn tiền khác. Nếu KH gay gắt muốn biết chính xác hạn mức là bao nhiêu. CS chuyển SL/note file risk. SLA 3-5 ngày làm việc.
+
+",,,"Một số tình huống khác mà CS thường gặp:
+ 1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+ Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+ 
+ 2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+ Một số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
+ + Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
+ + Thanh toán dư nợ TKTS đầy đủ và đúng hạn
+ 
+ 3. KH thắc mắc thanh toán chưa đủ hạn mức sao đã bị chặn:
+ CS tính tổng tiền KH đã chi tiêu cho cả 02 AppID bằng cách:
+ . Vào tool TPE >> CS lọc Nguồn tiền bằng TKTS; thời gian trong vòng 30 ngày từ GD bị lỗi: CS tính tổng GD Lazada + Tiktokshop + GD TiktokShop/Lazada hiện tại mà đang bị lỗi, bị từ chối.
+ . CS đối chiếu KH đang bị phạm theo hạn mức nào
+ >> CS tư vấn hướng xử lý cho KH theo hạn mức tương ứng.",,
+,,,,,
+Loại dịch vụ,AppID (Tính tổng các AppID cùng 1 loại dịch vụ),Hạn mức,Message on Cashier,TPE Message,Note
+Group of merchant,AppID bất kỳ,"Group 1: 4M/ 1 day
+Group 2: 3M/ 1 day",Vượt quá hạn mức giao dịch đối với dịch vụ này trong <hours>. ,Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong <hours>. Bạn thử lại bằng nguồn tiền khác nhé.,
+Telco,12 - Thẻ điện thoại,All users: 150k/ 30 days,Vượt mức thẻ cào <amount>/30 ngày,Vượt hạn mức mua thẻ cào <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,61 - Nạp điện thoại,"Group 1: 1M/ 30 days
+Group 2: 150k, 250k, 350k/ 30 days
+Group 3: 150k/ 30 days",Vượt mức nạp điện thoại <amount>/30 ngày,Vượt hạn mức nạp tiền ĐT <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,"12 - Thẻ điện thoại
+61 - Nạp điện thoại","Group 2, 3: 200k/ 30 days","Vượt mức thẻ cào, nạp ĐT <amount>/30 ngày",Vượt tổng hạn mức thẻ cào và nạp ĐT <amount> trong 30 ngày bằng TK trả sau. Bạn thử nguồn tiền khác nhé.,
+,"441 - Nạp data 3G/4G
+455 - Combo điện thoại","Group 2: 
+ - Cùng SĐT: 250k/30 days
+ - Khác SĐT: 100k/30 days
+ Group 3:
+ - Cùng SĐT: 100k/30 days
+ - Khác SĐT: Không cho phép
+","Vượt mức nạp data/combo x/30 ngày
+Vượt mức nạp data/combo khác SĐT x/30 ngày
+Chưa hỗ trợ nạp data/combo khác SĐT","Vượt hạn mức nạp data/combo <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+ Vượt hạn mức nạp data/combo cho SĐT khác <amount> trong 30 ngày bằng TK trả sau. Bạn sử dụng nguồn tiền khác nhé.",
+,2172 - Thẻ data,"Group 1 & 2: 100k/ 30 days
+Group 3: Không cho phép","Vượt mức mua thẻ data x/30 ngày
+Dịch vụ chưa hỗ trợ",Vượt hạn mức mua thẻ data <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,"441 - Nạp data 3G/4G
+455 - Combo điện thoại
+2172 - Thẻ data","Group 1: 500k/30 days
+Group 2: 300k/30 days",Vượt mức dịch vụ data x/30 ngày,Vượt hạn mức dịch vụ data <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,Các AppID Telco thuộc đối tác Thanh sơn,KH hit rules khi chưa nằm trong danh sách được cho phép thanh toán tại merchant này. User có thể thanh toán bằng nguồn tiền khác,Dịch vụ chưa hỗ trợ,Dịch vụ chưa hỗ trợ. Bạn thử lại bằng nguồn tiền khác nhé.,"
+infocode: 610199"
+Billing,"Hóa đơn điện
+(429 - EVN Miền Nam
+ 372 - EVNHCM
+ 431 - EVN MB
+ 422 - EVNHN
+ 430 - EVNCPC
+ 17 - Điện)","- Group 1: Không giới hạn
+- Group 2: 
++ Tối đa 2 GD/30 days, tối thiểu 1 GD/30 days
++ 1.5M/30 days (chỉ dành cho Lotte Finnace) 
+- Group 3: 
++ Old bill = 1 triệu/30 ngày
++ New bill = Không cho phép (*)","Vượt x giao dịch thanh toán điện trong 30 ngày
+
+Vượt thanh toán điện <amount>/30 ngày
+
+Vượt thanh toán cho hóa đơn điện mới 2 triệu/30 ngày
+
+Không khả dụng với hóa đơn điện mới","Vượt mức thanh toán điện <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+
+(*): Nguồn tiền TK trả sau không khả dụng với hóa đơn này. Vui lòng thử lại bằng nguồn tiền khác.","Định nghĩa:
+- Hóa đơn cũ là hóa đơn đã từng được User thanh toán trong 6 tháng.
+- Hóa đơn mới mã hóa đơn chưa từng được User thanh toán trong 6 tháng."
+,Hóa đơn nước,"- Group 1: 3M/ 30 days
+- Group 2: Tối đa 1M/30 days, tối thiểu 600k/30 days
+- Group 3: 200k/ 30 days",Vượt thanh toán nước <amount>/30 ngày,Vượt mức thanh toán nước <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,Hóa đơn Internet,"Group 2: 1M/ 30 days
+Group 3: 300k/ 30 days",Vượt thanh toán Internet <amount>/30 ngày,Vượt hạn mức Internet <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+Giải trí,Vé số (1878 - VIETLOTT),"Group 1: 2M/ 30 days
+Group 2: 1M/ 30 days
+Group 3: 500, 200k/ 30 days",Vượt hạn mức mua vé số <amount>/30 ngày,Vượt hạn mức mua vé số <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,"Nạp game 
+ (15 - Dịch Vụ
+ 1140 - ZingPlay
+ 1348 - ZingPlay
+ 1349 - ZingPlay
+ 1364 - ZingPlay KVTM
+ 1477 - ZingPlay CTP
+ 1487 - ZingPlay Web Payment
+ 1459 - ZingPlay Cá Béo
+ 1845 - ZingPlay STM
+ 2244 - ZingPlay My Fish
+ 3010 - Rồng Thần Siêu Cấp
+ 3070 - Cửu Vĩ Đại Chiến
+ 3062 - ATE THDC
+ 1698 - ZGC Autodebit
+ 2987 - ZGC
+ 734 - GAMOTA
+ 3146 - Tân 3Q Truyền Kỳ
+ 3143 - Huyễn Tướng 3Q
+ 3144 - Beast Lord
+ 10056 - JEDI
+ 3166 - OCEAN GALAXY
+ 3011 - Gomu Huyền Thoại
+ 3219 - Tayduthanky
+ 3072 - Hội Quán Đấu Sĩ
+ 3119 - 123 Tam Quốc
+ 3071 - Chiến Binh Idle
+ 2849 - ZingPlay Cờ Tướng
+ 4069 - Ica)","Group 2: 1M, 2M, 3M / 30 days
+Group 3: 200k/ 30 days",Vượt mức nạp game <amount>/30 ngày,Vượt mức nạp game <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,"Thẻ game
+
+(28 - ESale Miền Nam
+ 29 - ESale Miền Bắc
+ 2391 - Thẻ giải trí)","Group 2: 300k/ 30 days
+Group 3: 100k/ 30 days","Vượt mức nạp thẻ, dịch vụ <amount>/30 ngày",Vượt mức mua thẻ game <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,All Game topup & Game card/services,"Group 2: 600k/ 30 days
+Group 3: 250k/ 30 days","Vượt mức game, dịch vụ <amount>/30 ngày",Vượt tổng dịch vụ game <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+Mua sắm,"Điện tử & Viễn thông
+(1183 - Dien May Thien Hoa QRPay
+1125 - CellphoneS MN
+1016 - CellphoneS MB
+1496 - NGUYEN_KIM
+1182 - Dien May Thien Hoa
+1949 - TGDD POS
+2203 - FPTSHOP
+2334 - FPTSHOP Website
+1850 - NGUYEN KIM POS
+2266 - Minh Tuan Mobile QRPay
+2359 - VIETTEL STORE
+2373 - VIETTEL STORE WEBSITE)","Group 2: 1.5M/ 30 days
+Group 3: 500k/ 30 days",Vượt mức <amount>/30 ngày cho dịch vụ này,Vượt mức dịch vụ này <amunt> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+Vận chuyển,"Grab (2222)
+Gojek (2688)","- Grab: chỉ đang hỗ trợ thanh toán Grab Transport, GrabFood, GrabExpress
+- Gojek: chỉ đang hỗ trợ thanh toán Go-Food, Go-Bike",,Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Các loại dịch vụ khác của Grab/Gojek sẽ bị báo lỗi
+,"Grab (2222)
+Gojek (2688)","- Group 2: 1.5M/30 days;
+- Group 3: 500k/30 days (chỉ áp dụng với Grab Transport/GrabExpress, còn GrabFood và GoJek thì không cho phép thanh toán)",Vượt mức thanh toán dịch vụ này x triệu/30 ngày,Vượt mức x triệu/30 ngày tại dịch vụ đi lại bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+Thương mại điện tử,"
+Tính tổng trên các AppID sau:
+748 - Lazada
+1413 - Tiktok Shop Seller
+1411 - TikTok Live","- Group 2: 3M, 2M, 1M/ 30 days;
+- Group 3: Không cho phép","Vượt thanh toán dịch vụ thương mại điện tử (TMĐT) <amount>/30 ngày
+ Dịch vụ chưa hỗ trợ","Group 2:
+ Vượt mức giao dịch thương mại ĐT <amount> trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.
+
+Group 3: 
+ Nguồn tiền TKTS hiện không hỗ trợ cho dịch vụ này. Bạn vui lòng chọn nguồn tiền khác nhé.",
+Siêu thị online,"Các AppID MM OA (Ví dụ: 1234 - MM Hiệp Phú OA, …)
+ 
+Các AppID MMVN OA (Ví dụ: 1280 - MMVN Hong Bang OA, …)
+ 
+Các AppID SATRAMART (Ví dụ: 2284 - SATRAMART CỦ CHI OSC,…)
+ 
+ 361 - BHX website
+ 1675 - GO! Master OA
+ 1330- CoopMart
+ 1442 - BHX VN App
+ 343 - AeonEshop
+ 1414 - Top Market OSC
+ 1197 - SPEED L
+ 1400 - CoopFood","- Group 1: 
+  + Đơn hàng có bia: 3M/30 days;
+  + Đơn hàng không có bia: no limit
+- Group 2:
+  + Đơn hàng có bia: 1M/30 days;
+  + Đơn hàng không có bia: 2M/30 days
+- Group 3: 500k/30 days",Vượt thanh toán siêu thị online <amount>/30 ngày,Vượt mức siêu thị online <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,"1509 - Tops Market
+708 - BigC","- Group 2: 1.5M/30 days
+- Group 3: Không cho phép",,"- Group 2: Vượt mức siêu thị <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+ - Group 3: Không áp dụng thanh toán bằng TK trả sau.",
+Transportation,"Tính tổng trên cả 2 AppID
+599 - VETC Web in app
+2318 - ePass","- Group 2: 1M, 2M, 3M /30 days
+- Group 3: 500k/30 days",Vượt mức nạp tiền thu phí không dừng <amount>/30 ngày,Vượt mức nạp tiền thu phí không dừng <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+Billing," 21 - Truyền Hình
+226 - SCTV
+634 - K plus
+671 - VNPT Truyền hình
+1013 - HTVC Cab
+1057- VTV Cab
+1452 - Truyền Hình SCTV
+1506 - Viettel Truyền Hình
+1549 - SCTV ApptoApp
+1597- HTVC Việt Thành Internet
+1598 - HTVC Việt Thành Truyền Hình
+","- Group 2: max 3 GD HOẶC 3M /30 days
+- Group 3: max 2 GD HOẶC 800k/30 days","- Vượt x giao dịch thanh toán truyền hình/30 ngày
+- Vượt dịch vụ truyền hình <amount>/30 ngày","- Vượt x giao dịch thanh toán truyền hình trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+- Vượt mức thanh toán truyền hình <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",
+,Hóa đơn điện,"Dành riêng cho user LFVN:
+- Max giá trị hóa đơn 1.2M đối với HĐ Điện mới (chưa từng thanh toán thành công trong 6 tháng gần nhất) & User mới (chưa phát sinh sao kê kỳ thanh toán đầu tiên hoặc trong vòng 30 ngày kể từ khi onboard thành công) ",,"Vượt mức thanh toán <amount> triệu đồng cho hóa đơn điện bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé
+",infocode: 610250
+,4093 - VNPay,KH hit rules khi sub-merchant của VNPay chưa được cho phép sử dụng TKTS. User có thể thanh toán bằng nguồn tiền khác,Dịch vụ chưa hỗ trợ,Dịch vụ chưa hỗ trợ. Bạn thử lại bằng nguồn tiền khác nhé.,infocode: 610299
+,Những Merchant thuộc đối tác Thanh Sơn,KH hit rules khi chưa nằm trong danh sách được cho phép thanh toán tại merchant này. User có thể thanh toán bằng nguồn tiền khác,Dịch vụ chưa hỗ trợ,Dịch vụ chưa hỗ trợ. Bạn thử lại bằng nguồn tiền khác nhé.,"
+infocode: 610297"
+Application Store,"579 - Google Play & 9999 - Apple Services
+
+. Apple Service: all sub-merchants
+
+. Google Play: top 50 sub-merchants","- Group 1: no limit
+- Group 2: 600k; 800k; 1M; 1.5M; 2M/30 days
+- Group 3: 300k/30 days ; không cho phép",Vượt mức thanh toán dịch vụ này xxx/30 ngày,"Vượt mức thanh toán <amount> triệu đồng bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé
+",
+Group of merchant,All,,Giao dịch có dấu hiệu bất thường. Vui lòng xác thực khuôn mặt để tiếp tục giao dịch.,Giao dịch có dấu hiệu bất thường. Vui lòng xác thực khuôn mặt để tiếp tục giao dịch.,*Giao dịch này KH cần đi thực hiện Face Authen trong tính năng Security Center.
+,All,,Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,*Giao dịch này KH cần thực hiện update KYC.
+,All,"Dành riêng cho KH mở CIMB Paylater acquire bằng VietQR.
+Nguồn tiền TKTS",Vượt tổng hạn mức thanh toán 500.000đ,Vượt tổng hạn mức 500.000đ đối với nguồn tiền TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Hướng dẫn KH sử dụng nguồn tiền khác.
+,,,Trước đó từng thanh toán bằng TKTS được nhưng giờ báo chưa hỗ trợ,Chưa hỗ trợ nguồn tiền/Chưa hỗ trợ thanh toán dịch vụ này,"Hướng dẫn KH sử dụng nguồn tiền khác. Nếu KH gay gắt muốn biết chính xác hạn mức là bao nhiêu:
+
+- (ngắn hạn) chuyển SL note file risk [LINK]. SLA 3-5 ngày làm việc.
+- (dài hạn) Risk sẽ dynamic phần hạn mức của từng user trong message."
+,,,Vượt hạn mức quản lý rủi ro của nguồn tiền,Vượt hạn mức quản lý rủi ro đối với nguồn tiền TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,All,"Dành riêng cho user LFVN (cho KH mới thanh toán trong kỳ sao kê đầu) :
+- Max limit = 60% OR 70% trên tổng hạn mức",,Thanh toán vượt mức xx% hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,
+,All,"Dành riêng cho 1 tập user LFVN:
+- Max hạn mức 1M",Vượt tổng hạn mức thanh toán <amount> triệu,Thanh toán vượt mức <amount> triệu đồng đối với nguồn tiền TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé,
+,All,"Dành riêng cho user LFVN trong kỳ sao kê đầu tiên cho đến khi thanh toán đầy đủ dư nợ:
+- Hạn mức tín dụng 5M: cap max 3.5M
+- Hạn mức tín dụng 4M: cap max 1.5M OR 2M
+- Hạn mức tín dụng 2.5M: cap max 1.5M
+- Hạn mức tín dụng 2M: cap max 1.5M",Thanh toán vượt mức ____ đồng,Thanh toán vượt mức <amount> triệu đồng đối với khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé,"Note nội bộ: Mã lỗi giới hạn sử dụng TK trả sau Lotte (KH mới)
+
+Ý nghĩa: Khách hàng mới dùng tài khoản trả sau Lotte nên hệ thống giới hạn mức sử dụng trong giai đoạn đầu và yêu cầu giữ lại một phần hạn mức khả dụng. Nếu giao dịch làm hạn mức khả dụng xuống dưới mức quy định thì hệ thống từ chối.
+
+Ví dụ:
+- Hạn mức 2.5 triệu
+- Dùng tối đa 1.5 triệu
+- Luôn giữ tối thiểu 1 triệu khả dụng
+
+Hướng xử lý:
+- Giải thích đây là quy định quản trị rủi ro cho khách mới
+- Hướng dẫn KH:
+  + Trả bớt dư nợ để tăng hạn mức khả dụng
+  + Hoặc chọn nguồn tiền khác
+
+Gợi ý temp:
+Chào bạn, 
+Trước tiên, Zalopay chân thành xin lỗi vì những bất tiện trong quá trình sử dụng.
+
+Dựa trên thông tin bạn cung cấp, giao dịch chưa thể thực hiện bằng tài khoản trả sau Lotte vì hạn mức sử dụng ban đầu của bạn đang được hệ thống kiểm soát theo quy định quản lý rủi ro.
+
+Trong kỳ sao kê đầu tiên, hệ thống áp dụng hạn mức sử dụng tối đa theo từng bậc đối với khách hàng mới. Đồng thời, bạn cần duy trì một phần hạn mức khả dụng tối thiểu trong tài khoản trả sau. Nếu sau giao dịch, hạn mức khả dụng còn dưới mức quy định, giao dịch sẽ chưa thể thực hiện bằng tài khoản trả sau.
+
+Ví dụ minh họa
+Trường hợp tổng hạn mức của bạn là 2.5 triệu đồng, hạn mức sử dụng tối đa trong kỳ đầu là 1.5 triệu đồng. Như vậy:
+- Bạn có thể sử dụng tối đa: 1.5 triệu đồng
+- Bạn cần luôn duy trì hạn mức khả dụng tối thiểu: 1 triệu đồng
+Nếu một giao dịch khiến số dư khả dụng còn dưới 1 triệu đồng, hệ thống sẽ chưa hỗ trợ giao dịch bằng tài khoản trả sau.
+
+Giải pháp gợi ý
+- Thanh toán một phần dư nợ để tăng hạn mức khả dụng
+- Hoặc chọn nguồn tiền khác trên Zalopay để hoàn tất giao dịch
+
+Khi bạn sử dụng và thanh toán đúng hạn trong các kỳ tiếp theo, hệ thống sẽ tự động đánh giá và mở hạn mức đầy đủ cho bạn. Zalopay luôn sẵn sàng hỗ trợ thêm nếu bạn cần nhé.
+
+​Cảm ơn bạn đã luôn tin tương và đồng hành cùng Zalopay."

@@ -1,0 +1,99 @@
+﻿BẢNG MÃ LỖI SỬ DỤNG KHI CHECK CÁC VẤN ĐỀ LIÊN QUAN ĐẾN CÁC GIAO DỊCH CÓ QUA LUỒNG CẦN THỰC HIỆN NFC,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+Error code,Step Result,User message (Thông báo đến User),Description nội bộ,HXL,
+-365,,"Giao dịch không thành công do lỗi xác thực (NFC, Faceauthen...)",,"CS kiểm tra KH đã thực hiện NFC thành công hay chưa? 
+- Nếu chưa NFC  thì hướng dẫn KH cập  nhật định danh và thực lại NFC, sau khi NFC thành công thì hãy thực hiện lại GD. Nếu NFC thất bại hoặc ko NFC thì xử lý theo quy trình cập nhật NFC
+- Nếu đã NFC thì Chuyển case SL tạo Jira cho dev UM kiểm tra nguyên nhân",
+-365,-1000,Thông tin xác thực không đúng,Thông tin auth_type không đúng,Lỗi hệ thống - chuyển SL tạo jira cho UM,
+-365,-1001,Thông tin xác thực không hỗ trợ,Thông tin auth_type không hỗ trợ,Lỗi hệ thống - chuyển SL tạo jira cho UM,
+-365,-1002,{},Thông tin không hợp lệ,"CS kiểm tra KH đã thực hiện NFC thành công hay chưa? 
+ 1. Nếu chưa NFC thì hướng dẫn KH cập nhật định danh và thực lại NFC, sau khi NFC thành công thì hãy thực hiện lại GD. Nếu NFC thất bại hoặc ko NFC thì xử lý theo quy trình cập nhật NFC 
+ 2. Nếu đã NFC thì hướng dẫn KH thử lại và chụp màn hình báo lỗi nếu vẫn thất bại. 
+(Tùy nội dung lỗi mà CS hướng dẫn khách hàng xử lý theo message tương ứng)",x
+-365,-1003,Đã xảy ra lỗi trong quá trình xác thực. Vui lòng thử lại hoặc liên hệ bộ phận CSKH 1900 545436 để được hỗ trợ.,unexpected error,Lỗi hệ thống - chuyển SL tạo jira cho UM,
+-365,-1004,Mã xác thực OTP không đúng. Vui lòng thực hiện lại.,Mã xác thực OTP không đúng. Vui lòng thực hiện lại.,"Hướng dẫn KH thực hiện lại giao dịch khác và nhập OTP để hoàn tất giao dịch, TH khách hàng nói ko thấy màn hình nhập OTP/ko nhận được OTP thì chuyển SL kiểm tra với dev cashier",
+-365,-1005,Thông tin xác thực không chính xác. Vui lòng kiểm tra thông tin và quét lại CCCD.,NFC fail,"Nguyên nhân: do KH thực hiện NFC thất bại
+ - Nếu có tool check, CS check nguyên nhân thất bại rồi phản hồi
+ - Nếu chưa có tool check, CS xin hình ảnh lỗi rồi xử lý tương tự như quy trình cập nhật NFC",x
+-365,-1006,Giao dịch chưa được xác thực. Vui lòng quét CCCD để xác thực.,NFC cancel,"Nguyên nhân: do KH không quét được NFC, lỗi phát sinh khi KH đang NFC
+CS xin hình ảnh lỗi rồi xử lý tương tự như quy trình cập nhật NFC",x
+-365,-1007,Xác thực tài khoản thất bại. Vui lòng xác thực lại để tiếp tục thực hiện giao dịch.,ekyc fail,"Nguyên nhân : do KH KYC thất bại.
+HXL: CS kiểm tra nguyên nhân thất bại tại tool KYC + hướng dẫn KH thực hiện KYC lại",
+-365,-1008,Tài khoản đang chờ xác thực. Bạn vui lòng chờ nhé.,ekyc pending,"Nguyên nhân: do KYC đang chờ duyệt
+HXL: CS kiểm tra và duyệt KYC cho KH, sau đó nhờ KH thử lại sau khi đã duyệt thành công ",
+-365,-1009,Tài khoản chưa được xác thực. Vui lòng xác thực tài khoản để tiếp tục thực hiện giao dịch.,ekyc cancel,"Nguyên nhân: do KH đang KYC thì thoát ra, CS hướng dẫn KH thực hiện KYC lại, nếu không KYC được thì khai thác vấn đề khách hàng đang gặp ở đâu và xử lý theo quy trình KYC",
+-365,-1010,Cập nhật thông tin xác thực tài khoản thất bại. Vui lòng cập nhật lại để tiếp tục thực hiện giao dịch.,adjust ekyc fail,"Nguyên nhân : do KH cập nhật KYC thất bại.
+HXL: CS kiểm tra nguyên nhân thất bại tại tool KYC + hướng dẫn KH thực hiện cập nhật KYC lại",
+-365,-1011,Tài khoản đang chờ cập nhật thông tin xác thực. Bạn vui lòng chờ nhé.,adjust ekyc pending,"Nguyên nhân: do yêu cầu cập nhật KYC đang chờ duyệt
+HXL: CS kiểm tra và duyệt cập nhật KYC cho KH, sau đó nhờ KH thực hiện lại GD sau khi đã duyệt thành công ",
+-365,-1012,Tài khoản chưa được cập nhật thông tin xác thực. Vui lòng cập nhật để tiếp tục thực hiện giao dịch.,adjust ekyc cancel,"Nguyên nhân: do KH đang cập nhật KYC thì thoát ra, CS hướng dẫn KH thực hiện cập nhật KYC lại, nếu không cập nhật KYC được thì khai thác vấn đề khách hàng đang gặp ở đâu và xử lý theo quy trình cập nhật KYC.",
+-365,-1013,Giao dịch chưa được xác thực. Vui lòng xác thực khuôn mặt để tiếp tục thực hiện giao dịch.,face authen cancel,"Nguyên nhân: do KH đang face authen thì thoát ra, CS hướng dẫn KH thực hiện xác thực khuôn mặt lại.",
+-365,-1014,Bạn cần tải ứng dụng Zalopay phiên bản mới nhất để xác thực giao dịch.,ver app < 9.8.0 cho OTP,Hướng dẫn khách hàng cập nhật phiên bản mới nhất rồi thử lại,
+-365,,,ver app < 9.10.00 cho Face/nfc/ekyc/adjust ekyc,,
+-365,-1015,Xác thực thất bại. Vui lòng xác thực khuôn mặt để tiếp tục thực hiện giao dịch.,face authen fail,"Nguyên nhân: do KH face authen thất bại
+HXL: CS hướng dẫn KH thực hiện lại giao dịch và thực hiện face authen lại. Nếu face authen nhiều lần không được thì CS hướng dẫn KH chụp hình chân dung + xin thông tin lỗi ứng dụng , sau đó chuyển SL tạo jira nhờ team UM kiểm tra",
+-365,-1016,Tài khoản chưa xác thực. Vui lòng xác thực tài khoản để tiếp tục thực hiện giao dịch.,common cancel,"CS kiểm tra 
+ 1. Kiểm tra xem KH đi KYC chưa, nếu chưa thì thực hiện KYC trước, nếu đã KYC thì check tiếp KH đã thực hiện NFC thành công hay chưa? 
+ 2. Nếu chưa NFC thì hướng dẫn KH cập nhật định danh và thực lại NFC, sau khi NFC thành công thì hãy thực hiện lại GD. Nếu NFC thất bại hoặc ko NFC thì xử lý theo quy trình cập nhật NFC
+ 3. Nếu đã NFC thì hướng dẫn KH thử lại và chụp màn hình báo lỗi nếu vẫn thất bại.
+ (Tùy nội dung lỗi mà CS hướng dẫn khách hàng xử lý theo message tương ứng)",x
+-365,-1017,Tài khoản đang được xác thực. Bạn vui lòng chờ nhé.,common pending,"CS kiểm tra 
+ 1. Kiểm tra xem KH đi KYC chưa, nếu chưa thì thực hiện KYC trước, nếu đã KYC thì check tiếp KH đã thực hiện NFC thành công hay chưa? 
+ 2. Nếu chưa NFC thì hướng dẫn KH cập nhật định danh và thực lại NFC, sau khi NFC thành công thì hãy thực hiện lại GD. Nếu NFC thất bại hoặc ko NFC thì xử lý theo quy trình cập nhật NFC.
+ 3. Nếu đã NFC thì hướng dẫn KH thử lại và chụp màn hình báo lỗi nếu vẫn thất bại.
+ (Tùy nội dung lỗi mà CS hướng dẫn khách hàng xử lý theo message tương ứng)",x
+-365,-1018,Thông tin xác thực tài khoản chưa hợp lệ. Vui lòng cập nhật lại để tiếp tục thực hiện giao dịch.,common fail,"CS kiểm tra 
+ 1. Kiểm tra xem KH đi KYC chưa, nếu chưa thì thực hiện KYC trước, nếu đã KYC thì check tiếp KH đã thực hiện NFC thành công hay chưa? 
+ 2. Nếu chưa NFC thì hướng dẫn KH cập nhật định danh và thực lại NFC, sau khi NFC thành công thì hãy thực hiện lại GD. Nếu NFC thất bại hoặc ko NFC thì xử lý theo quy trình cập nhật NFC
+
+ 3. Nếu đã NFC thì hướng dẫn KH thử lại và chụp màn hình báo lỗi nếu vẫn thất bại.
+ (Tùy nội dung lỗi mà CS hướng dẫn khách hàng xử lý theo message tương ứng)",x
+-365,-1019,Bạn đã vượt hạn mức giao dịch không cần xác thực trong hôm nay. Vui lòng thử lại vào ngày mai nhé.,quá hạn mức 20tr/ ngày cho Agreement Pay + Quick Pay,"Nguyên nhân: KH vượt quá hạn mức mức 20tr/ ngày cho Agreement Pay + Quick Pay
+ 
+Hướng xử lý: HD khách hàng thực hiện lại ngày mai, lưu ýtổng giao dịch Agreement Pay + Quick Pay < 20tr",
+-365,-1020,Tài khoản đang được xác thực. Bạn vui lòng chờ thông báo kết quả và thực hiện lại sau nhé.,NFC pending,"Nguyên nhân : do KH đang chờ CS review lại chân dung trong flow NFC , CS kiểm tra tool NFC và xét duyệt cho KH",
+-365,-1024,Xác thực SMART OTP không thành công. Vui lòng thử lại hoặc liên hệ bộ phận CSKH 1900 545436 để được hỗ trợ.,Xác thực SMART OTP không thành công. Vui lòng thử lại hoặc liên hệ bộ phận CSKH 1900 545436 để được hỗ trợ.,"HXL: Với TH này cần dev trace log kiểm tra nguyên nhân, CS tiếp nhận chuyển case cho SL chuyển dev UM check assign NguyenC2.",
+-365,-1301,Lỗi do hệ thống,Lỗi do hệ thống,"Lý do: Lỗi do hệ thống
+Hướng xử lý: CS ghi nhận chuyển case SL kiểm tra vs DEV CASHIER",x
+-365,AUTHENTICATION_NOT_SUPPORTED,Giao dịch cần xác thực tuy nhiên phiên bản user đang dùng không thể thực hiện xác thực.,Giao dịch cần xác thực tuy nhiên phiên bản user đang dùng không thể thực hiện xác thực.,"Lý do: Giao dịch cần xác thực tuy nhiên phiên bản user đang dùng không thể thực hiện xác thực.
+Hướng xử lý:CS ghi nhận chuyển case SL kiểm tra vs DEV CASHIER",
+-365,-1021,Giao dịch chưa được xác thực. Vui lòng thực hiện lại giao dịch và nhập mã OTP mới nhất.,,"Lý do: Giao dịch cần xác thực OTP nhưng KH không nhập hoặc nhập không đúng sau đó thao tác hủy giao dịch. Lưu ý sẽ có tình huống nhà mạng chậm tin nhắn > KH spam request mã OTP liên tục dẫn đến thời điểm User nhận được tin nhắn thì OTP đang nhận là thông tin OTP cũ, không phải OTP mới nhất mà KH đang request.
+
+Hướng xử lý: CS hướng dẫn KH chờ và thử lại sau 15 phút, lưu ý nhập đúng OTP để tránh gặp lỗi tương tự..
+
+Nếu KH liên tục bị lỗi thì CS cần khai thác rõ xem User đang không nhận được mã hay nhận mã nhưng nhập không được,... và ghi chú rõ tình huống cho SL chuyển DEV kiểm tra thêm giúp KH. ",
+-365,-1023,Giao dịch chưa được xác thực. Vui lòng thực hiện lại giao dịch và xác thực bằng mã SMART OTP mới nhất.,,"Nguyên nhân: Do KH nhập mã xác thực smart otp không khớp.
+HXL: CS hướng dẫn KH thử lại và nhập đúng mã OTP được gửi về",
+-6038,1,Giao dịch không thành công do khách hàng chưa nhập OTP. ,,"Hướng dẫn KH thực hiện lại giao dịch khác và nhập OTP để hoàn tất giao dịch.
+- TH khách hàng nói ko thấy màn hình nhập OTP thì CS xin ảnh chuyển SL kiểm tra với DEV CASHIER
+- TH khách hàng nói không nhận được mã OTP thì CS ghi nhận chuyển SL kiểm tra với DEV UM",
+-6038,-1004,Giao dịch không thành công do khách hàng nhập sai OTP hoặc không nhập lại OTP đúng. ,KH chưa hoàn tất 1 trong các phương thức xác thực sau: OTP/Face Authen/NFC,"CS kiểm tra KH đã NFC chưa. 
++ Nếu chưa HD KH đi NFC và thực hiện lại GD. 
++ Nếu KH đã NFC thì hướng dân KH cần nhập OTP hoặc Face Authen theo hướng dẫn màn hình để hoàn tất giao dịch. Nếu:
+TH1: KH KHÔNG THẤY MÀN HÌNH OTP/FACEAUTHEN, xin hình ảnh chuyển SL kiểm tra với DEV CASHIER
+TH2: KH KHÔNG NHẬN OTP thì chuyển SL kiểm tra với DEV UM",
+-6038,,Hệ thống chưa nhận được thông tin xác thực. Vui lòng thực hiện lại giao dịch.,KH chưa hoàn tất thông tin xác thực GD,"CS kiểm tra tại cột Auth Info của GD tương ứng > Kiểm tra phương thức xác thực đang bật cho GD này là phương thức xác thực nào >> Dựa vào thông tin này để tư vấn cho KH lý do GD thất bại.
+
+Ví dụ: CS kiểm tra thấy GD đang bật phương thức xác thực bioAuth (xác thực bằng vân tay) > CS tư vấn ""Zalopay kiểm tra giao dịch chuyển tiền đến tài khoản Zalopay của bạn không thành công do bạn chưa hoàn tất bước xác thực vân tay để xác nhận giao dịch. ",
+-366,,Giao dịch không thành công do lỗi hệ thống,,CS ghi nhận chuyển case SL tạo Jira cho dev QuanNT6 kiểm tra nguyên nhân,

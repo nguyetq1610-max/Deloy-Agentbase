@@ -1,0 +1,788 @@
+﻿Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6
+"VÍ DỤ MỘT SỐ MÃ LỖI FAIL RULE RISK CS THƯỜNG GẶP (-244,-332,-348,-352,-354,-356,-357,-358,-359,-361,-362, ...)",,,,,,
+,"Các tình huống và hướng xử lý khi gặp các mã lỗi trên tool TPE- Thông tin giao dịch:
+- TH1: Hệ thống trả mã lỗi và PE Return Message rõ ràng, CS đối chiếu trùng với HXL trên FAQ > CS tư vấn theo thông tin đã có cho KH
+- TH2: Hệ thống trả mã lỗi và PE Return Message rõ ràng nhưng trên FAQ không có thông tin mã lỗi và HXL > CS tư vấn kết quả theo PE Return Message cho KH + Chuyển case cho QC update lên FAQ
+- TH3: Hệ thống trả mã lỗi và PE Return Message không trùng với HXL trên FAQ/không rõ ràng > CS tạo jira kiểm tra với BPLQ
+
+PE Return Message là thông báo của hệ thống phản hồi kết quả và HXL cho KH",,,,,
+Mã lỗi,Nội dung thông báo,Thông báo khách hàng nhận được,Ý nghĩa,Nguyên nhân,Hướng giải quyết,Note
+-10325, BM_CARD_LINKED,, Thẻ đã được liên kết trước đó ,,,
+-6035, ZPGW_GET_TRANS_STATUS_FAILED,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6034, ZPGW_GET_ORDER_FAIL ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6033, ZPGW_ORDER_EXPIRED,," Đơn hàng hết hạn thanh toán, vui lòng thử lại ",,,
+-6032, ZPGW_PROMTION_INVALID ,, Thông tin ưu đãi không hợp lệ ,,,
+-6031, ZPGW_NOT_SUPPORT_PROMTION ,, Giao dịch không hỗ trợ thanh toán có ưu đãi ,,,
+-6030, ZPGW_PAY_WITHOUT_PROMTION ,, Tiếp tục thanh toán mà không hưởng ưu đãi ,,,
+-6029, ZPGW_AMOUNT_NOT_SUPPORT_PROMTION,, Thẻ không được hưởng ưu đãi ,,,
+-6028, ZPGW_PAY_WITHOUT_BIN_NOT_SUPPORT_PROMTION ,,,,,
+-6027, ZPGW_BIN_NOT_SUPPORT_PROMTION ,, Đầu thẻ không hỗ trợ thanh toán có ưu đãi ,,,
+-6026, ZPGW_REGISTER_PROMOTION_FAILED,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6025, ZPGW_GET_PROMOTION_INFO_FAILED,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6023, ZPGW_CLIENT_IP_NOT_ALLOWED,, Không hỗ trợ cập nhật config,,,
+-6022, ZPGW_CARD_NOT_SUPPORTED ,, Thẻ không hỗ trợ thanh toán ,,,
+-6021, ZPGW_CARD_EXPIRED_DATE_INVALID,, Ngày hết hạn thẻ không hợp lệ ,,,
+-6020, ZPGW_CARD_ISSUED_DATE_INVALID ,, Ngày phát hành thẻ không hợp lệ ,,,
+-6019, ZPGW_CARD_HOLDERNAME_INVALID,, Tên chủ thẻ không hợp lệ,,,
+-6018, ZPGW_REQUEST_NOT_AUTHEN ,, Giao dịch không được xác thực ,,,
+-6017, ZPGW_STEP_INVALID ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6016, ZPGW_ATM_FINISH_FAILED,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6015, ZPGW_AUTHEN_CARD_FAILED ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6014, ZPGW_SUBMIT_TRANS_FAILED,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6013, ZPGW_SUBMIT_BANK_FAILED ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6012, ZPGW_CANCELED_TRANSACTION ,, Giao dịch đã bị hủy bởi người dùng,,,
+-6011, ZPGW_BIN_NOT_SUPPORT,," Số thẻ ngân hàng không hỗ trợ thanh toán, vui lòng nhập lại ",,,
+-6010, ZPGW_CARD_NUMBER_INVALID,," Thông tin thẻ không hợp lệ, vui lòng nhập lại ",,,
+-6005, ZPGW_ORDER_ID_INVALID ,, Thông tin đơn hàng không hợp lệ ,,,
+-6004, ZPGW_ORDER_NOT_FOUND,, Thông tin đơn hàng không tồn tại,,,
+-6003, ZPGW_CREATE_ORDER_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-6002, ZPGW_BANK_NOT_SUPPORT ,, Ngân hàng chưa hỗ trợ thanh toán hoặc đang bảo trì,,,
+-6001, ZPGW_BANKCODE_INVALID ,, Mã ngân hàng không hợp lệ ,,,
+-6000, ZPGW_ORDER_INVALID,, Thông tin đơn hàng không hợp lệ ,,,
+-2071, UM_RATE_LIMIT_EXCEEDED,," Quá giới hạn tốc độ gọi API, vui lòng thử lại sau.",,,
+-2070, UM_IDENTITY_MAP_LIMIT_EXCEEDED,, Giấy tờ tùy thân đã được sử dụng để định danh cho tài khoản Zalopay khác. Liên hệ 1900 545436 để được hỗ trợ. ,,,
+-2069, RMS_DEVICE_LOCK ,," Tài khoản bị khóa trên thiết bị này, vui lòng liên hệ bộ phận CSKH để được hỗ trợ 1900 54 54 36 ",,,
+-2068, RMS_OTP_DEVICE_LOCK ,," Tin nhắn xác thực quá số lần quy định, vui lòng liên hệ bộ phận CSKH để được hỗ trợ 1900 54 54 36 ",,,
+-2067, UM_LOGIN_OTP_RETRY,, OTP không đúng. ,,,
+-2066, UM_LOGIN_OTP_MAX_RETRY,, Nhập OTP sai vượt quá số lần quy định.,,,
+-2065, UM_LOGIN_OTP_EXPIRE ,, OTP hết hạn.,,,
+-2064, RMS_NEED_VERIFY_OTP ,, Yêu cầu xác thực OTP để đăng nhập ,,,
+-2063, RMS_USER_LOCKED ,, Tài khoản của bạn đang tạm khóa. Vui lòng thử lại sau ,,,
+-2048, Số điện thoại chưa đăng ký Zalo ,, Số điện thoại chưa đăng ký Zalo ,,,
+-2047, Số điện thoại đăng ký không phải của tài khoản đăng nhập Zalo ,, Số điện thoại đăng ký không phải của tài khoản đăng nhập Zalo ,,,
+-2046, Chưa nhập mã xác thực số điện thoại ,, Chưa nhập mã xác thực số điện thoại ,,,
+-2045, Chiều dài của mã định danh không được dài hơn 12 ký tự,, Chiều dài của mã định danh không được dài hơn 12 ký tự,,,
+-2044, Loại thẻ định danh không hợp lệ ,, Loại thẻ định danh không hợp lệ ,,,
+-2043, Giới tính không hợp lệ,, Giới tính không hợp lệ,,,
+-2042, Tên đầy đủ không được dài hơn 50 ký tự,, Tên đầy đủ không được dài hơn 50 ký tự,,,
+-2029, UM_VERSION_NOT_SUPPORT,, Phiên bản này đã quá cũ và không còn được hỗ trợ. Vui lòng cập nhật lên phiên bản mới nhất để tiếp tục sử dụng. Cảm ơn! ,,,
+-2024, UM_REGISTER_LOGIN_BY_PHONE_EXPIRE ,," Hết thời gian thanh lý, vui lòng liên hệ bộ phận CSKH để được hỗ trợ 1900545436 ",,,
+-2023, UM_OTP_EXPIRE ,, Mã xác thực hết hạn ,,,
+-2022, UM_NEED_REGISTER_LOGIN_BY_PHONE ,," Hết thời gian login, vui lòng liên hệ bộ phận CSKH để được hỗ trợ 1900545436",,,
+-2021, UM_FRONTENDID_NOT_ALLOW ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2020, UM_EXCEED_OTP_NOT_MATCH ,," Sai mã xác thực quá số lần quy định, vui lòng thử lại sau 15 phút Hoặc liên hệ bộ phận CSKH để được hỗ trợ 1900545436 ",,,
+-2019, UM_OTP_NOT_MATCH,, Mã xác thực không hợp lệ,,,
+-2018, UM_NEED_LOGIN_BY_PHONE,," Hết thời gian login, vui lòng liên hệ bộ phận CSKH để được hỗ trợ 1900545436",,,
+-2017, UM_SAVE_CACHE_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2016, UM_SESSION_LOGIN_NOT_FOUND,," Hết thời gian login, vui lòng liên hệ bộ phận CSKH để được hỗ trợ 1900545436",,,
+-2015, UM_FRONTENDID_NOT_SUPPORT ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2014, UM_FRONTENDID_INVALID ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2013, UM_RECEIVER_LOCKED,, Tài khoản nhận tiền bị khóa.,,,
+-2012, UM_RECEIVER_NOT_EXIST ,, Người nhận không tồn tại,,,
+-2011, UM_DATA_INVALID ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2010, UM_ZALO_OA_TEMP_NOT_EXIST ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2009, UM_JSON_DATA_INVALID,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2008, UM_PHONE_NUMBER_INVALID ,, Số điện thoại không hợp lệ,,,
+-2007, UM_USER_NOT_FOUND ,, Tài khoản không tồn tại ,,,
+-2006, UM_TRY_LOCK_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2005, UM_PHONE_NOT_SUPPORT,, Số điện thoại không hợp lệ,,,
+-2004, UM_PROFILE_LEVEL_GREATE_THAN,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2003, UM_ZALO_EXIST ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-2002, UM_REGISTER_PHONE_OTP_MAX_RETRY ,, Sai otp quá số lần cho phép ,,,
+-2001, UM_REGISTER_PHONE_EXPIRE,, Hết thời gian đăng ký ,,,
+-1343,K3_EXCEED_MAX_FUND_OUT_PER_MONTH,,Tài khoản của bạn vượt hạn mức chi tiêu tối đa 100 triệu đồng/tháng,,,
+-1342,K2_EXCEED_MAX_FUND_OUT_PER_MONTH,,Tài khoản của bạn vượt hạn mức chi tiêu tối đa 20 triệu đồng/tháng. Vui lòng cập nhật phiên bản mới nhất,,,
+-1341,K1_EXCEED_MAX_FUND_OUT_PER_MONTH,,Bạn cần nâng cấp tài khoản để tiếp tục giao dịch.,,,
+-1340,K0_EXCEED_MAX_FUND_OUT_PER_MONTH,,Bạn cần nâng cấp tài khoản để tiếp tục giao dịch.,,,
+-1333,K3_EXCEED_MAX_FUND_OUT_PER_DAY,,Tài khoản của bạn vượt hạn mức chi tiêu tối đa 50 triệu đồng/ngày,,,
+-1332,K2_EXCEED_MAX_FUND_OUT_PER_DAY,,Tài khoản của bạn vượt hạn mức chi tiêu tối đa 20 triệu đồng/ ngày. Vui lòng cập nhật phiên bản mới nhất,,,
+-1331,K1_EXCEED_MAX_FUND_OUT_PER_DAY,,Bạn cần nâng cấp tài khoản để tiếp tục giao dịch.,,,
+-1330,K0_EXCEED_MAX_FUND_OUT_PER_DAY,,Bạn cần nâng cấp tài khoản để tiếp tục giao dịch.,,,
+-1009, RANDCAMPAIGN_RULE_NOT_PASS,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1008, RANDCAMPAIGN_EXPIRE ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1007, RANDCAMPAIGN_NOT_ACTIVE ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1006, RANDCAMPAIGN_INFO_INVALID ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1005, RANDCAMPAIGN_DAILY_CAPACITY_NOT_ENOUGHT ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1004, RANDCAMPAIGN_DAILY_CAPACITY_NOT_FOUND ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1003, RANDCAMPAIGN_TOTAL_CAPACITY_NOT_ENOUGHT ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1002, RANDCAMPAIGN_TOTAL_CAPACITY_NOT_FOUND ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1001, RANDCAMPAIGN_PARVALUE_NOTFOUND,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-1000, RANDCAMPAIGN_TRYLOCKFAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-999, SYSTEM_MAINTAIN ,," Hệ thống đang bảo trì, vui lòng quay lại sau. ",,,
+-994,(Đang update),(Đang update),Mã lỗi TPE -994 khi thanh toán bằng nguồn tiền TKTS,"Tình huống 1:
+
+Đối tác hoặc hệ thống Paylater gặp gián đoạn, áp dụng tất cả đối tác của Paylater (CIMB, LFVN,..)","HXL:
+CS kiểm tra theo các lý do sau:
+
+Lý do 1:  Kiểm tra lại hạn mức, xem có còn đủ không (vì có thể thanh toán đúng vào thời điểm CIMB thu phí 20k (vào ngày 27, 28), hoặc 30k,60k,90k (vào ngày 4, 5)
+Lý do 2: CS kiểm tra TKTS có bị khóa bởi đối tác (LOCKED - PARTNER)
+   .Nếu có: HD KH liên hệ CIMB/LFVN
+   . Nếu không: Check tiếp các lý do bên dưới
+Lý do 3: KH đang có nợ quá hạn hoặc lịch sử thanh toán dư nợ của KH có bị trễ hạn 
+  .Nếu có: HD KH thanh toán để tiếp tục sử dụng hoặc liên hệ LFVN/CIMB mở khóa do thanh toán trễ hạn.
+  .Nếu không: Check tiếp các lý do bên dưới
+Lý do 4: Nếu không thuộc các Lý do trên thì có thể do hệ thống không ổn định, hoặc do nghi ngờ có giao dịch bất thường nên đối tác có thể để giao dịch thất bại. Vì vậy, nhờ KH liên hệ đối tác để kiểm tra nguyên nhân và thử lại sau, nếu giao dịch bị trừ hạn mức sẽ được hoàn lại sau T+1 (nếu bị trừ vào T2 → T5, thì ngày tiếp theo sẽ được hoàn. Nếu bị trừ T6 → CN, thì T2 sẽ được hoàn), sau thời gian này nếu KH vẫn chưa được hoàn hạn mức > CS ghi nhận chuyển SL kiểm tra.
+
+***Nếu KH thanh toán liên tục bị lỗi nhưng không phải thuộc các trường hợp nói trên (Nhu cầu liên hệ của KH là muốn được hỗ trợ thanh toán bằng TKTS), CS hướng dẫn KH liên hệ CIMB/LFVN nhờ kiểm tra nguyên nhân vì sao không thanh toán được và hỗ trợ khắc phục (CS không nói KH nhờ đối tác kiểm tra xem TKTS có bị khóa không mà chỉ nói nhờ KH liên hệ đối tác kiểm tra tài khoản và hỗ trợ KH thanh toán > Vì nếu nói TKTS bị khóa thì đối tác sẽ HD KH liên hệ lại Zalopay).
+
+***Nếu KH có 2 TKTS CIMB và LFVN:
+Rep lần 1: CS xác nhận thêm với KH về nguồn tiền TKTS đang sử dụng là của đối tác nào để hướng dẫn KH liên hệ đúng đối tác
+Rep lần 2: Trường hợp khách hàng không rõ đối tác nào, CS chuyển PO kiểm tra đối tác chính xác và hướng dẫn KH liên hệ để được hỗ trợ",
+-994,,,Mã lỗi TPE -994 khi thanh toán bằng nguồn tiền TKTS,"Tình huống 2:
+
+KH thực hiện các giao dịch thanh toán Autodebit (TikTok, Lazada, v..v...) bằng nguồn tiền TKTS của CIMB bị thất bại hệ thống báo lỗi -994.
+
+Nguyên nhân: Do KH thanh toán bằng TKTS CIMB vượt hạn mức 5 Triệu/ngày nên hệ thống sẽ yêu cầu thực hiện xác thực OTP/FaceID, nhưng giao dịch Autodebit không hỗ trợ Nhập OTP/FaceID, nên dẫn đến giao dịch thất bại.","HXL: CS kiểm tra tk Trả sau của KH có đang vướn các lý do 1, 2, 3 của tình huống 1 hay không, nếu có xử lý như tình huống 1, nếu không xử lý theo thông tin bên dưới:
+
+- Với các giao dịch Autodebit, KH không thể thanh toán được (do không hỗ trợ xác thực). CS hướng dẫn KH thanh toán bằng nguồn tiền khác hoặc thực hiện lại giao dịch vào ngày hôm sau.
+
+- Với các giao dịch (khác autodebit) trên app ZLP, CS hướng dẫn KH thực hiện lại giao dịch và xác thực theo yêu cầu của hệ thống.",
+-374,"Bạn sẽ được hoàn tiền trong vòng 3 ngày làm việc. + {{stepresult message}}
+
+(*) stepresult message: Thường là message lỗi của mã lỗi BC",Bạn sẽ được hoàn tiền trong vòng 3 ngày làm việc. + {{stepresult message}},"Ảnh hưởng update UX/UI và flow hệ thống do chuyển sang luồng thanh toán full flow (Full-flow Cash-out to Bank PRD)
+
+""Giao dịch thất bại, đang chờ hệ thống hoàn tiền""",Giao dịch lỗi hệ thống,"CS thông báo khách hàng giao dịch thất bại sẽ được hoàn tiền về nguồn tiền đã sử dụng trong vòng 3 ngày làm việc kể từ khi thực hiện giao dịch.
+
+Trường hợp sau 3 ngày GD chưa được hoàn tiền, CS ghi nhận chuyển case cho SL hỗ trợ kiểm tra thêm với BPLQ",
+-375,"Bạn đã được hoàn tiền. + {{stepresult message}}
+
+(*) stepresult message: Thường là message lỗi của mã lỗi BC","Bạn đã được hoàn tiền. + {{stepresult message}}
+","Ảnh hưởng update UX/UI và flow hệ thống do chuyển sang luồng thanh toán full flow (Full-flow Cash-out to Bank PRD)
+
+""Giao dịch thất bại đã được hoàn tiền trên hệ thống""",Giao dịch lỗi hệ thống,"Giao địch đã được hoàn tiền, CS kiểm tra trạng thái hoàn tiền trên tool, tình trạng nhận tiền hoàn của khách hàng và thông báo KH kiểm tra lại nguồn tiền đã sử dụng.
+
+Trường hợp khách hàng chưa được hoàn tiền, CS ghi nhận chuyển case cho SL hỗ trợ kiểm tra thêm với BPLQ.",
+-376,"Bạn sẽ được hoàn tiền trong vòng 3 ngày làm việc. + {{stepresult message}}
+
+(*) stepresult message: Thường là message lỗi của mã lỗi BC",Bạn sẽ được hoàn tiền trong vòng 3 ngày làm việc. + {{stepresult message}},"Ảnh hưởng update UX/UI và flow hệ thống do chuyển sang luồng thanh toán full flow (Full-flow Cash-out to Bank PRD)
+
+""Giao dịch thất bại, đang chờ hệ thống hoàn tiền""",Giao dịch lỗi hệ thống,"CS thông báo khách hàng giao dịch thất bại sẽ được hoàn tiền về nguồn tiền đã sử dụng trong vòng 3 ngày làm việc kể từ khi thực hiện giao dịch.
+
+Trường hợp sau 3 ngày GD chưa được hoàn tiền, CS ghi nhận chuyển case cho SL hỗ trợ kiểm tra thêm với BPLQ",
+-383,"Giao dịch của bạn đã được trừ tiền. Zalopay sẽ đối soát và hoàn tất xử lý trong vòng 3 ngày làm việc. Nếu xử lý thất bại, tiền sẽ được tự động hoàn trả.
+","Giao dịch của bạn đã được trừ tiền. Zalopay sẽ đối soát và hoàn tất xử lý trong vòng 3 ngày làm việc. Nếu xử lý thất bại, tiền sẽ được tự động hoàn trả.","Ảnh hưởng update UX/UI và flow hệ thống do chuyển sang luồng thanh toán full flow (Full-flow Cash-out to Bank PRD)
+
+""Giao dịch đang xử lý, Zalopay sẽ đối soát và cập nhật kết quả giao dịch trong vòng 3 ngày làm việc:
+- Nếu giao dịch thành công, khách hàng sẽ được cung cấp dịch vụ.
+- Nếu giao dịch thất bại, khách hàng sẽ được hoàn tiền.""",Giao dịch lỗi hệ thống,"Nếu giao dịch bị trừ tiền, CS tư vấn KH chờ đối soát tự động. Nếu GD thất bại sẽ được hoàn tiền trong vòng 3 ngày làm việc kể từ thời gian thực hiện giao dịch.
+
+Trường hợp sau 3 ngày GD chưa được hoàn tiền, CS ghi nhận chuyển case cho SL hỗ trợ kiểm tra thêm với BPLQ",
+-343,VALIDATE_NEW_FUND_FLOW_FAIL ,,,"Do KH có sử dụng khuyến mãi khi thanh toán giao dịch này.
+Theo thể lệ của KM, sẽ không được áp dụng KM cho mốt số AppID đặc biệt (vd: nạp vào tài khoản tài chính: TKTK, SDSL, Nạp tiền vào TKZP, Rút tiền, Chuyển tiền...)",". Nếu GD có áp dụng KM: CS hướng dẫn KH thực hiện lại GD khác và không sử dụng khuyến mãi. 
+
+. Nếu GD không áp dụng KM nhưng bị lỗi -343 >> CS chuyển SL check dev.",
+-336,,,Vượt quá hạn mức giao dịch ,NH VPBank hạn mức tối đa 1 gd nạp tiền 2.000.000 . User  thực hiện trên 2 triệu nên không thanh toán được.,HD khách hàng thực hiện lại GD nạp tiền dưới 2 triệu,
+-333, RMS_LOCK_PROMOTION_ABUSE,Giao dịch tạm thời bị giới hạn. Bạn vui lòng thực hiện lại sau hoặc thử lại giao dịch mà không dùng khuyến mãi., Giao dịch tạm thời bị giới hạn. Quý khách vui lòng thực hiện lại sau hoặc thử lại giao dịch mà không dùng khuyến mãi. ,"ZaloPay đánh giá user có dấu hiệu gian lận khuyến mãi , tài khoản KH thuộc Blacklist/Greylist","Qua kiểm tra, tài khoản của bạn không thỏa điều kiện chương trình được ghi nhận tự động bởi hệ thống của Zalopay. Việc này dùng để tránh các trường hợp gian lận hoặc đầu cơ quà khuyến mãi, và giúp Zalopay có thể cung cấp nhiều chương trình hơn nữa phù hợp cho người dùng.
+
+Với trường hợp này, Zalopay rất tiếc bạn không thể tham gia được chương trình ""................""","Riêng trường hợp KH thuộc MALICIOUS ABUSER đổi xu thành công từ chương trình ""1279-Nhập môn tích xu"" nhưng không sử dụng được Voucher :Team xem hướng xử lý tại TNC chương trình"
+,,Mã khách hàng/Mã hóa đơn/Số điện thoại được thanh toán/được nạp vượt hạn mức hưởng ưu đãi từ chương trình khuyến mãi.,Mã khách hàng/Mã hóa đơn/Số điện thoại đang bị giới hạn. Quý khách vui lòng thực hiện lại giao dịch khác không dùng khuyến mãi. ,"Mã khách hàng/Mã hóa đơn/Số điện thoại đã từng được thanh toán và hưởng KM trên hệ thống Zalopay (ở TKZP của KH hoặc trên TKZP khác)
+
+Lưu ý:  nếu CS check TNC KH thỏa điều kiện thì vẫn chuyển SL để kiểm tra nguyên nhân chính xác cho KH nhé","Hướng dẫn KH:
+1. Thực hiện lại giao dịch khác không dùng khuyến mãi. 
+2. Sử dụng khuyến mãi/voucher khác cho giao dịch.
+3. KH có thể áp dụng khuyến mãi/voucher này cho Mã khách hàng/Mã hóa đơn/Số điện thoại chưa từng hưởng khuyến mãi tại Zalopay",
+,,"Số điện thoại được nạp vượt hạn mức tham gia chương trình khuyến mãi
+","Số điện thoại được nạp vượt hạn mức tham gia chương trình khuyến mãi (Thường thấy ở các chương trình flashsale)
+","Vd 1 sdt chỉ được nhận khuyến mãi 1 lần, thường dành cho flashsale
+
+Lưu ý:  nếu CS check TNC KH thỏa điều kiện thì vẫn chuyển SL để kiểm tra nguyên nhân chính xác cho KH nhé",Thông báo KH đã vượt quá hạn mức số lần/ số tiền được nhận khuyến mãi. Nhờ Kh tham gia chương trình ưu đãi khác,
+,,Không thể áp dụng ưu đãi. Bạn hãy thử lại giao dịch mà không dùng khuyến mãi nhé,,"Zalopay đánh giá user có dấu hiệu gian lận khuyến mãi , tài khoản KH thuộc Blacklist/Greylist","1. Nếu voucher do Zalopay phát: 
+Script phản hồi: 'Qua kiểm tra, tài khoản của bạn không thỏa điều kiện chương trình được ghi nhận tự động bởi hệ thống của Zalopay. Việc này dùng để tránh các trường hợp gian lận hoặc đầu cơ quà khuyến mãi, và giúp Zalopay có thể cung cấp nhiều chương trình hơn nữa phù hợp cho người dùng.
+
+Với trường hợp này, Zalopay rất tiếc bạn không thể tham gia được chương trình ""................""
+
+***Nếu KH không nằm trong Greylist/Blacklist hoặc CS đã tư vấn nhiều lần nhưng KH gay gắt không đồng ý hướng giải quyết trên, CS có thể ghi nhận chuyển case cho SL check risk thêm. Hẹn thời gian xử lý 3-5 ngày.
+
+2. Nếu voucher do KH đổi xu: CS hỗ trợ theo quy trình FAQ (mục 2.2 KH  KHÔNG SỬ DỤNG ĐƯỢC VOUCHER ĐỔI TỪ CT: ""TÍCH XU ĐỔI QUÀ"")
+
+3. Nếu tài khoản KH Normal: Hướng dẫn KH thực hiện thêm nhiều giao dịch bình thường không dùng khuyến mãi, Zalopay sẽ có những kỳ xem xét để KH có thể sử dụng lại khuyến mãi bình thường (không cần chuyển xem xét)
+",
+,,Bạn cần định danh tài khoản để tiếp tục giao dịch,,"CS gặp case kiểm tra tại tool ""User - Thông tin giao dịch"" mục ""Kết quả user"" thấy báo lỗi này là do: Risk đang chặn abuser (Abuser / fake KYC/ KYC hộ) nhưng để thông báo lỗi này để KH không biết họ đang bị chặn. ","CS hướng dẫn KH định danh TK (KYC) trước, sau đó thực hiện lại GD. 
+Nếu KH đã KYC hoặc sau KYC thực hiện lại vẫn báo lỗi tương tự => Chuyển case SL tạo Jira cho Risk (TruongTN) đánh giá:
++ Nếu Risk kiểm tra không phải abuser => Add whitelist user sẽ thực hiện lại được
++ Nếu Risk kiểm tra user là abuser => Từ chối hỗ trợ, phản hồi theo script hướng dẫn thực hiện lại không sử dụng voucher.",Risk confirm CS không cần quan tâm status hiện tại của user (Normal/ Casual/ Malicious.v.v.)
+-332, RMS_USER_NEED_KYC ,"- Các mess tương ứng:
+""Bạn cần định danh tài khoản để tiếp tục giao dịch."" 
+""Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.""
+""Bạn cần định danh tài khoản và liên kết thẻ để tiếp tục thanh toán với ưu đãi."" "," Giao dịch tạm thời bị giới hạn. Để tiếp tục giao dịch, vui lòng định danh tài khoản bằng thông tin cá nhân nhằm xác nhận quyền sở hữu tài khoản.","- Tùy theo điều kiện của chương trình có yêu cầu định danh hoặc định danh + liên kết.
+","HXL: CS kiểm tra mess tại cột """"Kết quả User"""" trên tool TPE, thông tin TNC của CTKM đồng thời đối chiếu tình trạng tài khoản trên tool của User > Để hướng dẫn User thực hiện định danh hoặc liên kết bank sao cho thỏa rule.
+
+*Lưu ý:
+- Nếu tool hiển thị yêu cầu KH định danh hoặc định danh - LKNH nhưng theo rule của TNC hoàn toàn không có đề cập đến vấn đề này. CS cần ghi nhận kiểm tra thêm về rule TNC trước khi hướng dẫn cho User. Hẹn KH chờ 3-5 ngày LV
+- Trường hợp khách hàng đã thỏa điều kiện nhưng thanh toán bị lỗi -332. Team ghi nhận: UID, TID liên quan chuyển SL check với dev/tech. Báo KH chờ 3-5 ngày LV.",
+,,"""Bạn cần định danh tài khoản để tiếp tục giao dịch."" ",,KH không thể thao tác rút tiền từ số dư ví ZP về thẻ NHLK nhưng hệ thống bắt buộc KH định danh.,"HXL: CS kiểm tra xem KYC chưa? Nếu chưa thì hướng dẫn KH định danh để tiếp tục thực hiện giao dịch rút tiền.
+
+*Lưu ý: 
+- CS cần kiểm tra tool xem KH đã gửi yêu cầu KYC chưa? Nếu KH đã KYC thì xử lý yêu cầu của KH và báo kết quả. Nếu KH chưa gửi yêu cầu KYC, CS sẽ hướng dẫn KH KYC.
+- Trường hợp KH không muốn KYC / giấy tờ đã KYC cho 2 TKZP trước đó, không thể KYC thêm cho TKZP đang bị báo lỗi: CS chuyển case SL để check với Risk (TruongTN) xem xét mở cho KH tự rút tiền. Hẹn chờ 1-3 ngày LV.",
+-329, USER_CANCEL_TRANS ,, User huỷ giao dịch thanh toán.,,,
+-327, NAPAS3_BANK_CARD_NOT_CONFIGED ,, Số thẻ bạn nhập khác với ngân hàng bạn đã chọn. Vui lòng kiểm tra lại hoặc liên hệ 1900 54 54 36 để được hỗ trợ.,,,
+-326, NAPAS3_BANK_CARD_ALREADY_LINKED ,, Thẻ của bạn đã được liên kết trong tài khoản. Vui lòng kiểm tra lại hoặc liên hệ 1900 54 54 36 để được hỗ trợ.,,,
+-325, NAPAS3_BANK_CARD_DIRECT ,, Số thẻ bạn nhập khác với ngân hàng bạn đã chọn. Vui lòng kiểm tra lại hoặc liên hệ 1900 54 54 36 để được hỗ trợ.,,,
+-324, ZPBANK_AMOUNT_INVALID ,, Số tiền thanh toán bên ngân hàng không hợp lệ ,,,
+-323, BANK_BIDV_MUST_CHANGE_PASS_BIDV_ONLINE,, Bạn cần thay đổi mật khẩu BIDV Online để tiếp tục giao dịch. Liên hệ hotline 1900545436 để được hỗ trợ. ,,,
+-322, PAYMENT_CODE_EXPIRED,," Payment Code hết hạn, giao dịch thất bại, tài khoản chưa bị trừ tiền. Vui lòng thực hiện lại. ",,,
+-321, UNLINK_OTP_COUNT_OVER_LIMIT ,, Bạn đã yêu cầu nhận mã OTP quá số lần quy định,,,
+-320, UNLINK_OTP_INCORRECT,, Quá số lần nhập sai OTP. Vui lòng thử lại sau ,,,
+-319, ZPBANK_BANK_UNKNOWN_STATUS_NO_REFUND,, Lỗi không xác định từ phía ngân hàng. Vui lòng thử lại giao dịch khác ,,,
+-318, ZPBANK_BANK_RETURN_TIMEOUT_CODE_NO_REFUND ,, Hết thời gian xử lý giao dịch của ngân hàng. Vui lòng thử lại giao dịch khác,,,
+-317, ZPBANK_CALL_BANK_EXCEPTION_NO_REFUND,, Lỗi không xác định từ phía ngân hàng. Vui lòng thử lại giao dịch khác ,,,
+-316, ZPBANK_CALL_BANK_TIMEOUT_NO_REFUND,, Ngân hàng không phản hồi. Xin vui lòng thử lại giao dịch khác ,,,
+-315, MTE_CHARGE_FAIL ,, Nhận tiền chuyển từ Zalo thất bại ,,,
+-314, ZPMAPACCOUNT_FAIL ,, Liên kết tài khoản không thành công ,,,
+-313, ZPMAPACCOUNT_INFO_INVALID ,, Sai thông tin tài khoản ,,,
+-312, ZPBANK_MAP_ACCOUNT_FAIL ,, Liên kết tài khoản thất bại ,,,
+-311, ZPBANK_REMOVE_ACCOUNT_FAIL,, Xóa tài khoản liên kết thất bại ,,,
+-310, ZPBANK_VERIFY_ACCOUNT_FOR_MAPPING_FAIL,, Kiểm tra liên kết tài khoản thất bại,,,
+-309, BELOW_MIN_CHARGE_AMOUNT ,, Số tiền thanh toán nhỏ hơn hạn mức tối thiểu của giao dịch. ,,CS kiểm tra thêm file Hạn mức theo nguồn tiền mà User đang thanh toán để tư vấn hạn mức tối thiểu mà User có thể thực hiện.,
+-308, EXCEED_MAX_CHARGE_AMOUNT,, Số tiền thanh toán vượt quá hạn mức tối đa của giao dịch. ,Do số tiền User muốn thanh toán đã vượt hạn mức tối đa của giao dịch.,"CS kiểm tra thêm file Hạn mức theo nguồn tiền mà User đang thanh toán để tư vấn hạn mức tối đa mà User có thể thực hiện.
+
+Trong trường hợp số tiền User muốn thanh toán lớn hơn hạn mức tối đa cho phép, CS có thể tư vấn User liên hệ đối tác trao đổi thêm về vấn đề ""Nếu User chia số tiền thành nhiều lần thanh toán có gây ảnh hưởng gì đến việc ghi nhận hoặc gạch nợ của đối tác không?""
++ Nếu không thì User có thể quay lại ứng dụng ZP và chia bill thành nhiều lần để thanh toán.
++ Nếu có thì nhờ đối tác tư vấn 1 kênh thanh toán khác có thể hỗ trợ thanh toán full số tiền.",
+-305, DEBIT_CHARGE_FAIL ,, Thanh toán thẻ debit không thành công.,,,
+-304, CARD_NOT_DEBIT,, Thẻ không phải là thẻ debit.,,,
+-303, UPDATE_PROMOTION_FAILED ,, Cập nhật thông tin promotion không thành công.,,,
+-302, CIM_DAILY_QUOTA_EXCEEDED,, Hệ thống đang có lỗi. Vui lòng thử lại sau. ,,,
+-301, ZPBANK_CREATEORDER_FAIL ,, Hệ thống đang có lỗi. Vui lòng thử lại sau. ,,,
+-296, USER_NOT_SUBMIT_PIN ,," Giao dịch thất bại, tài khoản chưa bị trừ tiền",,,
+-295, REVERT_VOUCHER_FAILED ,, Revert voucher thất bại ,,,
+-293, TRANS_NOT_MATCH ,, Thông tin thanh toán không hợp lệ ,,,
+-292, PAYMENT_CODE_INVALID,, Payment code không hợp lệ ,,,
+-291, AMOUNT_NOT_SUPPORT,, Loại giao dịch không hỗ trợ thanh toán với số tiền này,,,
+-290, DUPLICATE_PAYMENTCODE ,," Trùng Payment Code, giao dịch thất bại, tài khoản chưa bị trừ tiền. Vui lòng thực hiện lại. ",,,
+-289, QRPAY_CONFIG_NOT_SUPPORT,," Không hỗ trợ kênh thanh toán này, vui lòng chọn kênh thanh toán khác",,,
+-286, UM_PHONE_WITH_OTHER_PREFIX_USED ,, Số điện thoại tương ứng đã từng được sử dụng để đăng ký Zalopay. Để đăng ký thành công vui lòng sử dụng số điện thoại khác. ,,,
+-285, UM_GET_CARDINFO_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-284, NEED_REGISTER_ONLINE_PAYMENT,, Thẻ chưa đăng ký dịch vụ thanh toán trực tuyến với ngân hàng. Vui lòng liên hệ ngân hàng để đăng ký dịch vụ thanh toán trực tuyến.,,,
+-283, P123_SYNC_EXCEPTION ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-282, UM_CLIENT_NOT_ALLOW ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-281, UM_BANKTOKEN_EXIST,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-280, UM_BANKTOKEN_INVALID,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-279, REGISTER_OP_AND_FAIL,, Đăng ký thanh toán trực tuyến thất bại,,,
+-278, BANK_SYSTEM_INVALID ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-277, SYN_GETBANKTOKEN_123PAY_FAIL,, Lấy thông tin bank token 123P thất bại,,,
+-276, SYN_SAVETOKEN_123PAY_FAIL ,, Lưu token 123P thất bại ,,,
+-275, ZPBANK_MAPCARD_FAIL ,, Liên kết thẻ thất bại ,,,
+-274, ZPBANK_REMOVE_CARD_FAIL ,, Huỷ liên kết thẻ thất bại ,,,
+-273, ZPBANK_AUTHCARD_FOR_PAYING_FAIL ,, Authen thất bại ,,,
+-272, ZPBANK_QUERYSTATUS_FOR_MAPPING_FAIL ,, Map card thất bại ,,,
+-271, ZPBANK_AUTH_FOR_MAPPING_FAIL,, Authen thất bại ,,,
+-270, ZPBANK_VERIFYCARD_FOR_MAPPING_FAIL,, Kiểm tra map card thất bại,,,
+-269, CAMPAIGN_EVOUCHER_EXCEPTION ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-268, CAMPAIGN_EVOUCHER_VERIFY_SIG_FAIL ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",Khách hàng thực hiện giao dịch có sử dụng voucher khuyến mãi thì bị báo lỗi,"Với mã lỗi này sẽ có nhiều tình huống dẫn đến mã lỗi -268:
+Tình huống 1: KH không thỏa điều kiện khuyến mãi, ví dụ: Điều kiện risk (Greylist, Blacklist), đối tượng nhận ưu đãi (NPU, RPU,FPU). CS cần double check lại thông tin trên tool trước khi phản hồi kết quả cho KH.
+HXL: Tư vấn khách hàng nguyên nhân và thực hiện lại GD không có sử dụng khuyến mãi.
+
+Tình huống 2: CTKM bị lỗi hệ thống, lỗi hết ngân sách tạm thời (CS check KH không thuộc trong tình huống 1)
+HXL: Tư vấn khách hàng chờ và thực hiện lại sau. Sau đó chuyển case KM hoặc chat group chung cho KM báo Tech kiểm tra.
+
+Tình huống 3: Step Result: -135
+Do giảm giá từ việc đổi xu chưa áp dụng cho giao dịch thanh toán dư nợ của Tài khoản trả sau (trả chậm).
+HXL: CS tư vấn KH thanh toán dư nợ không áp dụng khuyến mãi + ",
+"-268
+(StepResult: -3030)",Số tiền thanh toán chưa đạt yêu cầu của Voucher.,,Số tiền thanh toán chưa đạt yêu cầu của Voucher.,"Nguyên nhân:
+- Từ ngày 25/09, team BNPL triển khai chương trình hoàn tiền 20.000đ cho người dùng thanh toán nợ bằng bất kỳ nguồn tiền (SOF) nào.
+- Tuy nhiên, một số người dùng thanh toán qua VietQR (SOF = VQR) bị thất bại.
+
+Nguyên nhân chi tiết:
+- Nguồn tiền VietQR chưa được áp dụng cashback, mà chỉ áp dụng giảm giá trực tiếp tại bước thanh toán.
+- Khi ngân hàng đã trừ tiền, Zalopay kiểm tra lại thông tin và xác thực thất bại do dính logic cashback. Vì vậy, giao dịch bị Thất bại tại Zalopay và đối tác không nhận được thông báo gạch nợ.
+
+Các giao dịch bị ảnh hưởng: 
+- Thời gian giao dịch: Từ 25/09 đến 28/10/2025
+- App ID: 3491 - [LFVN] Dư nợ trả sau HOẶC 1976 - Dư nợ trả sau
+- Kênh thanh toán: 46-Quét thanh toán bằng ứng dụng bên thứ 3
+- Có sử dụng khuyến mãi: Có","[Hướng xử lý cho CS LV1/Out/GS]
+Bước 1: CS kiểm tra theo danh sách giao dịch bị ảnh hưởng (LINK) (CS có thể seach theo UID/TID)
++ Nếu không có: CS chuyển case SL check
++ Nếu có: CS đi tiếp bước 2
+Bước 2: CS kiểm tra KH đã thanh toán dư nợ lại chưa:
++ TH1: Giao dịch đã hoàn tiền, người dùng đã thanh toán lại: CS thông báo cho khách hàng rằng sẽ được hoàn lại phần lãi/phí phát sinh:
+. LFVN: Hoàn lãi
+. CIMB: Hoàn lãi/phí
+>> Sau đó, ghi nhận chuyển SL hỗ trợ cho KH
++ TH2: Giao dịch đã hoàn tiền, người dùng chưa thanh toán lại: CS hướng dẫn khách hàng thanh toán lại khoản nợ (bằng nguồn tiền số dư ZLP/Ngân hàng liên kết) > Sau khi KH thanh toán thành công, chuyển sang xử lý như TH 1 (người dùng đã thanh toán lại)
+
+[Hướng xử lý cho SL]
+Bước 1: Sau khi KH thanh toán lại dư nợ thành công > CS gửi yêu cầu đến CS LFVN/CIMB để:
+- Kiểm tra và hoàn lại phần lãi/phí phát sinh giữa hai giao dịch (fail → success).
+- Nếu người dùng thanh toán đúng hạn nhưng bị fail do voucher → đề xuất xóa nợ xấu.
+- Gửi email cc: bnplbusiness@vng.com.vn.
+Bước 2: Gửi yêu cầu OP tạo eForm hoàn tiền sau khi nhận xác nhận từ ngân hàng., trong eform cc biz, PO
+(Nếu số tiền hoàn > 150.000đ, cần PO HaiPH2 xác nhận)",
+-267, PMC_CHARGE_FAIL ,, Thanh toán thất bại ,,,
+-266, CAMPAIGN_API_EXCEPTION,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ", Giao dịch đã refund,,
+-265, CAMPAIGN_TRANS_REFUNED,, Giao dịch đã refund , Người gửi ko hợp lệ,,
+-264, CAMPAIGN_SENDER_INVALID ,, Người gửi ko hợp lệ ,,,
+-263, WITHDRAW_MONEY_ZPBANK_FAIL,, Rút tiền thất bại.,,,
+-262, CAMPAIGN_UPDATE_QUOTA_FAIL,, Giao dịch đã xử lý,,,
+-261, CAMPAIGN_INSERT_TRANS_FAIL,, Giao dịch đã xử lý,,,
+-260, CAMPAIGN_TRY_LOCK_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-259, CAMPAIGN_SUBMIT_TPE_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-258, CAMPAIGN_ZALOPAY_TRANSID_INVALID,, Mã giao dịch Zalopay không hợp lệ ,,,
+-257, CAMPAIGN_ANTIREVERT_EXCEPTION ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-256, CAMPAIGN_ANTIREVERT_UPDATE_QUOTA_FAIL ,, Giao dịch đã xử lý,,,
+-255, CAMPAIGN_ANTIREVERT_INSERT_CASHBACK_FAIL,, Giao dịch đã xử lý,,,
+-254, CAMPAIGN_CALC_AMOUNT_INVALID,, Số tiền không hợp lệ,,,
+-253, CAMPAIGN_AMOUNT_INVALID ,, Số tiền không hợp lệ,,,
+-252, REQDATE_EXPIRE,, Thời gian yêu cầu hết hạn!,,,
+-251, USER_HAD_BANK_ACCOUNT ,, User đang tồn tại liên kết tài khoản. ,,,
+-250, CHARGED_SUCCESSFULLY_AFTER_QUERY,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-249, CAMPAIGN_CALL_ANTI_REVERT_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-248, CAMPAIGN_CALL_TPE_FAIL,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-247, CAMPAIGN_UPDATE_DB_FAIL ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-246, CAMPAIGN_RECEIVER_TYPE_NOT_SUPPORT,, Thông tin người nhận không hợp lệ ,,,
+-245, CAMPAIGN_RECEIVER_TYPE_INVALID,, Thông tin người nhận không chính xác,,,
+-355,,,, KH thanh toán bằng Tài khoản trả sau bị lỗi này.,". CS kiểm tra hạn mức khả dụng trong TKTS của KH có còn đủ để thanh toán đơn hàng không. Nếu không, hướng dẫn KH thanh toán bằng nguồn tiền khác, hoặc thanh toán dư nợ, sau đó thực hiện lại giao dịch khác.
+
+. Nếu hạn mức khả dụng đủ để thanh toán: CS chuyển case cho SL.  Hẹn KH: 3-5 ngày lv >> SL check với PO HaiPH2 để kiểm tra với dev.",
+-356,,"ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.
+
+Vui lòng xác thực khuôn mặt để tiếp tục thực hiện lại giao dịch. - Xác thực ngay.", Thanh toán thất bại ,"Risk ra mắt tính năng RBA (Risk-based Authentication), mục đích xác thực khuôn mặt của user đã KYCed để ngăn chặn, giảm thiểu các hành vi lạm dụng khuyến mãi sử dụng hình thức Fake KYC/ KYC hộ. ","KH cần xác thực khuôn mặt (Face Authen) đúng so với thông tin đã KYC trước đó để được thanh toán tiếp.
+
+Chi tiết hình ảnh & hướng xử lý : Tham khảo sheet Lỗi -356",
+-357, IS_FRAUD_TRANSACTION,"1. Giao dịch có dấu hiệu rủi ro. Bạn hãy liên lạc trung tâm chăm sóc khách hàng để tiếp tục giao dịch nhé.
+
+2. Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh để tiếp tục nhé.", Giao dịch bị từ chối,,Xem hướng xử lý ở sheet: -357,
+-358,"Team kiểm tra tình huống và hướng xử lý sheet ""Lỗi -358""",,,,,
+-359,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,"Tất cả giao dịch nhiều loại dịch vụ khác nhau của KH đều bị -359 hoặc KH cung cấp thông tin/hình báo lỗi (như hình)
+(không liên quan đến nguồn tiền TKTS)",,"CS ghi nhận kiểm tra & xin chứng từ: (hẹn 3-5 ngày làm việc)
+Giấy tờ tùy thân  + Chân dung cầm Giấy tờ tùy thân => Chuyển SL check Risk",
+-361,"Vui lòng xác thực khuôn mặt để tiếp tục thực hiện lại giao dịch. 
+Xác thực ngay.","ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.
+
+", Thanh toán thất bại ,KH thực hiện Giao dịch có áp dụng khuyến mãi bị gặp mã lỗi -356/-361 (mã lỗi của Promotion Abuse),"- Với User đã KYC, KH được yêu cầu Face Authen (xác thực khuôn mặt) tại màn hình kết quả GD (chỉ có thể Authen tại bước này). Trong trường hợp KH nhấn đóng thì KH cần thực hiện lại giao dịch để vào bước Authen. Nếu KH đã xác thực khuôn mặt thành công thì có thể tiếp tục thực hiện giao dịch bình thường.
+- Với User chưa KYC, KH được yêu cầu xác thực Captcha, flow thực hiện tương tự với Face Authen.
+Các bước hỗ trợ sau khi KH thực hiện Face Authen hoặc Captcha:
++ Nếu Authen thành công, KH thực hiện lại GD để hưởng KM hoặc bằng nguồn TKTS bình thường.
++ Nếu Authen thất bại hoặc không Authen:
+  . KH cần chờ 30 phút để thực hiện lại giao dịch có áp dụng KM (các giao dịch không hưởng KM sẽ không bị ảnh hưởng trong thời gian này)
+  . Nếu sau 30 phút vẫn không Authen được hoặc các trường hợp khác >> Chuyển SL check với TruongTN.",CS tham khảo flow Face Authen/Captcha tại sheet Lỗi -356/-361
+-362,"Vui lòng xác thực khuôn mặt để tiếp tục thực hiện lại giao dịch. 
+Xác thực ngay.",Bạn cần xác thực khuôn mặt để thực hiện giao dịch hoặc liên hệ CSKH để được hỗ trợ,Thanh toán thất bại,Bạn cần xác thực khuôn mặt để thực hiện giao dịch. ,"HXL:
+- Với User đã KYC (TK K3), CS hướng dẫn KH cập nhật định danh, sau đó thử lại.
+- Với User chưa KYC, CS hướng dẫn KH định danh, sau đó thực hiện lại GD.
+
+*Lưu ý: 
+- Nếu User gửi yêu cầu in app và báo lỗi -362, CS cần kiểm tra xem User đã định danh (cập nhật định danh) chưa và xử lý yêu cầu KYC của KH. Sau đó báo kết quả đến KH.
+- Đối với User đã KYC và được yêu cầu cập nhật định danh nhưng User không có giấy tờ định danh: CS từ chối và xin lỗi User vì không có hướng hỗ trợ khác. KH cần đi làm lại giấy tờ mới để cập nhật KYC và thử lại GD.",
+-244,Bạn cần định danh để tiếp tục thực hiện giao dịch.,Bạn cần định danh để tiếp tục thực hiện giao dịch.,,,"CS hướng dẫn KH thực hiện KYC. Sau khi KYC thành công, nếu có nhu cầu sử dụng KH có thể thực hiện lại giao dịch.",
+,Giao dịch rủi ro sau khi định danh tài khoản. Vui lòng thử lại sau.,,"Tất cả giao dịch nhiều loại dịch vụ khác nhau của KH đều bị -244 hoặc KH cung cấp thông tin/hình báo lỗi (như hình)
+(không liên quan đến nguồn tiền TKTS)",,"CS ghi nhận kiểm tra & xin chứng từ: (hẹn 3-5 ngày làm việc)
+Giấy tờ tùy thân  + Chân dung cầm Giấy tờ tùy thân => Chuyển nhóm Leader - ThienLPM",
+,Kênh thanh toán từ thẻ hiện đang bảo trì. Bạn vui lòng nạp tiền và thử lại giao dịch từ ví.,Kênh thanh toán từ thẻ hiện đang bảo trì. Bạn vui lòng nạp tiền và thử lại giao dịch từ ví.,Hệ thống ngăn chặn các giao dịch từ đầu BIN thẻ có dấu hiệu bất thường.,Tạm thời tắt tính năng thanh toán cho toàn bộ giao dịch đến từ đầu thẻ 523975,"Thông tin tools: CS tra cứu tại Cstool_ User - Lịch sử giao dịch_cột Kết quả User thấy Infocode là 700015. 
+=> HXL: 
+- Giao dịch qua ví/Gateway: CS hướng dẫn KH thanh toán bằng nguồn tiền khác hoặc dùng thẻ NH khác để thanh toán.",
+,Giao dịch bị từ chối. Bạn vui lòng liên hệ CSKH ZaloPay để biết thêm chi tiết.,Giao dịch bị từ chối. Bạn vui lòng liên hệ CSKH ZaloPay để biết thêm chi tiết.,Hệ thống ngăn chặn các giao dịch có dấu hiệu bất thường.,Các KH có hành vi refund bất thường sẽ bị chặn không cho thực hiện GD từ 1 - 30 ngày,"Thông tin tools: CS tra cứu tại Cstool_ User - Lịch sử giao dịch_cột Kết quả User có Infocode là 700010, 700011, 700012, 700018:
+
+=> HXL: 
+Giao dịch qua ví:: CS tư vấn nguyên nhân do KH có nhiều giao dịch hoàn tiền nên hệ thống đánh giá có hành vi bất thường. Để có thể tiếp tục thực hiện GD, KH cần cung cấp các thông tin sau:
+- Lí do hoàn tiền của các GD trước đó.
+- Ảnh 2 mặt CCCD.
+- Ảnh selfie.
+
+*Sau 24h risk chưa phản hồi SL push risk check case
+
+Giao dịch qua Gateway: CS hướng dẫn KH thực hiện lại bằng thẻ khác.
+
+*** Trường hợp CS tra cứu tại Cstool_ User - Lịch sử giao dịch_cột Kết quả User có mã Infocode không thuộc 3 mã trên, CS ghi nhận chuyển SL chuyển Risk đánh giá & đưa HXL hỗ trợ KH giao dịch lại.",
+,Vượt hạn mức thanh toán dịch vụ Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Vượt hạn mức thanh toán dịch vụ Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Hệ thống ngăn chặn các giao dịch có rủi ro lớn,"Để hạn chế các rủi ro fund-loss (chỉ đang áp dụng cho AppID 2222- GRAB)  >  Hạn mức khả dụng còn lại phải lớn hơn ít nhất 2 lần giá trị giao dịch. 
+
+Ví dụ: Hạn mức khả dụng còn lại của KH chỉ còn 320k, nếu thực hiện GD lớn hơn 160k sẽ bị báo lỗi này.","Thông tin tools: CS tra cứu tại Cstool_ User - Lịch sử giao dịch_cột Kết quả User có Infocode là 600296
+"" -1|20|600296|Vượt hạn mức thanh toán dịch vụ Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.""
+
+Công thức tính giá trị tối đa KH có thể thực hiện GD: 
+
+      ""Hạn mức khả dụng"" chia 2 = Số tiền tối đa hiện tại mà KH có thể thanh toán cho dịch vụ GRAB (1)
+
+Nếu KH đang thực hiện GD có số tiền lớn hơn (1) sẽ bị hệ thống báo lỗi như trên.
+
+=> HXL: 
+Cách 1: CS hướng dẫn KH thanh toán số tiền khác bé hơn (1) 
+Cách 2: CS hướng dẫn KH thanh toán dư nợ hiện tại để tăng số tiền tối đa có thể thanh toán.
+*Lưu ý: Với cách 2, CS cần kiểm tra thêm hạn mức cho phép còn lại đối với AppID 2222-GRAB (mã lỗi -358)",
+,Vượt hạn mức thanh toán dịch vụ Grab 300k bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Vượt hạn mức thanh toán dịch vụ Grab 300k bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Hệ thống ngăn chặn các giao dịch có rủi ro lớn,"Nguyên nhân: Để chống User abuse cheating, hiện phương thức thanh toán ZaloPay chỉ hỗ trợ thanh toán cho các đơn hàng tối đa 300k.",HXL: CS tư vấn KH thực hiện lại giao dịch khác dưới 300k hoặc lựa chọn hình thức thanh toán khác cho đơn hàng trên 300k.,
+,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường,,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường tại appID 884 - GOTIT JSC,Đây là các rule phía RISK setup thay cho merchant GotIt,"Thông tin tools: CS tra cứu tại Cstool_ User - Lịch sử giao dịch_cột Kết quả User có Infocode là 400002, 400003, 400004, 400005 nội dung lỗi Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường tại appID 884 - GOTIT JSC
+
+=> HXL: báo KH liên hệ bộ phận CSKH của merchant GotIt để xử lý.",
+-243, CAMPAIGN_AMOUNT_PER_TRANS_NOT_MATCH ,, Số tiền trên mỗi giao dịch không đúng ,,,
+-242, TIME_EXPIRE ,, Thời gian request hết hạn ,,,
+-241, CAMPAIGN_NOT_CONTAINS_IP,, Campaign không allow ip này ,,,
+-240, CAMPAIGN_NOT_CONTAINS_ZALOPAYID ,, Campaign không có tài khoản này ,,,
+-239, HMAC_NOT_MATCH,, HMac không chính xác,,"B1: Nhân viên xin thêm thông tin thiết bị: Dòng máy, HĐH, version ĐT
+B2: Tư vấn khách hàng thực hiện lại giao dịch trên ứng dụng ZaloPay. Hiện trạng lỗi sẽ được Zalopay ghi nhận và khắc phục trong các phiên bản tiếp theo.",Chuyển case SL báo bug
+-238, ZALOPAYID_INVALID ,, Số TK Zalopay không hợp lệ,,,
+-237, CAMPAIGN_TOTAL_ERROR,, Campaign đã đóng,,,
+-236, CAMPAIGN_TOTAL_NOT_ENOUGHT_AMOUNT ,, Campaign đạt giới hạn số tiền ,,,
+-235, CAMPAIGN_TOTAL_NOT_ENOUGHT_COUNT,, Campaign đạt giới hạn giao dịch ,,,
+-234, CAMPAIGN_TOTAL_INVALID,, Campaign đã đóng,,,
+-233, UM_MERCHANT_EXCEPTION ,, Hệ thống đang có lỗi,,,
+-232, CAMPAIGN_CTRANSID_NOT_HAS_CID ,, CTransID phải chưa CampaignID ,,,
+-231, CAMPAIGN_CTRANSID_INVALID ,, CTransID không hợp lệ ,,,
+-230, CAMPAIGN_EXPIRE ,, Campaign hết hạn,,,
+-229, CAMPAIGN_NOT_EXIST,, Campaign không tồn tại,,,
+-228, CAMPAIGN_MAINTAIN ,, Campaign bảo trì,,,
+-227, CAMPAIGN_INACTIVE ,, Campaign chưa active. ,,,
+-226, CAMPAIGN_ID_INVALID ,, CampaignID không hợp lệ ,,,
+-225, ZPBANK_EXCEPTION,, Hệ thống đang có lỗi,,,
+-224, BANK_ACCOUNT_INVALID,, Tài khoản ngân hàng không hợp lệ,,,
+-223, NOTIFY_MAP_ACCOUNT_REMOVE_UM_FAIL ,, Huỷ liên kết tài khoản ngân hàng thất bại ,,,
+-222, NOTIFY_MAP_ACCOUNT_SAVE_UM_FAIL ,, Map tài khoản ngân hàng thất bại,,,
+-221, ZPBANK_DATA_INVALID ,, Thông tin không chính xác ,,,
+-220, ZPBANK_MERCHANT_ID_INVALID,, Merchant id không hợp lệ,,,
+-219, ZPBANK_CASHIN_FAIL,, Thanh toán thất bại ,,,
+-218, ZPBANK_QUERY_ORDER_FAIL ,, Thanh toán thất bại ,,,
+-217, ZPBANK_CHARGE_FAIL,, Thanh toán thất bại ,,,
+-216, BANKACCOUNT_TOKEN_EXPIRE,, Liên kết ngân hàng hết hạn,,,
+-215, UM_CARD_DUP_FIRST_LAST,, Trùng thẻ đã lưu,,,
+-214, UM_BANK_ACCOUNT_DUP_FIRST_LAST,, Trùng thông tin first last,,,
+-213, UM_BANK_ACCOUNT_NOT_FOUND ,, Bank account không tồn tại,,,
+-212, UM_BANK_ACCOUNT_USERD_ANOTHER_USER,, Bank account đã liên kết cho user khác,,,
+-211, UM_BANK_ACCOUNT_EXIST ,, Bank account đã tồn tại ,,,
+-210, UM_BANK_ACCOUNT_INFO_INVALID,, Thông tin bank account không hợp lệ ,,,
+-209, PHONE_NOT_FOUND ,, Không tìm thấy số điện thoại,,,
+-208, RPE_EXCEPTION ,, Hệ thống lì xì đang có lỗi,,,
+-207, USERID_INVALID,, Thông tin userid invalid,,,
+-206, REMOVE_MAPPED_CARD_PAY123 ,, Remove thẻ 123 thất bại ,,,
+-205, CIM_UM_EXCEPTION,, Hệ thống cashin merchant đang có lỗi,,,
+-204, UM_REQDATE_EXPIRE ,, Thời gian request hết hạn ,,,
+-203, NOTIFY_ALL_USER_FAIL,, Thông báo tất cả user thất bại,,,
+-202, MESSAGE_EMPTY ,, Thông tin message rỗng,,,
+-201, MAPCARD_123PAY_FAIL ,, Liên kết thẻ không thành công.,,,
+-200, ATM_WRONG_OTP_END_TRANSACTION ,," Sai OTP, vui lòng thực hiện lại giao dich.",,,
+-199, UM_PROFILE_LEVEL_INVALID,, Profile level không hợp lệ,,,
+-198, UM_PROFILE_LEVEL_LESS_THAN,, Profile level nhỏ hơn yêu cầu ,,,
+-197, UM_PHONE_USED ,, Số điện thoại đã được đăng ký. LH 1900 545436 để được hỗ trợ. ,,,
+-196, PAY123_REMOVE_CARD_FAIL ,, Hủy liên kết thẻ đến ngân hàng thất bại.,,,
+-195, CIM_DESC_LENGHT_OVER,, Thông tin mô tả quá chiều dài cho phép. ,,,
+-194,0,," Hệ thống có lỗi, vui lòng quay lại sau. ",,,
+-193, LINK_BANK_OTP_INVALID ,, Thông tin otp không chính xác.,,,
+-192, MAP_CARD_INFO_INVALID ,, Thông tin thẻ không chính xác.,,,
+-191, QUERYSTATUS_FOR_MAPPING_FAIL,, Lấy trạng thái từ ngân hàng thất bại,,,
+-190, AUTHCARD_FOR_MAPPING_FAIL ,, Thông tin liên kết thẻ không chính xác. ,,,
+-189, VERIFYCARD_FOR_MAPPING_FAIL ,, Thông tin thẻ không chính xác.,,,
+-188, UPLOAD_FILE_NOT_ENOUGH,, Vui lòng cung cấp đủ file.,,,
+-187, APP_USER_TYPE_INVALID ,, Thông tin type của appUser không chính xác. ,,,
+-186, COM_INFOTYPE_INVALID,, Thông tin infotype không chính xác. ,,,
+-185, CIM_MTRANSID_NOT_HAS_MID,, Thông tin mtransid không đúng định dạng (chưa có thông tin mid trong mtransid). ,,,
+-184, CIM_MTRANSID_INVALID,, Thông tin mtransid không đúng định dạng.,,,
+-183, CIM_WALLET_EXCEPTION,, Lỗi giao tiếp hệ thống ví.,,,
+-182, CIM_TPE_EXCEPTION ,, Lỗi giao tiếp hệ thống core.,,,
+-181, CIM_TIME_EXPIRED,, Thời gian hết hạn.,,,
+-180, CIM_NOT_CONTAINS_IP ,, Merchant chưa cấu hình ip.,,,
+-179, CIM_NOT_CONTAINS_ZALOPAYID,, Merchant chưa cấu hình zalopayid. ,,,
+-178, CIM_MAC_NOT_MATCH ,, Sai thông tin mac ,,,
+-177, CIM_MID_NOT_EXIST ,, Không tồn tại mid này.,,,
+-176, CIM_ZALOPAYID_INVALID ,, Giá trị zalopayid không hợp lệ. ,,,
+-175, CIM_REQUESTDATE_INVALID ,, Thông tin reqdate không hợp lệ. ,,,
+-174, CIM_MID_INVALID ,, MID không hợp lệ. ,,,
+-173, PAY123_EXCEPTION,," Lỗi kết nối đến ngân hàng, vui lòng thử lại sau ít phút.",,,
+-172, TPE_API_EXCEPTION ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-171, GIVE_MONEY_REJECT_BY_COUNT,, Quá số lượng tặng tiền. ,,,
+-170, GIVE_MONEY_REJECT_BY_TIME ,, Quá thời gian tặng tiền.,,,
+-169, PROFILE_UPDATING,," Yêu cầu của bạn đang xử lý, vui lòng đợi kết quả. ",,,
+-168, INPUT_DB_FAIL ,," Hệ thống đang có lỗi, vui lòng thử lại sau ít phút. ",,,
+-167, APPVERSION_NOT_FOUND,, App version không đúng,,,
+-166, EXCEED_TOTAL_AMT_PER_DAY,, Bạn đã thực hiện vượt quá số tiền trong ngày. ,,,
+-165, EXCEED_TOTAL_TRANS_PER_DAY,, Bạn đã thực hiện vượt quá số lần giao dịch trong ngày.,,,
+-164, CARD_USERD_ANOTHER_USER ,, Thông tin thẻ đã được liên kết cho tài khoản khác.,,,
+-163, WITHDRAW_MONEY_QUERYORDER_FAIL,," Ngân hàng không cho phép rút tiền tại thời điểm này, vui lòng quay lại sau. ",,,
+-162, PROFILE_LEVEL_PERMISSION_OVER ,, Thông tin tài khoản đã được cập nhật. ,,,
+-161, EXCEED_PIN_NOT_MATCH,, Sai mật khẩu thanh toán quá số lần quy định. Vui lòng thử lại sau 15 phút hoặc chọn Quên mật khẩu để được hỗ trợ. ,,,
+-160, RECEIVER_USERID_INVALID ,, Tài khoản nhận không hợp lệ.,,,
+-159, SENDER_USERID_INVALID ,, Tài khoản gửi không hợp lệ. ,,,
+-158, FUNCTION_CLOSED ,, Chức năng đang tạm đóng.,,,
+-157,,,Giao dịch thất bại. Vui lòng bổ sung thông tin xác thực tài khoản và thực hiện lại.,,"Trường hợp 1: Khác nguồn tiền SDV
+- CS kiểm tra tài khoản TKZP đã KYC và NFC chưa.
+- Nếu chưa, hướng dẫn khách hàng cập nhật thông tin xác thực (KYC/NFC) để tiếp tục giao dịch.
+
+Trường hợp 2: Nguồn tiền SDV
+CS kiểm tra độ tuổi khách hàng:
+- Đối với KH ≥ 16 tuổi: Kiểm tra tình trạng NFC của KH. Nếu KH chưa NFC, CS hướng dẫn KH NFC rồi thử giao dịch lại.
+- Đối với KH < 16 tuổi: KH không thể sử dụng nguồn tiền SDV. CS:
+  + Hướng dẫn KH dùng đặc quyền SDSL để tự thanh lý số dư. Hoặc
+  + Ghi nhận và hỗ trợ thanh lý qua eForm giúp KH.",
+-156, WITHDRAW_MONEY_FAIL ,," Ngân hàng không cho phép rút tiền tại thời điểm này, vui lòng quay lại sau. ",,,
+-155, INQUIRECARD_FAIL,," Ngân hàng không cho phép rút tiền tại thời điểm này, vui lòng quay lại sau. ",,,
+-154, USER_HAD_ZALOPAYNAME,, Bạn đã có tên tài khoản.,,,
+-153, ZALOPAYNAME_NOT_EXIST ,, Tài khoản không tồn tại.,,,
+-152, ZALOPAYNAME_FOR_BUZ ,, Tên tài khoản không cho phép. ,,,
+-151, ZALOPAYNAME_DENY,, Tên tài khoản không cho phép. ,,,
+-150, ZALOPAYNAME_EXIST ,, Tên tài khoản đã tồn tại. ,,,
+-149, ZALOPAYNAME_INVALID ,, Tên tài khoản không hợp lệ. ,,,
+-148, UM_EXCEPTION,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-147, RPE_CHARGE_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-146, CHARGE_INFO_INVALID ,, Thông tin thanh toán không hợp lệ.,,,
+-145, IDENTITYNUMBER_INVALID,, Số chứng minh thư không hợp lệ. ,,,
+-144, SEND_QUEUE_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-143, CODE_TEST_USED,, Mã kích hoạt đã được sử dụng. ,,,
+-142, CODE_TEST_INVALID ,, Mã kích hoạt ko hợp lệ. ,,,
+-141, CODE_LOGINUID_INAVLID_USED,, Thông tin tài khoản đăng nhập không hợp lệ. ,,,
+-140, EMAIL_FORMAT_INAVLID,, Email không hợp lệ. ,,,
+-139, FILE_SIZE_INVALID ,," Kích thước file không hợp lệ, vui lòng chọn file khác.",,,
+-138, CREATE_PATH_FAIL,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-137, UM_API_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-136, MAP_CARD_FAIL ,," Lưu thẻ không thành công, vui lòng thực hiện lại. ",,,
+-135, SYSTEM_AUTO_MAINTENANCE ,," Hệ thống đang bảo trì, vui lòng quay lại sau. ",,,
+-135,K0_EXCEED_MAX_TRANS_COUNT,,Do vượt quá số lần trải nghiệm (3 lần). Bạn cần thêm số điện thoại và tạo mật khẩu truy cập để xác thực quyền sở hữu và tăng bảo mật cho Ví trước,,,
+-134, EXCEED_MAX_MAPCARD_PER_DAY,, Vượt quá số lần cho phép lưu thẻ trong ngày.,,,
+-133, EXCEED_MAX_BALANCE_PER_DAY,,"Vượt quá số tiền cho phép sử dụng trong ngày. Vui lòng quay lại sau. Cập nhật Email, CMND để tăng hạn mức sử dụng trong ngày",Vượt hạn mức với KH chưa định danh,"- User chưa KYC SL giới hạn GD 5 triệu/ ngày
+- Số tiền tính hạn mức bao gồm tổng số tiền thanh toán dịch vụ, Voucher, Discount Amount (full giá) Vd: đơn hàng 100k, discount 20k => thực trả 80k nhưng vẫn tính 100k vào hạn mức
+- Hướng khắc phục: hướng dẫn KH định danh""
+",
+-132, REFUND_TYPE_INVALID ,, Hoàn tiền không hợp lệ. ,,,
+-131, RECEIVER_IS_LOCKED,, Tài khoản nhận tiền bị khóa.,,,
+-130, SYSTEM_LOGIN_INVAID ,, Không được phép đăng nhập.,,,
+-129, TRANSFER_SAME_USERID,, Không được phép chuyển tiền cùng tài khoản. ,,Appid 450: đã chặn tính năng User thực hiện tự chuyển tiền cho chính User.,
+-128, RECEIVER_NOT_EXIST,," Tài khoản nhận tiền không tồn tại, vui lòng chọn tài khoản khác.",,,
+-127, RECOVERY_INFO_INVALID ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-126, PIN_SIZE_INVALID,, Mật khẩu thanh toán không hợp lệ. ,,,
+-125, WRONG_PIN_OVERLIMIT ,," Nhập sai mật khẩu thanh toán vượt quá số lần quy định, vui lòng thử lại sau 15 phút . ",,,
+-124, USER_IS_LOCKED,, Tài khoản đang bị khóa. ,,,
+-123, SEND_SMS_FAIL ,," Gửi OTP thất bại, vui lòng kiểm tra lại số điện thoại ",,,
+-122, PROFILE_LEVEL_PERMISSION_WRONG_PIN,, Sai mật khẩu thanh toán.,,,
+-121, PROFILE_LEVEL_PERMISSION_VERIFY_PIN_FAIL,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-120, PROFILE_LEVEL_PERMISSION_PIN_REQUIRE,," Thông tin mật khẩu thanh toán không hợp lệ, giao dịch thất bại. ",,,
+-119, PROFILE_LEVEL_PERMISSION_NOT_ALLOW,, Bạn cần cập nhật thông tin để sử dụng tính năng này.,Tài khoản K1/K0 không thực hiện được giao dịch ,hd khách hàng cập nhật KYC level (có thể map bank hoặc KYC) để tiếp tục thanh toán,
+-118, PROFILE_LEVEL_PERMISSION_NOT_FOUND,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-117, PIN_NOT_MATCH ,, Mật khẩu thanh toán không đúng,,,
+-116, USER_NOT_EXIST,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-115, OTP_PROFILE_MAX_RETRY ,, Nhập OTP sai vượt quá số lần quy định.,,,
+-114, OTP_PROFILE_NOT_MATCH ,, OTP không chính xác.,,,
+-113, OTP_PROFILE_EXPIRE,, OTP hết hạn.,,,
+-112, OTP_PROFILE_INVALID ,, OTP không đúng. ,,,
+-111, PIN_INVALID ,, Mật khẩu thanh toán không hợp lệ. ,,,
+-110, PHONE_NUMBER_INVALID,, Số điện thoại không đúng định dạng. ,,,
+-109, TRANS_NOT_REFUND,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-108, ATM_AUTHEN_PAYER_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-107, USER_CHANGE_SESSION ,, Phiên làm việc hết hạn hoặc tài khoản đã đăng nhập thiết bị khác. ,,,
+-106, APP_NOT_PRIVILEGE ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-105, USER_LOGOUT ,, Khách hàng đã thoát khỏi hệ thống.,,,
+-104, MACCESSTOKEN_INVALID,, Thông tin đăng nhập không hợp lệ. ,,,
+-103, MUID_INVALID,, Thông tin tài khoản không hợp lệ. ,,,
+-102, REFUND_FAIL ,, Hoàn tiền thất bại. ,,,
+-101, REFUND_SUCCESS,," Hoàn tiền thành công. Chủ thẻ ATM, Thẻ VISA/Master/JCB sẽ được hoàn tiền trong 3-5 ngày làm việc. ",,,
+-100, SIG_INVALID ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-99, CLIENT_ID_NOT_FOUND ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-98, LOGIN_SYSTEM_NOT_FOUND,, Đăng nhập thất bại. ,,,
+-97, GEN_USER_ID_FAIL,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-96, CHECK_MAP_CARD_EXCEPTION,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-95, CARD_ALREADY_MAP,, Thẻ đã được lưu trước đó. ,,,
+-94, TRANSTYPE_AMOUNT_INVALID,, Số tiền thanh toán không hợp lệ.,,,
+-93, APPTRANSID_GEN_ERROR,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-92, APPTRANSID_INVALID,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-91, UPDATE_RESULT_FAIL_WALLET_FEE ,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-90, EXCEED_MAX_NOTIFY_WALLET_FEE,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-89, MAP_APPID_APPTRANSID_FAIL ,," Giao dịch đã tồn tại, vui lòng thực hiện lại giao dịch khác.",,,
+-88, TRANSTYPE_MAINTENANCE ,," Chức năng này đang bảo trì, vui lòng quay lại sau.",,,
+-87, TRANSTYPE_INACTIVE,," Hiện tại, Zalopay chưa hỗ trợ dịch vụ này.",Do KH thanh toán không đúng nguồn tiền ,Tư vấn khách hàng chọn nguồn tiền khác để thanh toán lại,
+-86, TRANSTYPE_INVALID ,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-85, CARD_TOKEN_EXPIRE ,," Thông tin thẻ đã lưu hết hạn, vui lòng Hủy thẻ và thực hiện Lưu thẻ lại.",,,
+-84, CARD_TOKEN_INVALID,, Thông tin thẻ không chính xác.,,,
+-83, TRANSID_FORMAT_INVALID,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-82, CARD_NOT_MATCH,, Thông tin thẻ không đúng. ,,,
+-81, USER_NOT_MATCH,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-80, TRANS_NOT_FINISH,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-79, REQUEST_FORMAT_INVALID,," Nhập thông tin sai định dạng, vui lòng nhập lại.",,,
+-78, UM_TOKEN_EXPIRE ,, Phiên đăng nhập hết hạn Vui lòng đăng nhập lại. ,,,
+-77, UM_TOKEN_NOT_FOUND,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-76, UM_CARDINFO_NOT_FOUND ,, Thông tin thẻ hoặc tài khoản không còn hiệu lực. Vui lòng kiểm tra lại. ,,,
+-75, UM_CARDINFO_EXIST ,, Thông tin thẻ đã tồn tại. ,,,
+-74, UM_CARDINFO_INVALID ,, Thông tin thẻ không chính xác.,,,
+-73, TOKEN_INVALID ,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-72, ZALO_LOGIN_EXPIRE ,, Phiên đăng nhập hết hạn vui lòng đăng nhập lại. ,,,
+-71, ZALO_LOGIN_FAIL ,, Đăng nhập thất bại. ,,,
+-70, APPTRANSID_EXIST,," Giao dịch đã tồn tại, vui lòng thực hiện lại giao dịch khác.",,,
+-69, DUPLICATE_ZPTRANSID ,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-68, DUPLICATE_APPTRANSID,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-67, DESERIALIZE_TRANS_FAIL,, Đăng nhập thất bại. ,,,
+-66, USER_INVALID,, Sai thông tin tài khoản.,,,
+-65, ZPW_WRONG_PASSWORD,, Sai mật khẩu. ,,,
+-64, ZPW_GET_BALANCE_FAIL,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-63,CS kiểm tra là của APP ID : 1228 - Phần mô tả trong TPE không đến từ Tài khoản tích luỹ,,Tài khoản của đối tác không đủ số dư để chuyển tiền cho user,,"- LV1/OUT chuyển SL kiểm tra khắc phục cho KH
+- SL gửi thông tin tới PO của Disbursement: Chị MyNTQ và anh AnhNTT3 để thông báo đối tác cần nạp thêm tiền. Sau khi đối tác nạp tiền, hướng dẫn KH thử lại.",
+, ZPW_BALANCE_NOT_ENOUGH,, Tài khoản không đủ tiền để thanh toán.,,,
+-62, ZPW_ACCOUNT_NOT_EXIST ,, Tài khoản không đủ tiền để thanh toán.,,,
+-61, ZPW_ACCOUNT_SUSPENDED ,, Tài khoản tạm thời bị khóa. ,,,
+-60, ZPW_ACCOUNT_NAME_INVALID,, Thông tin tài khoản không chính xác. Vui lòng liên hệ Hotline 1900545436 để được hỗ trợ.,,,
+-59, ZPW_PURCHASE_FAIL ,, Giao dịch thất bại. Vui lòng liên hệ Hotline 1900545436 để được hỗ trợ. ,,,
+-58, ZPW_GETTRANSID_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-57, APP_USER_INVALID,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-56, ATM_VERIFY_OTP_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-55, CAL_USER_FEE_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-54, TIME_INVALID,," Giao dịch hết hạn thanh toán, quý khách vui lòng thử lại. ",Giao dịch vượt quá thời gian thanh toán trên hệ thống nhưng KH vẫn chưa hoàn tất các bước thanh toán (Ví dụ: KH chưa nhập MKTT - OTP),"1. Nếu KH hỏi về thời gian hết hạn của GD là bao lâu?
+HXL: CS chỉ tư vấn chung là mỗi dịch vụ đều có thời gian thực hiện thanh toán nhất định. 
+*Nếu KH gay gắt hỏi sau hơn, CS có thể báo thời gian được cài đặt mặc định tùy theo tính chất của mỗi sản phẩm dịch vụ, thông thường là từ 3-15 phút nên CS rất tiếc chưa thể tư vấn rõ cho KH mong KH thông cảm cho sự bất tiện này.
+
+2. Nếu thanh toán bị thất bại -54, KH cần làm gì?
+HXL: CS tư vấn KH chờ và thực hiện lại giao dịch khác sau 10 phút.
+
+3. KH khiếu nại GD thanh toán hết hạn lỗi -54 nhưng tài khoản KH vẫn bị trừ tiền.
+(Thông thường các GD thanh toán TPE thất bại -54 hệ thống sẽ không trừ tiền trong TK của User)
+Nguyên nhân: Có thể là do khi thanh toán KH đang chọn nguồn tiền từ NH (luồng topup-payment), nên hệ thống có 1 GD nạp tiền thành công và 1 GD thanh toán thất bại -54. 
+HXL: CS cần kiểm tra xem LSGD KH có GD nạp tiền thanh toán nào cùng thời gian với GD thanh toán thất bại -54 không? Sao kê đã ghi nhận khoản nạp tiền đó chưa?
++ Nếu có GD nạp tiền + sao kê đã ghi nhận số tiền đã nạp: CS tư vấn KH kiểm tra lại số dư ví + LSGD.
++ Nếu không GD nạp tiền + KH đã bị trừ tiền: CS cần kiểm tra nguồn tiền thanh toán của GD thất bại -54 của KH đang là số dư tài khoản (phải có log trừ tiền trong sao kê TK Zalopay) hay từ TKNH (phải có sao kê/tin nhắn trừ tiền tại TKNH). CS ghi nhận thông tin UID,TransID, log trừ tiền tại sao kê tài khoản ZP hoặc sao kê ngân hàng đã bị trừ tiền, chuyển SL kiểm tra với DEV.
+",
+-53, HMAC_INVALID,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-52, ITEMS_INVALID ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-51, ATM_COST_RATE_INVALID ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-50, ATM_CAPTCHA_INVALID ,, Nhập sai Mã xác nhận quá số lần quy định. ,,,
+-49, TRANS_INFO_NOT_FOUND,, Giao dịch chưa được thực hiện. Vui lòng thực hiện lại.,,,
+-48, ATM_CHARGE_FAIL ,, Giao dịch thất bại. Vui lòng liên hệ Hotline 1900545436 để được hỗ trợ. ,,,
+-47, ATM_BANK_SRC_INVALID,," Ngân hàng chưa hỗ trợ hoặc đang bảo trì, vui lòng chọn ngân hàng khác.",,,
+-46, ATM_QUERY_ORDER_FAIL,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-45, ATM_MAX_RETRY_OTP_FAIL,," Sai OTP, vui lòng thực hiện lại.",,,
+-44, ATM_VERIFY_CARD_FAIL,," Thông tin thẻ không chính xác, vui lòng thực hiện lại.",,,
+-43, ATM_BANK_MAINTENMAINTENANCE ,, Ngân hàng đang bảo trì. Vui lòng chọn ngân hàng khác. ,,,
+-42, ATM_BANK_INVALID,," Chưa hỗ trợ ngân hàng đã chọn, vui lòng chọn ngân hàng khác.",,,
+-41, ATM_CREATE_ORDER_FAIL ,," Ngân hàng chưa hỗ trợ hoặc đang bảo trì, vui lòng chọn ngân hàng khác.",,,
+-40, MAX_RETRY_GET_DBG_STATUS,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-39, NOT_FOUND_SMS_SERVICE_PHONE ,," Kênh thanh toán không hỗ trợ hoặc đang bảo trì, vui lòng chọn kênh khác.",,,
+-36, OVER_LIMIT,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+-35, PMC_NOT_AVAILABLE ,," Kênh thanh toán không hỗ trợ hoặc đang bảo trì, vui lòng chọn kênh khác.",,,
+-34, PMC_MAINTENANCE ,," Kênh thanh toán đang bảo trì, vui lòng chọn kênh khác.",,,
+-33, APP_MAINTENANCE ,," Ứng dụng đang bảo trì, vui lòng quay lại sau. ",,,
+-32, APP_INACTIVE,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-31, CARD_INVALID,," Thông tin thẻ không chính xác, vui lòng thực hiện lại.",,,
+-29, ATM_CREATE_ORDER_DBG_FAIL ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-26, SDK_INVALID ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-21, PMC_FACTORY_NOT_FOUND ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-20, PLATFORM_NOT_MATCH,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-19, APPID_NOT_MATCH ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-18, DEVICEID_NOT_MATCH,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-17, EXCEED_MAX_NOTIFY ,," Nhà cung cấp chưa trả kết quả, giao dịch đang chờ được xử lý. Vui lòng liên hệ với nhà cung cấp bạn đang sử dụng để được hỗ trợ ngay. ",,,
+-16, UPDATE_RESULT_FAIL,," Nhà cung cấp chưa trả kết quả, giao dịch đang chờ được xử lý. Vui lòng liên hệ với nhà cung cấp bạn đang sử dụng để được hỗ trợ ngay. ",,,
+-15, GET_CACHE_FAIL,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-14, SET_CACHE_FAIL,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-13, GET_TRANSID_FAIL,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-10, PMC_INACTIVE,," Kênh thanh toán không hỗ trợ hoặc đang bảo trì, vui lòng chọn kênh khác.",,,
+-9, PMCID_INVALID ,," Kênh thanh toán không hỗ trợ hoặc đang bảo trì, vui lòng chọn kênh khác.",,,
+-8, DSCREEN_TYPE_INVALID,," Thiết bị chưa được hỗ trợ, giao dịch thất bại.",,,
+-7, PLATFORM_NOT_AVAILABLE,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-6, PLATFORM_INVALID,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-5, AMOUNT_INVALID,, Số tiền không hợp lệ. ,,,
+-4, APP_TIME_INVALID,," Ứng dụng tạm thời không thể thanh toán, vui lòng quay lại sau.",,,
+-3, APP_NOT_AVAILABLE ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-2, APPID_INVALID ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+-1, ZK_NODE_EXIST_EXCEPTION ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+0, EXCEPTION ,," Hệ thống đang có lỗi, vui lòng quay lại sau.",,,
+1, SUCCESSFUL,, Giao dịch thành công,,,
+2, DUPLICATE ,," Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại. ",,,
+3, CREATE_ORDER_SUCCESSFUL ,, Giao dịch vẫn đang được xử lý ,,,
+4, IN_NOTIFY_QUEUE ,, Giao dịch vẫn đang được xử lý ,,,
+5, PROCESSING,, Giao dịch vẫn đang được xử lý ,,,
+6, UM_REQUEST_PROCESSING ,, Giao dịch vẫn đang được xử lý ,,,
+9, ATM_WAIT_FOR_CHARGE ,, Giao dịch vẫn đang được xử lý ,,,
+10, INIT,, Giao dịch vẫn đang được xử lý ,,,
+12, ATM_VERIFY_CARD_SUCCESSFUL,, Giao dịch vẫn đang được xử lý ,,,
+13, ATM_VERIFY_OTP_SUCCESS,, Giao dịch vẫn đang được xử lý ,,,
+14, ATM_AUTHEN_PAYER_SUCCESS,, Giao dịch vẫn đang được xử lý ,,,
+15, IN_GET_STATUS_ATM_QUEUE ,, Giao dịch vẫn đang được xử lý ,,,
+16, ATM_RETRY_CAPTCHA ,, Sai Mã xác nhận. Vui lòng nhập lại,,,
+17, ATM_RETRY_OTP ,, Sai OTP. Vui lòng nhập lại. ,,,
+18, ATM_CHARGE_SUCCESSFUL ,, Giao dịch vẫn đang được xử lý ,,,
+19, ZPW_PURCHASE_SUCCESSFUL ,, Giao dịch vẫn đang được xử lý ,,,
+23, RETRY_PIN ,, Sai mật khẩu thanh toán. Vui lòng nhập lại. ,,,
+24, NEED_CODE_TEST,, Nhập code để tiếp tục.,,,
+26, MAPCARD_WAIT_FOR_PROCESS,, Giao dịch vẫn đang được xử lý.,,,
+27, MAPCARD_WAIT_FOR_QUERY_ORDER,, Giao dịch vẫn đang được xử lý.,,,
+28, MAPCARD_PAY123_SUCCESSFUL ,, Giao dịch vẫn đang được xử lý.,,,
+29, MAPCARD_INQUEUE ,, Giao dịch vẫn đang được xử lý.,,,
+35, UM_REQUIRE_PHONE_NUMBER ,, Yêu cầu cập nhập số điện thoại,,,
+36, UM_REGISTER_PHONE_RETRY_OTP ,, Mã xác thực không hợp lệ,,,
+37, ZPBANK_MAPCARD_SUCCESSFUL ,, Liên kết thành công ở phía ngân hàng,,,
+46, ZPMAPACCOUNT_INQUEUE,, Đang xử lý,,,
+47, ZPMAPACCOUNT_WAIT_FOR_PROCESS ,, Đang đợi xử lý,,,
+48, ZPMAPACCOUNT_WAIT_FOR_QUERY_ORDER ,, Đang đợi kết quả,,,
+49, ZPBANK_MAPACCOUNT_SUCCESSFUL,, Liên kết thành công ở phía ngân hàng,,,
+-341,,,,"do KH đã thanh toán hết số lần free phí bằng thẻ CC, KH đang ở phiên bản cũ",HD KH cập nhật ZP phiên bản mới,
+-340,,,"Thông tin thanh toán không hợp lệ, tài khoản chưa bị trừ tiền. Vui lòng thực hiện lại.",,HD KH cập nhật ZP phiên bản mới hoặc thay đổi nguồn tiền thanh toán khác Ví.,
+-5000,Mã lỗi khác,,,xảy ra khi user vào Ví Ưu Đãi -> bấm Dùng ngay ở voucher,Tư vấn khách hàng update lên phiên bản mới từ 6.3.0 ,
+-344,Mã lỗi khác,Bạn đã giao dịch vượt quá số tiền tối đa trong ngày theo quy định của ngân hàng. Mong bạn thông cảm và vui lòng thử lại sau.,,"* Ngân hàng VCB:
+Theo quy định của ngân hàng VCB, tài khoản Vietcombank liên kết từ ví Zalopay có hạn mức giao dịch theo ngày:
+Trong 24h kể từ thời điểm KH liên kết thành công: 2 triệu/ ngày
+Sau 24h kể từ thời điểm KH liên kết thành công: từ 10 triệu đến 50 triệu/ngày tùy theo loại tài khoản mà KH mở ở ngân hàng VCB, nếu cần biết chi tiết loại TK KH cần liên hệ ngân hàng để được tư vấn. 
+
+(Hạn mức trong 24h đầu sau khi liên kết Tài khoản VCB là tính ở lần liên kết cuối cùng).
+
+* Ngân hàng còn lại: Kh vướng hạn mức Ngân Hàng theo ngày.","* Ngân hàng VCB:
+Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ thời điểm KH liên kết thành công hạn mức giao dịch từ 10 triệu đến 50 triệu/ngày tùy theo loại tài khoản mà KH mở ở ngân hàng VCB, nếu cần biết chi tiết loại TK KH cần liên hệ ngân hàng để được tư vấn. 
+
+Có thể hướng dẫn KH liên kết Thẻ/ Internet Banking VCB (nếu có) để thanh toán hạn mức tối đa 50 triệu/ngày.
+
+* Ngân hàng còn lại: CS kiểm tra hạn mức ngày Ngân Hàng tại đây. (*) Những ngân hàng không có Rule hạn mức theo ngày, CS hướng dẫn KH sử dụng thẻ NH khác để thanh toán trước + đợi qua ngày thanh toán lại với thẻ này.",
+-337,"Ngân hàng đang bảo trì, vui lòng chọn ngân hàng khác",,,,,
+-347,RMS_TRANSACTION_NOT_SECURE_AFTER_RESET_PIN,"Giao dịch bị từ chối do có dấu hiệu không an toàn sau khi cấp lại mật khẩu thanh toán. ZaloPay ưu tiên bảo vệ tài khoản của bạn khỏi những rủi ro truy cập trái phép. Để thực hiện giao dịch tương tự, bạn vui lòng thực hiện hủy liên kết và liên kết lại thẻ/tài khoản ngân hàng bị từ chối, hoặc thử lại sau 24h.",This rules just targeted to reject some transactions make from bank which were kept after PIN reset successfully if exceeds specific amount.,,"·       Cách 1: Khách hàng hủy liên kết và liên kết lại thẻ/tài khoản bị từ chối sau khi PIN reset thành công và thực hiện lại giao dịch 
+·       Cách 2: đợi sau 24h kể từ thời điểm reset PIN thành công gần nhất mà có giữ lại NH liên kết, user thực hiện lại GD trên thẻ/tài khoản bị từ chối 
+Trong TH khách hàng gửi yêu cầu hỗ trợ, đã thực hiện đầy đủ 2 cách như message mà vẫn bị từ chối, team chuyển SL gửi qua Risk để kiểm tra. 
+Đầu mối liên hệ: VuDQ2 ",
+-348,RMS_TRANSACTION_ACCOUNT_TAKEOVER,"1. ZaloPay phát hiện có dấu hiệu bất thường trong giao dịch của bạn trên thiết bị lạ. Nếu bạn không thực hiện giao dịch đó, hãy nhanh chóng thay đổi mật khẩu thanh toán tại ZaloPay để tránh thất thoát tiền trong tài khoản bạn nhé!
+2. Giao dịch của bạn có dấu hiệu bất thường khi được thực hiện trên thiết bị mới. ZaloPay ưu tiên bảo vệ tài khoản của bạn khỏi những rủi ro truy cập trái phép. Để thực hiện giao dịch bạn vui lòng thực hiện định danh tài khoản với ZaloPay nhé.","Based on following rules: Change device, DeviceID, AppID, Past transaction to detect transactions that have ATO's behavior => Reject these transaction and send ZMS to user.","Dựa trên các quy tắc sau: Thay đổi thiết bị, DeviceID, AppID, Giao dịch trước đây để phát hiện các giao dịch có hành vi gian lận=> Từ chối giao dịch này và gửi ZMS cho người dùng.",Hướng xử lý theo sheet Lỗi -348,"Khách hàng nhận được ZMS:
+ZaloPay phát hiện có dấu hiệu bất thường trong giao dịch của bạn trên thiết bị lạ. Nếu bạn không thực hiện giao dịch đó, hãy nhanh chóng thay đổi mật khẩu thanh toán tại ZaloPay để tránh thất thoát tiền trong tài khoản bạn nhé!"
+-349,RMS_PAYMENT_TECHCOMBANK_MAINTENANCE,Thanh toán với Techcombank đang bảo trì - Vui lòng thanh toán với ngân hàng khác,Reject transactions via gateway made by TCB cards due to TCB incident.,Từ chối các giao dịch qua cổng của thẻ TCB do sự cố của TCB.,,
+-350,RMS_TRANSACTION_VIOLATED_RISK_RULE,Giao dịch không thành công do có dấu hiệu không an toàn. Bạn vui lòng liên hệ bộ phận Chăm sóc khách hàng để được hỗ trợ thêm nhé.,Transactions made by user/card/ or device in risk blacklist.,Các giao dịch được thực hiện bởi người dùng / thẻ / hoặc thiết bị trong danh sách đen rủi ro.,". CS xử lý theo file INFOCODE
+
+. Nếu trong file Infocode trên ko có mã lỗi, CS chuyển case SL mail check Risk lý do TK KH bị tạm khóa",
+-352,RMS_TRANSACTION_EXCEED_LIMIT_2,Giao dịch không thành công do vượt quá hạn mức thanh toán mua thẻ điện thoại/ nạp tiền điện thoại. Bạn vui lòng thử lại sau 24 giờ nhé. hoặc nếu là GD topup payment thì sẽ nhận Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng,,"Vượt quá giới hạn số lượng gd cho appID 12 (mua thẻ ĐT) và 61 (Nạp thẻ ĐT).
+
+Nếu KH thanh toán tại dịch vụ app 12, 61 và chọn NH có Topup payment thì rule -352 sẽ bị chặn từ GD nạp tiền.
+(Các GD topup payment NV có thể khai thác GD gốc của KH muốn thanh toán gì hoặc chuyển SL check với risk TrinhTN)","Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.","Reset lại hạn mức nếu giao dịch thanh toán thành công nhưng lại được reund 
+(không dựa theo thông tin Hạn mức rủi ro trên Cstool để tư vấn khách hàng do tool chưa cập nhật hạn mức theo từng user)
+User Low Risk: Tính trên user/card: 50 triệu/24h; 100tr/30 ngày
+User Medium Risk: Tính trên user/card: 30 triệu/24h; 50tr/30 ngày
+User High Risk: Tính trên user/card/ device : 5 triệu/24h; 10tr/30 ngày"
+-353 (Gateway),,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 2 giờ nữa.,,"Điều kiện:
++ Số tiền >= 11.000.000 VND và Số lượng GD > 1
+ + Thời gian: Trong vòng 1h
+ + AppID áp dụng: 12, 218, 356, 1147, 2391
+ 
+ Hoặc
+ + Số tiền >= 5.000.000 VND và Số lượng GD > 1
+ + Thời gian: Trong vòng 2 phút
+ + AppID áp dụng: 12, 218, 356, 1147, 2391",KH có thể thanh toán trở lại sau 2h kể từ GD thành công trước đó,
+-353 (Gateway),,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng.,,"Điều kiện:
++ Số tiền >= 15.000.000 VND
+ + Thời gian: Trong vòng 24h
+ + AppID áp dụng: 12, 218, 356, 1147, 2391",KH có thể thanh toán trở lại sau 24h kể từ GD thành công trước đó,
+-353 (Gateway),,Thẻ không thực hiện được giao dịch. Bạn liên hệ kiểm tra nguồn tiền và thử lại sau 24 tiếng.,,Thẻ thực hiện giao dịch từ các IP highrisk (IP ghi nhận nhiều giao dịch bị từ chối bởi ngân hàng phát hành thẻ trong 24h),KH kiểm tra lại Ngân Hàng lý do thẻ không giao dịch được và sau khi Ngân Hàng đã xử lý vấn đề thì nhờ KH thử lại sau 24h,
+-353 (Ví ZP),RMS_TRANSACTION_EXCEED_LIMIT_3,Giao dịch không thành công do vượt quá hạn mức thanh toán mua thẻ điện thoại. Bạn vui lòng thử lại sau __ nhé.,"Exceed amount limits for telco payment made in TIKI appID (appID 24, subapp 123) within 30 days","Vượt quá giới hạn số tiền đối với thanh toán qua telco được thực hiện bằng TIKI appID (appID 24 - Tiki.vn, subapp 123) trong vòng 30 ngày",,
+-353 (Ví ZP),,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng.,,"Do tỉ lệ khiếu nại gian lận qua gateway của TIKI GATEWAY (appid = 356) tăng cao trong thời gian vừa qua, Risk có thực hiện áp dụng rule chặn hạn mức giao dịch trong vòng 24 giờ để hạn chế rủi ro tấn công thẻ tại appID này.
+Em gửi team thông tin rule như sau:
+Điều kiện:
+•	Gía trị giao dịch thành công tại appID 356 trong 24 giờ > 11,000,000 VND.
+•	VÀ Số lượng giao dịch thành công tại appID 356 trong 24 giờ > 1 giao dịch.
+",Hướng xử lý khi KH vướng lỗi: Nhờ team tư vấn KH thực hiện lại giao dịch sau 24 giờ kể từ GD thành công cuối cùng.,
+-354,RMS_TRANSACTION_EXCEED_LIMIT_4,Giao dịch không thành công do vượt quá hạn mức thanh toán trong ngày. Bạn vui lòng thử lại sau 24 giờ nhé,Exceed other risk amount limits.,"User thực hiện thanh toán vượt quá 20,000,000 VNĐ trong 24h bằng thẻ Visa/MasterCard/JCB",***CS kiểm tra sheet Lỗi -354 (HXL sẽ Áp dụng tất cả các đối tác bao gồm thanh toán điện dù hạn mức điện có đơn vị cho phép thanh toán tối đa 50tr/1GD),
+-998,,,,Lỗi chung của hệ thống,"Chuyển SL check với dev/tech
+Note thông tin: UID, TID",
+-993,"Giao dịch đã vượt hạn mức rút tiền 10.000.000đ/ngày từ Số dư sinh lời.
+","Giao dịch đã vượt hạn mức rút tiền 10.000.000đ/ngày từ Số dư sinh lời.
+",KH đã vượt hạn mức rút tiền từ SDSL 10tr/ngày,KH đã vượt hạn mức rút tiền từ SDSL 10tr/ngày,"Mã code StepResult: -148
+
+HXL: CS báo KH cần chờ qua ngày để tiếp tục thao tác rút tiền từ SDSL.",
+-993,"Hệ thống đang có lỗi, vui lòng thử lại sau!","Hệ thống đang có lỗi, vui lòng thử lại sau!",Lỗi do network không ổn định,Lỗi do network không ổn định,"Mã code StepResult: -148
+
+HXL: CS báo do lỗi kết nối nên nhờ Khách hàng thử lại sau 5 phút",
+-351,RMS_TRANSACTION_EXCEED_LIMIT_1,Chuyển tiền về thẻ ATM vượt hạn mức 100 triệu trong 30 ngày. Bạn thử lại sau nhé,Vướng hạn mức 100tr/user trong 30 ngày,Vượt quá giới hạn giá trị giao dịch cho appID 241 - Chuyển Tiền ATM trong vòng 30 ngày.,"Tư vấn khách hàng nguyên nhân và thực hiện lại sau 30 ngày kể từ giao dịch thành công đầu tiên của chu kỳ 30 ngày với số tiền tương ứng.(Nhân viên kiểm tra Hạn mức rủi ro trên cstool và tư vấn cho khách hàng)
+
+Trong trường hợp KH vẫn còn hạn mức chuyển tiền trong vòng 30 ngày nhưng thực hiện GD bị báo lỗi -351, CS ghi nhận thông tin case chuyển SL kiểm tra với risk.",
+-367,SOF_BALANCE_INSUFFICIENT,Đơn hàng thanh toán thất bại,Số dư không đủ,Số dư sinh lời không đủ để thực hiện giao dịch,HXL: Tư vấn KH kiểm tra lại số dư tài khoản SDSL và nhờ KH thử lại giao dịch sau.,
+-377,-185,Bạn sẽ được hoàn tiền trong vòng 3 ngày làm việc. Giao dịch thất bại. Vui lòng liên hệ Hotline 1900545436 để được hỗ trợ.,,Lỗi hệ thống,"HXL: Tư vấn KH chờ hoàn tiền trong vòng 3 ngày làm việc (Trừ Thứ Bảy, Chủ Nhật và Lễ)",
+-380,-188,Bạn sẽ được hoàn tiền trong vòng 3 ngày làm việc. ,,,"HXL: CS tư vấn KH cho KH chờ hoàn tiền trong vòng 3 ngày làm việc (Trừ Thứ Bảy, Chủ Nhật và Lễ)",
+-267,-160,Đơn hàng thanh toán thất bại,,GD nạp tiền/hoàn tiền về SDSL bị treo,"HXL: CS tư vấn KH chờ tra soát trong vòng 1 ngày làm việc > đóng case
+- Nếu thành công sẽ cộng vào SDSL
+- Nếu thất bại sẽ hoàn tiền về nguồn tiền thanh toán
+
+Nếu sau 1 ngày làm việc giao dịch thất bại chưa hoàn tiền/chưa có kết quả tra soát. CS chuyển case SL tạo jira check với DEV (DEV check với team FUND). ",
+-365,CS xem chi tiết mã lỗi ở sheet bên cạnh,,,,,
+-366,,,,,,
+-6038,,,,,,
+-35111,RMS_TRANSACTION_EXCEED_LIMIT_1,Bạn chỉ chuyển được về ngân hàng tối đa 100 triệu/ngày. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 100tr/user trong 24h,,Tư vấn khách hàng đang bị Vướng hạn mức 100tr/user trong 24h. Khách hàng thực hiện lại sau 24h kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35111),
+-35112,RMS_TRANSACTION_EXCEED_LIMIT_1,Bạn chỉ chuyển được về ngân hàng tối đa 200 triệu/tháng. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 200tr/user trong 30 ngày,,"KH liên hệ phản ánh lần 1: Tư vấn khách hàng đang bị Vướng hạn mức 200tr/user trong 30 ngày. Khách hàng thực hiện lại sau 24h kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35112)
+KH liên hệ từ lần 2 báo đã thực hiện lại sau 24h vẫn thất bại cùng mã lỗi: CS thông báo chuyển kiểm tra thời gian KH có thể thực hiện lại GD và hạn mức KH được sử dụng là bao nhiêu. Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk
+ ",
+-35121,RMS_TRANSACTION_EXCEED_LIMIT_1,Bạn chỉ chuyển được về ngân hàng tối đa 40 triệu/ngày. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 40tr/user trong 24h,,Tư vấn khách hàng đang bị Vướng hạn mức 40tr/user trong 24h. Khách hàng thực hiện lại sau 24h kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35121),
+-35122,RMS_TRANSACTION_EXCEED_LIMIT_1,Bạn chỉ chuyển được về ngân hàng tối đa 150 triệu/tháng. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 150tr/user trong 30 ngày,,"KH liên hệ phản ánh lần 1: Tư vấn khách hàng đang bị Vướng hạn mức 150tr/user trong 30 ngày. Khách hàng thực hiện lại sau 24h kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35122)
+KH liên hệ từ lần 2 báo đã thực hiện lại sau 24h vẫn thất bại cùng mã lỗi::  CS thông báo chuyển kiểm tra thời gian KH có thể thực hiện lại GD và hạn mức KH được sử dụng là bao nhiêu. Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk
+ ",
+-35131,RMS_TRANSACTION_EXCEED_LIMIT_1,Bạn chỉ chuyển được về ngân hàng tối đa 10 triệu/ngày. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 10tr/user trong 24h,,Tư vấn khách hàng đang bị Vướng hạn mức 10tr/user trong 24h. Khách hàng thực hiện lại sau 24h kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35131),
+-35132,RMS_TRANSACTION_EXCEED_LIMIT_1,Vượt hạn mức chuyển tiền về ngân hàng trên thiết bị. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 10tr/device trong 24h,,Giao dịch không thành công do vượt quá hạn mức chuyển/rút tiền về thẻ ATM/ tài khoản ngân hàng. Bạn vui lòng thử lại sau 24 giờ kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35132),
+-35133,RMS_TRANSACTION_EXCEED_LIMIT_1,Bạn chỉ chuyển được về ngân hàng tối đa 60 triệu/tháng. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 60tr/user trong 30 ngày,,"KH liên hệ phản ánh lần 1: Tư vấn khách hàng đang bị Vướng hạn mức 60tr/user trong 30 ngày. Khách hàng thực hiện lại sau 24h kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35133)
+KH liên hệ từ lần 2 báo đã thực hiện lại sau 24h vẫn thất bại cùng mã lỗi:  CS thông báo chuyển kiểm tra thời gian KH có thể thực hiện lại GD và hạn mức KH được sử dụng là bao nhiêu. Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk
+ ",
+-35134,RMS_TRANSACTION_EXCEED_LIMIT_1,Vượt hạn mức chuyển tiền về ngân hàng trên thiết bị. Bạn hãy thử lại sau 24 tiếng.,Vướng hạn mức 60tr/device trong 30 ngày,,"KH liên hệ phản ánh lần 1: Tư vấn khách hàng đang bị vượt hạn mức chuyển tiền về ngân hàng trên thiết bị. Bạn vui lòng thử lại sau 24 giờ kể từ giao dịch thất bại đầu tiên (Gd đầu tiên bị lỗi 35134)
+KH liên hệ từ lần 2 báo đã thực hiện lại sau 24h vẫn thất bại cùng mã lỗi:  CS thông báo chuyển kiểm tra thời gian KH có thể thực hiện lại GD và hạn mức KH được sử dụng là bao nhiêu. Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk
+ ",

@@ -1,0 +1,39 @@
+﻿Bước 1: CS vào Tab User – Lịch sử giao dịch -> điền TransID cần kiểm tra -> phần “kết quả User” sẽ có thông tin info code như hình bên dưới:,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8
+,,,,,,,,"Tùy theo thời điểm KH thanh toán, hệ thống Risk đánh giá TK đang ở Low/Medium/High Risk >> sẽ có hạn mức thanh toán tương ứng cho GD với thời điểm đó.
+
+Ví dụ:
+
+. Ngày 1, 2, 3, 4: KH được đánh giá Medium: được thanh toán 20tr/24h
+. Ngày 5: KH được đánh giá High: được thanh toán 8tr/24h
+
+KH thắc mắc vì sao từng được thanh toán nhiều hơn 8tr/24h.
+
+CS trả lời: Hệ thống ZaloPay sẽ liên tục đánh giá hoạt động của TKZP và có hạn mức thanh toán theo kết quả đánh giá ở từng thởi điểm. Hiện giờ, TKZP của a/c có thể thanh toán bằng thẻ quốc tế với số tiên: 8tr/24h. Điều này nhằm mục đích đảm bảo an toàn cho chủ TKZP, cũng như thẻ NH của a/c. A/c vui lòng đợi sau 24h và thực hiện lại GD khác. 
+*Nếu KH gay gắt, hoặc liên tục bị -354 sau 24h/30 ngày (tùy lỗi): CS ghi nhận chuyển SL check Risk nguyên nhân để có hướng xử lý thêm cho KH."
+Bước 2: Dùng Info code vừa tìm được đối chiếu hướng xử lý trong file bên dưới,,,,,,,,
+"*Lưu ý: Đối với các giao dịch Gateway không có thông tin tại tool Use - Lịch sử giao dịch nên CS sẽ không tra theo Info Code được. CS sẽ kiểm tra theo thông tin Message hiển thị tại trường CodeBC trong form submit ticket của KH (Đối với case từ nguồn Gateway).
+Ví dụ: ""CodeBC: 0-Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.""",,,,,,,,
+Info code,Rule description,Message hiển thị,Hạn mức,Hướng xử lý,,,,
+302300,Giao dịch bị chặn do vượt hạn mức thanh toán trong vòng 24 giờ bằng thẻ tín dụng.,Giao dịch không thành công do vượt quá hạn mức thanh toán trong ngày. Bạn vui lòng thử lại sau 24 giờ nhé.,20.000.000 VND/ 24 giờ,"KH có thể thực lại sau 24 giờ kể từ giao dịch thất bại cuối cùng. hoặc nạp tiền vào ví để thanh toán.
+Lưu ý với KH không thực hiện thanh toán quá tổng 20tr/1 ngày (cho 1 hoặc nhiều GD) đối với thẻ tín dụng. 
+**Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian KH có thể thực hiện lại GD và hạn mức KH được sử dụng là bao nhiêu. Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain ChimTK",,,,
+302301,Giao dịch bằng thẻ quốc tế bị chặn do BIN nằm trong list BIN không cho phép giao dịch/ nghi ngờ gian lận.,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,,"Tư vấn KH thanh toán bằng nguồn tiền khác.
+ Nếu KH vẫn muốn dùng thẻ đang giao dịch và appID khác 454 (nạp tiền), gửi sang Risk xử lý tương tự các case trust thẻ do rule CBS.",,,,
+302302,,,,,,,,
+302303,,,,,,,,
+302304,,,,,,,,
+302311,Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ user của nhóm low-risk bằng nguồn tiền thẻ quốc tế.,Giao dịch không thành công do vượt hạn mức 30 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,30.000.000 VND/ 24 giờ,"KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian KH có thể thực hiện lại GD .Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain TrinhTN",,,,
+302312,Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ card của nhóm low-risk bằng nguồn tiền thẻ quốc tế.,,,,,,,
+302313,Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ user của nhóm low-risk bằng nguồn tiền thẻ quốc tế.,Giao dịch không thành công do vượt hạn mức 100 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,100.000.000 VND/ 30 ngày,,,,,
+302314,Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ card của nhóm low-risk bằng nguồn tiền thẻ quốc tế.,,,,,,,
+302321,Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ user của nhóm medium-risk bằng nguồn tiền thẻ quốc tế.,Giao dịch không thành công do vượt hạn mức 20 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,20.000.000 VND/ 24 giờ,,,,,
+302322,Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ card của nhóm medium-risk bằng nguồn tiền thẻ quốc tế.,,,,,,,
+302323,Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ user của nhóm medium-risk bằng nguồn tiền thẻ quốc tế.,Giao dịch không thành công do vượt hạn mức 90 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,90.000.000 VND/ 30 ngày,,,,,
+302324,Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ card của nhóm medium-risk bằng nguồn tiền thẻ quốc tế.,,,,,,,
+302330,Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ user của nhóm high-risk bằng nguồn tiền thẻ quốc tế.,Giao dịch không thành công do vượt hạn mức nạp tiền trong 24 giờ. Bạn vui lòng thử lại sau nhé.,8.000.000 VND/ 24 giờ,,,,,
+302331,Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ card của nhóm high-risk bằng nguồn tiền thẻ quốc tế.,,,,,,,
+302332,Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ user của nhóm high-risk bằng nguồn tiền thẻ quốc tế.,Giao dịch không thành công do vượt hạn mức nạp tiền trong 30 ngày. Bạn vui lòng thử lại sau nhé.,80.000.000 VND/ 30 ngày,,,,,
+302333,Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ card của nhóm high-risk bằng nguồn tiền thẻ quốc tế.,,,,,,,
+302306,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé,,Trường hợp này nhờ team báo KH thực hiện lại GD bằng nguồn tiền khác nhé. Do đây là rule reject các BIN rủi ro: 466582 và 466583 tại các * AppID *12; 342; 655; 656; 341; 1658; 1659 ,,,,

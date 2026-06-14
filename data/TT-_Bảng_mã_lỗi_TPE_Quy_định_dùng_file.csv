@@ -1,0 +1,5 @@
+﻿Unnamed: 0
+""
+"Với các mã lỗi TPE, lỗi Infocode, trên Cstool đã có Nguyên nhân, hướng xử lý tường minh (vd: vui lòng sử dụng nguồn tiền khác, thanh toán lại sau 24h.....) thì CS chủ động báo KH theo hướng xử lý đã có + chuyển QC update FAQ nếu chưa có trong bảng mã lỗi."
+""
+"Nếu CStool chưa có/chưa rõ HXL: CS tra cứu bảng mã lỗi TPE, Mã lỗi Infocode để tìm HXL. Nếu vẫn không có HXL cho mã lỗi này >> CS chuyển case SL check Dev."

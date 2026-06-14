@@ -1,0 +1,768 @@
+﻿Unnamed: 0,"Các tình huống và hướng xử lý khi gặp các mã lỗi trên tool TPE- Thông tin giao dịch:
+- TH1: Hệ thống trả mã lỗi và PE Return Message rõ ràng, CS đối chiếu trùng với HXL trên FAQ > CS tư vấn theo thông tin đã có cho KH
+- TH2: Hệ thống trả mã lỗi và PE Return Message rõ ràng nhưng trên FAQ không có thông tin mã lỗi và HXL > CS tư vấn kết quả theo PE Return Message cho KH + Chuyển case cho QC update lên FAQ
+- TH3: Hệ thống trả mã lỗi và PE Return Message không trùng với HXL trên FAQ/không rõ ràng > CS tạo jira kiểm tra với BPLQ
+
+PE Return Message là thông báo của hệ thống phản hồi kết quả và HXL cho KH",Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6
+Mã lỗi,Nguyên nhân,Brief_message,Infocode,Message thông báo đến User,Hướng xử lý,Filter nhanh
+-352,-1|20|302132|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302132,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Card  vượt hạn mức nạp ĐT, mua thẻ ĐT trong 24h (high risk) (>5tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302132
+-352,-1|20|302137|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302137,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,,-352302137
+-352,-1|20|302116|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302116,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Card vượt hạn mức nạp ĐT, mua thẻ ĐT trong 24h (low risk) (>1,5tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302116
+-352,-1|20|302122|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302122,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,,-352302122
+-352,-1|20|302122|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302126,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Card vượt hạn mức nạp ĐT, mua thẻ ĐT trong 24h (medium risk) (>10tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302126
+-352,-1|20|302135|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302135,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Card vượt hạn mức nạp ĐT, mua thẻ ĐT trong 24h (high risk) (> 10tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302135
+-352,-1|20|302114|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302114,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Card vượt hạn mức nạp ĐT, mua thẻ ĐT trong 30d (low risk) (>100tr/30 ngày)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302114
+-352,-1|20|302124|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302124,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Card vượt hạn mức nạp ĐT, mua thẻ ĐT trong 30d (medium risk) (>50tr/30 ngày)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302124
+-352,-1|20|302141|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302141,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Card vượt hạn mức telco trong 24h (all level) (>15tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302141
+-348,Vượt thanh toán 100 triệu đồng/tháng tại dịch vụ này.,,210808,Vượt thanh toán 100 triệu đồng/tháng tại dịch vụ này. Vui lòng liên hệ CSKH của Zalopay 1900545436 để được hỗ trợ.,"Vượt hạn mức thanh toán 100 tr/tháng cho mọi hình thức thanh toán
+HXL: Tư vấn KH thực hiện lại vào tháng sau",-348210808
+-348,-1|20|210000|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210000,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,"Chặn giao dịch nghi ngờ bất thường để bảo vệ KH
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại cổng thanh toán của ZaloPay. CS xoa dịu KH và nhờ KH chờ sau 24h kể từ GD thành công trước đó để thực hiện thanh toán mới.",-348210000
+-348,-1|20|210800|Hệ thống đang tạm gián đoạn. Vui lòng thử lại sau.,,210800,Hệ thống đang tạm gián đoạn. Vui lòng thử lại sau,CS xin lỗi + báo KH: Zalopay đang ghi nhận kiểm tra hệ thống + hướng dẫn KH thực hiện lại sau 24h.,-348210800
+-348,-1|20|210807|Dịch vụ tạm thời không thể cung cấp cho bạn. Vui lòng liên hệ CSKH của Zalopay 1900545436 để được hỗ trợ.,,210807,Dịch vụ tạm thời không thể cung cấp cho bạn. Vui lòng liên hệ CSKH của Zalopay 1900545436 để được hỗ trợ.,"Mã lỗi chỉ đang áp dụng cho Appid 4528 - Tenpay
+
+B1: CS1 khai thác chi tiết hơn về hàng hoá dịch vụ mà KH thanh toán.  (anh/chị thanh toán để mua hàng hóa/dịch vụ gì ạ?)
+
+B2: Ghi nhận + chuyển case SL.
+
+B3: SL check với CPL đánh giá xem có mở dịch vụ này cho user thanh toán không? >> SL phản hồi kết quả cho user.",-348210807
+-348,-1|20|210099|Giao dịch có dấu hiệu không an toàn. Bạn hãy liên hệ CSKH để kiểm tra nhé.,,210099,Giao dịch có dấu hiệu không an toàn. Bạn hãy liên hệ CSKH để kiểm tra nhé.,CS hướng dẫn KH thử lại với nguồn tiền khác hoặc thanh toán giao dịch giá trị nhỏ hơn,-348210099
+-356,0|10000|210800|Zalopay đã ngăn chặn giao dịch để bảo vệ tài khoản của bạn. Vui lòng xác thực khuôn mặt để tiếp tục hoặc liên hệ CSKH 1900545436 để kiểm tra giao dịch.,,210800,Zalopay đã ngăn chặn giao dịch để bảo vệ tài khoản của bạn. Vui lòng xác thực khuôn mặt để tiếp tục hoặc liên hệ CSKH 1900545436 để kiểm tra giao dịch.,"Chặn giao dịch nghi ngờ bất thường để bảo vệ KH, hệ thống yêu cầu KH thực hiện face authen (nhưng KH face authen fail hoặc KH không thực hiện face authen)
+
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại app ZaloPay + hướng dẫn KH thực hiện lại GD mới và tiến hành Face Authen theo yêu cầu hệ thống tiếp tục GD.
+
+*Lưu ý:
+- Mỗi 15 phút, hệ thống sẽ yêu cầu KH thực hiện lại face authen trong quá trình giao dịch.
+- CS cần xem thêm thông tin tại cột Auth Info trên tool TPE - Thông tin giao dịch để xem giao dịch KH có được hệ thống yêu cầu face authen và thực hiện thành công hay không? (Nếu có thì hệ thống sẽ hiển thị faceAuth = Yes)
+- Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-356210800
+-356,0|10000|210803|Chúng tôi đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng xác thực khuôn mặt để tiếp tục hoặc liên hệ CSKH để kiểm tra giao dịch.,,210803,Chúng tôi đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng xác thực khuôn mặt để tiếp tục hoặc liên hệ CSKH để kiểm tra giao dịch.,"Chặn giao dịch nghi ngờ bất thường để bảo vệ KH, hệ thống yêu cầu KH thực hiện face authen (nhưng KH face authen fail hoặc KH không thực hiện face authen)
+
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại app ZaloPay + hướng dẫn KH thực hiện lại GD mới và tiến hành Face Authen theo yêu cầu hệ thống tiếp tục GD.",-356210803
+-244,-1|15|210000|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,210000,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,"Chặn giao dịch nghi ngờ bất thường để bảo vệ KH
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại ZaloPay. CS xoa dịu KH và nhờ KH chờ sau 24h kể từ GD thành công trước đó để thực hiện thanh toán mới.",-244210000
+-244,-1|20|700010|Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,IS_FRAUD_TRANSACTION,700010,Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,"Có dấu hiệu abuse bằng refund
+HXL: CS XMTT + kiểm tra xem trước đó (tối thiểu 3 tháng) KH có GD thanh toán nào bị refund hay không? 
++ Nếu có GD bị refund thì hỏi thêm nguyên nhân refund của GD đó. 
++ Nếu không có GD bị refund thì báo ghi nhận thông tin kiểm tra.
+
+> CS chuyển case SL check với TruongTN. Hẹn thời gian phản hồi 3-5 ngày LV.",-244700010
+-244,-1|20|700011|Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,IS_FRAUD_TRANSACTION,700011,Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,,-244700011
+-244,-1|20|700012|Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,IS_FRAUD_TRANSACTION,700012,Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,,-244700012
+-244,-1|20|700014|Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,IS_FRAUD_TRANSACTION,700014,Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,,-244700014
+-244,-1|20|700017|Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,IS_FRAUD_TRANSACTION,700017,Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,,-244700017
+-244,-1|20|700018|Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,IS_FRAUD_TRANSACTION,700018,Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,"Giao dịch qua ví hoặc qua thẻ CC: CS tư vấn nguyên nhân do KH có nhiều giao dịch hoàn tiền nên hệ thống đánh giá có hành vi bất thường. Để có thể tiếp tục thực hiện GD, KH cần cung cấp các thông tin sau:
+- Lí do hoàn tiền của các GD trước đó.
+- Ảnh 2 mặt CCCD.
+- Ảnh selfie.
+
+> CS chuyển case SL check với TruongTN. Hẹn thời gian phản hồi 3-5 ngày LV.",-244700018
+-244,-1|1|300003|Bạn hãy hoàn thành liên kết Ví với thẻ thanh toán/ tài khoản NH để tiếp tục sử dụng.,IS_FRAUD_TRANSACTION,300003,Bạn hãy hoàn thành liên kết Ví với thẻ thanh toán/ tài khoản NH để tiếp tục sử dụng.,"Compliance's blacklist	
+HXL: Hướng dẫn KH liên kết Ví với thẻ/ TKNH để tiếp tục thực hiện GD. ",-244300003
+-244,-1|20|400001|Sản phẩm này chưa được hỗ trợ trên ZaloPay,IS_FRAUD_TRANSACTION,400001,Sản phẩm này chưa được hỗ trợ trên ZaloPay,"Control game merchants. 
+- AppID: 10056; 734; 865
+- Mã GameID không nằm trong danh sách được phép thanh toán do merchant chưa khai báo GameID
+HXL: 
+CS báo KH: hiện sản phẩm/dịch vụ này chưa được hỗ trợ thanh toán bằng Zalopay ",-244400001
+-244,"-1|-1|302208|Thẻ không thực hiện được giao dịch, vui lòng thử lại với số tiền nhỏ hơn.",,302208,"Thẻ không thực hiện được giao dịch, vui lòng thử lại với số tiền nhỏ hơn.","- Mô tả: Rule limit hạn mức giao dịch của các Card BIN rủi ro qua phương thức thanh toán gateway, danh sách BIN rủi ro, danh sách merchant được cập nhật thường xuyên theo từng thời kỳ.
+- Rule: 2M /GD.
+- HXL: Hướng dẫn KH thử lại GD với số tiền nhỏ hơn.",-244302208
+-244,-1|15|212025|Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng thực hiện lại giao dịch khác sau 24 giờ,,212025,Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng thực hiện lại giao dịch khác sau 24 giờ,"Do hit rule của Risk nhằm bảo về TKKH.
+HXL: CS hướng dẫn thử lại sau 24h",-244212025
+-244,-1|20|390003|Vượt quá hạn mức thanh toán từ nguồn tiền này. Bạn hãy thử lại sau 24 tiếng.,,390003,Vượt quá hạn mức thanh toán từ nguồn tiền này. Bạn hãy thử lại sau 24 tiếng.,"Nguyên nhân: KH chạm hạn mức thanh toán 100tr trong vòng 24h từ nguồn tiền ATM. KH có thể thực hiện lại GD sau 24h
+HXL: CS báo KH đã vượt quá hạn mức thanh toán 100tr trong vòng 24h bằng nguồn tiền thẻ ATM, nhờ KH thông cảm và thực hiện lại sau 24h kể từ giao dịch thất bại gần nhất.",-244390003
+-244,"-1|1|600103|Hiện tại dịch vụ không khả dụng, vui lòng chọn nguồn tiền khác.",,600103,"Hiện tại dịch vụ không khả dụng, vui lòng chọn nguồn tiền khác.","Nguyên nhân: do User thanh toán dư nợ trễ hạn nên bị hạn chế các giao dịch liên quan đến Billing, Ecommerce, Telco và Traveling. (có thể tính từ khi KH mở tk Trả sau)
+
+HXL: CS1 kiểm tra giao dịch thanh toán dư nợ của KH (Nếu là TKTS của Lotte Finance, xin thêm ngày sao kê để kiểm tra):
+TH1: Kỳ sao kê trước đó (1 kỳ) không có giao dịch/ vẫn đang thanh toán đúng hạn (bao gồm thanh toán tối thiểu). 
+=> CS1 chuyển SL note file check với risk add Whitelist cho KH. SLA: 3-5 ngày làm việc >>  Trạng thái Chờ Risk
+
+TH2: Kỳ sao kê trước đó (1 kỳ) KH thanh toán dư nợ trễ hạn.
+=> CS tư vấn cho KH: Dịch vụ hiện không khả dụng cho nguồn tiền TKTS mong KH thông cảm và thanh toán dư nợ đúng hạn, KH sẽ được mở lại dịch vụ vào kỳ tiếp theo.
+**Lưu ý: Nếu KH gay gắt không đồng ý với thông tin phản hồi, CS1 chuyển SL note file check với risk add Whitelist cho KH. SLA: 3-5 ngày làm việc >>  Trạng thái Chờ Risk",-244600103
+-358,,,,,,-358600103
+-358,"-1|1|600102|Hiện tại dịch vụ không khả dụng, vui lòng chọn nguồn tiền khác.",,600102,"Hiện tại dịch vụ không khả dụng, vui lòng chọn nguồn tiền khác.",,-358600102
+-244,,,,,,-244600102
+-358,-1|20|610053|Bạn vui lòng thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,,610053,Bạn vui lòng thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,,-358610053
+-244,-1|20|390007|Vượt quá hạn mức thanh toán từ nguồn tiền này. Bạn hãy thử lại sau 24 tiếng.,,390007,Vượt quá hạn mức thanh toán từ nguồn tiền này. Bạn hãy thử lại sau 24 tiếng.,"Nguyên nhân: KH vượt hạn mức nguồn tiền thẻ/tài khoản NH đang sử dụng
+
+> Hạn mức check bảng hạn mức",-244390007
+244,-1|20|670009|Bạn vui lòng thanh toán dư nợ Trả sau hoặc Vay tiền nhanh và thử lại giao dịch sau 24 giờ.,,670009,Bạn vui lòng thanh toán dư nợ Trả sau hoặc Vay tiền nhanh và thử lại giao dịch sau 24 giờ.,"Nguyên nhân: KH còn dư nợ TKTS chưa thanh toán hoặc khoản vay tiền nhanh tại Zalopay quá hạn chưa thanh toán.
+
+HXL:
+CS kiểm tra KH đang có dư nợ TKTS hoặc khoản vay nhanh tại Zalopay hay không:
+   + Nếu có: CS tư vấn KH thanh toán toàn bộ dư nợ TKTS hoặc khoản vay nhanh quá hạn. Sau khi thanh toán sẽ được mở lại thanh toán
+   + Nếu không: CS chuyển SL/Tạo jira check với BPLQ nguyên nhân báo lỗi",244670009
+-332,0|15|100007|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,RMS_USER_NEED_KYC,100007,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,"Có dấu hiệu abuser/ campaign có high abuse
+HXL: CS hướng dẫn KH định danh tài khoản để tiếp tục GD.",-332100007
+-332,0|15|111005|Không thể áp dụng ưu đãi. Bạn hãy thử lại giao dịch mà không dùng khuyến mãi nhé.,,111005,Không thể áp dụng ưu đãi. Bạn hãy thử lại giao dịch mà không dùng khuyến mãi nhé.,"HD KH giao dịch lại mà không dùng khuyến mãi.
+
+Lưu ý: nếu là GD Topup payment sẽ ko thấy có áp dụng khuyến mãi, và vì GD Topup fail nên sẽ không có GD payment. Nhưng thực tế GD thanh toán gốc sẽ có áp dụng khuyến mãi nên bị báo lỗi này >> CS HD user thực hiện thanh toán GD ko dùng KM theo mã lỗi.",-332111005
+-333,-1|20|101118|Không thể áp dụng ưu đãi. Bạn hãy thử lại giao dịch mà không dùng khuyến mãi nhé. ,,101118,Không thể áp dụng ưu đãi. Bạn hãy thử lại giao dịch mà không dùng khuyến mãi nhé.,"*Dành cho trường hợp KH đang thanh toán bằng VietQR có sử dụng voucher Gotit
+
+Nguyên nhân: Do tài khoản bank account KH sử dụng đã từng thanh toán cho 1 giao dịch VietQR khác có áp dụng Gotit trước đó (Hit rule của Risk)
+
+HXL: KH có thể thanh toán không dùng khuyến mãi hoặc nếu muốn dùng khuyến mãi thì phải dùng bank account khác để thanh toán.
+
+*Trường hợp tài khoản KH không thuộc tình huống mô tả trên: 
+- Nếu User thuộc tài khoản blacklist: CS phản hồi theo temp Blacklist.
+- Nếu User không thuộc tài khoản blacklist: CS ghi nhận chuyển case SL check thêm với Risk về nguyên nhân và hướng xử lý.",-333101118
+-333,-1|21|101114|Không thể áp dụng ưu đãi. Bạn hãy thử lại giao dịch mà không dùng khuyến mãi nhé.,,101114,Tài khoản của bạn không thể áp dụng ưu đãi. Bạn hãy thử lại giao dịch mà không dùng khuyến mãi,"Nguyên nhân: 
+1. KH Blacklist/Greylist
+2. Do đa phần (100%) giao dịch của KH đều sử dụng khuyến mãi. CS HD KH thực hiện thêm các giao dịch khác không sử dụng khuyến mãi.
+
+HXL:
+CS kiểm tra Promotion Abuse - Trạng thái Risk tại Tool CXM_Thông tin tài khoản
+   - Nếu Blacklist/Greylist > CS xử lý như quy trình case khuyến mãi KH Blacklist/Greylist bình thường
+   - Nếu Normal > CS phản hồi theo Script sau:
+""Để có thể tiếp tục tham gia và sử dụng ưu đãi, bạn vui lòng thực hiện một số giao dịch thanh toán hợp lệ (không áp dụng khuyến mãi) với giá trị từ 100.000đ trở lên để hệ thống ghi nhận và đánh giá lại tài khoản""",-333101114
+-361,0|10000|100071|Bạn cần xác thực khuôn mặt để tiếp tục thanh toán với ưu đãi.,,100071,Bạn cần xác thực khuôn mặt để tiếp tục thanh toán với ưu đãi.,"Face Authen High Risk Campaign
+
+HXL: 
+Trước tiên CS cần kiểm tra KH có dính rule BL hay không?
++ Nếu KH có Blacklist: CS hướng dẫn KH thực hiện lại GD không dùng KM.
++ Nếu KH không có Blacklist: CS hướng dẫn KH thực hiện xác thực khuôn mặt (Face Authen) để có thể tiếp tục thực hiện giao dịch.
+
+(*) Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực hiện được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-361100071
+-361, 0|10000|101057|Bạn cần xác thực khuôn mặt để tiếp tục thanh toán với ưu đãi. ,,101057,Bạn cần xác thực khuôn mặt để tiếp tục thanh toán với ưu đãi.,,-361101057
+-350,-1|20|300109|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,300109,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,"Rule setup thay mặt Gotit để chặn các GD rủi ro cao qua gateway
+- AppID: 884
+- Gateway
++ KH bình thường: > 5tr/GD 
++ KH whitelist: > 15tr/GD
+> HXL: Đây là rule setup thay mặt cho merchant GotIt nên thông báo KH liên hệ bộ phận CSKH của GotIt để được hỗ trợ",-350300109
+-350,-1|20|300107|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,300107,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,"Rule setup thay mặt Gotit để chặn các GD rủi ro cao qua gateway
+- AppID: 884
+- Gateway
+Rule hạn mức trong 24h:
++ KH bình thường: > 5GD or > 20tr
++ KH whitelist: > 5GD or > 50tr
+> HXL: Đây là rule setup thay mặt cho merchant GotIt nên thông báo KH liên hệ bộ phận CSKH của GotIt để được hỗ trợ",-350300107
+-350,-1|20|300108|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,300108,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,"Rule setup thay mặt Gotit để chặn các GD rủi ro cao qua gateway
+- AppID: 884
+- Gateway
+Rule hạn mức trong 168h:
++ KH bình thường: > 5GD or > 20tr
++ KH whitelist: > 60tr
+> HXL: Đây là rule setup thay mặt cho merchant GotIt nên thông báo KH liên hệ bộ phận CSKH của GotIt để được hỗ trợ",-350300108
+-350,-1|20|300106|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,300106,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,"Rule setup thay mặt Gotit để chặn các GD rủi ro cao qua gateway
+- AppID: 884
+- Mỗi số điện thoại và email chỉ được sử dụng 3 thẻ ngân hàng để thanh toán trong 168h
+> HXL: Đây là rule setup thay mặt cho merchant GotIt nên thông báo KH liên hệ bộ phận CSKH của GotIt để được hỗ trợ",-350300106
+-350,"-1|20|300110|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",RMS_TRANSACTION_VIOLATED_RISK_RULE,300110,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule reject các giao dịch từ các BIN rủi ro của merchant GotIt.
+
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác",-350300110
+-350,"-1|20|300112|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác..",,300112,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 24h
+- AppID = 1783
+- Gateway
+- Mỗi MC users chỉ được dùng 3 thẻ ngân hàng để thanh toán trong 24h
+
+HXL: Hướng dẫn KH thực hiện lại sau 24h",-350300112
+-350,"-1|20|300113|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300113,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi Zalopay userID trong 24h
+- AppID = 1783
+- Gateway
+- Mỗi Zalopay userID chỉ được dùng 3 thẻ ngân hàng để thanh toán trong 24h
+
+HXL: Hướng dẫn KH thực hiện lại sau 24h",-350300113
+-350,"-1|20|300114|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác",,300114,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác","Nguyên nhân: Rule limit số lượng Phone number trên mỗi thẻ trong 24h
+- AppID = 884
+- Gateway
+- Mỗi Zalopay Card chỉ được dùng 3 số điện thoại để thanh toán trong 24h
+
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác",-350300114
+-350,"-1|20|300115|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác",,300115,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng email trên mỗi thẻ trong 24h
+- AppID = 884
+- Gateway
+- Mỗi Zalopay card chỉ được dùng 3 email để thanh toán trong 24h
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác",-350300115
+-350,-1|20|300116|Giao dịch của quý khách bị nghi không an toàn. Vui lòng liên hệ với bộ phận CSKH để được hỗ trợ.,,300116,Giao dịch của quý khách bị nghi không an toàn. Vui lòng liên hệ với bộ phận CSKH để được hỗ trợ.,"Nguyên nhân:Rule reject các email rủi ro cao	
+- AppID = 884
+- Gateway
+- Rule reject các email thuộc blacklist
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác",-350300116
+-350,"-1|20|300125|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300125,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit reject customercode (Mã KH) rủi ro
+-AppID= 417, 889
+- Gateway
+- Fail từ 75% giao dịch/ customerCode
+
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác",-350300125
+-350,"-1|20|300126|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300126,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi customerCode (Mã KH) trong 24h
+- AppID = 417, 889
+- Gateway
+- Mỗi CustomerCode chỉ được dùng 3 thẻ ngân hàng để thanh toán trong 24h
+
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác",-350300126
+-350,-1|20|300127|Vượt hạn mức giao dịch trong 24h. Vui lòng thử lại sau.,,300127,Vượt hạn mức giao dịch trong 24h. Vui lòng thử lại sau.,"Nguyên nhân: Rule limit số tiền giao dịch của một thẻ trong 24h
+- AppID = 417, 889
+- Gateway
+- > 5M/24h/Thẻ
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác hoặc thử lại sau 24h",-350300127
+-350,"-1|20|300128|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300128,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule reject BIN rủi ro cao	
+HXL: Hướng dẫn KH thực hiện giao dịch với nguồn tiền khác",-350300128
+-350,-1|20|300129|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,300129,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,"Nguyên nhân: Rule hạn mức thanh toán/GD tại merchant Vntrip
+- AppID: 559
+- >1tỷ
+HXL: Hướng dẫn KH thực hiện giao dịch với số tiền nhỏ hơn",-350300129
+-350,"-1|20|300131|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300131,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 24h
+- AppID = 655, 656
+- Gateway
+- Mỗi MC users chỉ được dùng 3 thẻ ngân hàng để thanh toán trong 24h
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",-350300131
+-350,"-1|20|300132|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300132,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 168h
+- AppID = 655, 656
+- Gateway
+- Mỗi MC users chỉ được dùng 8 thẻ ngân hàng để thanh toán trong 168h
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",-350300132
+-350,"-1|20|300133|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300133,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 24h
+- AppID = 148, 149, 3762
+- Gateway
+- Mỗi MC users chỉ được dùng 3 thẻ ngân hàng để thanh toán trong 24h
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",-350300133
+-350,"-1|20|300134|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300134,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân:Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 168h
+- AppID = 148, 149, 3762
+- Gateway
+- Mỗi MC users chỉ được dùng 8 thẻ ngân hàng để thanh toán trong 168h
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",-350300134
+-350,"-1|20|300135|Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn.",,300135,"Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn.","Nguyên nhân: Rule limit số tiền giao dịch của một thẻ trong 24h
+- AppID = 148, 149, 3762
+- Gateway
+- > 5M/24h/thẻ
+
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác, hoặc thử lại với số tiền nhỏ hơn",-350300135
+-350,-1|20|300117|Giá trị giao dịch vượt hạn mức của dịch vụ này. Vui lòng thử lại với giá trị nhỏ hơn.,,300117,Giá trị giao dịch vượt hạn mức của dịch vụ này. Vui lòng thử lại với giá trị nhỏ hơn.,"Nguyên nhân: Rule setup thay mặt MB Bank        
+- AppID: 2391; 1147
+- Thẻ MB bank
+- Hạn mức 500k/GD
+
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác, hoặc thử lại với số tiền nhỏ hơn",-350300117
+-350,-1|20|300118|Vượt hạn mức giao dịch trong 24h. Vui lòng thử lại sau,,300118,Vượt hạn mức giao dịch trong 24h. Vui lòng thử lại sau	,"Nguyên nhân: Rule setup thay mặt MB Bank        
+- AppID: 2391; 1147
+- Thẻ MB bank
+- Hạn mức 3tr/24h
+
+HXL: Hướng dẫn KH thử lại sau 24h",-350300118
+-350,"-1|20|300111|Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn",,300111,"Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn","Nguyên nhân: Rule giới hạn giao dịch thẻ quốc tế của merchant GotIt
+AppID = 1783 - GOTITZALO
+Amount> 2.5M
+Áp dụng cho Gateway - thẻ quốc tế
+
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác, hoặc thử lại với số tiền nhỏ hơn",-350300111
+-350,"-1|20|300119|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300119,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule chặn các BIN rủi ro của merchant Dealtoday
+
+HXL: Hướng dẫn KH thanh toán bằng nguồn tiền khác",-350300119
+-350,-1|20|300120|Giá trị giao dịch vượt hạn mức của dịch vụ này. Vui lòng thử lại với giá trị nhỏ hơn,,300120,Giá trị giao dịch vượt hạn mức của dịch vụ này. Vui lòng thử lại với giá trị nhỏ hơn.,"Nguyên nhân:Rule limit giao dịch của merchant Dealtoday qua gateway trong 24h
+- AppID = 3555
+- Gateway
+- 5M/24h/Card
+
+HXL: Hướng dẫn KH thử lại sau 24h",-350300120
+-350,"-1|20|300121|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300121,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 24h
+- AppID = 3555
+- Gateway
+- Mỗi MC users chỉ được dùng 3 thẻ ngân hàng để thanh toán trong 24h
+
+HXL: Hướng dẫn KH sử dụng lại thẻ đã sử dụng trước đó hoặc thử lại sau 24h",-350300121
+-350,"-1|20|300122|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300122,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 168h
+- AppID = 3555
+- Gateway
+- Mỗi MC users chỉ được dùng 8 thẻ ngân hàng để thanh toán trong 168h
+
+HXL: Hướng dẫn KH sử dụng lại thẻ đã sử dụng trước đó hoặc thử lại sau 168h",-350300122
+-350,"-1|20|300123|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300123,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng merchant user có thể sử dụng cùng 1 thẻ để thanh toán trong 24h
+- AppID = 3555
+- Gateway
+- Mỗi thẻ chỉ được dùng để thanh toán cho 1 merchant user trong 24h
+
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",-350300123
+-350,"-1|20|300124|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,300124,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Nguyên nhân: Rule limit số lượng merchant user có thể sử dụng cùng 1 thẻ để thanh toán trong 168h
+- AppID = 3555
+- Gateway
+- Mỗi thẻ chỉ được dùng để thanh toán cho 3 merchant user trong 168h
+
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",-350300124
+-350,"-1|20|300135|Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn",,300135,"Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn","Nguyên nhân: Rule limit hạn mức giao dịch của các Card BIN rủi ro qua phương thức thanh toán gateway, danh sách BIN rủi ro, danh sách merchant được cập nhật thường xuyên theo từng thời kỳ (5tr/thẻ/24h).
+
+HXL: Hướng dẫn KH thử lại sau 24h.",-350300135
+-354,-1|20|302301|Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302301,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,"Giao dịch bằng thẻ quốc tế bị chặn do BIN nằm trong list BIN không cho phép giao dịch/ nghi ngờ gian lận.
+HXL: Tư vấn KH thanh toán bằng nguồn tiền khác.
+Nếu KH vẫn muốn dùng thẻ đang giao dịch và appID khác 454 (nạp tiền), gửi sang Risk xử lý tương tự các case trust thẻ do rule CBS (DM -6001).",-354302301
+-354,-1|20|302302|Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302302,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,,-354302302
+-354,-1|20|302303|Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302303,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,,-354302303
+-357,-1|20|302303|Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302303,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,,-357302303
+-354,-1|20|302304|Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302304,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,,-354302304
+-354,-1|20|302300|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_4,302300,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Giao dịch bị chặn do vượt hạn mức thanh toán trong vòng 24 giờ bằng thẻ tín dụng. (20tr/24h)
+HXL: KH có thể thực lại sau 24 giờ kể từ giao dịch thất bại cuối cùng. hoặc nạp tiền vào ví để thanh toán.
+
+*Nếu sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển cho BPLQ kiểm tra (Thông tin sẽ kiểm tra: Thời gian KH có thể thực hiện lại GD và hạn mức KH được sử dụng là bao nhiêu). 
+Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302300
+-354,-1|20|302305|Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302305,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,"Giao dịch bị chặn vì xuất phát từ các BIN nằm trong Sanctions List
+HXL: CS tư vấn KH thanh toán bằng nguồn tiền khác.",-354302305
+-354,-1|20|302306|Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302306,Thẻ không thực hiện được giao dịch này. Bạn liên hệ CSKH ZaloPay để biết thêm nhé.,"Giao dịch bị chặn xuất phát từ BIN rủi ro: 466582, 466583, đối với high-risk AppID: 12; 342, 655, 656, 341, 1658, 1659
+HXL: CS tư vấn KH thanh toán bằng nguồn tiền khác.",-354302306
+-354,-1|20|302321|Giao dịch không thành công do vượt hạn mức 20 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302321,Giao dịch không thành công do vượt hạn mức 20 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,"Giao dịch vượt hạn mức nạp tiền 20/90 triệu trong vòng 24 giờ/ user của nhóm medium-risk bằng nguồn tiền thẻ quốc tế.
+HXL: KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian & hạn mức KH có thể thực hiện lại GD. Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302321
+-354,-1|20|302322|Giao dịch không thành công do vượt hạn mức 20 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302322,Giao dịch không thành công do vượt hạn mức 20 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,,-354302322
+-354,-1|20|302323|Giao dịch không thành công do vượt hạn mức 90 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302323,Giao dịch không thành công do vượt hạn mức 90 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,,-354302323
+-354,-1|20|302324|Giao dịch không thành công do vượt hạn mức 90 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302324,Giao dịch không thành công do vượt hạn mức 90 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,,-354302324
+-354,-1|20|302331|Giao dịch không thành công do vượt hạn mức nạp tiền trong 24 giờ. Bạn vui lòng thử lại sau nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302331,Giao dịch không thành công do vượt hạn mức nạp tiền trong 24 giờ. Bạn vui lòng thử lại sau nhé.,"Giao dịch vượt hạn mức nạp tiền 8 triệu trong vòng 24 giờ/ card của nhóm high-risk bằng nguồn tiền thẻ quốc tế.
+HXL: KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian & số tiền KH có thể thực hiện lại GD. Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302331
+-354,-1|20|302314|Giao dịch không thành công do vượt hạn mức 100 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302314,Giao dịch không thành công do vượt hạn mức 100 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,"Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ user của nhóm low-risk bằng nguồn tiền thẻ quốc tế. (100tr/30 ngày)
+HXL: KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian & số tiền KH có thể thực hiện lại GD .Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302314
+-354,-1|20|302313|Giao dịch không thành công do vượt hạn mức 100 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302313,Giao dịch không thành công do vượt hạn mức 100 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,,-354302313
+-354,-1|20|302330|Giao dịch không thành công do vượt hạn mức nạp tiền trong 24 giờ. Bạn vui lòng thử lại sau nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302330,Giao dịch không thành công do vượt hạn mức nạp tiền trong 24 giờ. Bạn vui lòng thử lại sau nhé.,"Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ user của nhóm high-risk bằng nguồn tiền thẻ quốc tế. (8tr/24h)
+HXL: KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian & số tiền KH có thể thực hiện lại GD.Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302330
+-354,-1|20|302311|Giao dịch không thành công do vượt hạn mức 30 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302311,Giao dịch không thành công do vượt hạn mức 30 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,"Giao dịch vượt hạn mức nạp tiền trong vòng 24 giờ/ user của nhóm low-risk bằng nguồn tiền thẻ quốc tế. (30tr/24h)
+HXL: KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian KH có thể thực hiện lại GD .Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302311
+-354,-1|20|302312|Giao dịch không thành công do vượt hạn mức 30 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302312,Giao dịch không thành công do vượt hạn mức 30 triệu nạp tiền. Bạn vui lòng thử lại sau 24 giờ nhé.,,-354302312
+-354,-1|20|302333|Giao dịch không thành công do vượt hạn mức nạp tiền trong 30 ngày. Bạn vui lòng thử lại sau nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302333,Giao dịch không thành công do vượt hạn mức nạp tiền trong 30 ngày. Bạn vui lòng thử lại sau nhé.,"Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ card của nhóm high-risk bằng nguồn tiền thẻ quốc tế.
+HXL: KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian & số tiền KH có thể thực hiện lại GD .Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302333
+-354,-1|20|302332|Giao dịch không thành công do vượt hạn mức nạp tiền trong 30 ngày. Bạn vui lòng thử lại sau nhé.,RMS_TRANSACTION_EXCEED_LIMIT_4,302332,Giao dịch không thành công do vượt hạn mức nạp tiền trong 30 ngày. Bạn vui lòng thử lại sau nhé.,"Giao dịch vượt hạn mức nạp tiền trong vòng 30 ngày/ user của nhóm high-risk bằng nguồn tiền thẻ quốc tế. (80tr/30 ngày)
+HXL: KH có thể thử lại sau 24 giờ kể từ giao dịch thất bại cuối cùng.
+** Nếu Sau 24H KH vẫn không thực hiện thành công : CS thông báo chuyển kiểm tra thời gian & số tiền KH có thể thực hiện lại GD .Hẹn 3-5 ngày làm việc >> LV1/out/GS chuyển SL, SL kiểm tra với risk domain DuyTD3",-354302332
+-244,-1|20|610030|Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610030,Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS báo hiện tại dịch vụ này chưa hỗ trợ thanh toán bằng nguồn tiền TK trả sau. CS HD KH thử lại bằng nguồn tiền khác nhé.,-244610030
+-359,-1|20|550001|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,550001,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,"HXL: CS ghi nhận chuyển case SL để Risk (PhiNDT) kiểm tra, component ""KYC Fraud"". Hẹn thời gian xử lý: 3-5 NLV.",-359550001
+-359,-1|20|550002|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,550002,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,-359550002
+-359,-1|20|550003|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,550003,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,-359550003
+-359,-1|20|550004|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,550004,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,-359550004
+-359,-1|20|550005|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,550005,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,-359550005
+-244,-1|20|550001|Giao dịch rủi ro sau khi định danh tài khoản. Vui lòng thử lại sau.,IS_FRAUD_TRANSACTION,550001,Giao dịch rủi ro sau khi định danh tài khoản. Vui lòng thử lại sau.,,-244550001
+-244,-1|20|550002|Giao dịch rủi ro sau khi định danh tài khoản. Vui lòng thử lại sau.,IS_FRAUD_TRANSACTION,550002,Giao dịch rủi ro sau khi định danh tài khoản. Vui lòng thử lại sau.,,-244550002
+-244,-1|20|550003|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,IS_FRAUD_TRANSACTION,550003,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,-244550003
+-244,-1|20|550004|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,IS_FRAUD_TRANSACTION,550004,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,-244550004
+-244,-1|20|550005|Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,IS_FRAUD_TRANSACTION,550005,Giao dịch bất thường sau khi định danh tài khoản. Vui lòng thử lại sau.,,-244550005
+-358,-1|20|610053|Bạn vui lòng thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,,610053,Bạn vui lòng thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,HXL: CS HD KH thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,-358610053
+-358,-1|20|610054|Bạn vui lòng thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,,610054,Bạn vui lòng thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,,-358610054
+-358,-1|20|610299|Dịch vụ chưa hỗ trợ. Bạn thử lại bằng nguồn tiền khác nhé.,,610299,Dịch vụ chưa hỗ trợ. Bạn thử lại bằng nguồn tiền khác nhé.,"AppID 4093 - VNPAY (giống với Payoo), là hệ thống thanh toán của nhiều cửa hàng, MC khác nhau. Phụ thuộc vào MC KH đang thực hiện thanh toán có đang hỗ trợ nguồn tiền TKTS hay không > User có thể hit rule này.
+
+HXL: Khi gặp mã lỗi, CS tư vấn KH chưa được hỗ trợ thanh toán dịch vụ này bằng TKTS, nhờ KH sử dụng nguồn tiền khác để tiếp tục thanh toán.",-358610299
+-358,-1|0|610199|Dịch vụ chưa hỗ trợ. Bạn thử lại bằng nguồn tiền khác nhé.,,610199,Dịch vụ chưa hỗ trợ. Bạn thử lại bằng nguồn tiền khác nhé.,"Những AppID thuộc merchant Thanh Sơn (Telco/Billing)
+
+Nguyên nhân: KH hit rules khi chưa nằm trong danh sách được cho phép thanh toán cho các AppID thuộc Merchant này. 
+
+HXL: Khi gặp mã lỗi, CS tư vấn KH chưa được hỗ trợ thanh toán dịch vụ này bằng TKTS, nhờ KH sử dụng nguồn tiền khác để tiếp tục thanh toán.",-358610199
+-361,0|10000|100014|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,,100014,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,HXL: CS hướng dẫn KH cập nhật định danh tải khoản ở mục Cá nhân để tiếp tục GD.,-361100014
+-359,-1|20|550008|Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,,550008,Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,,-359550008
+-358,-1|20|610050|Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,,610050,Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,,-358610050
+-332,0|15|100014|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,RMS_USER_NEED_KYC,100014,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,,-332100014
+-332,0|15|100059|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,RMS_USER_NEED_KYC,100059,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,,-332100059
+-332,0|15|100060|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,RMS_USER_NEED_KYC,100060,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,,-332100060
+-332,0|15|100088|Bạn cần định danh để tiếp tục thực hiện giao dịch.,RMS_USER_NEED_KYC,100088,Bạn cần định danh để tiếp tục thực hiện giao dịch.,,-332100088
+-332,0|15|140303|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,RMS_USER_NEED_KYC,140303,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,,-332140303
+-332,0|15|310996|Bạn cần định danh tài khoản để tiếp tục giao dịch.,RMS_USER_NEED_KYC,310996,Bạn cần định danh tài khoản để tiếp tục giao dịch.,,-332310996
+-244,-1|20|610050|Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,IS_FRAUD_TRANSACTION,610050,Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,,-244610050
+-332,0|15|100038|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.	,RMS_USER_NEED_KYC,100038,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,HXL: CS hướng dẫn KH định danh tài khoản sau 5 phút thực hiện lại GD.,-332100038
+-332,0|15|100033|Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.	,RMS_USER_NEED_KYC,100033,Bạn cần định danh tài khoản để tiếp tục thanh toán với ưu đãi.,HXL: CS hướng dẫn KH định danh tài khoản và thử lại sau 24h.,-332100033
+-356,0|10000|210014|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn,,210014,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn,"HXL:
+
+CS kiểm tra Loại giao dịch:
+- Loại GD P2P & VietQR >> Không áp dụng tính năng Security Center. CS hướng dẫn KH thanh toán lại sau 24h.
+- Loại GD Payment >> CS kiểm tra  thông báo lỗi đến KH trên tool TPE (dòng: PE Return Message):
+
++ Nếu mess có nội dung hd KH cần xác thực gương mặt >> CS hướng dẫn KH thanh toán lại sau 24h hoặc vào thực hiện hoặc xác thực ở tính năng Security Center. Sau khi xác thực giao dịch thành công, User sẽ được hệ thống dẫn về màn hình thanh toán để thực hiện lại giao dịch mới.
+
++ Nếu mess không có nội dung hd KH cần xác thực gương mặt >> CS hướng dẫn KH thanh toán lại sau 24h.
+
+(*) Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực hiện được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-356210014
+-356,0|10000|210020|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210020,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-356210020
+-356,0|10000|210022|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210022,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-356210022
+-356,0|10000|212008|Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. ,,212008,Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng vào Trang cá nhân -> Trung tâm bảo mật -> Bảo mật giao dịch và thực hiện định danh để tiếp tục giao dịch.,,-356212008
+-348,-1|20|210022|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210022,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-348210022
+-356,0|10000|210024|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210024,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-356210024
+-356,0|10000|210026|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210026,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-356210026
+-356,0|10000|210028|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210028,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-356210028
+-356,0|10000|210030|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210030,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-356210030
+-356,0|10000|210032|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_RBA,210032,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-356210032
+-356,0|10000|212000|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy xác thực khuôn mặt để tiếp tục.,,212000,"Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy xác thực khuôn mặt để tiếp tục.
+",,-356212000
+-356,0|10000|212014|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy xác thực khuôn mặt để tiếp tục.,,212014,"Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy xác thực khuôn mặt để tiếp tục.
+",,-356212014
+-363,0|10000|630101|Giao dịch có dấu hiệu bất thường. Vui lòng xác thực khuôn mặt để tiếp tục giao dịch. ,,630101,Giao dịch có dấu hiệu bất thường. Vui lòng xác thực khuôn mặt để tiếp tục giao dịch. ,,-363630101
+-363,0|10000|630100|Giao dịch có dấu hiệu bất thường. Vui lòng xác thực khuôn mặt để tiếp tục giao dịch. ,,630100,Giao dịch có dấu hiệu bất thường. Vui lòng xác thực khuôn mặt để tiếp tục giao dịch. ,,-363630100
+-356,0|10000|212024|Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Hãy xác thực khuôn mặt ở đây hoặc vào Trang cá nhân -> Trung tâm bảo mật -> Bảo mật giao dịch và xác thực khuôn mặt để tiếp tục giao dịch.,,212024,Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Hãy xác thực khuôn mặt ở đây hoặc vào Trang cá nhân -> Trung tâm bảo mật -> Bảo mật giao dịch và xác thực khuôn mặt để tiếp tục giao dịch.,"HXL: CS hướng dẫn KH vào Security Center để thực hiện xác thực khuôn mặt.
+
+(*) Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực hiện được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-356212024
+-348,-1|20|210002|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210002,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,HXL: CS hướng dẫn KH thanh toán lại sau 24h,-348210002
+-348,-1|20|210004|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210004,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,-348210004
+-348,-1|20|210005|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210005,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,-348210005
+-348,-1|20|210006|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210006,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,-348210006
+-348,-1|20|210008|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210008,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,-348210008
+-348,-1|20|210011|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210011,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-348210011
+-348,-1|20|210014|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210014,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,-348210014
+-348,-1|20|210016|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210016,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,-348210016
+-348,-1|20|210018|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210018,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy liên hệ CSKH để kiểm tra.,,-348210018
+-348,-1|20|210019|Giao dịch có dấu hiệu không an toàn. Bạn hãy liên hệ CSKH để kiểm tra nhé.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210019,Giao dịch có dấu hiệu không an toàn. Bạn hãy liên hệ CSKH để kiểm tra nhé.,,-348210019
+-348,-1|20|210100|Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210100,Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,,-348210100
+-348,-1|20|210102|Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210102,Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,,-348210102
+-348,-1|20|210104|Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210104,Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,,-348210104
+-348,-1|20|210106|Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210106,Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,,-348210106
+-348,-1|20|210108|Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210108,Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,,-348210108
+-332,0|20|210020|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,RMS_USER_NEED_KYC,210020,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,,-332210020
+-348,-1|20|219950|	Bạn đã thực hiện quá số lượng giao dịch nạp tiền Tài Khoản Tích Lũy. Vui lòng thử lại sau!,RMS_TRANSACTION_ACCOUNT_TAKEOVER,219950,,HXL: CS hướng dẫn KH thanh toán lại sau 30 phút,-348219950
+-348,-1|20|219951|	Bạn đã thực hiện quá số lượng giao dịch nạp tiền Tài Khoản Tích Lũy. Vui lòng thử lại sau!,RMS_TRANSACTION_ACCOUNT_TAKEOVER,219951,,,-348219951
+-348,-1|20|212015|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,212015,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,"HXL: CS hướng dẫn KH định đanh tài khoản, sau đó thử lại",-348212015
+-358,-1|20|610030|Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610030,Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"HXL: CS thông báo dịch vụ này chưa được hỗ trợ thanh toán bằng TKTS, HD KH sử dụng nguồn tiền khác để tiếp tục thanh toán.",-358610030
+-358,-1|20|610088|Nguồn tiền TKTS hiện không hỗ trợ cho dịch vụ này. Bạn vui lòng chọn nguồn tiền khác nhé.,,610088,Nguồn tiền TKTS hiện không hỗ trợ cho dịch vụ này. Bạn vui lòng chọn nguồn tiền khác nhé.,,-358610088
+-358,-1|20|610097|Không áp dụng thanh toán bằng TK trả sau.,,610097,Không áp dụng thanh toán bằng TK trả sau.,,-358610097
+-358,-1|20|610033|Chưa hỗ trợ mua thẻ data bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610033,Chưa hỗ trợ mua thẻ data bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS thông báo KH chưa được hỗ trợ mua thẻ data bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác nhé.,-358610033
+-358,-1|20|610100|Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 24h. Bạn thử lại bằng nguồn tiền khác nhé.,,610100,Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 24h. Bạn thử lại bằng nguồn tiền khác nhé.,"Nguyên nhân: KH đã vượt quá hạn mức thanh toán (3tr hoặc 4tr trong vòng 24 giờ) cho group các dịch vụ có AppID: 907 - Lucky Lotter, 1413 - Tiktok Shop, 748 - Lazada, 1063 - Be Group, 665 - Chotot.com
+
+Thao tác hệ thống: CS kiểm tra trong vòng 24h KH đã thanh toán cho các AppID trên tổng cộng bao nhiêu tiền (Tính cả GD refund) để tư vấn cho KH
+
+HXL: CS thông báo KH đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 24h. HD KH thử lại bằng nguồn tiền khác hoặc thử lại sau 24h.
+
+Trường hợp CS kiểm tra thấy mã lỗi trả không đúng thông tin như mô tả trên, CS chuyển case cho SL check với Risk TrungNC",-358610100
+-332,0|10000|610100|Vượt hạn mức thanh toán trong 24 giờ bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,RMS_USER_NEED_KYC,610100,Vượt hạn mức thanh toán trong 24 giờ bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-332610100
+-244,-1|20|610100|Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 24h. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610100,Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 24h. Bạn thử lại bằng nguồn tiền khác nhé.,,-244610100
+-358,-1|20|610101|Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 72h. Bạn thử lại bằng nguồn tiền khác nhé.,,610101,Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 72h. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS thông báo KH đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 72h. HD KH thử lại bằng nguồn tiền khác hoặc thử lại sau 72h.,-358610101
+-244,-1|20|610101|Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 72h. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610101,Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong 72h. Bạn thử lại bằng nguồn tiền khác nhé.,,-244610101
+-244,"-1|-1|400037|Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn.",,400037,"Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn.","Nguyên nhân: Vướn Rule limit 5M/thẻ/24h. Áp dụng cho các BIN rủi ro tại merchant game AppID= 149, 3762, 148 
+=> HXL: Hướng dẫn KH thử lại sau 24h.",-244400037
+-358,-1|20|610032|Không hỗ trợ nạp data/combo cho SĐT khác bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610032,Không hỗ trợ nạp data/combo cho SĐT khác bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS thông báo TK khách hàng chưa được hỗ trợ nạp data/combo cho SĐT khác bằng TK trả sau. Nhờ KH thực hiện GD bằng nguồn tiền khác hoặc nạp cho đúng SĐT khi sử dụng nguồn tiền TKTS nhé.,-358610032
+-358,-1|20|610007|Vượt 1 giao dịch thanh toán điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610007,Vượt 1 giao dịch thanh toán điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt 1 giao dịch thanh toán Điện trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610007
+-244,-1|20|610007|Vượt 1 giao dịch thanh toán điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610007,Vượt 1 giao dịch thanh toán điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-244610007
+-244,-1|20|610008|Vượt 1 giao dịch thanh toán nước trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610008,Vượt 1 giao dịch thanh toán nước trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-244610008
+-358,-1|20|610008|Vượt 1 giao dịch thanh toán nước trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610008,Vượt 1 giao dịch thanh toán nước trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt 1 giao dịch thanh toán Nước trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610008
+-358,-1|20|610120|Vượt 2 giao dịch điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610120,Vượt 2 giao dịch điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt 2 giao dịch thanh toán Điện trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610120
+-358,-1|20|610018|Vượt hạn mức mua thẻ data 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610018,Vượt hạn mức mua thẻ data 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức mua thẻ data 100.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610018
+-358,-1|20|610040|Vượt mức mua thẻ game 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610040,Vượt mức mua thẻ game 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức Mua thẻ game 300.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610040
+-358,-1|20|610012|Vượt hạn mức mua vé số 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610012,Vượt hạn mức mua vé số 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức Mua vé số 1.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610012
+-358,-1|20|610013|Vượt hạn mức mua vé số 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610013,Vượt hạn mức mua vé số 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức mua vé số 200.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610013
+-358,-1|20|610011|Vượt hạn mức mua vé số 3.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610011,Vượt hạn mức mua vé số 3.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức mua vé số 3.500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610011
+-358,-1|20|610015|Vượt hạn mức dịch vụ data 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610015,Vượt hạn mức dịch vụ data 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức Nạp Data 300.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610015
+-358,-1|20|610014|Vượt hạn mức dịch vụ data 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610014,Vượt hạn mức dịch vụ data 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức Nạp Data 500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610014
+-358,-1|20|610017|Vượt hạn mức nạp data/combo 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610017,Vượt hạn mức nạp data/combo 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức Nạp data/Combo 100.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610017
+-358,-1|20|610020|Vượt mức nạp data/combo 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610020,Vượt mức nạp data/combo 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-358610020
+-358,-1|20|610016|Vượt hạn mức nạp data/combo 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610016,Vượt hạn mức nạp data/combo 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức Nạp data/Combo 200.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610016
+-358,-1|20|610034|Vượt hạn mức nạp data/combo cho SĐT khác 100.000đ trong 30 ngày bằng TK trả sau. Bạn sử dụng nguồn tiền khác nhé.,,610034,Vượt hạn mức nạp data/combo cho SĐT khác 100.000đ trong 30 ngày bằng TK trả sau. Bạn sử dụng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức Nạp data/Combo cho SĐT khác 100.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610034
+-358,-1|20|610002|Vượt hạn mức nạp tiền ĐT 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610002,Vượt hạn mức nạp tiền ĐT 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức nạp điện thoại 150.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610002
+-244,-1|20|610002|Vượt hạn mức nạp tiền ĐT 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610002,Vượt hạn mức nạp tiền ĐT 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức nạp điện thoại 500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-244610002
+-358,-1|20|610042|Vượt mức nạp game 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610042,Vượt mức nạp game 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức nạp game 200.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610042
+-358,-1|20|610111|Vượt mức 1 triệu/30 ngày tại dịch vụ di chuyển bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610111,Vượt mức 1 triệu/30 ngày tại dịch vụ di chuyển bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán 1.000.000đ đối với dịch vụ đi lại trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610111
+-358,-1|20|610112|Vượt mức 500k/30 ngày tại dịch vụ di chuyển bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610112,Vượt mức 500k/30 ngày tại dịch vụ di chuyển bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán 500.000đ đối với dịch vụ di chuyển trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610112
+-244,-1|20|600297|Vượt hạn mức giao dịch 300k dịch vụ Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,600297,Vượt hạn mức giao dịch 300k dịch vụ Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán dịch vụ GRAB 300.000đ bằng TKTS. HD KH thử lại bằng nguồn tiền khác.,-244600297
+-244,-1|20|600296|Vượt hạn mức thanh toán dịch vụ Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,600296,Vượt hạn mức thanh toán dịch vụ Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán dịch vụ GRAB. HD KH thử lại bằng nguồn tiền khác.,-244600296
+-358,-1|20|610047|Vượt mức dịch vụ này 1.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610047,Vượt mức dịch vụ này 1.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán dịch vụ này 1.500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610047
+-358,-1|20|610073|Vượt mức thanh toán điện 4.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610073,Vượt mức thanh toán điện 4.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện  4.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610073
+-358,-1|20|610071|Vượt mức thanh toán điện 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610071,Vượt mức thanh toán điện 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện 2.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610071
+-358,-1|20|610074|Vượt mức thanh toán điện 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610074,Vượt mức thanh toán điện 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện 2.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610074
+-358,-1|20|610070|Vượt mức thanh toán điện 4.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610070,Vượt mức thanh toán điện 4.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện 4.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610070
+-358,-1|20|610072|Vượt mức thanh toán điện 800.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610072,Vượt mức thanh toán điện 800.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện 800.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610072
+-358,-1|20|610076|Vượt mức thanh toán điện 800.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610076,Vượt mức thanh toán điện 800.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện 800.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610076
+-358,-1|20|610077|Vượt mức thanh toán điện 800.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610077,Vượt mức thanh toán điện 800.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện 800.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610077
+-358,-1|20|610107|Vượt mức thanh toán 1.5 triệu cho hóa đơn điện bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé,,610107,Vượt mức thanh toán 1.5 triệu cho hóa đơn điện bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Điện 1.5 triệu trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610107
+-358,-1|20|610039|Vượt mức nạp game 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610039,Vượt mức nạp game 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Game 500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610039
+-358,-1|20|610025|Vượt mức thanh toán nước 400.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610025,Vượt mức thanh toán nước 400.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán hóa đơn nước 400.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610025
+-358,-1|20|610022|Vượt hạn mức Internet 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610022,Vượt hạn mức Internet 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Internet 1.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610022
+-244,-1|20|600209|Vượt thanh toán Internet 3 triệu/30 ngày,IS_FRAUD_TRANSACTION,600209,Vượt thanh toán Internet 3 triệu/30 ngày,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Internet 3 triệu trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-244600209
+-358,-1|20|610021|Vượt hạn mức Internet 3.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610021,Vượt hạn mức Internet 3.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Internet 3.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610021
+-358,-1|20|610023|Vượt hạn mức Internet 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610023,Vượt hạn mức Internet 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Internet 300.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610023
+-332,0|10000|610001|Vượt hạn mức mua thẻ cào 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,RMS_USER_NEED_KYC,610001,Vượt hạn mức mua thẻ cào 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán mua thẻ cào  150.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-332610001
+-358,-1|20|610037|Vượt mức mua thẻ game 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610037,Vượt mức mua thẻ game 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán mua thẻ game 1.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610037
+-358,-1|20|610043|Vượt mức mua thẻ game 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610043,Vượt mức mua thẻ game 100.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán mua thẻ game 100.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610043
+-358,-1|20|610153|Vượt hạn mức nạp tiền ĐT 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610153,Vượt hạn mức nạp tiền ĐT 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nạp ĐT 150.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610153
+-358,-1|20|610152|Vượt hạn mức nạp tiền ĐT 250.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610152,Vượt hạn mức nạp tiền ĐT 250.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nạp ĐT 250.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610152
+-358,-1|20|610151|Vượt hạn mức nạp tiền ĐT 350.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610151,Vượt hạn mức nạp tiền ĐT 350.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nạp ĐT 350.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610151
+-358,-1|20|610085|Vượt hạn mức nạp tiền ĐT 400.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610085,Vượt hạn mức nạp tiền ĐT 400.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nạp ĐT 400.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610085
+-358,-1|20|610161|Vượt mức nạp game 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610161,Vượt mức nạp game 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nạp game  1.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610161
+-358,-1|20|610160|Vượt mức nạp game 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610160,Vượt mức nạp game 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nạp game  2.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610160
+-358,-1|20|610036|Vượt mức nạp game 4.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610036,Vượt mức nạp game 4.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nạp game  4.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610036
+-358,-1|20|610024|Vượt mức thanh toán nước 1.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610024,Vượt mức thanh toán nước 1.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nước 1.500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610024
+-358,-1|20|610026|Vượt mức thanh toán nước 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610026,Vượt mức thanh toán nước 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nước 200.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610026
+-358,-1|20|610141|Vượt mức thanh toán nước 600.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610141,Vượt mức thanh toán nước 600.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Nước 600.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610141
+-358,-1|20|610096|Vượt mức siêu thị 700.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610096,Vượt mức siêu thị 700.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán Siêu Thị 700.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610096
+-358,-1|20|610091|Vượt mức siêu thị online 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610091,Vượt mức siêu thị online 2.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán siêu thị online 2.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610091
+-358,-1|20|610092|Vượt mức siêu thị online 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610092,Vượt mức siêu thị online 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán siêu thị online 500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610092
+-358,-1|20|610087|Vượt mức giao dịch thương mại ĐT 1.000.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.	,,610087,Vượt mức giao dịch thương mại ĐT 1.000.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán TMĐT 1.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610087
+-358,-1|20|610090|Vượt mức giao dịch thương mại ĐT 1.500.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.,,610090,Vượt mức giao dịch thương mại ĐT 1.500.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán TMĐT 1.500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610090
+-358,-1|20|610089|Vượt mức giao dịch thương mại ĐT 2.000.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.,,610089,Vượt mức giao dịch thương mại ĐT 2.000.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán TMĐT 2.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610089
+-358,-1|20|610086|Vượt mức giao dịch thương mại ĐT 3.000.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.	,,610086,Vượt mức giao dịch thương mại ĐT 3.000.000đ trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.,HXL: CS tư vấn KH đã vượt hạn mức thanh toán TMĐT 3.000.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610086
+-358,-1|20|610001|Vượt hạn mức mua thẻ cào 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610001,Vượt hạn mức mua thẻ cào 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thẻ cào 300.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610001
+-244,-1|20|610001|Vượt hạn mức mua thẻ cào 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610001,Vượt hạn mức mua thẻ cào 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức thẻ cào 300.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-244610001
+-358,-1|20|610044|Vượt tổng dịch vụ game 250.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610044,Vượt tổng dịch vụ game 250.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức tổng dịch vụ game 250.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610044
+-358,-1|20|610038|Vượt tổng dịch vụ game 3.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610038,Vượt tổng dịch vụ game 3.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức tổng dịch vụ game 3.500.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610038
+-358,-1|20|610041|Vượt tổng dịch vụ game 600.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610041,Vượt tổng dịch vụ game 600.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt hạn mức tổng dịch vụ game 600.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610041
+-358,-1|20|610004|Vượt tổng hạn mức thẻ cào và nạp ĐT 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử nguồn tiền khác nhé.,,610004,Vượt tổng hạn mức thẻ cào và nạp ĐT 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt tổng hạn mức thẻ cào và nạp ĐT 200.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-358610004
+-244,-1|20|610004|Vượt tổng hạn mức thẻ cào và nạp ĐT 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử nguồn tiền khác nhé.,IS_FRAUD_TRANSACTION,610004,Vượt tổng hạn mức thẻ cào và nạp ĐT 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử nguồn tiền khác nhé.,HXL: CS tư vấn KH đã vượt tổng hạn mức thẻ cào và nạp ĐT 200.000đ trong 30 ngày bằng TK trả sau. HD KH thử lại bằng nguồn tiền khác.,-244610004
+-358,-1|20|610060|Bạn hãy liên hệ CSKH để được hỗ trợ xác thực giao dịch trên Tài khoản Trả sau nhé.,,610060,Bạn hãy liên hệ CSKH để được hỗ trợ xác thực giao dịch trên Tài khoản Trả sau nhé.,"HXL: CS xác minh thông tin chủ ví, sau đó xin các chứng từ:
+- Ảnh 2 mặt giấy tờ KH đang định danh
+- Sefie có cầm giấy tờ.
+- Thông tin giao dịch KH đang thực hiện (Tên dịch vụ, thời gian, số tiền)
+
+> Chuyển SL gửi Jira cho Risk. Thời gian hỗ trợ: 3-5 ngày làm việc.",-358610060
+-357,-1|20|310996|Bạn vui lòng định danh tài khoản để tiếp tục giao dịch.,RMS_BANK_USER_NEED_KYC,310996,Bạn vui lòng định danh tài khoản để tiếp tục giao dịch.,HXL: Hướng dẫn khách hàng định danh để thực hiện lại giao dịch,-357310996
+-357,-1|20|310998|Giao dịch có dấu hiệu không an toàn. Bạn hãy liên hệ CSKH để kiểm tra nhé.,,310998,Giao dịch có dấu hiệu không an toàn. Bạn hãy liên hệ CSKH để kiểm tra nhé.,"Nguyên nhân: Do KH thực hiện giao dịch bằng thẻ/TKNH mới, hệ thống ghi nhận một số yếu tố chưa đủ điều kiện xác minh an toàn tại thời điểm giao dịch nên chặn để đảm bảo an toàn cho tài khoản và phương thức thanh toán của KH.
+
+HXL: 
+. Hướng dẫn khách hàng thực hiện lại giao dịch sau 3-5 ngày kể từ thời điểm giao dịch thất bại.
+. Nếu sau thời gian này KH thực hiện lại vẫn lỗi >> CS chuyển case + chat báo SL check với Risk.",-357310998
+-244,-1|20|700015|Kênh thanh toán từ thẻ hiện đang bảo trì. Bạn vui lòng nạp tiền và thử lại giao dịch từ ví.,IS_FRAUD_TRANSACTION,700015,Kênh thanh toán từ thẻ hiện đang bảo trì. Bạn vui lòng nạp tiền và thử lại giao dịch từ ví.,HXL: Hướng dẫn khách hàng dùng thẻ khác hoặc nạp tiền vào ví để thanh toán,-244700015
+-244,-1|10000|210020|ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,IS_FRAUD_TRANSACTION,210020,ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn.,HXL: Hướng dẫn khách hành thanh toán lại sau 24h,-244210020
+-356,0|10000|210001|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,RMS_USER_NEED_RBA,210001,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,"HXL: Kiểm tra khách hàng đã thực hiện định danh chưa
++ Chưa: CS hướng dẫn user thực hiện định danh và thanh toán lại
++ Đã KYC: CS ghi nhận thông tin chuyển case SL add vào file ATO whitelist để Risk TramCTB2 kiểm tra",-356210001
+-356,0|10000|210007|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,210007,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-356210007
+-356,0|10000|210009|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,210009,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-356210009
+-356,0|10000|210250|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy xác thực khuôn mặt để tiếp tục.,RMS_USER_NEED_RBA,210250,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy xác thực khuôn mặt để tiếp tục.,,-356210250
+-348,-1|20|210001|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210001,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-348210001
+-348,-1|20|210003|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210003,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản,,-348210003
+-348,-1|20|210007|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210007,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-348210007
+-348,-1|20|210009|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210009,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-348210009
+-348,"-1|20|210013|Vượt hạn mức giao dịch trong 24h đầu trên thiết bị lạ, bạn hãy định danh để tiếp tục.",RMS_TRANSACTION_ACCOUNT_TAKEOVER,210013,"Vượt hạn mức giao dịch trong 24h đầu trên thiết bị lạ, bạn hãy định danh để tiếp tục.",,-348210013
+-348,-1|20|210015|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210015,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-348210015
+-348,-1|20|210017|Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,RMS_TRANSACTION_ACCOUNT_TAKEOVER,210017,Giao dịch có dấu hiệu bất thường trên thiết bị lạ. Bạn hãy định danh tài khoản để tiếp tục.,,-348210017
+-358,-1|20|610078|Nguồn tiền TK trả sau không khả dụng với hóa đơn này. Vui lòng thử lại bằng nguồn tiền khác.,,610078,Nguồn tiền TK trả sau không khả dụng với hóa đơn này. Vui lòng thử lại bằng nguồn tiền khác.,"Nguyên nhân: KH đang thanh toán cho mã hóa đơn mới.
+
+Định nghĩa lại:
+- Hóa đơn cũ là hóa đơn đã từng được User thanh toán trong 6 tháng.
+- Hóa đơn mới mã hóa đơn chưa từng được User thanh toán trong 6 tháng.
+
+HXL: CS thông báo nguồn tiền TK trả sau không khả dụng với hóa đơn này. HD KH thử lại bằng nguồn tiền khác.",-358610078
+-244,-1|1|700003|Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,IS_FRAUD_TRANSACTION,700003,Giao dịch bị từ chối. Bạn hãy liên hệ CSKH ZaloPay để biết thêm chi tiết.,"Nguyên nhân: KH thực hiện giao dịch thanh toán Grab >300k.
+HXL: Hướng dẫn khách hàng thanh toán số tiền nhỏ hơn 300k",-244700003
+-357,-1|20|310001|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310001,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,"Risk chặn các giao dịch có dấu hiệu spam dò số dư thẻ/ tài khoản ngân hàng đối với tài khoản chưa định danh
+HXL: Do hệ thống đánh giá GD của anh/chị chưa đảm bảo an toàn rủi ro cho chủ tài khoản. Anh/chị vui lòng định danh TKZP và thanh toán lại sau 24h kể từ thời điểm giao dịch thất bại cuối cùng.""
+
+Trường hợp KH không muốn KYC / giấy tờ đã KYC cho 2 TKZP trước đó, không thể KYC thêm cho TKZP này >> KH có thể rút tiền từ số dư ZP về thẻ NHLK.",-357310001
+-357,-1|20|310002|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310002,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310002
+-357,-1|20|310003|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310003,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310003
+-357,-1|20|310004|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310004,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310004
+-357,-1|20|310005|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310005,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310005
+-357,-1|20|310006|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310006,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310006
+-357,-1|20|310011|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310011,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310011
+-357,-1|20|310101|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310101,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310101
+-357,-1|20|310102|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310102,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310102
+-357,-1|20|310900|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_BANK_USER_NEED_KYC,310900,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310900
+-357,-1|20|310901|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.	,RMS_BANK_USER_NEED_KYC,310901,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-357310901
+-332,0|15|310001|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,RMS_USER_NEED_KYC,310001,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-332310001
+-244,-1|20|310001|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310001,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310001
+-244,-1|20|310002|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310002,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310002
+-244,-1|20|310003|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310003,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310003
+-244,-1|20|310004|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310004,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310004
+-244,-1|20|310005|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310005,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310005
+-244,-1|20|310006|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310006,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310006
+-244,-1|20|310101|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310101,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310101
+-244,-1|20|310102|Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,IS_FRAUD_TRANSACTION,310102,Giao dịch có dấu hiệu không an toàn. Bạn hãy định danh tài khoản để tiếp tục nhé.,,-244310102
+-362,0|10000|310103|Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,,310103,Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,"Risk chặn các giao dịch có dấu hiệu spam dò số dư thẻ/ tài khoản ngân hàng đối với tài khoản đã định danh
+HXL: 
+KH liên hệ lần 1: CS báo ""Do hệ thống đánh giá GD của anh/chị chưa đảm bảo an toàn rủi ro cho chủ ví. Anh/chị vui lòng thanh toán lại sau 24h kể từ thời điểm giao dịch thất bại lần cuối cùng.""
+
+KH báo không muốn chờ (từ lần 1); KH liên hệ lần 2; KH đã thử lại sau 24h kể từ GD thất bại cuối cùng vẫn bị lỗi: 
+
+""Để hỗ trợ Anh/chị nhanh chóng và đảm bảo sự an toàn cho tài khoản, Anh/ Chị vui lòng cung cấp giúp em các chứng từ sau để bên em hỗ trợ cho Anh/ Chị ạ:
++ Hình ảnh thẻ liên kết và CMND/ CCCD.
++ Hình Selfie cầm GTTT.
++ Tất cả các ảnh IB/ ảnh thẻ ngân hàng có phát sinh giao dịch lỗi -362 (ví dụ khách hàng có liên kết 1 tài khoản A và 1 thẻ B, thẻ B bị lỗi -362 thì cần xin đúng thẻ B, nếu tài khoản A và B đều bị lỗi thì xin cả 2)""
+
+==>Trường hợp khách hàng gay gắt không muốn cung cấp chứng từ, CS sẽ chuyển Risk kiểm tra trước khi từ chối.",-362310103
+-357,-1|20|310007|Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,RMS_BANK_USER_NEED_KYC,310007,Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,"Risk chặn các giao dịch có dấu hiệu spam dò số dư thẻ/ tài khoản ngân hàng đối với tài khoản đã định danh
+HXL: 
+KH liên hệ lần 1: CS báo ""Do hệ thống đánh giá GD của anh/chị chưa đảm bảo an toàn rủi ro cho chủ ví. Anh/chị vui lòng không thao tác liên tục mà hãy thực hiện thanh toán lại sau 24h kể từ thời điểm giao dịch thất bại lần cuối cùng nhé"" (CS KHÔNG ghi nhận case chuyển SL với case KH gay gắt không muốn chờ 24h nhé).
+
+KH liên hệ lần 2: KH đã thử lại sau 24h kể từ GD thất bại cuối cùng vẫn bị lỗi -357: Em rất tiếc về bất tiện Anh/ Chị gặp phải, vì hệ thống đánh giá GD của mình vẫn chưa đảm bảo về rủi ro cho chủ ví rất mong Anh/ Chị cung cấp giúp em các chứng từ sau để bên em chuyển phòng ban liên quan hỗ trợ kiểm tra sớm cho mình ạ:
++ Hình ảnh thẻ liên kết và CMND/ CCCD.
++ Hình Selfie cầm GTTT.
++ Tất cả các ảnh IB/ ảnh thẻ ngân hàng có phát sinh giao dịch lỗi -357 (ví dụ khách hàng có liên kết 1 tài khoản A và 1 thẻ B, thẻ B bị lỗi -357 thì cần xin đúng thẻ B, nếu tài khoản A và B đều bị lỗi thì xin cả 2).
+
+==>Trường hợp khách hàng gay gắt không muốn cung cấp chứng từ, CS sẽ chuyển Risk kiểm tra trước khi từ chối, tuy nhiên đối với hình ảnh Selfie nếu KH không cung cấp Risk cũng sẽ chưa thể hỗ trợ được do đó CS cần báo KH cung cấp để được hỗ trợ.",-357310007
+-357,-1|20|310008|Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,RMS_BANK_USER_NEED_KYC,310008,Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,,-357310008
+-357,-1|20|310009|Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra lại nguồn tiền hoặc liên hệ CSKH nhé.,RMS_BANK_USER_NEED_KYC,310009,Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra lại nguồn tiền hoặc liên hệ CSKH nhé.,,-357310009
+-357,-1|20|310010|Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.	,RMS_BANK_USER_NEED_KYC,310010,Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,,-357310010
+-357,-1|20|310103|Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,RMS_BANK_USER_NEED_KYC,310103,Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,,-357310103
+-357,-1|20|310104|Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,RMS_BANK_USER_NEED_KYC,310104,Giao dịch có dấu hiệu không an toàn. Bạn hãy kiểm tra nguồn tiền và thử lại sau 24 giờ nhé.,,-357310104
+-357,-1|20|310903|Chúng tôi đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Bạn hãy thử lại sau 24h.,,310903,Chúng tôi đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Bạn hãy thử lại sau 24h.,"Rule chặn các GD rủi ro cao trong vòng 24h
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD. CS nhờ KH kiểm tra lại nguồn tiền và thử lại sau 24h",-357310903
+-353,-1|20|302207|Thẻ không thực hiện được giao dịch. Bạn liên hệ kiểm tra nguồn tiền và thử lại sau 24 tiếng.,,302207,Thẻ không thực hiện được giao dịch. Bạn liên hệ kiểm tra nguồn tiền và thử lại sau 24 tiếng.,"Rule chặn các GD rủi ro cao qua Gateway (Thẻ thực hiện giao dịch từ các IP highrisk (IP ghi nhận nhiều giao dịch bị từ chối bởi ngân hàng phát hành thẻ trong 24h)
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại cổng thanh toán của ZaloPay. CS nhờ KH kiểm tra lại nguồn tiền và thử lại sau 24h",-353302207
+-353,-1|20|302204|Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng.,,302204,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng.,"Rule chặn các GD rủi ro cao qua Gateway:
++ Số tiền >= 11.000.000 VND và Số lượng GD > 1
++ AppID SME + telco
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại cổng thanh toán của ZaloPay. CS nhờ KH kiểm tra lại nguồn tiền và thử lại sau 24h",-353302204
+-353,-1|20|302206|Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng.,,302206,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng.,"Rule chặn các GD rủi ro cao qua Gateway:
++ Số tiền >= 15.000.000 VND
++ Thời gian: Trong vòng 24h
++ AppID áp dụng: 12, 218, 356, 1147, 2391
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại cổng thanh toán của ZaloPay. CS nhờ KH kiểm tra lại nguồn tiền và thử lại sau 24h",-353302206
+-353,-1|20|302205|Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 2 giờ nữa.,,302205,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 2 giờ nữa.,"Rule chặn các GD rủi ro cao qua Gateway:
++ Số tiền >= 5.000.000 VND và Số lượng GD > 1
++ AppID SME + telco
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại cổng thanh toán của ZaloPay. CS nhờ KH kiểm tra lại nguồn tiền và thử lại sau 24h",-353302205
+-353,-1|20|302210|Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng,,302210,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 tiếng.,"Rule chặn các GD rủi ro cao qua Gateway
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại cổng thanh toán của ZaloPay. CS nhờ KH kiểm tra lại nguồn tiền và thử lại sau 24h",-353302210
+-353,-1|20|302231|Vượt quá hạn mức thanh toán tại dịch vụ này. Bạn hãy thử lại sau 1 giờ nữa.,,302231,Vượt quá hạn mức thanh toán tại dịch vụ này. Bạn hãy thử lại sau 1 giờ nữa.,"Rule chặn các GD rủi ro cao qua Gateway
+HXL: CS tư vấn do hệ thống phát hiện bất thường và tạm ngăn chặn các GD có rủi ro cao khi KH thực hiện GD tại cổng thanh toán của Zalopay. CS nhờ KH kiểm tra lại nguồn tiền và thử lại sau 1h",-353302231
+-244,-1|20|400002|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,IS_FRAUD_TRANSACTION,400002,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,"Rule setup thay mặt Gotit để chặn các GD rủi ro cao qua gateway
+HXL: Hướng dẫn KH liên hệ bộ phận CSKH của GotIt 1900 558820 để được hỗ trợ",-244400002
+-244,-1|20|400003|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,IS_FRAUD_TRANSACTION,400003,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,-244400003
+-244,-1|20|400004|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,IS_FRAUD_TRANSACTION,400004,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,-244400004
+-244,-1|20|400005|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,IS_FRAUD_TRANSACTION,400005,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,,-244400005
+-244,-1|-1|400007|Vượt hạn mức giao dịch trong 24h. Vui lòng thử lại sau,IS_FRAUD_TRANSACTION,400007,Vượt hạn mức giao dịch trong 24h. Vui lòng thử lại sau,"Rule setup thay mặt MB Bank - Hạn mức 3tr/24h
+HXL: CS thông báo hạn mức và hướng dẫn KH thử lại sau 24h.",-244400007
+-244,-1|-1|400006|Giá trị giao dịch vượt hạn mức của dịch vụ này. Vui lòng thử lại với giá trị nhỏ hơn.,IS_FRAUD_TRANSACTION,400006,Giá trị giao dịch vượt hạn mức của dịch vụ này. Vui lòng thử lại với giá trị nhỏ hơn.,"Rule setup thay mặt MB Bank - Hạn mức 500k/GD
+HXL: CS tư vấn hạn mức 500k/GD cho KH, báo đây là hạn mức rủi ro được quy định bởi ngân hàng MBBank. CS HD KH thử lại với số tiền nhỏ hơn.",-244400006
+-244,-1|-1|400034|Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường,,400034,Giao dịch thất bại do hệ thống phát hiện giao dịch bất thường.,"Rule: Limit hạn mức giao dịch của thẻ tín dụng rủi ro tại các merchant.
+-AppID = 2792
+- Thẻ tín dụng
+- Hạn mức > 1M/GD
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác, hoặc thử lại với số tiền nhỏ hơn",-244400034
+-244,-1|15|220007|Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng thử lại sau hoặc liên hệ CSKH để được hỗ trợ.,,220007,Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng thử lại sau hoặc liên hệ CSKH để được hỗ trợ.,"Nguyên nhân: Vượt hạn mức thanh toán 9.900.000 VNĐ trong 1h
+HXL: Hướng dẫn KH thử lại sau 1h. Nếu giao dịch có trị giá lớn hơn 9.900.000 VNĐ => CS hướng dẫn KH thanh toán bằng phương thức khác",-244220007
+-362,0|10000|310994|Chúng tôi đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Bạn hãy xác thực khuôn mặt để tiếp tục giao dịch hoặc sử dụng nguồn tiền khác nhé!,,310994,Chúng tôi đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Bạn hãy xác thực khuôn mặt để tiếp tục giao dịch hoặc sử dụng nguồn tiền khác nhé!,"Hướng xử lý: CS hướng dẫn KH nhấn nút xác thực tại màn hình kết quả GD hoặc Security Center, đồng thời KH có thể sử dụng nguồn tiền khác để có thể thực hiện GD nhanh chóng. 
+
+Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực hiện được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-362310994
+-362,0|10000|310995|Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 giờ.,,310995,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24 giờ.,"Rule limit tổng số tiền giao dịch qua thẻ CTG, VCB, BIDV có BIN = 970436/ 970415 trong 1 giờ gần nhất vượt quá 4,500,000 VND
+
+HXL: KH cần thực hiện face authen để tiếp tục xác thực khuôn mặt, sau đó thử lại
+
+Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực hiện được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-362310995
+-362,0|10000|310997|Bạn cần xác thực khuôn mặt để thực hiện giao dịch. Hãy liên hệ CSKH để được hỗ trợ.,,310997,Bạn cần xác thực khuôn mặt để thực hiện giao dịch. Hãy liên hệ CSKH để được hỗ trợ.,"Face Authen High Risk Campaign
+
+HXL: 
+Trước tiên CS cần kiểm tra KH có dính rule BL hay không?
++ Nếu KH có Blacklist: CS hướng dẫn KH thực hiện lại GD không dùng KM.
++ Nếu KH không có Blacklist: CS hướng dẫn KH thực hiện xác thực khuôn mặt (Face Authen) để có thể tiếp tục thực hiện giao dịch.
+
+(*) Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực hiện được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-362310997
+-352,-1|20|302133|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302133,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Thiết bị vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT  trong 24h (high risk) (>5tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302133
+-352,-1|20|302136|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302136,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Thiết bị vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 24h (high risk) (>10tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302136
+-352,-1|20|302140|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302140,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"User vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 24h (all level) (>15tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302140
+-352,-1|20|302131|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302131,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"User vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 24h (high risk) (>5tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302131
+-352,-1|20|302111|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302111,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"User vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 24h (low risk) (>50tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302111
+-352,-1|20|302121|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302121,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"User vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 24h (medium risk) (>30tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302121
+-352,-1|20|302134|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302134,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"User vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 30 ngày (high risk) (>10tr/24h)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302134
+-352,-1|20|302113|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302113,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"User vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 30 ngày (low risk) (>100tr/30 ngày)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302113
+-352,-1|20|302123|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,RMS_TRANSACTION_EXCEED_LIMIT_2,302123,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"User vượt tổng hạn mức của GD nạp ĐT và mua thẻ ĐT trong 30 ngày (medium risk) (>50tr/30 ngày)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302123
+-352,-1|20|302100|Giao dịch không thành công do vượt quá hạn mức thanh toán mua thẻ điện thoại/ nạp tiền điện thoại. Bạn vui lòng thử lại sau 24 giờ nhé.,,302100,Giao dịch không thành công do vượt quá hạn mức thanh toán mua thẻ điện thoại/ nạp tiền điện thoại. Bạn vui lòng thử lại sau 24 giờ nhé.,"Vượt hạn mức mua thẻ ĐT trong vòng 30 ngày (>30tr/30 ngày)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302100
+-352,-1|20|302101|Giao dịch không thành công do vượt quá hạn mức thanh toán mua thẻ điện thoại/ nạp tiền điện thoại. Bạn vui lòng thử lại sau 24 giờ nhé.,,302101,Giao dịch không thành công do vượt quá hạn mức thanh toán mua thẻ điện thoại/ nạp tiền điện thoại. Bạn vui lòng thử lại sau 24 giờ nhé.,"Vượt hạn mức nạp ĐT trong vòng 30 ngày (>5tr/30 ngày)
+HXL: Tư vấn khách hàng thực hiện lại sau 24 giờ kể từ giao dịch thành công cuối cùng
+Nếu sau 24h khách hàng vẫn không thực hiện được giao dịch và tiếp tục bị báo lỗi -352 => Chuyển case SL check với Risk nguyên nhân cụ thể.",-352302101
+-244,"-1|-1|400009|Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.",,400009,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Rule từ chối giao dịch của các thẻ rủi ro khi mua hàng tại merchant GotIt (AppID = 884)
+HXL: Hướng dẫn KH thực hiện GD bằng nguồn tiền khác.",-244400009
+,"Infocode mới, QC update trước. Risk chưa confirm là sẽ gắn cho mã lỗi TPE nào. Nhờ team nào có TransID liên quan (có mã lỗi) phản hồi cho User theo hướng xử lý bên cạnh, sau đó chuyển case cho QC update lại bảng Infocode",,400010,"Vượt hạn mức của dịch vụ này, vui lòng thử lại với số tiền nhỏ hơn","Rule: 
+AppID = 1783 - GOTITZALO
+Amount> 2.5M (Gateway thẻ QT)
+HXL: Hướng dẫn KH thử lại với số tiền nhỏ hơn.","400010
+-244400010"
+-358,-1|20|610058|Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,,610058,Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,"HXL: CS hướng dẫn KH thao tác cập nhật định danh, sau đó thực hiện lại GD khác.",-358610058
+-358,,,610190,Vượt mức nạp tiền thu phí không dừng 1 triệu trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",-358610190
+-358,,,610191,Vượt mức nạp tiền thu phí không dừng 2 triệu trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",-358610191
+-358,,,610192,Vượt mức nạp tiền thu phí không dừng 3 triệu trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",-358610192
+-358,,,610194,"Vượt mức nạp tiền thu phí không dừng 500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+","HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",-358610194
+-358,-1|20|610272|Vượt tổng hạn mức thanh toán 500k bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610272,Vượt tổng hạn mức thanh toán 500k bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"Rule này áp dụng cho các dịch vụ như hóa đơn tiện ích (điện, nước, internet, truyền hình), game, phí cầu đường, siêu thị.
+
+HXL: HD KH sử dụng nguồn tiền khác để thanh toán giúp Zalopay .",-358610272
+-358,-1|20|610250|Vượt mức thanh toán 1.2 triệu đồng cho hóa đơn điện bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610250,Vượt mức thanh toán 1.2 triệu đồng cho hóa đơn điện bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"Nguyên nhân: tương tự lỗi -1|20|610063|.
+và cộng thêm:
+Định nghĩa Hóa đơn điện mới của Risk: tính trong 6 tháng gần nhất, với giá trị GD >1200k.
+
+HXL: CS hướng dẫn KH thử lại bằng nguồn tiền khác, lưu ý thanh toán dư nợ kỳ sao kê đầu tiên đúng hạn. Sang kỳ thanh toán thứ 2 trở đi + onboard >10 ngày thì KH có thể thanh toán Hóa đơn điện với giá trị >1tr2.",-358610250
+-358,-1|20|610063|Thanh toán vượt mức 1.5 triệu đồng đối với khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé,,610063,Thanh toán vượt mức 1.5 triệu đồng đối với khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé,"Thông tin chi tiết mã lỗi: Do đây là rule quản lý rủi ro yêu cầu từ đối tác LFVN, và họ cũng chưa xác định ngày KH có thể thanh toán full hạn mức -> Risk sẽ trao đổi sớm để update cho CS về các infocode này.
+
+. Giải pháp tạm thời, thông báo KH cần thanh toán đầy đủ hạn mức trong 3 kỳ sao kê đầu tiên để chờ PO work lại quy trình với LFVN.
+
+. Nếu KH đã thanh toán nhiều (>3 kỳ sao kê) đầy đủ, đúng hạn nhưng vẫn chưa được nâng hạn mức.
+
+=> HXL:
+. CS hướng dẫn KH thử lại bằng nguồn tiền khác cho GD này + KH vui lòng tiếp tục sử dụng, duy trì thực hiện thanh toán dư nợ TKTS (nếu có) đầy đủ và đúng hạn để đảm bảo lịch sử tín dụng luôn tốt. Phía đối tác Lotte sẽ có những kỳ đánh giá để nâng hạn mức khách hàng trong tương lai. 
+. Trường hợp KH gay gắt thì CS có thể hướng KH gọi cho LFVN để yêu cầu giải đáp thông tin chi tiết. CS không cần chuyển SL nữa.",-358610063
+-358,-1|20|610067|Thanh toán vượt mức 2 triệu đồng đối với khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610067,"Thanh toán vượt mức 2 triệu đồng đối với khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+",,-358610067
+-358,-1|20|61006x|Thanh toán vượt mức __ triệu đồng đối với khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,61006x,Thanh toán vượt mức __ triệu đồng đối với khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-35861006x
+-358,-1|20|61028x|Thanh toán vượt mức ... % hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,61008x,Thanh toán vượt mức ... % hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-35861008x
+-358,-1|20|610281|Thanh toán vượt mức 60% hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610281,Thanh toán vượt mức 60% hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-358610281
+-358,-1|20|610288|Thanh toán vượt mức 60% hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610288,Thanh toán vượt mức 60% hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-358610288
+-358,-1|20|610283|Thanh toán vượt mức 70% hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610283,Thanh toán vượt mức 70% hạn mức tín dụng cho khách hàng mới bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,-358610283
+-358,-1|20|610290|Thanh toán vượt mức 1 triệu đồng đối với nguồn tiền TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,610290,Thanh toán vượt mức 1 triệu đồng đối với nguồn tiền TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"KH vướng vào rule giới hạn tổng hạn mức thanh toán 1M áp dụng cho tất cả các sản phẩm dịch vụ. Đây là hạn mức quản lý rủi ro tạm thời, KH sẽ có thể thanh toán full hạn mức nếu thanh toán dư nợ đầy đủ, đúng hạn trong 3 kỳ sao kê liên tiếp
+
+> HXL: HD KH sử dụng Tài khoản trả sau và thanh toán dư nợ đầy đủ, đúng hạn trong 3 kỳ sao kê liên tiếp để hệ thống mở thêm hạn mức cho KH.",-358610290
+-348,-1|20|210112|Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,,210112,Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.,"Quy định hạn mức trong 24h đầu tiên khi User có phát sinh liên kết với 1 TK đối tác mới là 5triệu (Tất cả đối tác)
+HXL: Hướng dẫn KH thực hiện lại sau 24h kể từ khi liên kết thành công",-348210112
+,,,400011,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Rule chặn các BIN rủi ro của merchant Dealtoday
+HXL: Hướng dẫn KH thanh toán bằng nguồn tiền khác",400011
+,,,400013,Giá trị giao dịch vượt hạn mức của dịch vụ này. Vui lòng thử lại với giá trị nhỏ hơn,"Rule limit giao dịch của merchant Dealtoday qua gateway trong 24h:
+- AppID = 3555
+- Gateway
+- 5M/24h/Card
+HXL: Hướng dẫn KH thử lại sau 24h",400013
+,,,400015,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 24h:
+- AppID = 3555
+- Gateway
+- Mỗi MC users chỉ được dùng 3 thẻ ngân hàng để thanh toán trong 24h
+HXL: Hướng dẫn KH sử dụng lại thẻ đã sử dụng trước đó hoặc thử lại sau 24h",400015
+,,,400016,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Rule limit số lượng thẻ được sử dụng trên mỗi merchant users trong 168h:
+- AppID = 3555
+- Gateway
+- Mỗi MC users chỉ được dùng 8 thẻ ngân hàng để thanh toán trong 168h
+HXL: Hướng dẫn KH sử dụng lại thẻ đã sử dụng trước đó hoặc thử lại sau 168h",400016
+,,,400017,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Rule limit số lượng merchant user có thể sử dụng cùng 1 thẻ để thanh toán trong 24h:
+- AppID = 3555
+- Gateway
+- Mỗi thẻ chỉ được dùng để thanh toán cho 1 merchant user trong 24h
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",400017
+,,,400018,"Thẻ chưa được hỗ trợ để thanh toán cho dịch vụ này, Vui lòng thực hiện bằng hình thức thanh toán khác.","Rule limit số lượng merchant user có thể sử dụng cùng 1 thẻ để thanh toán trong 168h:
+- AppID = 3555
+- Gateway
+- Mỗi thẻ chỉ được dùng để thanh toán cho 3 merchant user trong 168h
+HXL: Hướng dẫn khách hàng thử lại bằng nguồn tiền khác",400018
+-351,-1|20|302006|Dịch vụ tạm thời không thể cung cấp cho bạn. Vui lòng liên hệ CSKH của Zalopay 1900545436 để được hỗ trợ.,,302006,Dịch vụ tạm thời không thể cung cấp cho bạn. Vui lòng liên hệ CSKH của Zalopay 1900545436 để được hỗ trợ.,CS ghi nhận thông tin theo FAQ >> chuyển SL check CPL để đánh giá mở khóa cho KH,-351302006
+-244,-1|20|700210|Dịch vụ tạm thời không thể cung cấp cho bạn. Vui lòng liên hệ CSKH của Zalopay 1900545436 để được hỗ trợ.,,700210,Dịch vụ tạm thời không thể cung cấp cho bạn. Vui lòng liên hệ CSKH của Zalopay 1900545436 để được hỗ trợ.,,
+-332,0|15|140304|Bạn cần định danh tài khoản và liên kết thẻ để tiếp tục thanh toán với ưu đãi.,,140304,Bạn cần định danh tài khoản và liên kết thẻ để tiếp tục thanh toán với ưu đãi.,HXL: CS kiểm tra thông tin định danh và thông tin liên kết ngân hàng của User và hướng dẫn KH định danh và liên kết thẻ NH nếu TK KH chưa thực hiện đủ các bước này.,-332140304
+-357,-1|20|302300|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,,302300,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Nguyên nhân: Do vượt hạn mức thanh toán tổng 20 triệu trong vòng 24 giờ (cho 1 hoặc nhiều GD) bằng thẻ tín dụng tín dụng quốc tế (pmcID = 36).
+
+HXL: Tùy vào tình trạng GD của KH, CS hướng dẫn KH:
+- Cách 1: thử lại sau 24h (nếu tổng giao dịch vượt 20tr trong 24h)
+- Cách 2: thanh toán bằng nguồn tiền khác hoặc thanh toán với số tiền ít hơn (nếu GD KH thực hiện hơn 20tr)",-357302300
+-357,Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24,,310995,"Vượt quá hạn mức thanh toán dịch vụ này. Bạn hãy thử lại sau 24h
+","Nguyên nhân: Rule limit tổng số tiền giao dịch qua thẻ CTG, VCB, BIDV (bankcode = ""ZPCTG""/ ""ZPVCB""/ ""ZPBIDV"") có đầu BIN = 970436/ 970415 trong 1 giờ gần nhất vượt quá 4,500,000 VND (Bao gồm cả những giao dịch thất bại)
+HXL: 
+- HD KH thử lại sau 24h
+- Hoặc Hướng dẫn KH thực hiện giao dịch với số tiền nhỏ hơn hoặc Thử lại với Thẻ/TKNH khác
+- Hoặc Hướng dẫn KH face authen/eKYC
+
+(*) Trường hợp lỗi xác thực lỗi khuôn mặt/xác thực nhiều lần những vẫn không GD được/không xác thực hiện được do màn hình trắng/...: CS có thể hướng dẫn KH update eKYC thử lại hoặc xin ảnh CCCD 2 mặt + Sefie để CS chuyển Risk hỗ trợ xác thực manual. Đối với các mô tả lỗi liên quan đến bug app (Màn hình trắng, app loading,...), CS cần xin thêm thông tin lỗi ứng dụng để check bug.",-357310995
+-357,-1|20|310993|Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng thử lại sau hoặc liên hệ CSKH để được hỗ trợ.,,310993,Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng thử lại sau hoặc liên hệ CSKH để được hỗ trợ.,"Nguyên nhân: Giao dịch thất bại do hit rule limit tổng số tiền giao dịch trong 1 giờ gần nhất vượt quá 4,500,000 VND. 
+HXL: CS hướng dẫn KH thử lại sau 24h với số tiền nhỏ hơn hoặc Thử lại với Thẻ/TKNH khác.",-357310993
+-357,-1|20|310989|Chúng tôi đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Bạn hãy thử lại sau 24h,,310989,Zalopay đã ngăn chặn giao dịch bất thường để bảo vệ tài khoản của bạn. Vui lòng thử lại sau 24h hoặc liên hệ CSKH để được hỗ trợ.,"
+HXL: CS hướng dẫn KH thử lại sau 24h.",-357310989
+-357,-1|20|302136|Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,,302136,Vượt quá hạn mức giao dịch tối đa có thể thực hiện. Bạn hãy thử lại sau 24 tiếng.,"Nguyên nhân: Giao dịch thất bại do KH hit rule vượt tổng hạn mức của GD mua thẻ ĐT và nạp ĐT > 10tr trong 30 ngày. 
+
+HXL: CS kiểm tra tình trạng thanh toán mua thẻ ĐT và Nạp ĐT trong vòng 30 ngày gần nhất để tư vấn KH chính xác thời gian được phép thực hiện lại GD (Tính theo chu kỳ cuốn chiếu 30 ngày).",-357302136

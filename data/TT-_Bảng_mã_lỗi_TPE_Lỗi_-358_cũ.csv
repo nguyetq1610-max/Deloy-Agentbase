@@ -1,0 +1,404 @@
+﻿"Lưu ý: Giao dịch hoàn tiền vẫn tính vào hạn mức, số lần thanh toán.
+Return code (TPE): -358 thì CS sẽ kiểm tra AppID & đối chiếu mã lỗi tương ứng với AppID theo bảng dưới:",Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7
+AppID,Message to user,Message ở màn hình Cashier,Ý nghĩa,Hướng xử lý,Trạng thái,Whitelist,
+12,Vượt hạn mức mua thẻ cào 150.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Vượt mức thẻ cào <amount>/30 ngày,"Vượt quá giới hạn appID 12 trong vòng 30 ngày đối với Paylater do tính thanh khoản cao
+ Note: whitelist not available","Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",Cập nhật 13/02/2023,,"Ghi chú thêm:
+-  whitelist available: có thể xem xét add whitelist để KH tiếp tục thanh toán (áp dụng trường hợp KH gay gắt, CS ghi nhận chuyển SL để check với Risk).
+- whitelist not available: không thể add whitelist để KH tiếp tục thanh toán."
+61,"Group 1: Hạn mức tối đa 500.000đ
+Group 2: Hạn mức tối đa 150.000đ , 250.000đ , 350.000đ
+Group 3: Hạn mức tối đa 150.000đ trong 30 ngày.
+
+
+Vượt hạn mức nạp tiền ĐT <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",Vượt mức nạp điện thoại <amount>/30 ngày,"Vượt quá giới hạn appID 61 trong vòng 30 ngày đối với Paylater do tính thanh khoản cao
+ Note: whitelist not available","Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",Cập nhật 13/02/2023,,
+12 & 61,Vượt tổng hạn mức thẻ cào và nạp ĐT 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử nguồn tiền khác nhé.,"Vượt mức thẻ cào, nạp ĐT <amount>/30 ngày","Hạn chế giới hạn cho cả thẻ Telco (appID 12) và nạp tiền trên thiết bị di động (appID 61)
+Note to CS: whitelist not available","Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",Mới được thêm vào ngày 14/02/2023,,
+791,Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Dịch vụ chưa hỗ trợ,"Loại bỏ Baemin Mart (merchant type = BMM).
+Note : whitelist not available",CS hướng dẫn KH sử dụng nguồn tiền khác.,Đã lên từ 15h50 ngày 10/02/2023,,
+"Theo các AppID Điện  (Áp dụng hóa đơn cũ là hóa đơn đã từng được User thanh toán trong 6 tháng):
+429 - EVN Miền Nam
+372 - EVNHCM
+431 - EVN MB
+422 - EVNHN
+430 - EVNCPC
+17 - Điện
+
+Note : whitelist not available","Group 1: Hạn mức tối đa 4.000.000 vnđ:
+Hạn mức tối đa thanh toán hóa đơn điện là 4tr","Vượt 1 giao dịch thanh toán điện trong 30 ngày
+AND
+Vượt thanh toán điện <amount>/30 ngày",Vượt mức thanh toán điện 4.000.000 vnđ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"HXL chung: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn",Risk xin thông báo điều chỉnh rule chặn giao dịch sẽ lên Production  lúc 14h00 ngày 01/06/2023 theo nhu cầu kiểm soát rủi ro nợ xấu đối với nguồn tiền TKTS,,
+,"Group 2: Không set hạn mức
+Vượt 1 giao dịch thanh toán điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,Vượt 1 giao dịch thanh toán điện trong 30 ngày,,,,
+,"Group 3: Hạn mức tối đa 800.000 vnđ:
+Vượt mức thanh toán điện 800.000 vnđ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,Hạn mức tối đa thanh toán hóa đơn điện là 800.000vnđ,,,,
+"Theo các AppID Điện (Áp dụng hóa đơn mới là hóa đơn chưa từng được User thanh toán trong 6 tháng):
+429 - EVN Miền Nam
+372 - EVNHCM
+431 - EVN MB
+422 - EVNHN
+430 - EVNCPC
+17 - Điện
+
+Note : whitelist not available","Group 1: Hạn mức tối đa 2.000.000 vnđ:
+Vượt mức thanh toán điện 2.000.000 vnđ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.","Vượt 1 giao dịch thanh toán điện trong 30 ngày
+AND
+Vượt thanh toán điện <amount>/30 ngày
+AND
+Vượt thanh toán cho hóa đơn điện mới 2 triệu/30 ngày
+AND
+Không khả dụng với hóa đơn điện mới",Hạn mức tối đa thanh toán hóa đơn điện là 2tr,,,,
+,"Group 2: Không set hạn mức
+Vượt 1 giao dịch thanh toán điện trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,Vượt 1 giao dịch thanh toán điện trong 30 ngày,,,,
+,"Group 3: Không set hạn mức
+Nguồn tiền TK trả sau không khả dụng với hóa đơn này. Vui lòng thử lại bằng nguồn tiền khác",,Không khả dụng với hóa đơn điện mới,"1. Định nghĩa lại:
+- Hóa đơn cũ là hóa đơn đã từng được User thanh toán trong 6 tháng.
+- Hóa đơn mới mã hóa đơn chưa từng được User thanh toán trong 6 tháng.
+
+2. Theo các AppID Điện trong danh sách  (Áp dụng hóa đơn mới là hóa đơn chưa từng được User thanh toán trong 6 tháng)
+Thêm trường hợp
+
+HXL : CS hướng dẫn KH sử dụng nguồn tiền khác
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn
+",,,
+"Theo các AppID Nước:
+18 - Nước
+892 - Nước Thủ Đức
+1403 - Cấp nước Trung An
+1023 - Nước Nhà Bè
+767 - Cấp nước Huế
+641 - Nước Bến Thành
+1110 - Nước Nam Định
+1645 - Cấp Nước Bắc Ninh
+1059 - Nước Vĩnh Long
+651 - Nước Gia Lai
+1495 - Nước Hậu Giang
+1650 - Cấp Nước Yên Dũng
+1200 - Nước Hà Nội 2
+1719 - Nước Tây Ninh
+1720 - Nước Vũng Tàu
+1820 - Nước Cần Thơ
+1889 - Nước VNPT
+2007 - Cấp nước sạch Hà Nội 2
+2188 - Nước Gia Định
+898 - Nước Phú Hòa Tân","Group 1: Hạn mức tối đa 3.000.000đ:
+===> User sẽ được báo: Vượt mức thanh toán nước 3.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",Vượt thanh toán nước <amount>/30 ngày,"Vượt quá 1 GD thanh toán tiền nước 3.000.000đ trong vòng 30 ngày đối với Paylater.
+ Note: whitelist not available","HXL chung: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn",Đã lên 14h00 ngày 11/05/2023 ,,
+,"Group 2: Hạn mức tối đa 1.000.000đ hoặc 600.000đ:
+===> User sẽ được báo: Vượt mức thanh toán nước (số tiền - dựa theo thông tin tại cột Kết quả User) trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,"Vượt quá 1 GD thanh toán tiền nước 400.000đ trong vòng 30 ngày đối với Paylater.
+ Note: whitelist not available",,,,
+,"Group 3: Hạn mức tối đa 200.000đ:
+===> User sẽ được báo: Vượt mức thanh toán nước 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,"Vượt quá 1 GD thanh toán tiền nước 200.000đ trong vòng 30 ngày đối với Paylater.
+ Note: whitelist not available",,,,
+ALL (toàn bộ các AppID),Bạn vui lòng thanh toán dư nợ sao kê kỳ trước. Sau đó thử lại giao dịch sau 24 giờ.,,"Các nhóm user bị ảnh hưởng bởi rule: 
+(1) User chưa thanh toán bất cứ khoản nào cho kỳ sao kê gần nhất sau ngày đến hạn thanh toán
+(2) User thanh toán số tiền thấp hơn dư nợ tối thiểu cho kỳ sao kê gần nhất.","HXL: CS trao đổi thêm với User:
++ User có dư nợ tối thiểu: CS hướng dẫn KH thanh toán số tiền lớn hơn dư nợ tối thiểu và thực hiện lại giao dịch khác sau 24 giờ.
++ User không có yêu cầu thanh toán dư nợ tối thiểu: CS hướng dẫn KH thanh toán ít nhất 20% của tổng dư nợ hiện tại.",Đã lên từ ngày 23/06/2023,,
+KH thanh toán bằng nguồn tiền Tài khoản trả sau (TKTS),Bạn hãy cập nhật định danh tài khoản ở mục Cá nhân để tiếp tục thực hiện giao dịch.,,"KH thực hiện GD bằng nguồn TKTS bị hệ thống yêu cầu xác thực Face Authen, nhưng hệ thống đánh giá face không đạt >> báo lỗi -358","1. CS hướng dẫn KH Cập nhật định danh để được thực hiện lại GD.
+2. Trường hợp sau khi đã cập nhật định danh nhưng KH thực hiện lại được vẫn bị báo lỗi tương tự:  CS hướng dẫn KH gửi CCCD chip + Hình selfie cùng CCCD có chip (chưa cần kiểm tra KH định danh bằng giấy tờ gì):
+- Nếu KH cung cấp được hình ảnh CCCD có chip  +hình selfie : CS chuyển SL gửi Jira cho Risk . Thời gian hỗ trợ: 3-5 ngày làm việc. 
+- Nếu KH không cung cấp được CCCD có chip: Kiểm tra KH đang định danh theo giấy tờ nào?
++ KH đang định danh bằng CCCD chip nhưng không cung cấp được hình ảnh CCCD: CS từ chối.
++ KH đang định danh bằng giấy tờ khác: hướng dẫn KH cung cấp giấy tờ định danh + kèm lí do không cung cấp được CCCD có chip >> chuyển SL gửi Jira cho Risk . Thời gian hỗ trợ: 3-5 ngày làm việc.
+
+",Đã lên từ 14h - 14/3/2023,,
+,Bạn hãy liên hệ CSKH để được hỗ trợ xác thực giao dịch trên Tài khoản Trả sau nhé.,,"KH thực hiện GD bằng nguồn TKTS bị hệ thống yêu cầu xác thực Face Authen nhưng KH đã vượt quá số lần thử xác thực lại (vd: face không match, ảnh bị mờ/tối/chói sáng).
+
+>> KH khi thực hiện lại GD sẽ trả màn hình từ chối (mã lỗi -358) và yêu cầu KH liên hệ CSKH.","HXL: CS xác minh thông tin chủ ví, sau đó xin các chứng từ:
+- Ảnh 2 mặt giấy tờ KH đang định danh
+- Sefie có cầm giấy tờ.
+- Thông tin giao dịch KH đang thực hiện (Tên dịch vụ, thời gian, số tiền)
+
+> Chuyển SL gửi Jira cho Risk. Thời gian hỗ trợ: 3-5 ngày làm việc.",Update 11h11 - 5/12/2023,,
+"Lottery (vé số)
+
+601 – MOBILOTT
+605 - LUCKY BEST
+907 - Lucky Lotter
+615 – LuckyBestWebInApp
+1156 - VESOONLINE
+1878 - VIETLOT SMS
+
+==> Hiện Risk chia hạn mức của các App ID này thành 3 Nhóm khi thanh toán bằng TKTS.  Nhân viên kiểm tra mã lỗi + Thông tin message mà hệ thống phản hồi KH (tại Tab user-Lịch sử giao dịch --> Cột kết quả User) để giải thích hạn mức tương ứng ở các group kế bên
+
+Note : whitelist not available","Group 1: Hạn mức tối đa 3.500.000VND
+==> User sẽ được báo: Vượt hạn mức mua vé số 3.500.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",Vượt hạn mức mua vé số <amount>/30 ngày,Vượt hạn mức mua vé số 3.500.000đ trong 30 ngày bằng TK trả sau.,"HXL chung: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn","14h00 ngày 25/04/2023 
+Lưu ý nội bộ SL/coor: các hạn mức này có thể được thay đổi theo từng thời kỳ để đáp ứng nhu cầu quản lý rủi ro nợ xấu. Risk sẽ inform CS khi có thay đổi.
+Nếu có thắc mắc, có thể inbox cho Risk (PIC trungnc, trinhtn) để được hướng dẫn thêm
+",,
+,"Group 2: Hạn mức tối đa 1.000.000VND
+Vượt hạn mức mua vé số 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,Vượt hạn mức mua vé số 1.000.000đ trong 30 ngày bằng TK trả sau.,,,,
+,"Group 3: Hạn mức tối đa 200.000VND
+Vượt hạn mức mua vé số 200.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,Vượt hạn mức mua vé số 200.000đ trong 30 ngày bằng TK trả sau.,,,,
+"Internet
+
+20 - Internet
+1494 - Internet Viettel
+672 - VNPT Internet
+1450 - Internet SCTV
+1087 - HTVC Net
+
+Note : whitelist not available","Group 1: Hạn mức tối đa 3.000.000VND
+==> User sẽ được báo: Vượt hạn mức thanh toán Internet 3.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",Vượt thanh toán Internet <amount>/30 ngày,Vượt hạn mức thanh toán Internet 3.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"HXL chung: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn
+","14h00 ngày 27/04/2023 
+Lưu ý nội bộ SL/coor: các hạn mức này có thể được thay đổi theo từng thời kỳ để đáp ứng nhu cầu quản lý rủi ro nợ xấu. Risk sẽ inform CS khi có thay đổi.
+Nếu có thắc mắc, có thể inbox cho Risk (PIC trungnc, trinhtn) để được hướng dẫn thêm
+",,
+,"Group 2: Hạn mức tối đa 1.000.000VND
+Vượt hạn mức thanh toán Internet 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,Vượt hạn mức thanh toán Internet 1.000.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,,,
+,"Group 3: Hạn mức tối đa 300.000VND
+Vượt hạn mức thanh toán Internet 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",,Vượt hạn mức thanh toán Internet 300.000đ trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,,,
+"Telco: Data, Combo
+
+441 - Nạp Data 3G/4G
+455 - Telco combo","cùng SĐT: 200k/ 30 days
+khác SĐT: 100k/ 30 days
+Group 2: 
+- Cùng SĐT: 250.000/30 ngày.
+- Khác SĐT: 100.000/30 ngày.
+Group 3:
+- Cùng SĐT: 100.000/30 ngày.
+- Khác SĐT: Không cho phép
+
+=> Vượt hạn mức nạp data/combo <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+ Vượt hạn mức nạp data/combo cho SĐT khác <amount> trong 30 ngày bằng TK trả sau. Bạn sử dụng nguồn tiền khác nhé","Vượt mức nạp data/combo x/30 ngày
+ Vượt mức nạp data/combo khác SĐT x/30 ngày
+ Chưa hỗ trợ nạp data/combo khác SĐT",.,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available",Đã lên từ 14h - 27/4/2023,,
+"Telco: Data, Combo
+
+2172 - Thẻ data","Group 1 & 2: Hạn mức tối đa 100.000 đ/ 30 ngày.
+Group 3: Không cho phép.
+
+=> Vượt hạn mức mua thẻ data <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.","Vượt mức mua thẻ data x/30 ngày
+ Hoặc Dịch vụ chưa hỗ trợ",,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available",,,
+"Telco: Data, Combo
+
+2172 - Thẻ data","300k/ 30 days
+Group 1: Hạn mức tối đa 500.000/30 ngày.
+Group 2: Hạn mức tối đa 300.000/30 ngày.
+=> Vượt hạn mức dịch vụ data <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",Vượt mức dịch vụ data x/30 ngày,,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available",,,
+"Topup game
+15 - Dịch Vụ
+1140 - ZingPlay
+1348 - ZingPlay
+1349 - ZingPlay
+1364  - ZingPlay KVTM
+1477 - ZingPlay CTP
+1487 - ZingPlay Web Payment
+1459 - ZingPlay Cá Béo
+1845 - ZingPlay STM","Group 1: Không có
+Group 2: Hạn mức tối đa 500.000đ, 1.000.000đ, 2.000.000đ / 30 ngày
+Group 3: Hạn mức tối đa 200.000đ / 30 ngày
+==> User sẽ được báo: Vượt mức nạp game <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",Vượt mức nạp game <amount>/30 ngày,,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available",Đã lên từ 14h - 15/5/2023,,
+"Game card
+28 - ESale Miền Nam
+29 - ESale Miền Bắc
+2391 - Thẻ giải trí","Group 1: Hạn mức tối đa 1.000.000VND
+Group 2: Hạn mức tối đa 300.000VND
+Group 3: Hạn mức tối đa 100.000VND
+==> User sẽ được báo: Vượt mức mua thẻ game <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.","Vượt mức nạp thẻ, dịch vụ <amount>/30 ngày",,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available",,,
+All - Game,"Group 1: Không có
+Group 2: Hạn mức tối đa 600.000VND
+Group 3: Hạn mức tối đa 250.000VND
+==> User sẽ được báo: Vượt tổng dịch vụ game <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.","Vượt mức game, dịch vụ <amount>/30 ngày",,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available",,,
+Điện tử và Viễn thông trong danh sách,"Group 1: Hạn mức tối đa 3.500.000VND
+Group 2: Hạn mức tối đa 1.500.000VND
+Group 3: Hạn mức tối đa 500.000VND
+==> User sẽ được báo:Vượt hạn mức dịch vụ này <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé..",Vượt mức <amount>/30 ngày cho dịch vụ này,,"HXL chung: CS hướng dẫn KH sử dụng nguồn tiền khác hoặc thử lại sau 30 ngày tính từ GD thành công cuối cùng.
+Note : whitelist not available
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn",14h00 ngày 25/05/2023 ,,
+"2222-Grab (Bike/Car/Food/Express)
+2688 - Gojek (Bike/Food)","- Group 1:  3M/30 days
+- Group 2:  1M/30 days
+- Group 3: 
+   Grab Bike/Car/Express = 500k/30 days
+   Grab Food ; Gojek Bike/Food: Không cho phép
+
+""Vượt mức thanh toán x triệu/30 ngày tại Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.""","Vượt mức thanh toán x triệu/30 ngày tại Grab bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé
+
+
+
+Dịch vụ chưa hỗ trợ",,"HXL chung: CS hướng dẫn KH sử dụng nguồn tiền khác hoặc thử lại sau 30 ngày tính từ GD thành công cuối cùng.
+Note : whitelist not available
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn
+
+
+* Group3 : GrabFood, GojekFood: Không cho phép >> hướng dẫn KH sử dụng nguồn tiền khác để thanh toán.","Grab Bike, Grab Car: áp dụng từ M7/2023
+Grab Food: áp dụng từ 7/11/2023
+Gojek Food: áp dụng từ 1/12/2023
+
+Các dịch vụ còn lại của Grab, Gojek: chưa hỗ trợ",,
+" Các dịch vụ còn lại của 2 app id:  2222-Grab, 2688 - Gojek ",Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,Dịch vụ chưa hỗ trợ TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,,"CS hướng dẫn KH sử dụng nguồn tiền khác.
+Note : whitelist not available",,,
+"Thương mại điện tử:
+
+Tính theo tổng tiền của cả 02 AppID:
+
+748 - Lazada
+1413 - Tiktok Shop Seller","Màn hình tại Lazada, Tiktok bị báo lỗi:
+
++ ""Nguồn tiền thanh toán mặc định KH đã thiết lập ưu tiên là tài khoản trả sau nhưng hệ thống vẫn chọn nguồn tiền tài khoản ZaloPay /thẻ (nếu số dư tài khoản/thẻ không đủ sẽ báo lỗi không đủ số dư).""
+
+hoặc
+
++ ""Xin lỗi đã có lỗi xảy ra, vui lòng sử dụng hình thức thanh toán khác "".","Chưa có giao dịch trên TPE
+hoặc
+Đã có GD & bị báo lỗi -358 (như dòng dưới)",,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn
+
+3. KH thắc mắc thanh toán chưa đủ hạn mức sao đã bị chặn:
+CS tính tổng tiền KH đã chi tiêu cho cả 02 AppID bằng cách:
+. Vào tool TPE >> CS lọc Nguồn tiền bằng TKTS; thời gian trong vòng 30 ngày từ GD bị lỗi: CS tính tổng GD Lazada + Tiktokshop + GD TiktokShop/Lazada hiện tại mà đang bị lỗi, bị từ chối.
+. CS đối chiếu KH đang bị phạm theo hạn mức nào: 1M, 1,5M, 2M, 3M
+>> CS tư vấn hướng xử lý cho KH theo hạn mức tương ứng.",,,
+,"Group 1: Hạn mức tối đa 3M/ 30 days (theo tổng tiền của cả 2 appID Lazada, Tiktok)
+Group 2: Hạn mức tối đa từ 1M - 1,5M - 2M/ 30 days (theo tổng tiền của cả 2 appID Lazada, Tiktok)
+
+=> Vượt mức giao dịch thương mại ĐT <amount> trong 30 ngày bằng TK trả sau. Hãy thử lại bằng nguồn tiền khác.","Vượt thanh toán e-commerce <amount>/30 ngày
+ 
+
+Dịch vụ chưa hỗ trợ",,,2023-06-30 00:00:00,,
+,"Group 3: Không cho phép
+
+==> Nguồn tiền TKTS hiện không hỗ trợ cho dịch vụ này. Bạn vui lòng chọn nguồn tiền khác nhé.",,,"CS hướng dẫn KH sử dụng nguồn tiền khác.
+Note : whitelist not available",,,
+Siêu thị online ( danh sách App ID),"- Group 1: 
++Đơn hàng có bia (e.g. beer): 3.000.000/30 ngày;
++Không có bia: không có hạn mức
+- Group 2:
++ Đơn hàng có bia 1.000.000/30 ngày;
++ Không có bia : 2.000.000/30 ngày
+- Group 3: 500.000/30 ngày",Vượt thanh toán siêu thị online <amount>/30 ngày,Vượt mức siêu thị online <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.,"HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+Note : whitelist not available
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn",Đã lên,,
+"Siêu thị offline
+AppID: 1509 - TOPS MARKET OFFLINE
+AppID 708- Big C","- Group 2: Hạn mức tối đa 700.000đ/30 ngày
+- Group 3: Không hỗ trợ thanh toán","- Group 2: Vượt thanh toán siêu thị offline <amount>/30 ngày
+
+- Group 3: Không hỗ trợ thanh toán cho dịch vụ này","- Group 2: Vượt mức siêu thị offline <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+
+- Group 3: Tài khoản trả sau chưa hỗ trợ thanh toán cho dịch vụ này. Bạn thử lại bằng nguồn tiền khác nhé.","HXL:
+- Group 2: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng  hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.
+
+- Group 3: Tư vấn KH sử dụng nguồn tiền khác để tiếp tục thực hiện giao dịch.
+
+Note : whitelist not available
+
+Một số thắc mắc thêm của KH: 
+1. Khi KH thắc mắc hạn mức được đánh giá như thế nào:
+Hệ thống máy tính sẽ định kỳ tự động đánh giá lịch sử GD của KH khi sử dụng TKTS từ đó đưa ra quyết định hạn mức thanh toán bằng TKTS của KH đối với 1 số sản phẩm/dịch vụ.
+
+2. Làm sao để có thể thanh toán giá trị nhiều hơn bằng TKTS đối với một số sản phẩm/dịch vụ có giới hạn hạn mức theo hạn mức Group 2 và 3:
+1 số gợi ý để KH có thể thanh toán với hạn mức cao hơn trong tương lai:
++ Sử dụng thường xuyên, đều đặn TKTS ít nhất từ 1-3 tháng trở lên
++ Thanh toán dư nợ TKTS đầy đủ và đúng hạn",14h ngày 28/9/2023,,
+App ID bất kỳ,Đã vượt quá hạn mức giao dịch đối với dịch vụ này trong <hours>. Bạn thử lại bằng nguồn tiền khác nhé.,,"Vượt quá giới hạn cho 1 nhóm đối tác cụ thể có trong Whitelist qui định  trong vòng  <hours>.
+ Note: whitelist available","B1: CS hướng dẫn KH thử lại bằng nguồn tiền khác hoặc sau  <hours>.
+ Nếu KH ko đồng ý
+ B2:  CS xác minh chủ ví và hướng dẫn KH gửi CCCD chip + Hình selfie cùng CCCD có chip (chưa cần kiểm tra KH định danh bằng giấy tờ gì), nếu:
++ KH cung cấp được hình ảnh CCCD có chip  +hình selfie : CS chuyển SL gửi Jira cho Risk để add whitelist. Thời gian hỗ trợ: 3-5 ngày làm việc.
++ Kh không cung cấp được CCCD có chip: Qua B3
+ B3: Kiểm tra KH đang định danh theo giấy tờ nào?
++ KH đang định danh bằng CCCD chip nhưng không cung cấp được hình ảnh CCCD: CS từ chối
++ KH đang định danh bằng giấy tờ khác: hướng dẫn KH cung cấp giấy tờ định danh + kèm lí do không cung cấp được CCCD có chip >> chuyển SL gửi Jira cho Risk để add whitelist. Thời gian hỗ trợ: 3-5 ngày làm việc.",Đã lên,,
+"Tính theo tổng tiền của cả 02 AppID:
+
+599 - VETC Web in app
+2318 - ePass","- Group 2: 1M, 2M, 3M /30 ngày.
+- Group 3: 500k/30 ngày.
+
+Vượt mức nạp tiền thu phí không dừng <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.",Vượt mức nạp tiền thu phí không dừng <amount>/30 ngày,"Vượt mức nạp tiền thu phí không dừng <amount> trong 30 ngày bằng TK trả sau. Bạn thử lại bằng nguồn tiền khác nhé.
+ Note: whitelist not available","HXL: Tư vấn KH thực hiện lại giao dịch sau 30 ngày kể từ giao dịch thành công cuối cùng hoặc thử lại bằng nguồn tiền khác. Trong trường hợp KH vẫn còn hạn mức có thể thanh toán, CS tư vấn KH thanh toán đơn hàng có giá trị bằng với hạn mức cho phép còn lại.",2024-06-03 00:00:00,,

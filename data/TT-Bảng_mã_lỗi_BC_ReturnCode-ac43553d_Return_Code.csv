@@ -1,0 +1,237 @@
+﻿ReturnCode,Name,Description,Column1,Type,Status,Hướng xử lí
+-10000,CALL_UM_EXCEPTION,Lỗi xảy ra khi gọi UM,-,System Error,Fail,"Hdan kh thực hiện lại sau, nếu KH bị trừ tiền check sổ phụ theo quy trình "
+-9999,TRANS_FAIL,OP update manually,OP cập nhật thủ công,System Error,Fail,
+-9991,OTP_HAS_BEEN_EXPIRED,OTP hết hạn,OTP hết hạn,User Error,Fail,"Nhờ KH kiểm tra lại OTP và thực hiện lại sau
+Nếu KH bị trừ tiền, check sổ phụ theo quy trình"
+-9990,SYSTEM_MAINTAIN,"Hệ thống đang bảo trì, vui lòng thử lại sau!",Hệ thống đang bảo trì,System Error,Fail,Hệ thống đang bảo trì nên KH không thực hiện được dịch vụ. Nhờ KH thực hiện lại sau
+-9205,CALL_BANK_CONN_OTP_EXCEPTION,Lỗi xảy ra khi gọi OTP,Không lấy được OTP từ NH,System Error,Fail,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9204,CALL_TPE_EXCEPTION,Lỗi xảy ra khi gọi TPE!,Không nhận được kết quả từ NH,System Error,Fail,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9203,CALL_UM_EXCEPTION,Lỗi xảy ra khi gọi UM!,-,System Error,Fail,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9202,CALL_BANK_CONN_EXCEPTION,Quá thời gian xử lí khi gọi qua bank,Quá thời gian xử lí khi gọi qua bank,Bank Error,Pending,"Giao dịch bị quá thời gian xử lý từ phía Ngân hàng => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9201,CALL_BANK_EXCEPTION,Vượt quá thời gian xử lý giao dịch nạp/rút của ngân hàng!,-,Bank Error,Pending,"Hdan kh thực hiện lại sau, nếu KH bị trừ tiền check sổ phụ theo quy trình "
+-9106,DATABASE_QUERY_FAIL,Thông tin không tồn tại.,-,System Error,Pending,
+-9105,CACHE_EXCEPTION,"Hệ thống có lỗi, vui lòng thử lại sau!",Lỗi bộ đệm,System Error,Pending,"Đầy bộ nhớ đệm  => Nhờ KH xóa bộ nhớ đệm (caache) và thực hiện lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9104,TRYLOCK_FAIL,"Hệ thống có lỗi, vui lòng thử lại sau!",-,System Error,Pending,
+-9103,ENQUEUE_EXCEPTION,"Hệ thống có lỗi, vui lòng thử lại sau!",,System Error,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9102,DATABASE_UPDATE_FAIL,"Hệ thống có lỗi, vui lòng thử lại sau!",,System Error,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9101,DATABASE_EXCEPTION,"Hệ thống có lỗi, vui lòng thử lại sau!",,System Error,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9003,BANK_DATA_CONVERTION_EXCEPTION,"Hệ thống có lỗi, vui lòng thử lại sau!",,System Error,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9002,GENERATE_TRAN_ID_FAIL,"Hệ thống có lỗi, vui lòng thử lại sau!",,System Error,Fail,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-9001,DATA_CONVERTION_EXCEPTION,"Hệ thống có lỗi, vui lòng thử lại sau!",,System Error,Pending,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-7001,CARD_TYPE_NOT_SUPPORT_ONLINE_PAYMENT,Loại thẻ không hỗ trợ thanh toán trực tuyến,,Bank Error,Fail,"Hệ thống Ngân hàng không ổn định => Nhờ KH thử lại
+Nếu bị trừ tiền, check sổ phụ theo quy trình"
+-7000,CARD_NOT_REGISTERED_ONLINE_PAYMENT,Quý khách chưa đăng ký dịch vụ thanh toán qua Internet. Vui lòng liên hệ với ngân hàng của quý khách.,,User Error,Fail,Hdan KH đăng kí dịch vụ thanh toán trực tuyến của NH.
+-6021,FRAUD_DETECTION_REJECTED_MVEL_R5014,Thiết bị đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6020,FRAUD_DETECTION_REJECTED_MVEL_R5013,Thiết bị đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6019,FRAUD_DETECTION_REJECTED_MVEL_R5015,Thiết bị đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6018,FRAUD_DETECTION_REJECTED_MVEL_R5007,Tài khoản đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6017,FRAUD_DETECTION_REJECTED_MVEL_R5008,Tài khoản đã vượt hạn mức thanh toán trong tháng. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6016,FRAUD_DETECTION_REJECTED_MVEL_R5011,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6015,FRAUD_DETECTION_REJECTED_MVEL_R5019,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6014,FRAUD_DETECTION_REJECTED_MVEL_R5012,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6013,FRAUD_DETECTION_REJECTED_MVEL_R5018,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6012,FRAUD_DETECTION_REJECTED_MVEL_R5017,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6011,FRAUD_DETECTION_REJECTED_MVEL_R5009,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6010,FRAUD_DETECTION_REJECTED_MVEL_R5010,Thẻ đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6009,FRAUD_DETECTION_REJECTED_MVEL_R5016,Tài khoản đã vượt hạn mức thanh toán trong ngày. Thử thanh toán từ Ví. Liên hệ hotline 1900545436 để biết thêm chi tiết.,,User Error,Fail,
+-6008,FRAUD_DETECTION_REJECTED_MVEL_R5006,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,,User Error,Fail,Xử lí theo quy trình DM
+-6007,FRAUD_DETECTION_REJECTED_MVEL_R5005,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,,User Error,Fail,Xử lí theo quy trình DM
+-6006,FRAUD_DETECTION_REJECTED_MVEL_R5004,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,,User Error,Fail,Xử lí theo quy trình DM
+-6005,FRAUD_DETECTION_REJECTED_MVEL_R5003,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,,User Error,Fail,Xử lí theo quy trình DM
+-6004,FRAUD_DETECTION_REJECTED_MVEL_R5002,Giao dịch nghi vấn không an toàn. Vui lòng liên hệ hotline 1900545436 để được hỗ trợ.,,User Error,Fail,Xử lí theo quy trình DM
+-5109,WALLET_ACCOUNT_ALREADY_LINKED,Tài khoản ví đã được liên kết trước đó,,Bank Error,Fail,
+-5108,BANK_BIDV_NOT_REGISTER_ONLINE_FINANCE,Quý khách đang sử dụng BIDV Online gói phi tài chính. Quý khách cần đăng ký BIDV Online gói tài chính để sử dụng dịch vụ.,,User Error,Fail,Hdan KH kiểm lại dịch vụ đang đăng kí với NH BIDV.
+-5107,BANK_USERNAME_PASSWORD_INCORRECT,User hoặc Mật khẩu không đúng,,User Error,Fail,
+-5106,BANK_BIDV_SB_PASSWORD_NOT_FIRST_CHANGE,Quý khách CHƯA đổi mật khẩu DV BIDV Smart Banking lần đầu. Vui lòng đổi mật khẩu lần đầu tại ứng dụng BIDV Smart Banking,,User Error,Fail,Hdan KH kiểm lại dịch vụ đang đăng kí với NH BIDV.
+-5105,BANK_BIDV_NOT_REGISTER_BIDV_OR_INACTIVE,Khách hàng chưa đăng ký dịch vụ tại BIDV hoặc đang không ở trạng thái hoạt động,,User Error,Fail,Hdan KH kiểm lại dịch vụ đang đăng kí với NH BIDV.
+-5104,BANK_BIDV_CIF_ALREADY_REGISTERED_BUNO,Số CIF đã sử dụng đăng ký BUNO hoặc đang xử lý tại quầy,,User Error,Fail,
+-5103,BANK_BIDV_WALLET_ID_ALREADY_REGISTERED_BIDV_ONL,Mã ví đã liên kết đúng với user BIDV online xác thực,,User Error,Fail,
+-5102,BANK_BIDV_BUNO_PHONE_NOT_MATCH,Số điện thoại BUNO không trùng số điện thoại BIDV Online,,User Error,Fail,
+-5101,BANK_BIDV_NOT_REGISTER_SMARTBANKING_FINANCE,Quý khách đang sử dụng BIDV Smart Banking gói phi tài chính. Quý khách cần đăng ký BIDV Smart Banking gói tài chính để sử dụng dịch vụ.,,User Error,Fail,Hdan KH kiểm lại dịch vụ đang đăng kí với NH BIDV.
+-5109,BANK_BIDV_MUST_CHANGE_PASS_BIDV_ONLINE,Bạn cần thay đổi mật khẩu BIDV Online để tiếp tục giao dịch.,,User Error,Fail,"Hdan KH thay đổi pass BIDV online, sau đó thực hiện lại giao dịch sau."
+-5099,BANK_ACCOUNT_OR_CARD_NOT_ALLOWED,Tài khoản NH hoặc thẻ không được phép giao dịch. Vui lòng liên hệ ,,User Error,Fail,Hdan kh liên hệ NH kiểm tra lại tình trạng thẻ
+-5095,BANK_PHONE_NEED_CHANGE_FORMAT,Khách hàng cần thay đổi số điện thẻo theo format của bộ thông tin truyền thông.,,User Error,Fail,"Nếu Kh đã đổi số điện thoại từ 11-10 số, KH cần gỡ liên kết VCb sau đó liên kết lại. "
+-5094,BANK_PHONE_ALREADY_CHANGED_FORMAT,Khách hàng đã chuyển đổi số điện thoại từ phía ngân hàng. Vui lòng liên hệ với ngân hàng để được hỗ trợ.,,User Error,Fail,"Nếu Kh đã đổi số điện thoại từ 11-10 số, KH cần gỡ liên kết VCb sau đó liên kết lại. "
+-5093,BANK_USER_CANCEL_TRANS,User huỷ giao dịch,,User Error,Fail,Hdan Kh thực hiện lại giao dịch.
+-5092,BANK_INVALID_IDENTITY_INFO,Sai thông tin Chứng minh thư đăng ký với ngân hàng,,User Error,Fail,Hdan Kh kiểm tra lại số CMND đăng kí vs NH có trùng khớp với CMND đăng kí ZaloPay hay không? 
+-5091,BANK_INVALID_PHONE_NUMBER,Sai thông tin số điện thoại đăng ký với ngân hàng,,User Error,Fail,"Sai thông tin thẻ, hdan KH kiểm tra lại thông tin thẻ và thực hiện lại thao tác."
+-5087,BANK_CARD_NO_SUCH_ISSUER,Không tồn tại Ngân hàng phát hành thẻ,,User Error,Fail,Chưa có hướng xử lý cụ thể)
+-5085,BANK_INVALID_CC_CARD_INFO_AT_PAYMENT,Ngân hàng từ chối giao dịch do thông tin thẻ không chính xác. Vui lòng thực hiện Liên kết lại thẻ để tiếp tục giao dịch.,,User Error,Fail,"Sai thông tin thẻ, hdan KH kiểm tra lại thông tin thẻ và thực hiện lại thao tác."
+-5084,BANK_3DS_VALIDATION_FAIL,Giao dịch chưa xác nhận OTP từ phía ngân hàng. Vui lòng thực hiện lại giao dịch.,,User Error,Fail,
+-5083,BANK_INVALID_CC_CARD_INFO,"Thông tin thẻ không chính xác, vui lòng nhập lại.",,User Error,Fail,"Sai thông tin thẻ, hdan KH kiểm tra lại thông tin thẻ và thực hiện lại thao tác."
+-5082,BANK_TRANS_REJECTED_OR_NON_VN_CARD,"Thẻ bị Ngân hàng từ chối, hoặc do thẻ không phải phát hành tại Việt Nam. Vui lòng thử thẻ khác.",,User Error,Fail,
+-5081,BANK_API_IN_MAINTERNANCE_MODE,Ngân hàng hiện đang bảo trì chức năng này. Vui long thử lại sau.,,System Error,Fail,
+-5080,BANK_NON_VN_CARD_REJECTED,Giao dịch bị từ chối do Ngân hàng phát hành thẻ không phải ở Việt Nam.,,User Error,Fail,
+-5079,BANK_INVALID_CARD_NUMBER_OR_HOLDER_NAME,Quý khách đã điền sai số thẻ hoặc tên chủ thẻ. Vui lòng thực hiện lại.,,User error,Fail,
+-5078,BANK_INVALID_CARD_ISSUED_DATE,Ngày phát hành thẻ không đúng. Vui lòng thực hiện lại.,,User error,Fail,"Sai thông tin thẻ, hdan KH kiểm tra lại thông tin thẻ và thực hiện lại thao tác."
+-5077,BANK_INACTIVE_OR_NOT_AUTHORIZED_CARD,Thẻ không hoạt động hoặc ngân hàng phát hành thẻ từ chối giao dịch. Vui lòng liên hệ với ngân hàng để được hỗ trợ.,,User Error,Fail,Hdan kh liên hệ NH kiểm tra lại tình trạng thẻ
+-5076,BANK_CUSTOMER_IN_DENIED_PARTIES_LIST,Khách hàng nằm trong danh sách bị từ chối giao dịch.,,User Error,Fail,
+-5075,BANK_TRANS_HAS_BEEN_REJECTED_BY_CYBERSOURCE,Ngân hàng từ chối giao dịch này. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,,User Error,Fail,
+-5074,BANK_TRANS_HAS_NOT_BEEN_APPROVED,Ngân hàng không chấp nhận giao dịch này.,,User Error,Fail,"Giao dịch bị từ chối từ phía Ngân hàng. Nhờ KH liên hệ NH, gặp nhóm Cấp phép giao dịch để được kiểm tra nguyên nhâ và thực hiện lại sau"
+-5073,BANK_TRANS_INVALID_STATUS_FOR_ACTION,Trạng thái của giao dịch ở ngân hàng không hợp lệ.,,System Error,Fail,
+-5072,BANK_TRANS_ALREADY_REVERTED,Giao dich đã được revert trước đó.,,System Error,Fail,
+-5071,BANK_TRANS_FAIL,Giao dịch thất bại phía ngân hàng. Vui lòng thử lại!,,Bank Error,Fail,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd."
+-5070,BANK_TRANS_NOT_EXISTS,Khách hàng không thực hiện thanh toán.,,User Error,Fail,Hdan Kh thực hiện lại giao dịch lại sau.
+-5069,BANK_USER_NOT_PROCESS_TRANS,Khách hàng không thực hiện giao dịch.,,User Error,Fail,
+-5068,BANK_TRANS_LOCKED_DUE_TO_MAX_OTP_ATTEMPTS,Khách hàng nhập sai OTP quá số lần quy định.,,User Error,Fail,
+-5067,BANK_TRANS_HAS_BEEN_REFUNDED,Giao dịch đã được hoàn tiền,,Bank Error,Fail,
+-5066,BANK_EXCEEDED_NO_TRANS_PER_DAY,Quá số giao dịch trên ngày,,User Error,Fail,Hdan kh thực hiện giao dịch lại sau 24h
+-5057,BANK_DUPLICATE_TRACE_NO,Giao dịch bị lỗi. Vui lòng thử lại!,,System Error,Fail,Hdan Kh thực hiện lại giao dịch lại sau.
+-5056,BANK_CAN_NOT_SEND_OTP,Ngân hàng gửi OTP không thành công,,Bank Error,Fail,"Hdan Kh thực hiện lại giao dịch lại, có thể liên hệ vs NH kiểm tra lại mã OTP"
+-5055,BANK_OTP_HAS_BEEN_EXPIRED,OTP đã hết hạn. Quý khách vui lòng thực hiện lại giao dịch khác.,,User Error,Fail,Hdan kh thực hiện lại giao dịch mới và nhập OTP trong thời hạn cho phép của giao dịch.
+-5054,BANK_ORIGINAL_TRANS_NOT_FOUND,Không tìm thấy giao dịch gốc.,,System Error,Fail,
+-5053,BANK_OTP_ORIGINAL_TRANS_VERIFIED,Giao dịch gốc đã được xác thực.,,System Error,Fail,
+-5052,BANK_OTP_EXPIRED,OTP đã hết hạn. Quý khách vui lòng thực hiện lại giao dịch khác.,,System Error,Fail,Hdan kh thực hiện lại giao dịch mới và nhập OTP trong thời hạn cho phép của giao dịch.
+-5051,BANK_OTP_VERIFY_TOO_MANY_FAILED_ATTEMPTS,Nhập sai OTP quá số lần cho phép. Vui lòng thử lại giao dịch mới.,,System Error,Fail,Hdan kh thực hiện lại giao dịch mới và nhập đúng OTP ngân hàng gửi về.
+-5050,BANK_OTP_VERIFY_FAIL,Quý khách đã nhập sai OTP. Vui lòng nhập lại.,,User Error,Fail,Hdan kh thực hiện lại giao dịch mới và nhập đúng OTP ngân hàng gửi về.
+-5048,BANK_AMOUNT_INVALID,Số tiền không hợp lệ,,Bank Error,Fail,
+-5047,BANK_SOURCE_ACCOUNT_INVALID,Tài khoản ngân hàng không hợp lệ,,Bank Error,Fail,
+-5046,BANK_TOKEN_NOT_USABLE,Giao dịch bị lỗi. Vui lòng thực hiện lại hoặc liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,,System Error,Fail,
+-5045,BANK_TOKEN_NOT_FOUND,Thẻ hoặc tài khoản chưa được liên kết.,,System Error,Fail,
+-5044,BANK_TOKEN_NOT_ACTIVATED,Giao dịch bị lỗi. Vui lòng thực hiện lại hoặc liên hệ bộ phận chăm sóc khách hàng để được hỗ trợ.,,System Error,Fail,
+-5043,BANK_DUPLICATE_TRANSID,"Hệ thống đang có lỗi, vui long thử lại!",,System Error,Pending,Hdan Kh thực hiện lại giao dịch lại sau 30p.
+-5042,BANK_ACCOUNT_LOCKED,Tài khoản ngân hàng đã bị khóa. Vui lòng liên hệ ngân hàng để được hỗ trợ.,,User Error,Fail,Hdan KH liên hệ NH kiểm tra tình trạng thẻ/tài khoản NH và thực hiện giao dịch lại sau
+-5041,BANK_CARD_INVALID_STATE,Thẻ ở trạng thái không giao dịch được. Vui lòng liên hệ ngân hàng phát hành thẻ để được hỗ trợ.,,User Error,Fail,Hdan KH liên hệ NH kiểm tra tình trạng thẻ/tài khoản NH và thực hiện giao dịch lại sau
+-5040,BANK_ACCOUNT_OR_CARD_ALREADY_LINKED,Thẻ/Tài khoản của quý khách đã được liên kết trước đó.,,User Error,Fail,
+-5039,BANK_ACCOUNT_OR_CARD_NOT_FOUND,Không tìm thấy thông tin thẻ hoặc tài khoản,,User Error,Fail,Hdan KH liên hệ NH kiểm tra tình trạng thẻ/tài khoản NH và thực hiện giao dịch lại sau
+-5038,BANK_CARD_INFO_INVALID,Sai thông tin thẻ (Số thẻ hoặc tên chủ thẻ hoặc ngày phát hành thẻ không đúng). Vui lòng thực hiện lại.,,User Error,Fail,"Sai thông tin thẻ, hdan KH kiểm tra lại thông tin thẻ và thực hiện lại thao tác."
+-5037,BANK_VERIFY_ACCOUNT_INVALID_INFO,Thông tin người dùng không đúng,,User Error,Fail,NONE
+-5036,BANK_CARD_TYPE_NOT_ACCEPTED,Loại thẻ đang giao dịch không hỗ trợ. Vui lòng liên hệ ngân hàng phát hành thẻ để được tư vấn.,,User Error,Fail,Hdan kh liên Nh kiểm tra
+-5035,BANK_INVALID_CVV,Số CVV không đúng. Vui lòng thử lại!,,User Error,Fail,Hdan KH nhập lại thông tin thẻ và kiểm tra số CVV
+-5034,BANK_CARD_REACHED_CREDIT_LIMIT,Giao dịch vượt quá hạn mức tín dụng cho phép.,,User Error,Fail,Hdan kh liên Nh kiểm tra 
+-5033,BANK_INACTIVE_CARD,Thẻ không hoạt động. Vui lòng liên hệ với ngân hàng phát hành thẻ để được hỗ trợ.,,User Error,Fail,Hdan KH liên hệ NH kiểm tra tình trạng thẻ/tài khoản NH và thực hiện giao dịch lại sau
+-5032,BANK_STOLEN_OR_LOST_CARD,"Thẻ không hiệu lực do mất cắp, thu hồi thẻ. Vui lòng liên hệ với ngân hàng phát hành thẻ để được hỗ trợ.",,User Error,Fail,Hdan KH liên hệ NH kiểm tra tình trạng thẻ/tài khoản NH và thực hiện giao dịch lại sau
+-5031,BANK_EXPIRED_CARD,Thẻ hết hạn sử dụng. Vui lòng liên hệ với ngân hàng phát hành thẻ để được hỗ trợ.,,User Error,Fail,"Hdan KH liên hệ NH kiểm tra thẻ, nếu KH báo đã gia hạn thẻ thì có thể hdan KH gỡ liên kết thẻ và liên kết lại rồi thực hiện giao dịch."
+-5030,BANK_CASH_UNKNOWN_ERROR,Giao dịch thất bại phía ngân hàng. Vui lòng thử lại!,,Bank Error,Pending,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd."
+-5029,BANK_CARD_NOT_REGISTERED_ONLINE_PAYMENT,Thẻ hoặc tài khoản chưa đăng ký dịch vụ thanh toán trực tuyến. Vui lòng đăng ký dịch vụ thanh toán trực tuyến với ngân hàng trước khi sử dụng dịch vụ này!,,User Error,Fail,"Hdan KH kiểm tra lại dịch vụ thanh toán trực tuyến, có thể báo chính xác dịch vụ theo từng Ngân hàng."
+-5028,BANK_API_NOT_SUPPORTED,Ngân hàng không hỗ trợ API này!,,User Error,Fail,
+-5027,BANK_CONNECTOR_SELECTOR_NOT_FOUND,Không kết nối được với ngân hàng (Bank Connector)!,,System Error,Fail,"Hdan kh thực hiện lại sau, nếu KH bị trừ tiền check sổ phụ theo quy trình "
+-5026,BANK_CASH_LESS_THAN_MIN_AMOUNT_PER_TRAN,Số tiền nhỏ hơn bạn mức tối thiểu cho phép trên mỗi giao dịch!,,User Error,Fail,
+-5025,BANK_CASH_BALANCE_EXCEEDED,Tài khoản khách hàng không đủ số dư!,,User Error,Fail,"hdan kh kiểm tra lại số dư trong thẻ, báo KH số thẻ tối thiểu cần có để giữ thẻ theo quy định của NH."
+-5024,BANK_NOT_EXIST,Ngân hàng không tồn tại!,,User Error,Fail,
+-5023,BANK_TOPUP_TIMEOUT,Vượt quá thời gian xử lý giao dịch tăng số dư của ngân hàng!,,Bank Error,Fail,
+-5022,BANK_TOPUP_FAIL,Giao dịch tăng số dư phía ngân hàng thất bại!,,Bank Error,Fail,Chưa có hướng xử lý cụ thể)
+-5021,BANK_ACCOUNT_ALREADY_EXISTS,Tài khoản đã đăng ký trước đó.,,User Error,Fail,
+-5020,BANK_VERIFY_ACCOUNT_FAIL,Dữ liệu xác thực của ngân hàng không hợp lệ.,,Bank Error,Fail,Chưa có hướng xử lý cụ thể)
+-5019,BANK_ACCOUNT_INVALID,Tài khoản ngân hàng của khách hàng không hợp lệ.,,User Error,Fail,Chưa có hướng xử lý cụ thể)
+-5018,BANK_LINK_ACCOUNT_FAIL,Liên kết tài khoản phía ngân hàng thất bại.,,Bank Error,Fail,Hdan kh thực hiện lại giao dịch liên kết thẻ vào thời điểm khác
+-5017,BANK_UNLINK_ACCOUNT_FAIL,Hủy liên kết tài khoản phía ngân hàng thất bại.,,Bank Error,Fail,Hdan kh thực hiện lại giao dịch liên kết thẻ vào thời điểm khác. Có thể hỗ trợ tiếp theo Quy trình Gỡ liên kết thẻ
+-5016,BANK_QUERY_ACCOUNT_FAIL,Kiểm tra tài khoản của ngân hàng thất bại.,,Bank Error,Fail,
+-5015,BANK_CASH_TIMEOUT,Giao dịch vượt quá thời gian xử lý tại ngân hàng.,,Bank Error,Pending,Hdan KH thực hiện lại giao dịch vào thời điểm khác
+-5014,BANK_CASH_EXCEPTION,Lỗi hệ thống của ngân hàng.,,Bank Error,Fail,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd."
+-5013,BANK_CASH_ACCOUNT_INVALID,Dữ liệu người dùng trong giao dich phía ngân hàng không hợp lệ.,,Bank Error,Fail,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd."
+-5012,BANK_CASH_EXCEEDED_AMOUNT_PER_DAY,Vượt quá giới hạn số tiền giao dịch mỗi ngày của ngân hàng.,,User Error,Fail,"Báo KH quá hạn mức thanh toán bên phía NH, hdan kh thực hiện lại sau và liên hệ NH kiểm tra chính xác hạn mức"
+-5011,BANK_CASH_EXCEEDED_AMOUNT_PER_TRAN,Vượt quá giới hạn số tiền mỗi giao dịch của ngân hàng.,,User Error,Fail,"Báo KH quá hạn mức thanh toán bên phía NH, hdan kh thực hiện lại sau và liên hệ NH kiểm tra chính xác hạn mức"
+-5010,BANK_CASH_USER_NOT_FOUND,Dữ liệu người dùng phía ngân hàng không hợp lệ.,,Bank Error,Fail,
+-5009,BANK_CASH_FAIL,Giao dịch bên ngân hàng thất bại.,,Bank Error,Fail,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd. Nếu KH bị trừ tiền, check sổ phụ theo quy trình"
+-5008,BANK_PARAMETER_INVALID,Tham số dữ liệu ngân hàng không hợp lệ.,,Bank Error,Fail,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd. Nếu KH bị trừ tiền, check sổ phụ theo quy trình"
+-5007,BANK_SYSTEM_ERROR,Lỗi hệ thống của ngân hàng.,,Bank Error,Fail,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd. Nếu KH bị trừ tiền, check sổ phụ theo quy trình"
+-5006,BANK_UNAUTHORIZED_ACCESS,Dữ liệu xác thực truy cập của ngân hàng không hợp lệ.,,Bank Error,Fail,"Hdan KH thực hiện lại giao dịch vào thời điểm khác, có thể hdan kh liên hệ NH kiểm tra gd. Nếu KH bị trừ tiền, check sổ phụ theo quy trình"
+-5005,BANK_SYSTEM_MAINTENANCE,"Ngân hàng đang bảo trì, vui lòng thử lại sau.",,Bank Error,Fail,
+-5004,BANK_SIGNATURE_INVALID,Dữ liệu xác thực của ngân hàng không hợp lệ.,,Bank Error,Fail,Hdan kh thực hiện lại vào thời điểm khác
+-5003,BANK_IN_MAINTERNANCE_MODE,"Ngân hàng đang bảo trì, vui lòng thử lại sau.",,System Error,Fail,Hdan kh thực hiện lại vào thời điểm khác
+-5002,BANK_UNKNOWN_ERROR,"Ngân hàng có lỗi, vui lòng thử lại sau.",Lỗi không xác định từ phía ngân hàng,Bank Error,Fail,"Ngân hàng đang cập nhật hệ thống nên giao dịch tạm thời bị gián đoạn. Nhờ KH thực hiện lại sau
+Nếu KH đã bị trừ tiền => Check sổ phụ đúng quy trình"
+-5001,BANK_NOT_CONNECTED,Không thể kết nối tới ngân hàng.,,Bank Error,Fail,"Hdan kh thực hiện lại sau, nếu KH bị trừ tiền check sổ phụ theo quy trình "
+-5000,BANK_ZION_ESCROW_ACCOUNT_BALANCE_EXCEEDED,Tài khoản đảm bảo ZION không đủ số dư.,,Bank Error,Fail,
+-4003,TRANS_TYPE_NOT_SUPPORT_RETRYNOTIFY,Không thể notify giao dịch loại này.,,User Error,Fail,
+-4002,NOTIFY_RETURN_FAIL,Gửi thông báo trả về kết qủa thất bại.,,System Error,Pending,
+-4001,NOTIFY_FAIL,Gửi thông báo thất bại!,,System Error,Pending,
+-3155,NO_RECEIVE_BANK_IPN_CALLBACK,BC không nhận được request IPN (callback) từ Bank trong 15p,,User Error,Fail,
+-3055,NO_RECEIVE_VERIFY_OTP_REQ,BC không nhận được request verify_otp từ TPE trong 15p,,User Error,Fail,
+-3036,ORIGINAL_TRANS_HAS_ALREADY_FAILED,Giao dịch gốc đã thất bại.,,System Error,Fail,
+-3035,TRANS_TYPE_NOT_SUPPORT_OTP,Loại giao dịch này không hỗ trợ OTP!,,User Error,Fail,
+-3034,ORIGINAL_TRANS_NOT_EXISTS,Mã giao dịch gốc không tồn tại!,,User Error,Fail,
+-3033,ORIGINAL_TRANS_HAS_ALREADY_SUCCEEDED,Giao dịch gốc đã thực được thực hiện thành công!,,User Error,Fail,
+-3032,ORIGINAL_TRANS_WAS_NOT_SUCCESSFUL,Giao dịch gốc chưa thành công!,,User Error,Fail,
+-3031,TRANS_TYPE_NOT_SUPPORT_REFUNDING,Không hỗ trợ hoàn tiền cho loại giao dịch này!,,User Error,Fail,
+-3030,REFUND_AMOUNT_EXCEEDED_ORIGINAL_AMOUNT,Số tiền hoàn trả vượt quá số tiền gốc,,User Error,Fail,
+-3029,ACCOUNT_NOT_ALLOW_IN_THIS_ENV,Tài khoản không được phép giao dịch trên môi trường này!,,User Error,Fail,
+-3028,TRANS_TYPE_NOT_SUPPORT_REVERTING,Không thể hủy giao dịch loại này,,User Error,Fail,
+-3027,TRANS_HAS_BEEN_REVERTED,Giao dịch này đã được hủy trước đó,,User Error,Fail,
+-3026,ACCOUNT_NOT_EXIST,Taì khoản không tồn tại!,,User Error,Fail,
+-3025,ACCOUNT_NOT_LINKED,Tài khoản chưa được liên kết!,,User Error,Fail,
+-3024,TRANS_IS_EXISTS,Giao dịch đã tồn tại!,,User Error,Fail,
+-3023,TRANS_NOT_EXISTS,Giao dịch không hợp lệ!,,System Error,Fail,
+-3022,USER_NOT_EXIST,Thông tin khách hàng không hợp lệ!,,User Error,Fail,
+-3021,DUPLICATED_ZPTRANSID,Dữ liệu định danh giao dịch của merchant đã tồn tại!,,System Error,Fail,
+-3020,DUPLICATED_BANKTRANSID,Dữ liệu định danh giao dịch của bank đã tồn tại!,,Bank Error,Fail,
+-3004,EXCEED_MAX_NO_TRANS_PER_DAY,Vượt hạn mức số lượng giao dịch trên ngày,,User Error,Fail,
+-3003,EXCEED_MAX_AMOUNT_PER_DAY,Vượt hạn mức giao dịch trên ngày,,User Error,Fail,
+-3002,AMOUNT_GREATER_THAN_MAX_VALUE,Số tiền lớn hơn hạn mức tối đa,,User Error,Fail,
+-3001,AMOUNT_LESS_THAN_MIN_VALUE,Số tiền nhỏ hơn hạn mức tối thiểu,,User Error,Fail,
+-2202,DECRYPT_FAIL,"Giải mã thất bại, vui lòng thử lại sau!",,System Error,Fail,
+-2001,ENCRYPT_FAIL,"Mã hóa thất bại, vui lòng thử lại sau!",,System Error,Fail,
+-1029,INVALID_OTP_TRANSID,Thông tin OTP không hợp lệ,,System Error,Fail,
+-1028,INVALID_REQUEST_TIME,Thời gian yêu cầu không hợp lệ,,System Error,Fail,
+-1027,INVALID_REFBANKTRANSID,Ref bank trans id không hợp lệ,,System Error,Fail,
+-1026,INVALID_USER_INFO,Thông tin khách hàng không hợp lê!,,User Error,Fail,
+-1025,INVALID_REFTRACENO,Mã giao dịch phía ngân hàng không hợp lệ!,,User Error,Fail,
+-1024,INVALID_PHONE_NO,Số điện thoại không đúng!,,User Error,Fail,
+-1023,INVALID_RESP_SIG,Chữ ký số không hợp lệ!,,User Error,Fail,
+-1022,INVALID_BANKTRANSID,Mã giao dịch phía ngân hàng không hợp lệ!,,User Error,Fail,
+-1021,INVALID_TRANS_TYPE,Loại giao dịch không hợp lê!,,User Error,Fail,
+-1020,INVALID_EXTRA_INFO,Thông tin bổ sung không hợp lệ!,,User Error,Fail,
+-1019,INVALID_REFTRANSTYPE,"Hệ thống có lỗi, vui lòng thử lại sau!",,User Error,Fail,
+-1018,INVALID_SUB_TRANSTYPE,"Hệ thống có lỗi, vui lòng thử lại sau!",,User Error,Fail,
+-1017,INVALID_OTP_VALUE,"OTP không đúng, vui lòng nhập lại!",,User Error,Fail,
+-1016,INVALID_REFTRANSID,Mã giao dịch tham chiếu không hợp lệ!,,User Error,Fail,
+-1015,INVALID_CARD_OR_ACCOUNT_NO,Số thẻ hoặc số tài khoản không hợp lê!,,User Error,Fail,
+-1014,INVALID_PAYMENT_INFO,Thông tin thanh toán không hợp lệ!,,User Error,Fail,
+-1013,INVALID_BANK_TOKEN,Chuỗi token không đúng!,,User Error,Fail,
+-1012,INVALID_PMCID,Mã kênh thanh toán không hợp lệ!,,User Error,Fail,
+-1011,INVALID_TRANSID,Dữ liệu định danh giao dịch không hợp lệ!,,User Error,Fail,
+-1010,INVALID_BANKCODE,Mã ngân hàng không hợp lệ!,,User Error,Fail,
+-1009,INVALID_MERCHANTTRANSID,Dữ liệu định danh giao dịch của merchant không hợp lệ!,,User Error,Fail,
+-1008,INVALID_ZALOPAYID,Mã định danh ZaloPay không hợp lệ!,,User Error,Fail,
+-1007,INVALID_AMOUNT,Số tiền không hợp lệ!,,User Error,Fail,
+-1006,INVALID_SYSID,Định danh hệ thống không hợp lệ!,,User Error,Fail,
+-1005,INVALID_TIME,Thời gian xử lý không hợp lệ!,,User Error,Fail,
+-1004,INVALID_SIG,Dữ liệu xác thực không hợp lệ!,,System Error,Fail,
+-1003,INVALID_DATA,Dữ liệu không hợp lệ!,,User Error,Fail,
+-1002,INVALID_TRANS_STATUS,Trạng thái giao dịch không hợp lệ!,,System Error,Fail,
+-1001,INVALID_REQUEST_DATA,Dữ liệu không hợp lệ!,,User Error,Fail,
+0,EXCEPTION,"Hệ thống có lỗi, vui lòng thử lại sau!",,System Error,Fail,
+1,SUCCESSFUL,Giao dịch thành công!,,Success,Success,
+2,VALIDATE_PARAM_OK,Xác thực tham số thành công!,,Processing,Pending,
+3,INIT,Hệ thống đang khởi tạo giao dịch!,,Processing,Pending,
+4,IN_QUEUE,Dữ liệu đang trong hàng đợi xử lý!,,Processing,Pending,
+5,OTP_VERIFYING,Đang đợi xác thực OTP!,,Processing,Pending,
+6,PROCESSING,Dữ liệu đang xử lý!,,Processing,Pending,
+7,REVERTED,Đã thực hiện giao dịch đảo ngược (hoàn tiền)!,,Success,Success,
+8,REFUNDED_BY_TPE,Giao dịch đã được hoàn tiền,,Success,Success,
+9,PROCESS_MANUAL_REFUNDING,Giao dịch đang xử lý,,Success,Success,
+61,BANK_NOT_CONNECTED,Không kết nối được với hệ thống NH.,,Bank Error,Pending,
+62,CALL_BANK_TIMEOUT,Lỗi Timeout khi gọi qua NH,,Bank Error,Pending,
+63,BANK_PROCESS_TIMEOUT,Lỗi Timeout hệ thống nội bộ NH.,,Bank Error,Pending,
+64,BANK_UNKNOWN_ERROR,Lỗi hệ thống NH (không xác định).,,Bank Error,Pending,
+-5204,BANK_REQUEST_INVALID_PARAMETER,Tham số gửi qua ngân hàng không hợp lệ,,,,"Chuyển case SL hủy liên kết thẻ cho User, sau đó hướng dẫn khách hàng liên kết lại."
+-5219,User ebank not found,Khách hàng chưa đăng ký dịch vụ Internet Banking/Ebank. Vui lòng đăng ký dịch vụ này với NH trước khi thực hiện giao dịch.,,,FAILED,
+-6056,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_AMT_PER_INTERVAL,Vượt hạn mức giao dịch trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6055,BANK_FRAUD_DETECTION_USER_EXCEEDED_AMT_PER_INTERVAL,"Vượt hạn mức giao dịch trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.
+
+",Exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6054,BANK_FRAUD_DETECTION_CARD_EXCEEDED_AMT_PER_INTERVAL,Thẻ vượt hạn mức giao dịch trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6053,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_NO_TRANS_PER_INTERVAL,Vượt số lần giao dịch tối đa trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the daily transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6052,BANK_FRAUD_DETECTION_USER_EXCEEDED_NO_TRANS_PER_INTERVAL,Vượt số lần giao dịch tối đa trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the daily transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6051,BANK_FRAUD_DETECTION_CARD_EXCEEDED_NO_TRANS_PER_INTERVAL,Thẻ vượt số lần giao dịch tối đa trong ngày. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the daily trading limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6050,BANK_FRAUD_DETECTION_EXCEEDED_NO_CARD_PER_INTERVAL,Vượt giới hạn số thẻ có thể giao dịch. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the number of card limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6036,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_AMT_PER_MONTH,Vượt hạn mức giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly spending limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6035,BANK_FRAUD_DETECTION_USER_EXCEEDED_AMT_PER_MONTH,Vượt hạn mức giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly spending limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6034,BANK_FRAUD_DETECTION_CARD_EXCEEDED_AMT_PER_MONTH,Thẻ vượt hạn mức giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the monthly spending limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6033,BANK_FRAUD_DETECTION_DEVICE_EXCEEDED_NO_TRANS_PER_MONTH,Vượt số lần giao dịch tối đa trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6032,BANK_FRAUD_DETECTION_USER_EXCEEDED_NO_TRANS_PER_MONTH,Vượt số lần giao dịch tối đa trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the monthly transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6031,BANK_FRAUD_DETECTION_CARD_EXCEEDED_NO_TRANS_PER_MONTH,Thẻ vượt số lần giao dịch tối đa trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Card exceeded the monthly transaction limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-6030,BANK_FRAUD_DETECTION_EXCEEDED_NO_CARD_PER_MONTH,Vượt giới hạn số thẻ có thể giao dịch trong tháng. Vui lòng chọn nguồn tiền khác để thực hiện giao dịch. Liên hệ hotline 1900545436 để biết thêm chi tiết.,Exceeded the number of card monthly limit. Please select another funding source to make the transaction. Contact the hotline 1900545436 for more details.,User,Fail,Added on:26 Mar 2020 (Theo mail BC bổ sung mã mới liên quân đến Risk/CyberSource)
+-5970,BANK_NO_AUTHORIZATION_METHOD,"Thẻ/Tài khoản chưa đăng ký phương thức xác thực giao dịch trực tuyến (SMS OTP, Soft token v.v...). Vui lòng liên hệ ngân hàng phát hành để được hỗ trợ.","Card / Account has not been registered with an online transaction authentication method (SMS OTP, Soft token, etc.). Please contact the issuing bank for more support.",User,Fail,

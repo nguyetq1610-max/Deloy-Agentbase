@@ -1,0 +1,70 @@
+﻿Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4
+Code,Name,Message,Error Type,Hướng xử lý
+49,ZPBANK_MAPACCOUNT_SUCCESSFUL,Liên kết thành công ở phía ngân hàng,,
+48,ZPMAPACCOUNT_WAIT_FOR_QUERY_ORDER,Đang đợi kết quả,,
+47,ZPMAPACCOUNT_WAIT_FOR_PROCESS,Đang đợi xử lý,,
+46,ZPMAPACCOUNT_INQUEUE,Đang xử lý,,
+37,ZPBANK_MAPCARD_SUCCESSFUL,Liên kết thành công ở phía ngân hàng,,
+36,UM_REGISTER_PHONE_RETRY_OTP,Mã xác thực không hợp lệ,,
+35,UM_REQUIRE_PHONE_NUMBER,Yêu cầu cập nhập số điện thoại,,
+29,MAPCARD_INQUEUE,Giao dịch vẫn đang được xử lý.,,
+28,MAPCARD_PAY123_SUCCESSFUL,Giao dịch vẫn đang được xử lý.,,
+27,MAPCARD_WAIT_FOR_QUERY_ORDER,Giao dịch vẫn đang được xử lý.,,
+26,MAPCARD_WAIT_FOR_PROCESS,Giao dịch vẫn đang được xử lý.,,
+24,NEED_CODE_TEST,Nhập code để tiếp tục.,,
+23,RETRY_PIN,Sai mật khẩu thanh toán. Vui lòng nhập lại.,,
+19,ZPW_PURCHASE_SUCCESSFUL,Giao dịch vẫn đang được xử lý,,
+18,ATM_CHARGE_SUCCESSFUL,Giao dịch vẫn đang được xử lý,,
+17,ATM_RETRY_OTP,Sai OTP. Vui lòng nhập lại.,,
+16,ATM_RETRY_CAPTCHA,Sai Mã xác nhận. Vui lòng nhập lại,,
+15,IN_GET_STATUS_ATM_QUEUE,Giao dịch vẫn đang được xử lý,,
+14,ATM_AUTHEN_PAYER_SUCCESS,Giao dịch vẫn đang được xử lý,,
+13,ATM_VERIFY_OTP_SUCCESS,Giao dịch vẫn đang được xử lý,,
+12,ATM_VERIFY_CARD_SUCCESSFUL,Giao dịch vẫn đang được xử lý,,
+10,INIT,Giao dịch vẫn đang được xử lý,,
+9,ATM_WAIT_FOR_CHARGE,Giao dịch vẫn đang được xử lý,,
+6,UM_REQUEST_PROCESSING,Giao dịch vẫn đang được xử lý,,
+5,PROCESSING,Giao dịch vẫn đang được xử lý,,
+4,IN_NOTIFY_QUEUE,Giao dịch vẫn đang được xử lý,,
+3,CREATE_ORDER_SUCCESSFUL,Giao dịch vẫn đang được xử lý,,
+2,DUPLICATE,"Giao dịch thất bại, tài khoản chưa bị trừ tiền, vui lòng thực hiện lại.",,
+1,SUCCESSFUL,Giao dịch thành công,Success,
+0,EXCEPTION,"Hệ thống đang có lỗi, vui lòng quay lại sau.",System,
+-148,UM_EXCEPTION,"Hệ thống đang có lỗi, vui lòng quay lại sau.",System,
+-192,MAP_CARD_INFO_INVALID,Thông tin thẻ không chính xác.,User,
+-275,ZPBANK_MAPCARD_FAIL,Liên kết thẻ thất bại,User/Bank,
+-284,NEED_REGISTER_ONLINE_PAYMENT,Thẻ chưa đăng ký dịch vụ thanh toán trực tuyến với ngân hàng. Vui lòng liên hệ ngân hàng để đăng ký dịch vụ thanh toán trực tuyến.,User,
+-312,ZPBANK_MAP_ACCOUNT_FAIL,Liên kết tài khoản thất bại,User/Bank,
+-317,ZPBANK_CALL_BANK_EXCEPTION_NO_REFUND,Lỗi không xác định từ phía ngân hàng. Vui lòng thử lại giao dịch khác,Bank,
+-318,ZPBANK_BANK_RETURN_TIMEOUT_CODE_NO_REFUND,Hết thời gian xử lý giao dịch của ngân hàng. Vui lòng thử lại giao dịch khác,Bank,
+-319,ZPBANK_BANK_UNKNOWN_STATUS_NO_REFUND,Lỗi không xác định từ phía ngân hàng. Vui lòng thử lại giao dịch khác,Bank,
+-10325,BM_CARD_LINKED,Đã tồn tại liên kết với thẻ này.,User,
+-10334,BM_ACCOUNT_LINKED,Đã tồn tại liên kết với tài khoản này.,User,
+-10335,BM_LINK_USER_CANCEL,Giao dịch bị hủy bởi người dùng.,User,
+-10336,BIM_GET_ACCOUNT_ID_ERROR,"Hệ thống đang có lỗi, vui lòng quay lại sau.",System,
+-10338,USER_LOCK_WRONG_CARD_NUMBER,Bạn đã nhập sai số thẻ quá <b>5 lần</b>. Vui lòng thử lại sau,User,
+-10339,VIB_CARD_ACCOUNT_LINKED,"Bạn đang liên kết với ngân hàng VIB, vui lòng liên kết ngân hàng khác.",User,
+-10340,BM_LINK_KYC_LEVEL_0_OR_1,"Giao dịch liên kết chưa được phép được thực hiện. Vui lòng điền số điện thoại và mật khẩu thanh toán trước khi liên kết.
+Hệ thống đang có lỗi, vui lòng quay lại sau.",User,
+-10341,BM_CARD_LINKED_BY_ANOTHER_USER,Thẻ đã được liên kết trên tài khoản khác. Vui lòng huỷ liên kết trước khi thực hiện lại.,User,
+-10342,BM_ACCOUNT_LINKED_BY_ANOTHER_USER,Tài khoản đã được liên kết trên tài khoản khác. Vui lòng huỷ liên kết trước khi thực hiện lại.,User,
+-10344,MB_CARD_NOT_SUPPORT_LINK,Thẻ Active Plus không được hỗ trợ liên kết. Vui lòng sử dụng loại thẻ khác.,User,
+-10347,LIMIT_INTERNATIONAL_CARD,Bạn đã liên kết tối đa 3 thẻ quốc tế Visa/Mastercard/JCB. Vui lòng huỷ liên kết cũ trước khi thêm thẻ mới.,User,
+-10349,LIMITATION_CARD_ACCOUNT,Quý khách đã liên kết với thẻ hoặc tài khoản của ngân hàng này,User,
+-10350,EXCEED_RATE_LIMIT,Bạn đã thực hiện liên kết ngân hàng quá số lần cho phép. Mong bạn thông cảm và thực hiện lại sau 5 phút,User,
+-10353,LINK_CARD_FAIL_KYC_DIFFERENT,Số chứng minh thư/ căn cước/ hộ chiếu không trùng khớp với thông tin đăng ký tại ngân hàng.,User,
+-10354,LINK_CARD_FAIL_KYC_EMPTY,"Theo quy định, bạn cần định danh tài khoản ZaloPay để liên kết ngân hàng thành công. Vui lòng truy cập vào mục ""Cá nhân"" để định danh tài khoản và thử liên kết lại sau",User,
+-10352,"GET_ID_IMAGE_ERROR
+
+hoặc
+
+Call BankProfile to get IdImage error: Call get-kyc-id-image return: 500. ReasonPhrase:","Rất tiếc, đã có lỗi xảy ra. Mong bạn thông cảm và thử lại sau 5 phút. (lỗi lấy ảnh CMND fail).
+
+hoặc
+
+Thông tin giấy tờ tùy thân của bạn chưa đầy đủ. Vui lòng cập nhật thông tin định danh tại mục Tài khoản trong ứng dụng Zalopay.",System,"CS kiểm tra, nếu KH thực hiện NFC thông qua VNeID + chưa KYC thì thông tin định danh tại Zalopay chưa đẩy đủ.
+
+. Dấu hiệu nhận biết: mục Thông tin khách hàng sẽ hiển thị Chưa định danh nhưng đã NFC thành công, bấm vào mục Chi tiết sẽ chỉ thấy ảnh Selfie, không có ảnh CCCD mặt trước/sau.
+. HXL: CS hướng dẫn KH thao tác định danh KYC bằng giấy tờ CCCD. Sau khi định danh thành công, KH có thể thực hiện lại liên kết ngân hàng."
+-10352,GET_ID_IMAGE_ERROR,"Rất tiếc, đã có lỗi xảy ra. Mong bạn thông cảm và thử lại sau 5 phút. (lỗi lấy ảnh CMND fail).",,
+-10356,Exceed age,KH chưa đủ tuổi ,User,

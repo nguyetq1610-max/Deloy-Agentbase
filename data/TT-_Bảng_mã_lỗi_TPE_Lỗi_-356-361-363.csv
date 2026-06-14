@@ -1,0 +1,187 @@
+﻿Flow lỗi -361/-356/ -363,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5
+,,,,,
+1. Nội dung câu báo lỗi: ,,,,,
+ZaloPay ngăn chặn giao dịch bất thường trên thiết bị lạ để bảo vệ tài khoản của bạn,,,,,
+Giao dịch có dấu hiệu bất thường. Vui lòng xác thực khuôn mặt để tiếp tục giao dịch.,,,,,
+,,,,,
+2. Nguyên nhân:,,,,,
+". KH đã KYCed, thực hiện GD có Áp dụng khuyến mãi / thanh toán bằng Nguồn TKTS / thanh toán trên Thiết bị khác => KH gặp mã lỗi -356, -363 > KH cần thực hiện Face Authen",,,,,
+". Lưu ý đối với GD có áp dụng KM mà KH chưa KYCed, thực hiện giao dịch sẽ gặp mã lỗi -361 > Thực hiện Captcha",,,,,
+,,,,,
+,,,,,
+Màn hình Cashier,,Đã KYC,,,Chưa KYC
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+3.KH được yêu cầu Face Authen (xác thực khuôn mặt tại màn hình kết quả giao dịch/ màn hình cashier) hoặc thực hiện Captcha tại màn hình kết quả GD (chỉ có thể Authen tại bước này). Trong trường hợp KH nhấn đóng thì KH cần thực hiện lại giao dịch để vào bước Authen/Captcha.,,,,,
+"4.Nếu Authen/Captcha thành công, KH thực hiện lại GD để hưởng KM hoặc bằng nguồn TKTS bình thường.",,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+5.Nếu Authen thất bại hoặc không có nút Face Authen:,,,,,
+5.1. Đối với GD có áp dụng Khuyến mãi,,,,,
+,KH cần chờ 30 phút để thực hiện lại giao dịch có áp dụng KM (các giao dịch không hưởng KM sẽ không bị ảnh hưởng trong thời gian này),,,,
+,Nếu sau 30 phút vẫn không Authen được hoặc các trường hợp khác >> Chuyển SL check với TruongTN.,,,,
+,,,,,
+5.2. Đối với GD thanh toán bằng nguồn tiền TKTS:,,,,,
+,"Nếu không Authen, KH cần thực hiện lại giao dịch khác để Face Authen lại cho đến khi thành công (KH có thể thực hiện ngay).",,,,
+,Nếu Authen thất bại (tức lúc này KH đã thực hiện lại 1 giao dịch khác và làm hành động Authen rồi ) ==> Cs cần kiểm tra GD tương tự sau GD -356 đang là lỗi gì thì xử lý tiếp theo mã lỗi đó. (Ví dụ hình dưới),,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+*Các tình huống có thể phát sinh khi KH thực hiện Face Authen đối với nguồn tiền TKTS,,,,,
+,,,,,
+Hệ thống yêu cầu Face Authen nhưng màn hình KHÔNG CÓ NÚT để KH thực hiện Face Authen.,Nếu KH thực hiện Face Authen THẤT BẠI (có nút nhưng KH thực hiện face authen không thành công)_Nguồn tiền TKTS,,,,
+"HXL: CS hướng dẫn KH cập nhật phiên bản ZP mới nhất. Nếu vẫn không xác thực được thì hướng dẫn KH thử lại ở ZPI.
+
+*Nếu sau đó, KH vẫn không thấy nút Authen thì CS ghi nhận các thông tin sau >> chuyển SL check Risk:
+1. Ảnh màn hình xác thực Face Authen bị báo lỗi/Không thấy nút Xác thực ngay
+2. Thông tin thiết bị:  
+  + Dòng máy gì, HĐH gì, version bao nhiêu (vd: điện thoại Samsung j7 Android 5.0, Iphone 6s iOS 9.0...) 
+  + Version ZaloPay bao nhiêu:
+3. Thông tin giao dịch: 
+  +Thời gian KH thao tác
+4. CCCD/ CMND 2 mặt
+5. Chân dung cầm CCCD/ CMND.
+6. Lý do KH không xác thực được trên ZPI:  (vd: do không đăng nhập được Zalo,...)
+Thời gian hẹn chờ xử lý: 3-5 ngày LV.","Với các GD thanh toán bằng nguồn tiền TKTS mà sau khi KH Face Authen bị từ chối với đặc điểm sau:
+Tình huống (1): Bị ẩn nguồn tiền TKTS và hiện thông báo & nút ""Cập nhật"" tại màn hình thanh toán (cashier) (như hình mẫu bên cạnh -->)
+Tình huống (2): Sau khi KH Face Authen & KH thực hiện Giao dịch tiếp theo trên TPE bị thất bại mã lỗi -358 với message ""-1|20|610060|Bạn hãy liên hệ CSKH để được hỗ trợ xác thực giao dịch trên Tài khoản Trả sau nhé.""
+
+HXL:
+Tình huống (1): Sau khi KH nhấn nút ""Cập nhật"", hệ thống sẽ dẫn KH đi cập nhật KYC. (như hình mẫu bên cạnh -->)
+
+Khi tiếp nhận case, CS sẽ hướng dẫn KH Cập nhật định danh (update KYC) & thực hiện lại GD.
+Nếu vẫn không thanh toán được, CS kiểm tra chứng từ KH đã cung cấp trước đó và ghi nhận thông tin chuyển SL check với Risk:
+  - UserID:
+  - Thời gian giao dịch (nếu KH không cung cấp thì thời gian giao dịch sẽ mặc định là thời gian KH submit ticket)
+  - CCCD/CMND 2 mặt 
+  - Ảnh sefie có cầm CCCD/CMND
+
+Tình huống (2): Hướng xử lý tương tự mã lỗi -358, CS ghi nhận các thông tin sau >> chuyển SL check với Risk:
+- UserID:
+- TransID (TPE lỗi -358):
+- CCCD/ CMND 2 mặt
+- Chân dung cầm CCCD/ CMND.
+
+Thời gian hẹn KH chờ xử lý: 3-5 ngày LV.",,,,
+,,,,,
+"5.3. Đối với GD thanh toán bằng nguồn tiền khác (Không phải TKTS)
+*Các tình huống có thể phát sinh khi KH thực hiện Face Authen.",,,,,
+,,,,,
+Hệ thống yêu cầu Face Authen nhưng màn hình KHÔNG CÓ NÚT để KH thực hiện Face Authen.,Nếu KH thực hiện Face Authen THẤT BẠI (có nút nhưng KH thực hiện face authen không thành công)_Nguồn tiền khác TKTS,,,,
+"HXL: CS hướng dẫn KH cập nhật phiên bản ZP mới nhất. Nếu vẫn không xác thực được thì hướng dẫn KH thử lại ở ZPI.
+
+*Nếu sau đó, KH vẫn không thấy nút Authen thì CS ghi nhận các thông tin sau >> chuyển SL check Risk:
+1. Ảnh màn hình xác thực Face Authen bị báo lỗi/Không thấy nút Xác thực ngay
+2. Thông tin thiết bị:  
+  + Dòng máy gì, HĐH gì, version bao nhiêu (vd: điện thoại Samsung j7 Android 5.0, Iphone 6s iOS 9.0...) 
+  + Version ZaloPay bao nhiêu:
+3. Thông tin giao dịch: 
+  +Thời gian KH thao tác
+4. CCCD/ CMND 2 mặt
+5. Chân dung cầm CCCD/ CMND.
+6. Lý do KH không xác thực được trên ZPI:  (vd: do không đăng nhập được Zalo,...)
+Thời gian hẹn chờ xử lý: 3-5 ngày LV.","HXL: CS hướng dẫn KH thanh toán lại sau 24h
+Trường hợp sau 24h sau KH thanh toán lại nhưng vẫn bị lỗi thì CS ghi nhận chuyển SL chuyển Risk kiểm tra GD lỗi cho KH:
+UID:
+Thông tin GD lỗi:
+
+Thời gian hẹn chờ xử lý: 3-5 ngày LV.",,,,

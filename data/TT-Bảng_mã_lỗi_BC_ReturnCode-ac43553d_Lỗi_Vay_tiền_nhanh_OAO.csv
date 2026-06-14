@@ -1,0 +1,26 @@
+﻿Error Code,User Message,Internal User Message
+-5074,"Tin Vay đã từ chối đơn vay. Bạn vui lòng liên hệ hotline 1900 638996 của Tin Vay để biết chi tiết nhé.
+","Bị từ chối, hướng dẫn user thử các sản phẩm khác như F88, Cathay"
+-5009,Hệ thống đang có lỗi. Vui lòng thử lại sau.,Tạo Jira check với PO
+-5057,Hệ thống đang có lỗi. Vui lòng thử lại sau.,Tạo Jira check với PO
+-5007,Hệ thống đang có lỗi. Vui lòng thử lại sau.,Tạo Jira check với PO
+-5204,Hệ thống đang có lỗi. Vui lòng thử lại sau.,Tạo Jira check với PO
+-5266,"Thông tin định danh không hợp lệ (Ảnh bị mờ, chói sáng, che góc,...). Vui lòng cập nhật thông tin định danh để thử lại.
+","Hướng dẫn update KYC, lưu ý ảnh chụp không loé sáng, GTTT đặt chính diện, không xoay"
+-5092,"Số giấy tờ tuỳ thân không hợp lệ. Vui lòng thực hiện cập nhật định danh giấy tờ tuỳ thân mới nhất để tiếp tục.
+",Hướng dẫn user update KYC
+-5091,"Số điện thoại không hợp lệ. Vui lòng liên hệ chăm sóc khách hàng hoặc thử số điện thoại khác bạn nhé!
+",Hướng dẫn user đổi SĐT
+1,Khoản vay tại TIN VAY đã được duyệt thành công. Thông tin khoản vay: ......Bên vay:.....Mã hợp đồng: .....Số tiền vay: ...... Số tiền sẽ được giải ngân vào số tài khoản ngân hàng của bạn trong ít phút.,"Nếu user complain chưa nhận được tiền giải ngân thì CS tạo Jira cho PO, đồng thời hướng dẫn user gọi lên hotline của Viet Credit 1900 638 996 để được hỗ trợ."
+-5423, Thiếu thông tin tài khoản bên nhận lệnh.,"Nguyên nhân: KH đăng ký mở khoản vay của VietCredit/Tinvay tuy nhiên ngân hàng không duyệt khoản vay cho KH do không thỏa điều kiện của ngân hàng
+
+HXL: CS tư vấn cho KH theo thông tin "" Hiện tại, Tinvay chưa có khoản vay phù hợp với bạn. Bạn có thể tham khảo các đối tác khác trên Zalopay hoặc thử lại sau 7 ngày nhé""
+
+Thông tin nội bộ CS nắm: Thông tin hiển thị lỗi đang sai, Dev đang check lại để trả kết quả lỗi đúng."
+-5424, Thiếu thông tin tài khoản bên nhận lệnh.,
+-5425, Thiếu thông tin tài khoản bên nhận lệnh.,"Nguyên nhân: KH đăng ký mở khoản vay của VietCredit/Tinvay tuy nhiên ngân hàng không duyệt khoản vay cho KH do không thỏa điều kiện của ngân hàng
+
+HXL: CS tư vấn cho KH theo thông tin "" Hiện tại, Tinvay chưa có khoản vay phù hợp với bạn. Bạn có thể tham khảo các đối tác khác trên Zalopay hoặc thử lại sau 30 ngày nhé""
+
+Thông tin nội bộ CS nắm: Thông tin hiển thị lỗi đang sai, Dev đang check lại để trả kết quả lỗi đúng."
+-5426, Thiếu thông tin tài khoản bên nhận lệnh.,

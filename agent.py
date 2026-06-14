@@ -12,6 +12,8 @@ Processes customer tickets through a 7-step pipeline:
 """
 
 import os
+import re
+import glob
 import json
 import csv
 import uuid
@@ -25,6 +27,7 @@ from dataclasses import dataclass, field, asdict
 import anthropic
 from openai import OpenAI
 from dotenv import load_dotenv
+import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
@@ -78,6 +81,7 @@ class AgentOutput:
     info_needed: list = field(default_factory=list)
     next_actions: list = field(default_factory=list)
     references: list = field(default_factory=list)
+    information_completeness: dict = field(default_factory=dict)
     ticket_id: str = ""
     timestamp: str = ""
 
@@ -132,6 +136,81 @@ class KnowledgeBase:
         return "\n\n---\n\n".join(lines)
 
 
+# ── Error Code Base ───────────────────────────────────────────────────────────
+class ErrorCodeBase:
+    """Loads all error code CSV files in data_dir and provides lookup by code."""
+
+    _CODE_COLS  = ["Mã lỗi", "Return code", "Return Code", "Code"]
+    _MSG_COLS   = ["Message (Vietnamese)", "Message Display", "Message", "Nội dung thông báo user"]
+    _HANDLE_COLS = ["HXL", "Hướng xử lý", "Ghi chú", "Note"]
+
+    def __init__(self, data_dir: str):
+        self.codes: dict = {}
+        self._load_all(data_dir)
+        logger.info(f"Error code base loaded: {len(self.codes)} unique codes")
+
+    def _load_all(self, data_dir: str):
+        for path in glob.glob(os.path.join(data_dir, "*.csv")):
+            if "canned_responses" in os.path.basename(path):
+                continue
+            self._load_file(path)
+
+    def _load_file(self, path: str):
+        source = os.path.basename(path)
+        for header_row in (0, 1):
+            try:
+                df = pd.read_csv(path, header=header_row, dtype=str, encoding="utf-8-sig")
+                df.columns = [str(c).strip() for c in df.columns]
+                code_col = next((c for c in self._CODE_COLS if c in df.columns), None)
+                if not code_col:
+                    continue
+                msg_col    = next((c for c in self._MSG_COLS    if c in df.columns), None)
+                handle_col = next((c for c in self._HANDLE_COLS if c in df.columns), None)
+                loaded = 0
+                for _, row in df.iterrows():
+                    raw_code = str(row.get(code_col, "")).strip()
+                    if not re.match(r'^-?\d+\.?0*$', raw_code):
+                        continue
+                    code = re.sub(r'\.0+$', '', raw_code)
+                    if not code:
+                        continue
+                    msg     = str(row[msg_col]).strip()    if msg_col    else ""
+                    handling = str(row[handle_col]).strip() if handle_col else ""
+                    if msg in ("nan", "None"):
+                        msg = ""
+                    if handling in ("nan", "None"):
+                        handling = ""
+                    if code not in self.codes or (not self.codes[code]["handling"] and handling):
+                        self.codes[code] = {"message": msg, "handling": handling, "source": source}
+                    loaded += 1
+                if loaded:
+                    logger.info(f"  {source}: {loaded} codes (header={header_row})")
+                    break
+            except Exception as e:
+                logger.debug(f"Skip {source} header={header_row}: {e}")
+
+    def search_in_text(self, text: str) -> list:
+        """Return info for every error code (-XXXX pattern) found in text."""
+        results, seen = [], set()
+        for code in re.findall(r'-\d{2,5}', text):
+            if code not in seen and code in self.codes:
+                seen.add(code)
+                results.append({"code": code, **self.codes[code]})
+        return results
+
+    def format_for_prompt(self, results: list) -> str:
+        if not results:
+            return ""
+        lines = []
+        for r in results:
+            lines.append(
+                f"Mã lỗi {r['code']}: {r['message']}\n"
+                f"Hướng xử lý: {r['handling'] or 'Xem hướng dẫn nội bộ'}\n"
+                f"Nguồn: {r['source']}"
+            )
+        return "\n\n".join(lines)
+
+
 # ── Ticket History ─────────────────────────────────────────────────────────────
 class TicketHistory:
     """Persists conversation turns for a ticket as JSON."""
@@ -152,7 +231,7 @@ class TicketHistory:
         self._save()
 
     def _save(self):
-        with open(self.path, "w", encoding="utf-8") as f:
+        with open(self.path, "w", encoding="utf-8", errors="replace") as f:
             json.dump(self.turns, f, ensure_ascii=False, indent=2)
 
     def as_messages(self) -> list[dict]:
@@ -170,9 +249,10 @@ QUY TRÌNH XỬ LÝ (7 bước):
 2. Nhận diện ý định và phân loại nghiệp vụ
 3. Đánh giá mức độ ưu tiên và cảm xúc
 4. Truy xuất thông tin từ kho tri thức (đã được cung cấp)
-5. Đề xuất hướng xử lý theo FAQ/template
-6. Tạo phản hồi chuẩn hóa theo văn phong ZaloPay
-7. Tóm tắt ticket và gợi ý bước tiếp theo
+5. Nếu có mục "MÃ LỖI PHÁT HIỆN" trong context: ưu tiên sử dụng thông tin mã lỗi đó để giải thích nguyên nhân và hướng xử lý chính xác
+6. Đề xuất hướng xử lý theo FAQ/template
+7. Tạo phản hồi chuẩn hóa theo văn phong ZaloPay
+8. Tóm tắt ticket và gợi ý bước tiếp theo
 
 LUẬT CỨNG (KHÔNG BAO GIỜ VI PHẠM):
 - Không tự ý đưa ra quyết định thay cho hệ thống nghiệp vụ
@@ -188,6 +268,13 @@ VĂN PHONG ZALOPAY:
 - Kết thúc với chữ ký chuẩn: ZALOPAY - ỨNG DỤNG THANH TOÁN MỌI DỊCH VỤ
 - Xưng hô: "bạn" (khách hàng), "Zalopay" (công ty)
 
+ĐÁNH GIÁ ĐỘ ĐẦY ĐỦ THÔNG TIN (information_completeness):
+Dựa trên loại nghiệp vụ đã phân loại, đánh giá thông tin khách hàng cung cấp:
+- Mỗi nghiệp vụ có danh sách thông tin bắt buộc (ví dụ: chuyển tiền cần mã GD + SĐT + thời gian; đăng nhập cần SĐT + loại lỗi)
+- "score": % đầy đủ (0-100), tính bằng số thông tin đã có / tổng số thông tin cần thiết * 100
+- "have": danh sách thông tin khách hàng ĐÃ cung cấp trong ticket
+- "missing": danh sách thông tin còn THIẾU cần hỏi thêm
+
 ĐỊNH DẠNG OUTPUT: Luôn trả về JSON hợp lệ theo schema sau:
 {
   "classification": "<phân loại nghiệp vụ>",
@@ -198,7 +285,12 @@ VĂN PHONG ZALOPAY:
   "response_template": "<nội dung phản hồi hoàn chỉnh cho khách hàng>",
   "info_needed": ["<thông tin cần thu thập thêm>"],
   "next_actions": ["<hành động tiếp theo cho nhân viên CS>"],
-  "references": ["<template ID tham chiếu>"]
+  "references": ["<template ID tham chiếu>"],
+  "information_completeness": {
+    "score": 0,
+    "have": ["<thông tin đã có>"],
+    "missing": ["<thông tin còn thiếu>"]
+  }
 }"""
 
 
@@ -218,6 +310,7 @@ class ZAgentOne:
         else:
             raise ValueError("Set GREENNODE_API_KEY or ANTHROPIC_API_KEY in .env")
         self.kb = KnowledgeBase(CSV_PATH)
+        self.error_codes = ErrorCodeBase(os.path.dirname(CSV_PATH) or "data")
 
     def process(
         self,
@@ -245,6 +338,9 @@ class ZAgentOne:
         user_msg_parts = [f"=== NỘI DUNG KHÁCH HÀNG ===\n{customer_input}"]
         if agent_note:
             user_msg_parts.append(f"\n=== GHI CHÚ NHÂN VIÊN CS ===\n{agent_note}")
+        ec_results = self.error_codes.search_in_text(customer_input)
+        if ec_results:
+            user_msg_parts.append(f"\n=== MÃ LỖI PHÁT HIỆN ({len(ec_results)} mã) ===\n{self.error_codes.format_for_prompt(ec_results)}")
         user_msg_parts.append(f"\n=== KNOWLEDGE BASE (top 5 templates liên quan) ===\n{kb_context}")
         user_msg_parts.append("\nHãy phân tích và trả về JSON theo đúng schema trong system prompt.")
         user_message = "\n".join(user_msg_parts)
@@ -255,23 +351,36 @@ class ZAgentOne:
 
         logger.info(f"[{ticket_id}] Processing ticket — model={MODEL}")
 
-        # Call AI model
-        if self.use_greennode:
-            openai_messages = [{"role": "system", "content": SYSTEM_PROMPT}] + messages
-            response = self.client.chat.completions.create(
-                model=MODEL,
-                max_tokens=4096,
-                messages=openai_messages,
-            )
-            raw_output = response.choices[0].message.content
-        else:
-            response = self.client.messages.create(
-                model=MODEL,
-                max_tokens=4096,
-                system=SYSTEM_PROMPT,
-                messages=messages,
-            )
-            raw_output = response.content[0].text
+        # Call AI model with retry on empty response
+        raw_output = ""
+        for attempt in range(1, 4):
+            if self.use_greennode:
+                clean = lambda s: s.encode("utf-8", errors="replace").decode("utf-8")
+                openai_messages = [{"role": "system", "content": SYSTEM_PROMPT}] + [
+                    {"role": m["role"], "content": clean(m["content"])} for m in messages
+                ]
+                response = self.client.chat.completions.create(
+                    model=MODEL,
+                    max_tokens=4096,
+                    messages=openai_messages,
+                )
+                raw_output = response.choices[0].message.content or ""
+            else:
+                response = self.client.messages.create(
+                    model=MODEL,
+                    max_tokens=4096,
+                    system=SYSTEM_PROMPT,
+                    messages=messages,
+                )
+                raw_output = response.content[0].text or ""
+
+            if raw_output:
+                break
+            logger.warning(f"[{ticket_id}] Empty response from model (attempt {attempt}/3)")
+
+        if not raw_output:
+            raise RuntimeError(f"[{ticket_id}] Model returned empty response after 3 attempts")
+
         history.append("assistant", raw_output)
 
         # Parse JSON output
@@ -287,6 +396,9 @@ class ZAgentOne:
 
     def _parse_output(self, raw: str) -> AgentOutput:
         """Extract JSON from model response, with graceful fallback."""
+        if not raw:
+            logger.warning("Empty response from model — returning default AgentOutput")
+            return AgentOutput(summary="Model trả về phản hồi rỗng.")
         # Try to extract JSON block
         start = raw.find("{")
         end = raw.rfind("}") + 1
@@ -303,6 +415,7 @@ class ZAgentOne:
                     info_needed=data.get("info_needed", []),
                     next_actions=data.get("next_actions", []),
                     references=data.get("references", []),
+                    information_completeness=data.get("information_completeness", {}),
                 )
             except json.JSONDecodeError:
                 pass

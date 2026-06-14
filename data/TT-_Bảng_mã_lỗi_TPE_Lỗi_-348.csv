@@ -1,0 +1,64 @@
+﻿"Autorep sẽ hướng dẫn KH thực hiện lại sau 24h trước, nếu KH phản hồi cho Cs hoặc người tiếp nhận đầu tiên là CS thì khai thác những thông tin theo qui trình dưới",Unnamed: 1,Unnamed: 2,Unnamed: 3,"Do tình hình fraud report từ KH tăng cao tại Sendo trong 2 ngày 10-11/10, Risk đã thực hiện các rule giới hạn tại appID Sendo như sau:",Unnamed: 5,Unnamed: 6,Unnamed: 7
+A. Đối tượng liên hệ :,,,,A'. Đối tượng liên hệ :,,,
+,Đối tượng KH,ZMS/SMS  KH nhận được,,,Đối tượng KH,ZMS/SMS  KH nhận được,Hướng xử lý cho CS
+,"User nhận được ZMS với nội dung : … 
+ ( phase 1, từ ngày 28/10/2021)","""ZaloPay phát hiện có dấu hiệu bất thường trong giao dịch của bạn trên thiết bị lạ. Nếu bạn không thực hiện giao dịch đó, hãy nhanh chóng thay đổi mật khẩu thanh toán tại ZaloPay để tránh thất thoát tiền trong tài khoản bạn nhé!""",,,"User nhận được ZNS/ZMS với nội dung:
+(từ ngày 11/10/2021)
+
+Do đây là các giao dịch auto debit, và KH sẽ không nhìn thấy được rule đang vi phạm khi giao dịch tại SENDO và có thể không aware nếu có phát sinh giao dịch thất bại, Risk đang update để gửi thông báo đến Khách hàng thông qua ZNS/ ZMS khi vướng các rule trên, nội dung message cụ thể như sau:","“ZaloPay phát hiện tài khoản của bạn <User ID> có giao dịch bất thường thanh toán SENDO. Nếu đó không phải là bạn, hãy GỠ LIÊN KẾT với SENDO ngay lập tức để bảo vệ tài khoản!”","Hướng dẫn KH gỡ liên kết với Sendo và thay đổi thông tin MKTT ZP; Mật khẩu Zalo, MKật khẩu TKNH"
+,User nhận được sms với nội dung,"""ZaloPay phat hien tai khoan cua ban co giao dich bat thuong tren thiet bi la. Hay DOI MAT KHAU ZaloPay ngay neu giao dich khong phai do ban thuc hien!""
+",,,,,
+,"User thực hiện các giao dịch có rủi ro cao (IBFT, P2P, Telco, … ) bị nghi ngờ sẽ bị từ chối GD
+ (phase 2, từ ngày 5/11/2021)",,,"Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.
+
+Nguyên nhân: do Risk đánh giá tài khoản có dấu hiệu không an toàn.
+HXL: HD KH thực hiện lại sau 24h ; hoặc xác minh, chứng từ như lỗi -348 khác.
+
+CS tư vấn: Do hệ thống đánh giá tài khoản có dấu hiệu không an toàn. Vì vậy, nhằm đảm bảo cho chủ TKZP,  em xin phép được xác minh....""",,,
+,"User CHƯA ĐỊNH DANH 
+Trong vòng 24h đầu kể từ khi thay đổi thiết bị để thanh toán.
+Hạn mức: 5 triệu (không tính giao dịch nạp tiền, rút tiền, nạp tiền vào tài khoản tích lũy) 
+
+(Từ 14h 12/10/2022)","""Vượt hạn mức giao dịch trong 24h đầu trên thiết bị lạ, bạn hãy định danh để tiếp tục.""",,,,,
+,,"Vượt hạn mức thanh toán. Bạn hãy thử lại sau 24 giờ nhé.
+
+Nguyên nhân: do Risk đánh giá tài khoản có dấu hiệu không an toàn.
+HXL: HD KH thực hiện lại sau 24h ; hoặc xác minh, chứng từ như lỗi -348 khác.
+
+CS tư vấn: Do hệ thống đánh giá tài khoản có dấu hiệu không an toàn. Vì vậy, nhằm đảm bảo cho chủ TKZP,  em xin phép được xác minh...>> xử lý tiếp theo mục B bên dưới.",,,,,
+,,,,,,,
+,,,,,,,
+B. Các bước hỗ trợ (Qua Call/Mail/Inapp),,,,,,,
+Các bước,Khách hàng chỉ hỏi về thông tin khi nhận ZMS,Chặn giao dịch (lỗi -348),,,,,
+Bước 1,"Xác minh chủ ví trong cuộc gọi
+ - SĐT xác thực MKTT: 
+ - Họ tên chủ ví 
+ - Ngày tháng năm sinh: 
+ - Số CMND/hộ chiếu:","Call: Yêu cầu đúng SĐT ZaloPay liên hệ
+ Inapp: Yêu cầu gửi thông tin từ UID đang cần hỗ trợ, cung cấp hình ảnh CMND + ảnh chân dung chụp selfie (có cầm CMND)
+ Mail: SĐT ZaloPay, cung cấp hình ảnh CMND + ảnh chân dung chụp selfie (có cầm CMND)",,,,,
+Bước 2,Team tiếp nhận khai thác nội dung User báo lỗi,Kiểm tra User đã KYC hay chưa: ,,,,,
+2022-01-02 00:00:00,,"Chưa KYC: Hướng dẫn User KYC và thực hiện lại giao dịch sau 24h.
+Nếu KH báo không thể KYC được do giấy tờ đã định danh 2 tài khoản ZP >> CS kiểm tra & từ chối không hỗ trợ định danh cho tài khoản thứ 3 + hướng dẫn KH thực hiện rút tiền về lại tài khoản ngân hàng liên kết (mã lỗi -348 Risk cho phép thực hiện GD rút tiền lại về thẻ/TKNH).",,,,,
+2022-02-02 00:00:00,,Đã KYC:  Khai thác thông tin ở bước 3,,,,,
+Bước 3,"Hướng dẫn User thực hiện đổi MKTT nếu là chủ ví.
+ Nội dung phản hồi: ""Đây là tin nhắn tự động do hệ thống chống lừa đảo của ZaloPay gửi để bảo vệ người dùng. Nếu như anh/chị chính là người thực hiện giao dịch trên các thiết bị mới thì hãy tiếp tục sử dụng bình thường nhé""","Xác minh chủ ví:
+ 1. Số CCCD : __
+ 2. Ngày sinh: __
+ 3. Ngày cấp: __
+ 4. Thông tin 1 trong 3 giao dịch thanh toán gần nhất :( mua gì / chuyển-nhận tiền từ ai ? số tiền ? ngày phát sinh gd)
+ - TransID : 
+ Nếu đúng thì hỏi tiếp câu 5; nếu sai 1/4 câu trên >> Không hỗ trợ, phản hồi cho User ""Hiện bạn cung cấp chưa đúng thông tin chủ tài khoản , vui lòng kiểm tra lại thông tin để ZaloPay có thể ghi nhận tiếp thông tin hoặc thực hiện giao dịch lại sau""
+ 5. 
+ - Khách hàng có cung cấp MKTT cho người khác không? Đáp án : không
+ - Giao dịch bị chặn là do chính khách hàng thực hiện đúng không? Đáp án : đúng 
+ - Giao dịch khách hàng bị chặn được thực hiện trên thiết bị của khách hàng đúng hay không? Đáp đúng - thiết bị là gì: _____ 
+ 
+ (a) Nếu User trả lời đúng và đủ các thông tin trong câu 5.
+ LV1/OUT: Tư vấn khách hàng thực hiện lại giao dịch sau 24h => Chuyển case SL
+ SL: Ghi nhận chuyển Risk xem xét add whitelist User => Theo dõi kết quả và Resolve case (T+1)
+ 
+ (b) Nếu User trả lời sai 1/3 câu, hướng dẫn User đổi MKTT (để đảm bảo an toàn chủ ví) - thực hiện lại sau 2 ngày. Đóng case tại LV1",,,,,
+Bước 4,Kết thúc hỗ trợ,Chuyển case SL,,,,,
+Bước 5 (SL),,"** Tình huống (a)
+ SL add thông tin của User bao gồm : UserID , SĐT ZP, Thông tin thiết bị cho Risk tại LINK và đóng case.",,,,,
