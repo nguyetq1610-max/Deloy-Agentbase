@@ -1,5 +1,5 @@
 """
-Z-Agent One — ZaloPay Customer Support AI Agent
+Z-Agent One — Zalopay Customer Support AI Agent
 ================================================
 Processes customer tickets through a 7-step pipeline:
   1. AI content analysis
@@ -7,7 +7,7 @@ Processes customer tickets through a 7-step pipeline:
   3. Priority & sentiment assessment
   4. Knowledge base retrieval
   5. Process suggestion (FAQ-based)
-  6. Standardized ZaloPay response generation
+  6. Standardized Zalopay response generation
   7. Ticket summarization & history logging
 """
 
@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Optional
 from dataclasses import dataclass, field, asdict
 
+import base64
 import anthropic
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -53,12 +54,85 @@ logger = logging.getLogger("z-agent-one")
 # ── Config ────────────────────────────────────────────────────────────────────
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 GREENNODE_API_KEY = os.getenv("GREENNODE_API_KEY", "")
+VISION_MODEL = os.getenv("VISION_MODEL", "qwen/qwen2-vl-7b-instruct")
 GREENNODE_BASE_URL = os.getenv("GREENNODE_BASE_URL", "https://maas-llm-aiplatform-hcm.api.vngcloud.vn/v1")
 MODEL = os.getenv("MODEL", "qwen/qwen3-5-27b")
 USE_GREENNODE = bool(GREENNODE_API_KEY)
 CSV_PATH = os.getenv("CSV_PATH", "data/canned_responses.csv")
 HISTORY_DIR = Path(os.getenv("HISTORY_DIR", "history"))
 HISTORY_DIR.mkdir(exist_ok=True)
+
+# ── Vision: Extract text from image ──────────────────────────────────────────
+def extract_text_from_image(image_path: str) -> str:
+    """Đọc nội dung ảnh bằng OCR (pytesseract) — hỗ trợ Tiếng Việt + Tiếng Anh."""
+    try:
+        import pytesseract
+        from PIL import Image, ImageFilter, ImageEnhance
+    except ImportError:
+        raise RuntimeError("Thiếu thư viện: pip install pytesseract Pillow")
+
+    img = Image.open(image_path)
+
+    # Tiền xử lý ảnh để tăng độ chính xác OCR
+    if img.mode != "RGB":
+        img = img.convert("RGB")
+    # Tăng độ tương phản
+    img = ImageEnhance.Contrast(img).enhance(2.0)
+    # Tăng kích thước nếu ảnh nhỏ
+    w, h = img.size
+    if w < 1000:
+        img = img.resize((w * 2, h * 2), Image.LANCZOS)
+
+    # OCR với cả Tiếng Việt và Tiếng Anh
+    text = pytesseract.image_to_string(img, lang="vie+eng", config="--psm 6")
+    text = text.strip()
+
+    if not text:
+        return "Không đọc được nội dung từ ảnh. Vui lòng nhập thủ công."
+
+    logger.info(f"OCR extracted {len(text)} chars from image")
+    return text
+
+
+# ── Mock Transaction Tool ─────────────────────────────────────────────────────
+_TRANS_ID_RE = re.compile(
+    r'\b([A-Z]{2,4}\d{8,20}|\d{12,20})\b'
+)
+
+def mock_check_transaction(trans_id: str) -> dict:
+    """Mock tool: giả lập tra cứu trạng thái giao dịch Zalopay (BC tool)."""
+    last_digit = trans_id.strip()[-1]
+    if last_digit in "12345":
+        status = "SUCCESS"
+        amount = "200,000 VNĐ"
+        note = "Giao dịch đã thành công. Tiền đã được ghi nhận vào tài khoản người nhận."
+    elif last_digit in "678":
+        status = "PENDING"
+        amount = "200,000 VNĐ"
+        note = "Giao dịch đang chờ xử lý. Thời gian xử lý tối đa T+3 ngày làm việc."
+    else:
+        status = "FAILED"
+        amount = "200,000 VNĐ"
+        note = "Giao dịch thất bại. Hệ thống sẽ tự hoàn tiền về số dư Zalopay trong T+3 ngày làm việc (không tính Thứ Bảy, Chủ Nhật và Ngày Lễ)."
+    return {
+        "trans_id": trans_id,
+        "status": status,
+        "amount": amount,
+        "timestamp": "2026-06-14 10:30:00",
+        "bank_code": "ZPVCB",
+        "note": note,
+    }
+
+def detect_and_check_transaction(text: str) -> list[dict]:
+    """Phát hiện mã GD trong text và tra cứu mock."""
+    matches = _TRANS_ID_RE.findall(text)
+    results = []
+    seen = set()
+    for m in matches:
+        if m not in seen and len(m) >= 8:
+            seen.add(m)
+            results.append(mock_check_transaction(m))
+    return results
 
 # ── Data classes ──────────────────────────────────────────────────────────────
 @dataclass
@@ -82,6 +156,7 @@ class AgentOutput:
     next_actions: list = field(default_factory=list)
     references: list = field(default_factory=list)
     information_completeness: dict = field(default_factory=dict)
+    call_script: str = ""
     ticket_id: str = ""
     timestamp: str = ""
 
@@ -247,7 +322,7 @@ class TicketHistory:
 
 
 # ── System Prompt ─────────────────────────────────────────────────────────────
-SYSTEM_PROMPT = """Bạn là Z-Agent One — AI hỗ trợ nội bộ cho nhân viên Chăm sóc Khách hàng (CS) của ZaloPay.
+SYSTEM_PROMPT = """Bạn là Z-Agent One — AI hỗ trợ nội bộ cho nhân viên Chăm sóc Khách hàng (CS) của Zalopay.
 
 NHIỆM VỤ: Phân tích ticket khách hàng và hỗ trợ nhân viên CS xử lý nhanh, chính xác, đúng chuẩn.
 
@@ -258,7 +333,7 @@ QUY TRÌNH XỬ LÝ (7 bước):
 4. Truy xuất thông tin từ kho tri thức (đã được cung cấp)
 5. Nếu có mục "MÃ LỖI PHÁT HIỆN" trong context: ưu tiên sử dụng thông tin mã lỗi đó để giải thích nguyên nhân và hướng xử lý chính xác
 6. Đề xuất hướng xử lý theo FAQ/template
-7. Tạo phản hồi chuẩn hóa theo văn phong ZaloPay
+7. Tạo phản hồi chuẩn hóa theo văn phong Zalopay
 8. Tóm tắt ticket và gợi ý bước tiếp theo
 
 LUẬT CỨNG (KHÔNG BAO GIỜ VI PHẠM):
@@ -272,8 +347,20 @@ LUẬT CỨNG (KHÔNG BAO GIỜ VI PHẠM):
 VĂN PHONG ZALOPAY:
 - Thân thiện, chuyên nghiệp, rõ ràng
 - Mở đầu bằng "Chào bạn," (email) hoặc "Dạ," (chat)
-- Kết thúc với chữ ký chuẩn: ZALOPAY - ỨNG DỤNG THANH TOÁN MỌI DỊCH VỤ
+- Kết thúc bằng lời cảm ơn của Zalopay (ví dụ: "Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ Zalopay.")
 - Xưng hô: "bạn" (khách hàng), "Zalopay" (công ty)
+- TUYỆT ĐỐI KHÔNG dùng từ "mình" trong phản hồi khách hàng. Thay bằng "Zalopay" hoặc "bạn" tùy ngữ cảnh. Ví dụ: "Zalopay sẽ kiểm tra" thay vì "mình sẽ kiểm tra"; "bạn vui lòng cung cấp" thay vì "mình cần bạn cung cấp".
+- KHÔNG viết tắt trong response_template gửi khách: viết đầy đủ "ngày làm việc" (không viết "ngày LV"), "giao dịch" (không viết "GD"), "khách hàng" (không viết "KH"), "tài khoản" (không viết "TK"), "số dư" (không viết "SD"), "thông báo" (không viết "TB"). Chỉ được dùng viết tắt trong suggested_process (nội bộ CS).
+- KHÔNG dùng CHỮ HOA toàn bộ từ trong response_template (ví dụ: không viết "THẤT BẠI", "THÀNH CÔNG", "PENDING" — thay bằng "thất bại", "thành công", "đang xử lý").
+- KHÔNG dùng chữ in nghiêng (*text*) trong response_template.
+- KHÔNG dùng "ví Zalopay" — thay bằng "số dư Zalopay".
+- KHÔNG dùng "mã [số]" một mình — luôn viết đầy đủ "mã giao dịch [số]".
+- Khi đề cập thời gian xử lý "3 ngày làm việc", luôn thêm dòng "(không tính Thứ Bảy, Chủ Nhật và Ngày Lễ)" ngay sau.
+- Luôn dùng thương hiệu "Zalopay" đầy đủ — không viết tắt thành "ZLP", "ZP" hay bất kỳ dạng nào khác.
+- KHÔNG dùng tiếng Anh trong response_template gửi khách hàng (ví dụ: không viết "pending", "success", "failed" — thay bằng "đang xử lý", "thành công", "thất bại").
+- Khi khách hàng đang khiếu nại hoặc bày tỏ bức xúc: PHẢI thêm lời xin lỗi chân thành ở đầu phản hồi (ví dụ: "Zalopay xin lỗi bạn về sự bất tiện này.").
+- Kết thúc response_template bằng lời cảm ơn của Zalopay trước chữ ký (ví dụ: "Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ Zalopay.").
+- TUYỆT ĐỐI KHÔNG dùng các cụm từ tiêu cực: "không biết", "không phải trách nhiệm của Zalopay", "khách hàng nhập sai" — thay bằng cách diễn đạt tích cực, hỗ trợ.
 
 ĐÁNH GIÁ ĐỘ ĐẦY ĐỦ THÔNG TIN (information_completeness):
 Dựa trên loại nghiệp vụ đã phân loại, đánh giá thông tin khách hàng cung cấp:
@@ -282,7 +369,7 @@ Dựa trên loại nghiệp vụ đã phân loại, đánh giá thông tin khác
 - "have": danh sách thông tin khách hàng ĐÃ cung cấp trong ticket
 - "missing": danh sách thông tin còn THIẾU cần hỏi thêm
 
-ĐỊNH DẠNG OUTPUT: Luôn trả về JSON hợp lệ theo schema sau:
+ĐỊNH DẠNG OUTPUT: Luôn trả về JSON hợp lệ theo schema sau (KHÔNG suy nghĩ, KHÔNG giải thích, CHỈ trả về JSON thuần túy): /no_think
 {
   "classification": "<phân loại nghiệp vụ>",
   "priority": "LOW|MEDIUM|HIGH|URGENT",
@@ -290,6 +377,7 @@ Dựa trên loại nghiệp vụ đã phân loại, đánh giá thông tin khác
   "summary": "<tóm tắt vấn đề ngắn gọn>",
   "suggested_process": "<mô tả quy trình xử lý phù hợp>",
   "response_template": "<nội dung phản hồi hoàn chỉnh cho khách hàng>",
+  "call_script": "<kịch bản gọi điện cho nhân viên CS khi cần gọi ra cho khách hàng — bao gồm: (1) Mở đầu: chào hỏi, xác nhận danh tính khách; (2) Nội dung chính: trình bày vấn đề, thông tin cần trao đổi, hướng xử lý; (3) Kết thúc: xác nhận, hẹn phản hồi nếu cần, cảm ơn — viết dạng hội thoại, xưng 'em' là nhân viên Zalopay, gọi khách là 'anh/chị'>",
   "info_needed": ["<thông tin cần thu thập thêm>"],
   "next_actions": ["<hành động tiếp theo cho nhân viên CS>"],
   "references": ["<template ID tham chiếu>"],
@@ -348,6 +436,21 @@ class ZAgentOne:
         ec_results = self.error_codes.search_in_text(customer_input)
         if ec_results:
             user_msg_parts.append(f"\n=== MÃ LỖI PHÁT HIỆN ({len(ec_results)} mã) ===\n{self.error_codes.format_for_prompt(ec_results)}")
+        # Mock transaction tool: tự động tra cứu mã GD nếu có trong ticket
+        trans_results = detect_and_check_transaction(customer_input)
+        if trans_results:
+            lines = []
+            for tr in trans_results:
+                lines.append(
+                    f"  Mã GD: {tr['trans_id']}\n"
+                    f"  Trạng thái: {tr['status']}\n"
+                    f"  Số tiền: {tr['amount']}\n"
+                    f"  Thời gian: {tr['timestamp']}\n"
+                    f"  Bank Code: {tr['bank_code']}\n"
+                    f"  Ghi chú: {tr['note']}"
+                )
+            user_msg_parts.append(f"\n=== KẾT QUẢ KIỂM TRA GIAO DỊCH (mock BC tool) ===\n" + "\n\n".join(lines))
+            logger.info(f"[{ticket_id}] Transaction tool: found {len(trans_results)} transaction(s)")
         user_msg_parts.append(f"\n=== KNOWLEDGE BASE (top 5 templates liên quan) ===\n{kb_context}")
         user_msg_parts.append("\nHãy phân tích và trả về JSON theo đúng schema trong system prompt.")
         user_message = "\n".join(user_msg_parts)
@@ -370,8 +473,15 @@ class ZAgentOne:
                     model=MODEL,
                     max_tokens=4096,
                     messages=openai_messages,
+                    extra_body={"chat_template_kwargs": {"enable_thinking": False}},
                 )
-                raw_output = response.choices[0].message.content or ""
+                msg = response.choices[0].message
+                raw_output = msg.content or ""
+                if not raw_output:
+                    # Qwen 3 on vLLM may put output in reasoning_content
+                    raw_output = getattr(msg, "reasoning_content", "") or ""
+                    if raw_output:
+                        logger.info(f"[{ticket_id}] Fallback: using reasoning_content")
             else:
                 response = self.client.messages.create(
                     model=MODEL,
@@ -406,29 +516,45 @@ class ZAgentOne:
         if not raw:
             logger.warning("Empty response from model — returning default AgentOutput")
             return AgentOutput(summary="Model trả về phản hồi rỗng.")
-        # Try to extract JSON block
-        start = raw.find("{")
-        end = raw.rfind("}") + 1
-        if start != -1 and end > start:
-            try:
-                data = json.loads(raw[start:end])
-                return AgentOutput(
-                    classification=data.get("classification", "Không xác định"),
-                    priority=data.get("priority", "MEDIUM"),
-                    sentiment=data.get("sentiment", "NEUTRAL"),
-                    summary=data.get("summary", ""),
-                    suggested_process=data.get("suggested_process", ""),
-                    response_template=data.get("response_template", ""),
-                    info_needed=data.get("info_needed", []),
-                    next_actions=data.get("next_actions", []),
-                    references=data.get("references", []),
-                    information_completeness=data.get("information_completeness", {}),
-                )
-            except json.JSONDecodeError:
-                pass
+        # Strip <think>...</think> and <|think|>...<|/think|> blocks (Qwen thinking mode)
+        cleaned = re.sub(r'<\|?think\|?>.*?</?\|?think\|?>', '', raw, flags=re.DOTALL).strip()
+        # Strip markdown code fences
+        cleaned = re.sub(r'```(?:json)?\s*', '', cleaned).strip()
+        logger.debug(f"Cleaned output (first 300): {cleaned[:300]}")
+        # Try all JSON blocks from largest to smallest
+        def try_parse(text):
+            start = text.find("{")
+            end = text.rfind("}") + 1
+            if start == -1 or end <= start:
+                return None
+            for e in range(end, start, -1):
+                try:
+                    return json.loads(text[start:e])
+                except json.JSONDecodeError:
+                    continue
+            return None
+        data = try_parse(cleaned)
+        if data is None:
+            # Last resort: try raw
+            data = try_parse(raw)
+        if data:
+            return AgentOutput(
+                classification=data.get("classification", "Không xác định"),
+                priority=data.get("priority", "MEDIUM"),
+                sentiment=data.get("sentiment", "NEUTRAL"),
+                summary=data.get("summary", ""),
+                suggested_process=data.get("suggested_process", ""),
+                response_template=data.get("response_template", ""),
+                call_script=data.get("call_script", ""),
+                info_needed=data.get("info_needed", []),
+                next_actions=data.get("next_actions", []),
+                references=data.get("references", []),
+                information_completeness=data.get("information_completeness", {}),
+            )
+        logger.warning(f"Could not parse JSON — raw[:300]: {raw[:300]}")
         # Fallback: return raw as summary
         logger.warning("Could not parse JSON output — storing raw as summary")
-        return AgentOutput(summary=raw)
+        return AgentOutput(summary="Không thể phân tích phản hồi. Vui lòng thử lại.")
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
@@ -461,6 +587,10 @@ def print_output(output: AgentOutput):
 
         console.print("\n[green]✉️  Template phản hồi đề xuất:[/green]")
         console.print(Panel(output.response_template, border_style="green"))
+
+        if output.call_script:
+            console.print("\n[magenta]📞 Kịch bản gọi điện (Call Script):[/magenta]")
+            console.print(Panel(output.call_script, border_style="magenta"))
 
         if output.references:
             console.print(f"\n[dim]📎 Tham chiếu: {', '.join(output.references)}[/dim]")
@@ -503,6 +633,33 @@ def create_app(agent: ZAgentOne):
         ticket_id: Optional[str] = None
         agent_note: Optional[str] = None
 
+    @app.post("/process-image")
+    async def process_image_ticket(
+        file: "UploadFile",
+        ticket_id: Optional[str] = None,
+        agent_note: Optional[str] = None,
+    ):
+        """Upload ảnh (screenshot/hoá đơn), agent tự đọc và xử lý."""
+        from fastapi import UploadFile
+        import tempfile
+        try:
+            suffix = Path(file.filename).suffix or ".png"
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+                tmp.write(await file.read())
+                tmp_path = tmp.name
+            extracted = extract_text_from_image(tmp_path)
+            os.unlink(tmp_path)
+            logger.info(f"Image extracted: {extracted[:200]}")
+            customer_input = f"[Nội dung từ ảnh]\n{extracted}"
+            if agent_note:
+                customer_input += f"\n[Ghi chú CS]\n{agent_note}"
+            output = agent.process(customer_input, ticket_id=ticket_id)
+            result = output.to_dict()
+            result["extracted_text"] = extracted
+            return result
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=str(e))
+
     @app.post("/process")
     def process_ticket(req: TicketRequest):
         try:
@@ -520,8 +677,9 @@ def create_app(agent: ZAgentOne):
 
 # ── Entrypoint ────────────────────────────────────────────────────────────────
 def main():
-    parser = argparse.ArgumentParser(description="Z-Agent One — ZaloPay CS AI Agent")
+    parser = argparse.ArgumentParser(description="Z-Agent One — Zalopay CS AI Agent")
     parser.add_argument("--ticket", help="Process a single ticket and exit")
+    parser.add_argument("--image", help="Path to image file (screenshot/invoice) to process")
     parser.add_argument("--ticket-id", help="Ticket ID to continue (optional)")
     parser.add_argument("--agent-note", help="Internal CS agent note")
     parser.add_argument("--server", action="store_true", help="Run as API server")
@@ -534,6 +692,13 @@ def main():
         app = create_app(agent)
         import uvicorn
         uvicorn.run(app, host="0.0.0.0", port=args.port)
+    elif args.image:
+        logger.info(f"Extracting text from image: {args.image}")
+        extracted = extract_text_from_image(args.image)
+        print(f"\n[Nội dung đọc từ ảnh]\n{extracted}\n")
+        ticket_text = f"[Nội dung từ ảnh]\n{extracted}"
+        output = agent.process(ticket_text, ticket_id=args.ticket_id, agent_note=args.agent_note)
+        print_output(output)
     elif args.ticket:
         output = agent.process(args.ticket, ticket_id=args.ticket_id, agent_note=args.agent_note)
         print_output(output)
