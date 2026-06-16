@@ -36,6 +36,8 @@ import numpy as np
 # ── FastAPI (optional server mode) ───────────────────────────────────────────
 try:
     from fastapi import FastAPI, HTTPException
+    from fastapi.staticfiles import StaticFiles
+    from fastapi.responses import FileResponse
     from pydantic import BaseModel
     import uvicorn
     HAS_FASTAPI = True
@@ -361,6 +363,8 @@ VĂN PHONG ZALOPAY:
 - Khi khách hàng đang khiếu nại hoặc bày tỏ bức xúc: PHẢI thêm lời xin lỗi chân thành ở đầu phản hồi (ví dụ: "Zalopay xin lỗi bạn về sự bất tiện này.").
 - Kết thúc response_template bằng lời cảm ơn của Zalopay trước chữ ký (ví dụ: "Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ Zalopay.").
 - TUYỆT ĐỐI KHÔNG dùng các cụm từ tiêu cực: "không biết", "không phải trách nhiệm của Zalopay", "khách hàng nhập sai" — thay bằng cách diễn đạt tích cực, hỗ trợ.
+- KHÔNG dùng cụm "đề nghị" khi nói chuyện với khách hàng (trong cả response_template lẫn call_script) — thay bằng "vui lòng", "bạn có thể", "em xin mời anh/chị".
+- KHÔNG dùng từ tiếng Anh hoặc viết tắt trong response_template và call_script. Thay thế: "selfie" → "ảnh chân dung tự chụp", "CCCD" → "Căn cước công dân", "OTP" → "mã xác nhận", "app" → "ứng dụng", "update" → "cập nhật", "link" → "liên kết", "account" → "tài khoản".
 
 ĐÁNH GIÁ ĐỘ ĐẦY ĐỦ THÔNG TIN (information_completeness):
 Dựa trên loại nghiệp vụ đã phân loại, đánh giá thông tin khách hàng cung cấp:
@@ -628,6 +632,15 @@ def create_app(agent: ZAgentOne):
 
     app = FastAPI(title="Z-Agent One API", version="1.0.0")
 
+    # Serve Web UI
+    static_dir = Path(__file__).parent / "static"
+    if static_dir.exists():
+        app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+
+    @app.get("/")
+    def root():
+        return FileResponse(str(static_dir / "index.html"))
+
     class TicketRequest(BaseModel):
         customer_input: str
         ticket_id: Optional[str] = None
@@ -670,7 +683,69 @@ def create_app(agent: ZAgentOne):
 
     @app.get("/health")
     def health():
-        return {"status": "ok", "model": MODEL, "kb_size": len(agent.kb.responses)}
+        return {"status": "ok", "model": MODEL, "kb_size": len(agent.kb.responses),
+                "error_codes": len(agent.error_codes.codes)}
+
+    @app.get("/knowledge-base")
+    def list_knowledge_base(q: str = "", limit: int = 200):
+        """Trả về danh sách KB entries, có thể lọc theo từ khoá."""
+        all_items = agent.kb.responses
+        total_all = len(all_items)
+        entries = []
+        q_lower = q.lower().strip() if q else ""
+        for i, item in enumerate(all_items):
+            if q_lower and q_lower not in item.title.lower() and q_lower not in item.content.lower():
+                continue
+            entries.append({
+                "id": i,
+                "title": item.title,
+                "folder": item.folder_name or "Chung",
+                "preview": item.content[:250].replace("\n", " "),
+            })
+            if len(entries) >= limit:
+                break
+        return {"total": total_all, "filtered": len(entries), "entries": entries}
+
+    @app.get("/tickets")
+    def list_tickets():
+        """Trả về danh sách ticket gần đây từ history/."""
+        tickets = []
+        history_path = HISTORY_DIR
+        files = sorted(history_path.glob("*.json"), key=lambda f: f.stat().st_mtime, reverse=True)[:20]
+        for f in files:
+            try:
+                with open(f, encoding="utf-8") as fp:
+                    turns = json.load(fp)
+                ticket_id = f.stem
+                # Lấy lượt user đầu tiên làm preview
+                first_user = next((t for t in turns if t["role"] == "user"), None)
+                last_assistant = next((t for t in reversed(turns) if t["role"] == "assistant"), None)
+                preview = ""
+                classification = ""
+                if first_user:
+                    preview = first_user["content"][:120].replace("\n", " ")
+                if last_assistant:
+                    try:
+                        raw = last_assistant["content"]
+                        cleaned = re.sub(r'<\|?think\|?>.*?</?\|?think\|?>', '', raw, flags=re.DOTALL)
+                        start = cleaned.find("{"); end = cleaned.rfind("}") + 1
+                        if start != -1:
+                            data = json.loads(cleaned[start:end])
+                            classification = data.get("classification", "")
+                    except Exception:
+                        pass
+                import os as _os
+                mtime = _os.path.getmtime(f)
+                tickets.append({
+                    "ticket_id": ticket_id,
+                    "preview": preview,
+                    "classification": classification,
+                    "turn_count": len([t for t in turns if t["role"] == "user"]),
+                    "timestamp": datetime.utcfromtimestamp(mtime).isoformat(),
+                })
+            except Exception:
+                continue
+        return tickets
 
     return app
 

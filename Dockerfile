@@ -23,6 +23,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source
 COPY agent.py .
 COPY .env.example .env.example
+COPY static/ static/
 
 # Data and history directories
 RUN mkdir -p data history

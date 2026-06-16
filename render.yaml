@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: z-agent-one
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: PYTHONUNBUFFERED
+        value: "1"
+    healthCheckPath: /health

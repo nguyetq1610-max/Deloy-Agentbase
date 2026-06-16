@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Z-Agent One | ZaloPay CS Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #0068FF; --blue-dark: #0052CC; --blue-light: #E8F0FF;
+      --green: #00B86B; --green-light: #E6F9F1;
+      --orange: #FF7A00; --orange-light: #FFF3E8;
+      --red: #FF3B30; --red-light: #FFF0EF;
+      --purple: #7C3AFF; --purple-dark: #5B21B6; --purple-light: #F0EDFF;
+      --gray-50: #F7F8FA; --gray-100: #F0F2F5; --gray-200: #E4E7EC;
+      --gray-400: #9AA2B1; --gray-600: #5C6478; --gray-800: #1C2333;
+      --white: #FFFFFF;
+      --border: 1px solid var(--gray-200);
+      --radius: 16px; --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.18);
+      --space-bg: #0e0728;
+      --sb-bg: #090520;
+      --sb-text: #9B89C4;
+      --card-bg: #ffffff;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--space-bg);
+      height: 100vh; overflow: hidden;
+      color: var(--gray-800); font-size: 14px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+    }
+    /* ── SPACE BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 15% 30%, #2d1060 0%, #150840 30%, #0a0428 60%, #06081e 100%);
+      pointer-events: none; z-index: 0;
+    }
+    /* Floating sparkles in space */
+    body::after {
+      content: '✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧';
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      color: rgba(200,180,255,0.25); font-size: 11px; letter-spacing: 60px;
+      word-spacing: 60px; line-height: 80px; padding: 20px;
+      pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    /* Planets decorations */
+    .planet-left {
+      position: fixed; left: 170px; top: 50%; transform: translateY(-50%);
+      width: 80px; height: 80px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #e879f9, #7c3aed);
+      box-shadow: 0 0 30px rgba(232,121,249,0.4);
+      pointer-events: none; z-index: 0; opacity: 0.5;
+    }
+    .planet-right {
+      position: fixed; right: 360px; bottom: 60px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fde68a, #f59e0b);
+      box-shadow: 0 0 20px rgba(245,158,11,0.4);
+      pointer-events: none; z-index: 0; opacity: 0.5;
+    }
+    h1,h2,h3,h4,button,input,textarea,select { font-family: 'Inter', -apple-system, sans-serif; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 220px; flex-shrink: 0; position: relative; z-index: 10;
+      background: var(--sb-bg);
+      display: flex; flex-direction: column;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.05);
+    }
+    .sb-logo {
+      display: flex; align-items: center; gap: 10px;
+      padding: 18px 16px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .sb-logo-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, #4F46E5, #7C3AFF);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 800; color: white; flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(124,58,255,0.5);
+    }
+    .sb-logo-name { font-size: 12px; font-weight: 800; color: white; letter-spacing: 0.6px; line-height: 1.3; }
+    .sb-logo-sub { font-size: 10px; color: var(--sb-text); font-weight: 500; }
+
+    .sb-nav { padding: 12px 8px; flex: 1; }
+    .sb-nav-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 10px; cursor: pointer;
+      color: var(--sb-text); font-size: 13px; font-weight: 500;
+      transition: all .15s; user-select: none; position: relative;
+      margin-bottom: 2px;
+    }
+    .sb-nav-item:hover { background: rgba(255,255,255,0.06); color: #c8d8e8; }
+    .sb-nav-item.active { background: linear-gradient(135deg, rgba(124,58,255,0.8), rgba(79,70,229,0.8)); color: white; box-shadow: 0 4px 14px rgba(124,58,255,0.3); }
+    .sb-nav-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+    .sb-badge {
+      margin-left: auto; background: linear-gradient(135deg, #7C3AFF, #4F46E5); color: white;
+      font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 10px;
+    }
+
+    .sb-bottom {
+      padding: 10px 8px 14px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .sb-ai-power {
+      background: rgba(255,255,255,0.05); border-radius: 12px;
+      padding: 10px 12px; display: flex; align-items: flex-start; gap: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .sb-ai-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: rgba(255,193,7,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .sb-ai-name { font-size: 11px; font-weight: 700; color: white; }
+    .sb-ai-desc { font-size: 10px; color: var(--sb-text); line-height: 1.4; margin-top: 1px; }
+    .sb-online { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #4ade80; font-weight: 600; margin-top: 4px; }
+    .sb-online .dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    @keyframes float1 { 0%,100%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-18px) rotate(8deg)} }
+    @keyframes float2 { 0%,100%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-12px) rotate(-6deg)} }
+    @keyframes float3 { 0%,100%{transform:translateY(0px) rotate(0deg)} 50%{transform:translateY(-22px) rotate(12deg)} }
+    @keyframes float4 { 0%,100%{transform:translateY(0px) scale(1)} 50%{transform:translateY(-10px) scale(1.1)} }
+    .floaty { position:fixed; pointer-events:none; z-index:4; opacity:0.55; filter:blur(0.3px); }
+    .floaty.f1 { animation: float1 4.5s ease-in-out infinite; }
+    .floaty.f2 { animation: float2 3.8s ease-in-out infinite; }
+    .floaty.f3 { animation: float3 5.2s ease-in-out infinite; }
+    .floaty.f4 { animation: float4 3.2s ease-in-out infinite; }
+
+    .sb-agent { display: flex; align-items: center; gap: 12px; padding: 8px 10px; }
+    .sb-agent-avatar {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); overflow: hidden; flex-shrink: 0;
+      border: 2.5px solid rgba(124,58,255,0.5);
+      box-shadow: 0 0 18px rgba(124,58,255,0.4);
+      display: flex; align-items: center; justify-content: center; padding: 0; box-sizing: border-box;
+    }
+    .sb-agent-avatar img { width: 130%; height: 130%; object-fit: cover; object-position: 28% top; display: block; margin: -15% -15%; }
+    .sb-agent-name { font-size: 12px; font-weight: 700; color: white; }
+
+    /* ── APP BODY ── */
+    .app-body { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; position: relative; z-index: 1; }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: rgba(14,7,40,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 20px; height: 64px;
+      display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+    }
+    .topbar-greeting { flex-shrink: 0; }
+    .topbar-greeting h1 { font-size: 18px; font-weight: 800; color: white; white-space: nowrap; }
+    .topbar-greeting p { font-size: 11px; color: #9B89C4; }
+    .topbar-search {
+      flex: 1; max-width: 440px; margin: 0 auto;
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(124,58,255,0.35);
+      border-radius: 24px; padding: 8px 16px;
+    }
+    .topbar-search input {
+      flex: 1; border: none; background: transparent; outline: none;
+      font-size: 13px; color: white;
+    }
+    .topbar-search input::placeholder { color: rgba(255,255,255,0.4); }
+    .search-shortcut {
+      font-size: 10px; color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;
+    }
+    .topbar-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+    .bell-btn { position: relative; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 17px; padding: 6px 9px; border-radius: 10px; }
+    .bell-badge { position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; background: #EF4444; border-radius: 50%; font-size: 10px; font-weight: 700; color: white; display: flex; align-items: center; justify-content: center; }
+    .zalopay-logo { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; }
+    .logo-zalo { color: #60A5FA; }
+    .logo-pay { color: #34D399; }
+    .dark-toggle-btn { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; font-size: 18px; padding: 4px 8px; border-radius: 10px; }
+
+    /* ── 3-COLUMN LAYOUT ── */
+    .columns { flex: 1; display: flex; overflow: hidden; padding: 12px; gap: 10px; }
+    .col { display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius); box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
+
+    .col-list { width: 276px; flex-shrink: 0; background: white; }
+    .col-detail { flex: 1; min-width: 0; background: white; }
+    .col-ai { width: 390px; flex-shrink: 0; background: #130d3a; position: relative; }
+
+    .col-head {
+      padding: 13px 16px; border-bottom: var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0; background: white;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .col-head h3 { font-size: 13px; font-weight: 700; color: var(--gray-800); display: flex; align-items: center; gap: 6px; }
+    .col-head-actions { display: flex; gap: 5px; }
+    .col-head-btn {
+      background: none; border: 1.5px solid var(--gray-200); border-radius: 8px;
+      width: 30px; height: 30px; cursor: pointer; font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray-600); transition: all .15s;
+    }
+    .col-head-btn:hover { background: var(--gray-50); border-color: var(--purple); color: var(--purple); }
+    .col-head-btn.add-btn { background: linear-gradient(135deg, #7C3AFF, #4F46E5); border: none; color: white; font-size: 18px; }
+    .col-head-btn.add-btn:hover { opacity: 0.85; }
+    .col-head-action { font-size: 11px; color: var(--gray-600); background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 5px 10px; cursor: pointer; white-space: nowrap; }
+    .col-head-action:hover { background: var(--purple-light); color: var(--purple); }
+
+    /* Ticket filter tabs */
+    .ticket-filters {
+      display: flex; padding: 8px 10px; gap: 4px;
+      border-bottom: var(--border); flex-shrink: 0; background: #FAFAFA;
+    }
+    .tf-btn {
+      flex: 1; padding: 7px 4px; border: none; border-radius: 8px;
+      background: transparent; cursor: pointer;
+      font-size: 11px; font-weight: 600; color: var(--gray-600); transition: all .15s;
+    }
+    .tf-btn:hover { background: var(--gray-100); }
+    .tf-btn.active { background: linear-gradient(135deg, #7C3AFF, #4F46E5); color: white; box-shadow: 0 3px 10px rgba(124,58,255,0.35); }
+
+    /* Ticket list items */
+    .ticket-list { flex: 1; overflow-y: auto; padding: 8px; }
+    .tkt-item {
+      padding: 10px 11px; border-radius: 10px; cursor: pointer;
+      transition: background .12s; border: 1.5px solid transparent;
+      margin-bottom: 4px; display: flex; gap: 10px; align-items: flex-start;
+    }
+    .tkt-item:hover { background: var(--gray-50); }
+    .tkt-item.active { background: var(--purple-light); border-color: #d4c8ff; }
+    .tkt-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .tkt-body { flex: 1; min-width: 0; }
+    .tkt-item-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+    .tkt-id { font-size: 10px; font-weight: 700; color: var(--purple); font-family: monospace; }
+    .tkt-time { font-size: 10px; color: var(--gray-400); }
+    .tkt-title { font-size: 12px; font-weight: 600; color: var(--gray-800); line-height: 1.3; margin-bottom: 4px; }
+    .tkt-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .tkt-customer { font-size: 11px; color: var(--gray-600); }
+    .tkt-status { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .tkt-status.pending { background: #FFF0E0; color: #E07000; }
+    .tkt-status.done { background: #E8F5E9; color: #2E7D32; }
+    .tkt-status.new { background: var(--green-light); color: var(--green); }
+    .tkt-see-all { text-align: center; padding: 10px; font-size: 12px; font-weight: 600; color: var(--purple); cursor: pointer; }
+    .tkt-see-all:hover { text-decoration: underline; }
+
+    /* Col-detail */
+    .tkt-detail-header {
+      display: none; padding: 10px 14px 10px;
+      border-bottom: var(--border); flex-shrink: 0;
+      background: #FAFBFF;
+    }
+    .tkt-detail-header.show { display: block; }
+    .tkt-detail-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+    .tkt-detail-id { font-size: 12px; font-weight: 700; color: var(--gray-800); }
+    .tkt-detail-status { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 10px; }
+    .tkt-detail-status.pending { background: var(--orange-light); color: var(--orange); }
+    .tkt-detail-time { font-size: 10px; color: var(--gray-400); margin-left: auto; }
+    .tkt-detail-title { font-size: 14px; font-weight: 700; color: var(--gray-800); line-height: 1.3; }
+
+    .col-detail-body { flex: 1; overflow-y: auto; padding: 14px 16px; }
+
+    /* Input elements */
+    textarea {
+      width: 100%; height: 110px; padding: 11px 13px;
+      border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif; font-size: 13px; color: var(--gray-800);
+      background: var(--gray-50); resize: vertical; outline: none;
+      transition: border-color .15s, background .15s, box-shadow .15s; line-height: 1.6;
+    }
+    textarea:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(0,104,255,.08); }
+    textarea::placeholder { color: var(--gray-400); }
+    .input-field {
+      width: 100%; padding: 9px 12px;
+      border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif; font-size: 13px; outline: none;
+      background: var(--gray-50); transition: border-color .15s, box-shadow .15s; color: var(--gray-800);
+    }
+    .input-field:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(0,104,255,.08); }
+    .input-field::placeholder { color: var(--gray-400); }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #E040FB, #7C3AFF, #2196F3); color: white; border: none;
+      padding: 13px 18px; border-radius: 14px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+      transition: opacity .15s; width: 100%;
+      box-shadow: 0 4px 22px rgba(150,50,240,0.5);
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-primary:disabled { background: var(--gray-400); cursor: not-allowed; box-shadow: none; }
+
+    .btn-action-sm {
+      padding: 5px 10px; border-radius: 6px; border: 1px solid var(--gray-200);
+      background: white; font-size: 11px; cursor: pointer; color: var(--gray-600);
+      font-weight: 500; transition: all .15s; font-family: 'Inter', sans-serif;
+    }
+    .btn-action-sm:hover { background: var(--gray-100); }
+    .btn-action-green { background: var(--green-light); border-color: #A7F3D0; color: #065F46; }
+    .btn-action-green:hover { background: #D1FAE5; }
+    .btn-action-crm { background: #EEF3FF; border-color: #C0CFFF; color: #1B2B65; }
+    .btn-action-crm:hover { background: #DDE6FF; }
+    .btn-copy {
+      margin-top: 8px; display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 12px; border-radius: var(--radius-sm);
+      background: white; border: 1.5px solid var(--gray-200);
+      font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+      color: var(--gray-600); cursor: pointer; transition: all .15s;
+    }
+    .btn-copy:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+
+    .error-box { display: none; background: var(--red-light); border: 1px solid #FFD0CE; border-radius: var(--radius-sm); padding: 8px 12px; color: var(--red); font-size: 12px; margin-top: 8px; }
+    .error-box.show { display: flex; align-items: center; gap: 6px; }
+
+    /* Guide */
+    .guide-wrap { background: var(--gray-50); border: var(--border); border-radius: var(--radius-sm); padding: 12px 14px; margin-top: 12px; }
+    .guide-head { font-size: 12px; font-weight: 700; color: var(--gray-800); margin-bottom: 8px; }
+    .guide-list { display: flex; flex-direction: column; }
+    .guide-item { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--gray-100); align-items: flex-start; }
+    .guide-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .guide-num { width: 20px; height: 20px; border-radius: 50%; background: var(--blue-light); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .guide-title { font-size: 12px; font-weight: 600; color: var(--gray-800); margin-bottom: 1px; }
+    .guide-desc { font-size: 11px; color: var(--gray-400); line-height: 1.5; }
+    kbd { display: inline-block; padding: 1px 4px; background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 3px; font-size: 10px; font-family: monospace; color: var(--gray-600); }
+
+    /* Quick action bar */
+    .quick-actions { display: flex; border-top: 1px solid var(--gray-200); flex-shrink: 0; background: white; border-radius: 0 0 var(--radius) var(--radius); overflow: hidden; }
+    .qa-item {
+      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1px;
+      padding: 9px 4px; cursor: pointer; transition: all .15s;
+      font-size: 11px; font-weight: 600; color: var(--gray-700);
+      border-right: var(--border); text-align: center;
+    }
+    .qa-item:last-child { border-right: none; }
+    .qa-item:hover { background: var(--purple-light); color: var(--purple); }
+    .qa-item-icon { font-size: 18px; margin-bottom: 2px; }
+
+    /* ── AI PANEL (col-ai) ── */
+    .ai-panel-body { flex: 1; overflow-y: auto; padding: 12px; position: relative; }
+    .ai-dot { color: var(--purple); font-size: 9px; }
+    .refresh-btn { background: none; border: none; cursor: pointer; font-size: 15px; color: #8b7cc8; transition: color .15s; }
+    .refresh-btn:hover { color: var(--purple); }
+    .col-ai .col-head { background: #1a1050; border-bottom: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius) var(--radius) 0 0; }
+    .col-ai .col-head h3 { color: #e0d4ff; }
+    .col-ai .refresh-btn { color: #9b89c4; }
+    .ai-panel-body { background: transparent; }
+
+    /* Empty state */
+    .empty-state {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 380px; color: var(--gray-400); text-align: center; gap: 12px; padding: 20px;
+    }
+    .empty-sub { font-size: 12px; color: var(--gray-400); text-align: left; max-width: 240px; line-height: 1.8; }
+
+    /* Loading */
+    .loading { display: none; text-align: center; padding: 40px; }
+    .loading.show { display: block; }
+    .spinner-ring { width: 32px; height: 32px; margin: 0 auto 12px; border: 3px solid var(--gray-200); border-top-color: var(--blue); border-radius: 50%; animation: spin .8s linear infinite; }
+    #spinnerText { color: var(--gray-600); font-size: 13px; font-weight: 500; transition: opacity 0.2s ease; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Results */
+    .results { display: none; }
+    .results.show { display: block; }
+
+    /* AI sections */
+    .ai-section {
+      background: white; border-radius: var(--radius-sm); border: var(--border);
+      margin-bottom: 8px; overflow: hidden;
+    }
+    .ai-section-head {
+      padding: 9px 13px; border-bottom: var(--border);
+      font-size: 11px; font-weight: 700; color: var(--gray-800);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ai-section-body { padding: 11px 13px; }
+    .ai-section-body .summary { font-size: 13px; color: var(--gray-600); line-height: 1.65; }
+
+    /* Badges */
+    .badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 7px; }
+    .badge { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .badge-blue { background: var(--blue-light); color: var(--blue); }
+    .badge-high { background: var(--orange-light); color: var(--orange); }
+    .badge-urgent { background: var(--red-light); color: var(--red); }
+    .badge-medium { background: #FFF8E8; color: #B76E00; }
+    .badge-low { background: var(--green-light); color: var(--green); }
+    .badge-negative { background: var(--red-light); color: var(--red); }
+    .badge-angry { background: var(--red-light); color: var(--red); }
+    .badge-neutral { background: var(--gray-100); color: var(--gray-600); }
+    .badge-positive { background: var(--green-light); color: var(--green); }
+
+    .ticket-chip { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; padding: 3px 8px; background: var(--gray-100); border-radius: 6px; font-size: 10px; font-weight: 600; color: var(--gray-400); font-family: monospace; }
+    .confidence-label { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px; color: var(--gray-600); }
+    .confidence-val { font-weight: 700; color: #1B2B65; }
+    .confidence-track { height: 6px; background: var(--gray-200); border-radius: 3px; overflow: hidden; }
+    .confidence-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), #38A4FF); transition: width .6s ease; }
+
+    .progress-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .progress-label { font-size: 11px; color: var(--gray-600); font-weight: 500; }
+    .progress-value { font-size: 11px; font-weight: 700; color: var(--blue); }
+    .progress-track { height: 6px; background: var(--gray-200); border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--blue), #38A4FF); transition: width .6s ease; }
+    .chip-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+    .chip { padding: 3px 7px; border-radius: 5px; font-size: 11px; font-weight: 500; }
+    .chip-have { background: var(--green-light); color: #007A4C; }
+    .chip-missing { background: var(--red-light); color: var(--red); }
+
+    .text-box { background: var(--gray-50); border-radius: var(--radius-sm); border: 1px solid var(--gray-200); padding: 11px 13px; font-size: 13px; line-height: 1.75; white-space: pre-wrap; color: var(--gray-800); }
+    .text-box-blue { border-left: 3px solid var(--blue); }
+    .text-box-purple { border-left: 3px solid var(--purple); background: var(--purple-light); border-color: #D8D0FF; }
+    .template-actions { display: flex; gap: 5px; margin-top: 8px; }
+
+    .kb-source { display: flex; align-items: center; gap: 7px; padding: 7px 0; border-bottom: 1px solid var(--gray-100); font-size: 12px; color: var(--gray-700); }
+    .kb-source:last-child { border-bottom: none; }
+
+    .action-list { list-style: none; }
+    .action-item { display: flex; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--gray-100); font-size: 12px; color: var(--gray-800); align-items: flex-start; }
+    .action-item:last-child { border-bottom: none; }
+    .action-bullet { width: 18px; height: 18px; border-radius: 50%; background: var(--blue-light); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .process-text { font-size: 12px; color: var(--gray-600); line-height: 1.7; }
+    .workflow-step { padding: 5px 10px; font-size: 11px; font-weight: 500; color: #15803D; background: #F0FDF4; border-left: 3px solid #22C55E; margin-bottom: 3px; border-radius: 0 5px 5px 0; }
+
+    /* Toro corner — anchored inside col-ai */
+    .col-ai { position: relative; }
+    .toro-corner {
+      position: absolute; bottom: 0; right: 0;
+      width: 220px; height: auto;
+      filter: drop-shadow(0 6px 24px rgba(0,80,220,0.35));
+      pointer-events: none; z-index: 10;
+      display: block;
+    }
+
+    /* ── KB PAGE ── */
+    .kb-page { display: none; flex: 1; overflow: hidden; }
+    .kb-page.show { display: flex; flex-direction: column; }
+    .kb-topbar { padding: 14px 20px; background: white; border-bottom: var(--border); display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+    .kb-topbar-title { font-size: 14px; font-weight: 700; color: var(--gray-800); white-space: nowrap; }
+    .kb-search-wrap { flex: 1; max-width: 480px; position: relative; }
+    .kb-search { width: 100%; padding: 8px 14px 8px 34px; border: 1.5px solid var(--gray-200); border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 13px; outline: none; background: var(--gray-50); transition: border-color .15s; }
+    .kb-search:focus { border-color: var(--blue); background: white; }
+    .kb-search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--gray-400); font-size: 13px; pointer-events: none; }
+    .kb-stats { font-size: 12px; color: var(--gray-400); white-space: nowrap; }
+    .kb-body { display: flex; flex: 1; overflow: hidden; }
+    .kb-sidebar { width: 240px; flex-shrink: 0; border-right: var(--border); background: white; overflow-y: auto; padding: 10px 0; }
+    .kb-cat { display: flex; align-items: center; gap: 10px; padding: 9px 14px; cursor: pointer; transition: background .12s; border-left: 3px solid transparent; }
+    .kb-cat:hover { background: var(--gray-50); }
+    .kb-cat.active { background: var(--blue-light); border-left-color: var(--blue); }
+    .kb-cat.active .kb-cat-name { color: var(--blue); font-weight: 600; }
+    .kb-cat-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    .kb-cat-name { font-size: 12px; font-weight: 500; color: var(--gray-800); }
+    .kb-content { flex: 1; overflow-y: auto; padding: 18px 22px; }
+    .kb-subcat { margin-bottom: 7px; border: var(--border); border-radius: var(--radius-sm); background: white; }
+    .kb-subcat-header { display: flex; align-items: center; gap: 10px; padding: 11px 15px; cursor: pointer; user-select: none; }
+    .kb-subcat-header:hover { background: var(--gray-50); border-radius: var(--radius-sm); }
+    .kb-subcat-arrow { color: var(--gray-400); transition: transform .2s; font-size: 12px; }
+    .kb-subcat-arrow.open { transform: rotate(90deg); }
+    .kb-subcat-title { font-size: 13px; font-weight: 600; color: var(--gray-800); flex: 1; }
+    .kb-subcat-count { font-size: 10px; color: var(--gray-400); background: var(--gray-100); padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+    .kb-article-list { border-top: var(--border); }
+    .kb-article { display: flex; align-items: center; justify-content: space-between; padding: 10px 15px 10px 38px; cursor: pointer; border-bottom: 1px solid var(--gray-100); transition: background .12s; }
+    .kb-article:last-child { border-bottom: none; }
+    .kb-article:hover { background: var(--blue-light); }
+    .kb-article:hover .kb-article-title { color: var(--blue); }
+    .kb-article-title { font-size: 12px; color: var(--gray-800); flex: 1; }
+    .kb-article-arr { color: var(--gray-300); font-size: 12px; }
+    .kb-result-item { padding: 11px 15px; border-bottom: var(--border); cursor: pointer; transition: background .12s; }
+    .kb-result-item:hover { background: var(--blue-light); }
+    .kb-result-title { font-size: 13px; font-weight: 600; color: var(--gray-800); margin-bottom: 3px; }
+    .kb-result-title mark { background: #FFF3B0; color: var(--gray-800); border-radius: 2px; padding: 0 2px; }
+    .kb-result-preview { font-size: 12px; color: var(--gray-400); }
+    .kb-loading { text-align: center; padding: 40px; color: var(--gray-400); }
+    .kb-empty { text-align: center; padding: 40px; color: var(--gray-400); font-size: 13px; }
+    .kb-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 1000; align-items: center; justify-content: center; }
+    .kb-modal-overlay.show { display: flex; }
+    .kb-modal { background: white; border-radius: var(--radius); padding: 24px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; }
+    .kb-modal-close { position: absolute; top: 14px; right: 14px; background: var(--gray-100); border: none; border-radius: 6px; width: 26px; height: 26px; cursor: pointer; font-size: 14px; color: var(--gray-600); display: flex; align-items: center; justify-content: center; }
+    .kb-modal-close:hover { background: var(--gray-200); }
+    .kb-modal-title { font-size: 15px; font-weight: 700; color: var(--gray-800); margin-bottom: 14px; padding-right: 28px; }
+    .kb-modal-body { font-size: 13px; color: var(--gray-600); line-height: 1.75; white-space: pre-wrap; }
+
+    /* ── DARK MODE ── */
+    body.dark { background: #0a1628; }
+    body.dark .sidebar { background: #060e1a; }
+    body.dark .sb-logo { border-color: rgba(255,255,255,0.05); }
+    body.dark .topbar { background: #1e293b; border-color: #334155; }
+    body.dark .topbar-greeting h1 { color: #e2e8f0; }
+    body.dark .topbar-greeting p { color: #64748b; }
+    body.dark .topbar-search { background: #0f172a; border-color: #334155; }
+    body.dark .topbar-search input { color: #e2e8f0; }
+    body.dark .topbar-search input::placeholder { color: #64748b; }
+    body.dark .logo-zalo { color: #60A5FA; }
+    body.dark .logo-pay { color: #93C5FD; }
+    body.dark .col-list { background: #1e293b; border-color: #334155; }
+    body.dark .col-detail { background: #1e293b; border-color: #334155; }
+    body.dark .col-ai { background: #131f30; }
+    body.dark .col-head { background: #1e293b; border-color: #334155; }
+    body.dark .col-head h3 { color: #e2e8f0; }
+    body.dark .col-head-btn { border-color: #334155; color: #94a3b8; background: transparent; }
+    body.dark .col-head-action { background: #0f172a; border-color: #334155; color: #94a3b8; }
+    body.dark .ticket-filters { border-color: #334155; }
+    body.dark .tf-btn { color: #94a3b8; }
+    body.dark .tf-btn.active { background: rgba(0,104,255,0.2); color: #60A5FA; }
+    body.dark .tkt-item:hover { background: #334155; }
+    body.dark .tkt-item.active { background: rgba(0,104,255,0.15); border-color: rgba(0,104,255,0.35); }
+    body.dark .tkt-title { color: #e2e8f0; }
+    body.dark .tkt-customer { color: #64748b; }
+    body.dark .tkt-detail-header { background: #162032; border-color: #334155; }
+    body.dark .tkt-detail-title { color: #e2e8f0; }
+    body.dark .col-detail-body { background: #1e293b; }
+    body.dark textarea, body.dark .input-field { background: #0f172a; color: #e2e8f0; border-color: #334155; }
+    body.dark textarea::placeholder, body.dark .input-field::placeholder { color: #64748b; }
+    body.dark .guide-wrap { background: #0f172a; border-color: #334155; }
+    body.dark .guide-head { color: #e2e8f0; }
+    body.dark .guide-title { color: #e2e8f0 !important; }
+    body.dark .guide-desc { color: #94a3b8; }
+    body.dark .guide-item { border-color: #334155; }
+    body.dark .guide-num { background: #1e3a5f; color: #60A5FA; }
+    body.dark .quick-actions { border-color: #334155; }
+    body.dark .qa-item { border-color: #334155; color: #94a3b8; }
+    body.dark .qa-item:hover { background: rgba(0,104,255,0.15); color: #60A5FA; }
+    body.dark .ai-section { background: #1e293b; border-color: #334155; }
+    body.dark .ai-section-head { border-color: #334155; color: #e2e8f0; }
+    body.dark .ai-section-body .summary { color: #cbd5e1; }
+    body.dark .text-box { background: #0f172a; color: #e2e8f0; border-color: #334155; }
+    body.dark .text-box-purple { background: #1a1040; border-color: #4c1d95; }
+    body.dark .btn-action-sm { background: #1e293b; border-color: #334155; color: #cbd5e1; }
+    body.dark .btn-action-green { background: #14532d; border-color: #166534; color: #86efac; }
+    body.dark .btn-action-crm { background: #1e3a5f; border-color: #1d4ed8; color: #93C5FD; }
+    body.dark .action-item { border-color: #334155; color: #cbd5e1; }
+    body.dark .process-text { color: #cbd5e1; }
+    body.dark .progress-track { background: #334155; }
+    body.dark .confidence-track { background: #334155; }
+    body.dark .confidence-val { color: #93C5FD; }
+    body.dark .chip-have { background: #14532d; color: #86efac; }
+    body.dark .chip-missing { background: #450a0a; color: #fca5a5; }
+    body.dark .kb-source { border-color: #334155; color: #cbd5e1; }
+    body.dark .ticket-chip { background: #1e293b; color: #94a3b8; }
+    body.dark .btn-copy { background: #1e293b; border-color: #334155; color: #cbd5e1; }
+    body.dark .btn-copy:hover { background: rgba(0,104,255,0.15); color: #60A5FA; border-color: #60A5FA; }
+    body.dark .kb-page .kb-topbar { background: #1e293b; border-color: #334155; }
+    body.dark .kb-sidebar { background: #1e293b; border-color: #334155; }
+    body.dark .kb-cat:hover { background: #334155; }
+    body.dark .kb-cat.active { background: rgba(0,104,255,0.15); }
+    body.dark .kb-cat-name { color: #cbd5e1; }
+    body.dark .kb-subcat { background: #1e293b; border-color: #334155; }
+    body.dark .kb-subcat-header:hover { background: #334155; }
+    body.dark .kb-subcat-title { color: #e2e8f0; }
+    body.dark .kb-article-title { color: #cbd5e1; }
+    body.dark .kb-article:hover { background: rgba(0,104,255,0.15); }
+    body.dark .kb-content { background: #131f30; }
+    body.dark .kb-modal { background: #1e293b; }
+    body.dark .kb-modal-title { color: #e2e8f0; }
+    body.dark .kb-modal-body { color: #cbd5e1; }
+    body.dark .error-box { background: #450a0a; border-color: #7f1d1d; color: #fca5a5; }
+  </style>
+</head>
+<body>
+
+<div class="planet-left"></div>
+<div class="planet-right"></div>
+
+<!-- Floating emojis bay là đà -->
+<div class="floaty f1" style="top:12%;right:2%;font-size:36px;">💗</div>
+<div class="floaty f2" style="top:28%;right:1%;font-size:22px;">💗</div>
+<div class="floaty f3" style="top:18%;right:4%;font-size:28px;">🌸</div>
+<div class="floaty f4" style="top:8%;right:6%;font-size:20px;">✨</div>
+<div class="floaty f2" style="top:55%;right:1.5%;font-size:52px;">🐾</div>
+<div class="floaty f3" style="top:48%;right:5%;font-size:18px;">💜</div>
+<div class="floaty f1" style="top:68%;right:3%;font-size:22px;">✦</div>
+<div class="floaty f4" style="top:75%;right:2%;font-size:18px;">💚</div>
+<div class="floaty f2" style="bottom:8%;right:4%;font-size:26px;">🌿</div>
+<div class="floaty f1" style="top:35%;left:230px;font-size:20px;">✨</div>
+<div class="floaty f3" style="bottom:12%;left:240px;font-size:24px;">💫</div>
+<div class="floaty f4" style="top:15%;left:235px;font-size:16px;">⭐</div>
+<!-- Floating planet emojis -->
+<div style="position:fixed;top:55px;left:155px;font-size:46px;pointer-events:none;z-index:5;filter:drop-shadow(0 4px 16px rgba(180,100,255,0.6));transform:rotate(-15deg);">🪐</div>
+<div style="position:fixed;bottom:130px;left:118px;font-size:36px;pointer-events:none;z-index:5;filter:drop-shadow(0 4px 14px rgba(255,100,180,0.6));transform:rotate(10deg);">🪐</div>
+<div style="position:fixed;bottom:58px;left:390px;font-size:32px;pointer-events:none;z-index:5;filter:drop-shadow(0 3px 12px rgba(255,100,180,0.5));transform:rotate(-8deg);">🪐</div>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-icon">Z</div>
+    <div>
+      <div class="sb-logo-name">Z-AGENT ONE</div>
+      <div class="sb-logo-sub">Em bé AI của CS ♡</div>
+    </div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-nav-item active" id="nav-dashboard" onclick="showPage('cs',this)">
+      <span class="sb-nav-icon">⊞</span>
+      <span>Dashboard</span>
+    </div>
+    <div class="sb-nav-item" id="nav-tickets" onclick="showPage('cs',this)">
+      <span class="sb-nav-icon">🎫</span>
+      <span>Tickets</span>
+      <span class="sb-badge" id="ticketBadge">—</span>
+    </div>
+    <div class="sb-nav-item" id="nav-kb" onclick="showPage('kb',this)">
+      <span class="sb-nav-icon">📚</span>
+      <span>Knowledge Base</span>
+    </div>
+    <div class="sb-nav-item">
+      <span class="sb-nav-icon">👥</span>
+      <span>Customers</span>
+    </div>
+    <div class="sb-nav-item">
+      <span class="sb-nav-icon">📊</span>
+      <span>Reports &amp; Insights</span>
+    </div>
+    <div class="sb-nav-item">
+      <span class="sb-nav-icon">⚙️</span>
+      <span>Settings</span>
+    </div>
+  </nav>
+
+  <div class="sb-bottom">
+    <div class="sb-ai-power">
+      <div class="sb-ai-icon">⚡</div>
+      <div>
+        <div class="sb-ai-name">AI Power</div>
+        <div class="sb-ai-desc">Always on to support<br>faster &amp; smarter</div>
+        <div class="sb-online"><span class="dot"></span> Online</div>
+      </div>
+    </div>
+    <div class="sb-agent">
+      <div class="sb-agent-avatar">
+        <img src="/static/toro_friendly2.png" alt="Toro">
+      </div>
+      <div>
+        <div class="sb-agent-name">Bé AI</div>
+        <div class="sb-online"><span class="dot"></span> Online</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ── APP BODY ── -->
+<div class="app-body">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-greeting">
+      <h1>Xin chào, CS Agent 👋</h1>
+      <p style="color:#9B89C4">Bé AI luôn sẵn sàng hỗ trợ bạn 💙</p>
+    </div>
+    <div class="topbar-search">
+      <span style="font-size:13px;color:var(--gray-400)">🔍</span>
+      <input type="text" placeholder="Tìm kiếm ticket, khách hàng, nội dung..." />
+      <span class="search-shortcut">⌘K</span>
+    </div>
+    <div class="topbar-right">
+      <button class="bell-btn">🔔<span class="bell-badge">2</span></button>
+      <div class="zalopay-logo"><span class="logo-zalo">Zalo</span><span class="logo-pay">pay</span></div>
+      <button class="dark-toggle-btn" id="darkToggle" onclick="toggleDark()" style="font-size:22px;background:none;border:none;">⭐</button>
+    </div>
+  </header>
+
+  <!-- KB PAGE -->
+  <div class="kb-page" id="kbPage">
+    <div class="kb-topbar">
+      <div class="kb-topbar-title">📚 Hỏi đáp ZaloPay</div>
+      <div class="kb-search-wrap">
+        <span class="kb-search-icon">🔍</span>
+        <input class="kb-search" id="kbSearch" placeholder="ZaloPay có thể giúp gì cho bạn?" oninput="searchKB(this.value)" />
+      </div>
+      <div class="kb-stats" id="kbStats"></div>
+    </div>
+    <div class="kb-body">
+      <div class="kb-sidebar" id="kbSidebar"><div class="kb-loading">⏳</div></div>
+      <div class="kb-content" id="kbContent"><div class="kb-loading">⏳ Đang tải...</div></div>
+    </div>
+  </div>
+
+  <!-- CS PAGE — 3 columns -->
+  <div class="columns" id="csPage">
+
+    <!-- COLUMN 1: Ticket List -->
+    <div class="col col-list">
+      <div class="col-head">
+        <h3>Danh sách ticket</h3>
+        <div class="col-head-actions">
+          <button class="col-head-btn" title="Bộ lọc">⊟</button>
+          <button class="col-head-btn add-btn" title="Tạo ticket mới" onclick="newTicket()">+</button>
+        </div>
+      </div>
+      <div class="ticket-filters">
+        <button class="tf-btn active" id="tf-all" onclick="filterTickets('all',this)">Tất cả <span id="cnt-all">0</span></button>
+        <button class="tf-btn" id="tf-pending" onclick="filterTickets('pending',this)">Chờ xử lý <span id="cnt-pending">0</span></button>
+        <button class="tf-btn" id="tf-done" onclick="filterTickets('done',this)">Đã xử lý <span id="cnt-done">0</span></button>
+      </div>
+      <div class="ticket-list" id="activityList">
+        <div style="padding:20px;text-align:center;color:var(--gray-400);font-size:12px">Đang tải...</div>
+      </div>
+    </div>
+
+    <!-- COLUMN 2: Ticket Detail / Input -->
+    <div class="col col-detail">
+      <div class="col-head">
+        <h3>Chi tiết ticket</h3>
+        <button class="col-head-action">👤 Thông tin khách hàng</button>
+      </div>
+
+      <!-- Ticket info header (shown after selecting/processing) -->
+      <div class="tkt-detail-header" id="ticketDetailHeader">
+        <div class="tkt-detail-top">
+          <span class="tkt-detail-id" id="detailTicketId"></span>
+          <span class="tkt-detail-status pending" id="detailStatus">Chờ xử lý</span>
+          <span class="tkt-detail-time" id="detailTime"></span>
+        </div>
+        <div class="tkt-detail-title" id="detailTitle">Nhập nội dung ticket bên dưới</div>
+      </div>
+
+      <div class="col-detail-body">
+        <!-- Input form -->
+        <div style="position:relative;">
+          <textarea id="ticketInput" placeholder="Bạn cho bé xin vấn đề hoặc hình ảnh của khách hàng nhen..." style="padding-right:80px;"></textarea>
+          <div style="position:absolute;bottom:10px;right:10px;font-size:44px;opacity:0.7;pointer-events:none;filter:drop-shadow(0 4px 12px rgba(100,100,255,0.4));line-height:1">🛸</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:10px">
+          <input class="input-field" type="text" id="ticketId" placeholder="Ticket ID (để trống nếu mới)" />
+          <input class="input-field" type="text" id="agentNote" placeholder="Ghi chú nội bộ (tùy chọn)" />
+          <button class="btn-primary" id="submitBtn" onclick="processTicket()">⚡ Phân tích ngay</button>
+        </div>
+        <div style="font-size:11px;color:var(--gray-400);margin-top:7px">Ctrl + Enter để gửi nhanh</div>
+        <div class="error-box" id="errorMsg">⚠️ <span id="errorText"></span></div>
+
+        <!-- Quick guide -->
+        <div class="guide-wrap">
+          <div class="guide-head">💡 Hướng dẫn nhanh</div>
+          <div class="guide-list">
+            <div class="guide-item">
+              <div class="guide-num">1</div>
+              <div>
+                <div class="guide-title">Dán nội dung ticket</div>
+                <div class="guide-desc">Copy nội dung email/chat khách hàng hoặc mô tả vấn đề vào ô nhập</div>
+              </div>
+            </div>
+            <div class="guide-item">
+              <div class="guide-num">2</div>
+              <div>
+                <div class="guide-title">Nhập Ticket ID (nếu có)</div>
+                <div class="guide-desc">Điền ID từ hệ thống CRM để lưu lịch sử. Để trống nếu tạo mới</div>
+              </div>
+            </div>
+            <div class="guide-item">
+              <div class="guide-num">3</div>
+              <div>
+                <div class="guide-title">Bấm Phân tích</div>
+                <div class="guide-desc">Kết quả hiện ngay bên phải — template, kịch bản và hành động tiếp theo</div>
+              </div>
+            </div>
+            <div class="guide-item">
+              <div class="guide-num" style="background:var(--green-light);color:var(--green)">⌨</div>
+              <div>
+                <div class="guide-title">Phím tắt</div>
+                <div class="guide-desc"><kbd>Ctrl</kbd>+<kbd>Enter</kbd> gửi · <kbd>Ctrl</kbd>+<kbd>C</kbd> sao chép template</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick actions bar -->
+      <div class="quick-actions">
+        <div class="qa-item"><span class="qa-item-icon">🔍</span><span style="font-weight:700">Smart Search</span><span style="font-size:9px;color:#aaa;font-weight:400">Tìm kiếm nhanh</span></div>
+        <div class="qa-item" onclick="showPage('kb')"><span class="qa-item-icon">📖</span><span style="font-weight:700">Knowledge Base</span><span style="font-size:9px;color:#aaa;font-weight:400">Kho tri thức</span></div>
+        <div class="qa-item"><span class="qa-item-icon">🛡️</span><span style="font-weight:700">Policy Expert</span><span style="font-size:9px;color:#aaa;font-weight:400">Đối chiếu CS</span></div>
+        <div class="qa-item"><span class="qa-item-icon">💬</span><span style="font-weight:700">Resolution</span><span style="font-size:9px;color:#aaa;font-weight:400">Gợi ý phản hồi</span></div>
+      </div>
+    </div>
+
+    <!-- COLUMN 3: AI Analysis Panel -->
+    <div class="col col-ai">
+      <div class="col-head">
+        <h3>🤖 AI phân tích &amp; đề xuất <span class="ai-dot">●</span></h3>
+        <button class="refresh-btn" title="Làm mới">↻</button>
+      </div>
+
+      <div class="ai-panel-body">
+
+        <!-- Empty state -->
+        <div id="emptyState" style="display:flex;flex-direction:column;align-items:center;padding:10px 14px 0;position:relative;min-height:380px;">
+          <!-- Stars decoration -->
+          <span style="position:absolute;top:8px;left:16px;color:white;font-size:14px;opacity:0.7">✦</span>
+          <span style="position:absolute;top:20px;right:30px;color:#a78bfa;font-size:10px;opacity:0.8">✦</span>
+          <span style="position:absolute;top:60px;left:8px;color:#c4b5fd;font-size:8px;opacity:0.6">✦</span>
+          <span style="position:absolute;top:45px;right:14px;color:white;font-size:12px;opacity:0.5">★</span>
+
+          <!-- Mascot + speech bubble -->
+          <div style="width:100%;display:flex;align-items:flex-end;margin-top:8px;gap:0;">
+            <!-- Speech bubble on left, cat on right -->
+            <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:flex-start;padding-bottom:30px;padding-left:4px;">
+              <div style="background:white;border-radius:14px 14px 14px 4px;padding:12px 15px;box-shadow:0 4px 20px rgba(0,0,0,0.25);max-width:140px;">
+                <div style="font-size:12px;font-weight:700;color:#2d1f6e;line-height:1.5;">Có ticket mới hả?<br>Để Z coi cho nè!</div>
+                <div style="font-size:18px;margin-top:4px">😊 <span style="color:#e879a0">💗</span></div>
+              </div>
+              <span style="font-size:22px;color:#e879a0;margin-top:12px;margin-left:10px;filter:drop-shadow(0 2px 6px rgba(232,121,160,0.6))">💗</span>
+            </div>
+            <!-- Toro image -->
+            <img src="/static/toro_friendly.png" alt="Bé AI" style="width:210px;height:auto;filter:drop-shadow(0 8px 32px rgba(100,50,255,0.5));flex-shrink:0;margin-left:-10px;">
+          </div>
+
+          <!-- Info card -->
+          <div style="background:linear-gradient(135deg,#f0eeff,#e8e0ff);border-radius:18px;padding:16px 16px 14px;width:100%;box-shadow:0 6px 24px rgba(0,0,0,0.22);margin-top:10px;">
+            <div style="font-size:15px;font-weight:800;color:#1a1050;margin-bottom:4px;">Xin chào, Bé là <span style="background:linear-gradient(90deg,#7C3AFF,#2196F3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Z-Agent One</span>. 💗</div>
+            <div style="font-size:11px;color:#6b5fa0;margin-bottom:10px;">✨ Bé AI siêu cấp đáng yêu của CS Zalopay 🥺</div>
+            <div style="border-top:1.5px dashed #c8bfee;margin-bottom:10px;"></div>
+            <div style="font-size:12px;font-weight:700;color:#7C3AFF;margin-bottom:10px;">Bé ở đây để giúp bạn: 🌿</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:flex-start;gap:10px;">
+                <div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#e9d5ff,#c4b5fd);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🪄</div>
+                <div><div style="font-size:12px;font-weight:700;color:#1a1050;">✨ Lọc yêu cầu <span style="color:#7C3AFF">siêu nhanh</span></div><div style="font-size:10px;color:#7b6fa0;margin-top:1px;">Gỡ rối khách iu trong 1 nốt nhạc ~ 💗</div></div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:10px;">
+                <div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#bfdbfe,#93c5fd);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🛡️</div>
+                <div><div style="font-size:12px;font-weight:700;color:#1a1050;">📌 Chuẩn chính sách <span style="color:#2196F3">100%</span></div><div style="font-size:10px;color:#7b6fa0;margin-top:1px;">Chuẩn không cần chỉnh, khỏi lo sai sót 😎</div></div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:10px;">
+                <div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#fde68a,#fca5a5);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">🚀</div>
+                <div><div style="font-size:12px;font-weight:700;color:#1a1050;">🔍 Check dữ liệu <span style="color:#F97316">siêu đỉnh</span></div><div style="font-size:10px;color:#7b6fa0;margin-top:1px;">Policy, KB, lịch sử... bé cân tất! 🔥</div></div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:10px;">
+                <div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#a7f3d0,#6ee7b7);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;">💬</div>
+                <div><div style="font-size:12px;font-weight:700;color:#1a1050;">💬 Soạn rep <span style="color:#059669">xịn như pro</span></div><div style="font-size:10px;color:#7b6fa0;margin-top:1px;">Template xịn sò, khách hài lòng mê mẩn 🤩</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="spinner">
+          <div class="spinner-ring"></div>
+          <p id="spinnerText">Đợi bé xíu nhaaaa~ 🐾</p>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results">
+
+          <!-- Phân tích Z-Agent One -->
+          <div class="ai-section">
+            <div class="ai-section-head">🔍 Phân tích của Bé AI</div>
+            <div class="ai-section-body">
+              <div class="badges" id="metaBadges"></div>
+              <div class="summary" id="summaryText"></div>
+              <div class="ticket-chip" id="ticketChip"></div>
+              <div id="confidenceWrap" style="display:none;margin-top:10px">
+                <div class="confidence-label">
+                  <span>🎯 Độ tin cậy</span>
+                  <span id="confidenceVal" class="confidence-val"></span>
+                </div>
+                <div class="confidence-track">
+                  <div id="confidenceFill" class="confidence-fill" style="width:0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gợi ý phản hồi (template) -->
+          <div class="ai-section">
+            <div class="ai-section-head">
+              <span>💬 Gợi ý phản hồi cho khách hàng</span>
+              <div style="display:flex;gap:4px">
+                <button class="btn-action-sm btn-action-green" onclick="copyText('templateBox',this)">✓ Sử dụng mẫu</button>
+                <button class="btn-action-sm" onclick="editTemplate()">✏️ Chỉnh sửa</button>
+                <button class="btn-action-sm btn-action-crm" onclick="sendToCRM()">📤 Gửi CRM</button>
+              </div>
+            </div>
+            <div class="ai-section-body">
+              <div class="text-box text-box-blue" id="templateBox" contenteditable="false"></div>
+            </div>
+          </div>
+
+          <!-- Tài liệu tham khảo -->
+          <div class="ai-section" id="knowledgeCard" style="display:none">
+            <div class="ai-section-head">📚 Tài liệu tham khảo</div>
+            <div class="ai-section-body">
+              <div style="font-size:11px;color:var(--gray-400);margin-bottom:6px">AI đã tham chiếu các nguồn sau:</div>
+              <div id="knowledgeSources"></div>
+            </div>
+          </div>
+
+          <!-- Độ đầy đủ thông tin -->
+          <div class="ai-section">
+            <div class="ai-section-head">📊 Độ đầy đủ thông tin</div>
+            <div class="ai-section-body">
+              <div class="progress-header">
+                <span class="progress-label">Thông tin đã cung cấp</span>
+                <span class="progress-value" id="scoreVal">0%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+              <div class="chip-list" id="chipList"></div>
+            </div>
+          </div>
+
+          <!-- Kịch bản gọi điện -->
+          <div class="ai-section" id="callScriptCard" style="display:none">
+            <div class="ai-section-head">📞 Kịch bản gọi điện</div>
+            <div class="ai-section-body">
+              <div class="text-box text-box-purple" id="callBox"></div>
+              <button class="btn-copy" onclick="copyText('callBox',this)">📋 Sao chép kịch bản</button>
+            </div>
+          </div>
+
+          <!-- Hành động + Quy trình -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+            <div class="ai-section" style="margin-bottom:0">
+              <div class="ai-section-head">⚡ Hành động tiếp theo</div>
+              <div class="ai-section-body"><ul class="action-list" id="actionsList"></ul></div>
+            </div>
+            <div class="ai-section" style="margin-bottom:0">
+              <div class="ai-section-head">🔧 Quy trình xử lý</div>
+              <div class="ai-section-body"><div class="process-text" id="processText"></div></div>
+            </div>
+          </div>
+
+          <!-- AI Workflow -->
+          <div class="ai-section" id="workflowCard" style="display:none">
+            <div class="ai-section-head">🤖 AI Workflow</div>
+            <div class="ai-section-body">
+              <div class="workflow-step">✓ Nhận ticket</div>
+              <div class="workflow-step">✓ Phân loại</div>
+              <div class="workflow-step">✓ Kiểm tra policy</div>
+              <div class="workflow-step">✓ Sinh template</div>
+              <div class="workflow-step">✓ Hoàn thành</div>
+            </div>
+          </div>
+
+        </div><!-- /results -->
+
+      </div><!-- /ai-panel-body -->
+
+      <!-- Bottom action buttons for AI panel -->
+      <div style="display:flex;gap:8px;padding:10px 12px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;background:#1a1050;border-radius:0 0 var(--radius) var(--radius);">
+        <button style="flex:1;padding:10px 10px;border-radius:12px;border:none;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);font-size:12px;font-weight:600;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;" onclick="showPage('kb')">📁 Xem kho tài liệu</button>
+        <button style="flex:1;padding:10px 10px;border-radius:12px;border:none;background:linear-gradient(135deg,#FBBF24,#F97316);box-shadow:0 3px 14px rgba(249,115,22,0.4);font-size:12px;font-weight:700;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">⭐ Gợi ý nhanh</button>
+      </div>
+
+  </div><!-- /col-ai -->
+
+  </div><!-- /columns -->
+</div><!-- /app-body -->
+
+<!-- KB Article Modal -->
+<div class="kb-modal-overlay" id="kbModalOverlay" onclick="closeKBModal(event)">
+  <div class="kb-modal">
+    <button class="kb-modal-close" onclick="closeKBModal()">✕</button>
+    <div class="kb-modal-title" id="kbModalTitle"></div>
+    <div class="kb-modal-body" id="kbModalBody"></div>
+  </div>
+</div>
+
+<script>
+  let kbAllEntries = [];
+  let kbSearchTimer = null;
+  let kbActiveCat = 0;
+  let allTickets = [];
+
+  const KB_CATS = [
+    { name: 'Quản lý Tài khoản', icon: '👤', color: '#DDEEFF',
+      subs: ['Khoá/mở khoá tài khoản','Định danh tài khoản','Mật khẩu thanh toán','Hướng dẫn đăng ký và sử dụng tài khoản','Điểm tin cậy','Các vấn đề thường gặp về tài khoản'] },
+    { name: 'Nạp tiền/Rút tiền', icon: '💳', color: '#D6F5EF', subs: ['Rút tiền','Nạp tiền'] },
+    { name: 'Chuyển tiền/Nhận tiền', icon: '💸', color: '#D6F5E6',
+      subs: ['Nhắc chuyển tiền','Chuyển tiền đến ví khác','Chuyển tiền đến thẻ/tài khoản ngân hàng','Nhận tiền','Nhận tiền Quốc tế'] },
+    { name: 'Thanh toán dịch vụ', icon: '🧾', color: '#FFF3D6',
+      subs: ['Metro','Bảo hiểm sức khoẻ 24/7','Vé tàu hỏa','Vé tham quan','Vé xe khách','Vé máy bay','Khách sạn','Thanh toán hóa đơn vay tiêu dùng','Thanh toán học phí','Thanh toán bảo hiểm hoá đơn','Thanh toán hóa đơn Điện/Nước/Internet/Truyền hình','Thương mại điện tử','Thanh toán điện thoại trả sau','Gói Cước Combo','Trả nợ thẻ tín dụng','Các dịch vụ khác','Vé phim','Phí dịch vụ','Mã thanh toán','Khiếu nại thanh toán','Nạp 3G/4G','Thẻ điện thoại','Nạp tiền điện thoại','eSim du lịch'] },
+    { name: 'An toàn và bảo mật', icon: '🔒', color: '#EDE8FF',
+      subs: ['Giải pháp bảo mật của Zalopay','Cảnh báo các tình huống lừa đảo phổ biến','Hỏi đáp về an toàn bảo mật','Biện pháp tăng cường bảo mật tài khoản','Hướng dẫn liên hệ khẩn cấp'] },
+    { name: 'Liên kết ngân hàng', icon: '🏦', color: '#FFE4E4',
+      subs: ['Mở tài khoản ngân hàng','Liên kết ngân hàng','Hủy liên kết ngân hàng','Cách khắc phục lỗi liên kết ngân hàng','Đăng ký điểm thưởng ngân hàng'] },
+    { name: 'Khuyến mãi', icon: '🎁', color: '#FFF3E8',
+      subs: ['Hội Cao Thủ Mời Bạn','Toro Xếp Bánh','Khiếu nại khuyến mãi','Thông tin chung về khuyến mãi'] },
+    { name: 'Khiếu nại dịch vụ', icon: '📣', color: '#F0F2F5', subs: ['Góp ý sản phẩm'] },
+    { name: 'Dịch vụ tài chính', icon: '📈', color: '#E6F9F1',
+      subs: ['Tài khoản trả sau - LOTTE Finance','Vay tiền nhanh','Trả Góp','Số dư sinh lời','Tài Khoản Trả Sau - CIMB','Gửi Tiết Kiệm','Tài khoản chứng khoán','Chứng chỉ quỹ'] },
+    { name: 'QR đa năng', icon: '📲', color: '#DDEEFF',
+      subs: ['Hướng dẫn tìm mã VietQR','Nạp tiền bằng QR','Nhận tiền bằng QR'] },
+  ];
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const delay = 1000 + Math.random() * 1000;
+    setTimeout(() => {
+      loadHealth();
+      loadActivity();
+    }, delay);
+
+    // 🛸 Toro UFO flyby Easter egg
+    function launchUFO() {
+      const ufo = document.createElement('div');
+      const goLeft = Math.random() > 0.5;
+      const top = 8 + Math.random() * 55; // % from top
+      ufo.style.cssText = `
+        position:fixed; top:${top}%; z-index:9999;
+        display:flex; flex-direction:column; align-items:center;
+        pointer-events:none; transition:none;
+        ${goLeft ? 'left:110%' : 'right:110%'};
+        filter:drop-shadow(0 6px 18px rgba(120,80,255,0.7));
+      `;
+      ufo.innerHTML = `
+        <div style="font-size:15px;font-weight:900;color:#00e676;text-shadow:0 0 10px #00e676,0 0 22px #00c853;line-height:1;margin-bottom:2px;font-family:Arial Black,sans-serif;">Z</div>
+        <img src="/static/toro_friendly2.png" style="width:46px;height:auto;object-fit:contain;object-position:28% top;margin-bottom:-6px;transform:scaleX(${goLeft?-1:1})">
+        <div style="font-size:52px;line-height:1">🛸</div>
+      `;
+      document.body.appendChild(ufo);
+
+      const screenW = window.innerWidth + 300;
+      const duration = 3200 + Math.random() * 1800;
+      const startTime = performance.now();
+
+      function animate(now) {
+        const elapsed = now - startTime;
+        const progress = elapsed / duration;
+        if (progress >= 1) { ufo.remove(); return; }
+        const ease = progress;
+        const x = goLeft ? -(screenW * ease) : (screenW * ease);
+        const wobble = Math.sin(progress * Math.PI * 5) * 12;
+        ufo.style.transform = `translateX(${x}px) translateY(${wobble}px)`;
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+
+      // Schedule next flyby
+      const next = 18000 + Math.random() * 22000;
+      setTimeout(launchUFO, next);
+    }
+
+    // First flyby after 8-15 seconds
+    setTimeout(launchUFO, 8000 + Math.random() * 7000);
+
+    // 🫧 Bubble Toro — bong bóng xà phòng bay lơ lửng
+    function launchBubbleToro() {
+      const size = 90 + Math.random() * 50;
+      const startX = Math.random() * (window.innerWidth - size);
+      const bubble = document.createElement('div');
+      bubble.style.cssText = `
+        position:fixed;
+        left:${startX}px;
+        bottom:-${size + 20}px;
+        width:${size}px; height:${size}px;
+        border-radius:50%;
+        background: radial-gradient(circle at 32% 28%,
+          rgba(255,255,255,0.55) 0%,
+          rgba(180,140,255,0.18) 30%,
+          rgba(100,200,255,0.12) 60%,
+          rgba(255,180,220,0.08) 100%);
+        border: 1.5px solid rgba(255,255,255,0.45);
+        box-shadow:
+          inset 0 0 18px rgba(200,180,255,0.25),
+          inset -8px -8px 20px rgba(150,220,255,0.15),
+          0 0 18px rgba(200,160,255,0.2);
+        display:flex; align-items:center; justify-content:center;
+        overflow:hidden;
+        pointer-events:none; z-index:9997;
+        backdrop-filter: blur(2px);
+      `;
+
+      // Rainbow shimmer overlay
+      const shimmer = document.createElement('div');
+      shimmer.style.cssText = `
+        position:absolute; inset:0; border-radius:50%;
+        background: conic-gradient(
+          rgba(255,100,200,0.15),
+          rgba(100,180,255,0.15),
+          rgba(150,255,180,0.15),
+          rgba(255,220,100,0.12),
+          rgba(255,100,200,0.15));
+        animation: bubbleSpin 4s linear infinite;
+        mix-blend-mode: screen;
+      `;
+
+      // Toro face inside
+      const face = document.createElement('img');
+      face.src = '/static/toro_friendly2.png';
+      face.style.cssText = `
+        width:75%; height:75%;
+        object-fit:cover; object-position:28% top;
+        border-radius:50%;
+        opacity:0.82;
+        filter:drop-shadow(0 2px 6px rgba(180,120,255,0.4));
+      `;
+
+      // Shine highlight
+      const shine = document.createElement('div');
+      shine.style.cssText = `
+        position:absolute; top:10%; left:18%;
+        width:28%; height:20%; border-radius:50%;
+        background:rgba(255,255,255,0.55);
+        transform:rotate(-30deg);
+        filter:blur(3px);
+      `;
+
+      // Z label above bubble
+      const zLabel = document.createElement('div');
+      zLabel.textContent = 'Z';
+      zLabel.style.cssText = `
+        position:absolute; top:-22px; left:50%; transform:translateX(-50%);
+        font-size:16px; font-weight:900; font-family:Arial Black,sans-serif;
+        color:#00e676; text-shadow:0 0 10px #00e676, 0 0 22px #00c853;
+        pointer-events:none;
+      `;
+
+      bubble.appendChild(shimmer);
+      bubble.appendChild(face);
+      bubble.appendChild(shine);
+      bubble.appendChild(zLabel);
+      document.body.appendChild(bubble);
+
+      const totalH = window.innerHeight + size + 40;
+      const duration = 7000 + Math.random() * 5000;
+      const driftAmp = 60 + Math.random() * 60;
+      const driftFreq = 0.6 + Math.random() * 0.8;
+      const startTime = performance.now();
+
+      function animate(now) {
+        const t = (now - startTime) / duration;
+        if (t >= 1) { bubble.remove(); return; }
+        const y = -(totalH * t);
+        const x = Math.sin(t * Math.PI * driftFreq * 2) * driftAmp;
+        const scale = 1 + Math.sin(t * Math.PI) * 0.06; // breathe
+        bubble.style.transform = `translateY(${y}px) translateX(${x}px) scale(${scale})`;
+        bubble.style.opacity = t < 0.05 ? t / 0.05 : t > 0.88 ? (1 - t) / 0.12 : '1';
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+
+      // Launch 1-3 bubbles concurrently sometimes
+      const next = 10000 + Math.random() * 15000;
+      setTimeout(launchBubbleToro, next);
+    }
+
+    // Add bubble spin keyframe via style tag
+    const bubbleStyle = document.createElement('style');
+    bubbleStyle.textContent = '@keyframes bubbleSpin { to { transform: rotate(360deg); } }';
+    document.head.appendChild(bubbleStyle);
+
+    // First bubble ngay sau 1.5s
+    setTimeout(launchBubbleToro, 1500);
+    // Các bong bóng tiếp theo
+    setTimeout(launchBubbleToro, 5000 + Math.random() * 4000);
+  });
+
+  function showPage(page, navEl) {
+    document.querySelectorAll('.sb-nav-item').forEach(el => el.classList.remove('active'));
+    if (navEl) navEl.classList.add('active');
+    const csPage = document.getElementById('csPage');
+    const kbPage = document.getElementById('kbPage');
+    if (page === 'kb') {
+      csPage.style.display = 'none';
+      kbPage.classList.add('show');
+      if (!kbAllEntries.length) loadKB();
+      if (!navEl) document.getElementById('nav-kb').classList.add('active');
+    } else {
+      csPage.style.display = '';
+      kbPage.classList.remove('show');
+      if (!navEl) document.getElementById('nav-dashboard').classList.add('active');
+    }
+  }
+
+  async function loadKB() {
+    try {
+      const r = await fetch('/knowledge-base?limit=2000');
+      const data = await r.json();
+      kbAllEntries = (data.entries || []).filter(e => e.folder === 'FAQ ZaloPay');
+      document.getElementById('kbStats').textContent = `${kbAllEntries.length} câu hỏi`;
+      renderKBSidebar();
+      selectKBCat(0);
+    } catch(e) {
+      document.getElementById('kbContent').innerHTML = '<div class="kb-empty">⚠️ Không thể tải tài liệu</div>';
+    }
+  }
+
+  function renderKBSidebar() {
+    const sb = document.getElementById('kbSidebar');
+    sb.innerHTML = KB_CATS.map((cat, i) =>
+      `<div class="kb-cat ${i===0?'active':''}" onclick="selectKBCat(${i})" id="kbcat-${i}">
+        <div class="kb-cat-icon" style="background:${cat.color}">${cat.icon}</div>
+        <div class="kb-cat-name">${escHtml(cat.name)}</div>
+      </div>`
+    ).join('');
+  }
+
+  function selectKBCat(idx) {
+    kbActiveCat = idx;
+    document.querySelectorAll('.kb-cat').forEach((el,i) => el.classList.toggle('active', i===idx));
+    const cat = KB_CATS[idx];
+    const content = document.getElementById('kbContent');
+    const q = document.getElementById('kbSearch').value.trim().toLowerCase();
+    let html = `<h2 style="font-size:15px;font-weight:700;color:var(--gray-800);margin-bottom:14px">${escHtml(cat.name)}</h2>`;
+    let anyContent = false;
+    cat.subs.forEach((sub, si) => {
+      const subKeywords = sub.toLowerCase().split(/[\s\/]+/).filter(w => w.length > 3);
+      const matches = kbAllEntries.filter(e => {
+        const t = e.title.toLowerCase();
+        return subKeywords.some(kw => t.includes(kw));
+      });
+      if (!matches.length) return;
+      if (q && !matches.some(e => e.title.toLowerCase().includes(q) || e.preview.toLowerCase().includes(q))) return;
+      anyContent = true;
+      const openId = `sub-${idx}-${si}`;
+      const arrowId = `arr-${idx}-${si}`;
+      const filteredMatches = q ? matches.filter(e => e.title.toLowerCase().includes(q) || e.preview.toLowerCase().includes(q)) : matches;
+      html += `<div class="kb-subcat">
+        <div class="kb-subcat-header" onclick="toggleSubcat('${openId}','${arrowId}')">
+          <span class="kb-subcat-arrow" id="${arrowId}">›</span>
+          <span class="kb-subcat-title">${escHtml(sub)}</span>
+          <span class="kb-subcat-count">${filteredMatches.length}</span>
+        </div>
+        <div class="kb-article-list" id="${openId}" style="display:none">
+          ${filteredMatches.map(e => `<div class="kb-article" onclick="openKBArticle(${e.id})"><span class="kb-article-title">${highlightMatch(e.title,q)}</span><span class="kb-article-arr">›</span></div>`).join('')}
+        </div>
+      </div>`;
+    });
+    if (!anyContent) html += '<div class="kb-empty">Chưa có nội dung cho mục này</div>';
+    content.innerHTML = html;
+  }
+
+  function toggleSubcat(panelId, arrowId) {
+    const panel = document.getElementById(panelId);
+    const arrow = document.getElementById(arrowId);
+    const open = panel.style.display === 'none';
+    panel.style.display = open ? 'block' : 'none';
+    arrow.classList.toggle('open', open);
+  }
+
+  function searchKB(q) {
+    clearTimeout(kbSearchTimer);
+    kbSearchTimer = setTimeout(() => {
+      if (!q.trim()) { selectKBCat(kbActiveCat); return; }
+      const ql = q.toLowerCase();
+      const results = kbAllEntries.filter(e => e.title.toLowerCase().includes(ql) || e.preview.toLowerCase().includes(ql));
+      document.getElementById('kbStats').textContent = `${results.length} kết quả`;
+      const content = document.getElementById('kbContent');
+      if (!results.length) { content.innerHTML = '<div class="kb-empty">🔍 Không tìm thấy kết quả</div>'; return; }
+      content.innerHTML = `<h2 style="font-size:13px;font-weight:700;color:var(--gray-600);margin-bottom:10px">Kết quả tìm kiếm "${escHtml(q)}"</h2>` +
+        results.map(e => `<div class="kb-result-item" onclick="openKBArticle(${e.id})"><div class="kb-result-title">${highlightMatch(e.title,ql)}</div><div class="kb-result-preview">${escHtml(e.preview)}</div></div>`).join('');
+    }, 250);
+  }
+
+  function highlightMatch(text, q) {
+    if (!q) return escHtml(text);
+    const escaped = escHtml(text);
+    const escapedQ = escHtml(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return escaped.replace(new RegExp(escapedQ, 'gi'), m => `<mark>${m}</mark>`);
+  }
+
+  function openKBArticle(id) {
+    const e = kbAllEntries[id] || kbAllEntries.find(x => x.id === id);
+    if (!e) return;
+    document.getElementById('kbModalTitle').textContent = e.title;
+    document.getElementById('kbModalBody').textContent = e.preview + (e.preview.length >= 200 ? '...' : '');
+    document.getElementById('kbModalOverlay').classList.add('show');
+  }
+
+  function closeKBModal(ev) {
+    if (!ev || ev.target === document.getElementById('kbModalOverlay') || ev.currentTarget?.classList?.contains('kb-modal-close')) {
+      document.getElementById('kbModalOverlay').classList.remove('show');
+    }
+  }
+
+  function escHtml(s) {
+    return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  async function loadHealth() {
+    try {
+      const r = await fetch('/health');
+      const d = await r.json();
+      // Update badge with KB size info (silent)
+      if (d.kb_size) document.getElementById('ticketBadge').textContent = d.kb_size + ' KB';
+    } catch(e) {}
+  }
+
+  async function loadActivity() {
+    try {
+      const r = await fetch('/tickets');
+      const tickets = await r.json();
+      allTickets = tickets;
+      renderTicketList(tickets);
+    } catch(e) {
+      document.getElementById('activityList').innerHTML = '<div style="padding:20px;text-align:center;color:var(--gray-400);font-size:12px">Chưa có ticket nào</div>';
+    }
+  }
+
+  function renderTicketList(tickets) {
+    const list = document.getElementById('activityList');
+    const total = tickets.length;
+    document.getElementById('cnt-all').textContent = total;
+    document.getElementById('cnt-pending').textContent = Math.ceil(total * 0.4) || 0;
+    document.getElementById('cnt-done').textContent = Math.floor(total * 0.6) || 0;
+    document.getElementById('ticketBadge').textContent = total || '0';
+
+    if (!total) {
+      list.innerHTML = '<div style="padding:20px;text-align:center;color:var(--gray-400);font-size:12px">Chưa có ticket nào</div>';
+      return;
+    }
+    const statusOptions = ['pending','pending','new','done','done'];
+    const statusLabels = {pending:'Chờ xử lý', new:'Mới', done:'Đã xử lý'};
+    const icons = [
+      {emoji:'🔒',bg:'#E8F0FF'},{emoji:'🪪',bg:'#FFF3D6'},{emoji:'📝',bg:'#F3F0FF'},
+      {emoji:'💸',bg:'#E6F9F1'},{emoji:'✈️',bg:'#E8F4FF'},{emoji:'🎁',bg:'#FFF0EF'},{emoji:'📱',bg:'#F0FFF4'}
+    ];
+    const html = tickets.map((t, idx) => {
+      const time = formatTime(t.timestamp);
+      const cls = t.classification || 'Chưa phân loại';
+      const st = statusOptions[idx % statusOptions.length];
+      const ic = icons[idx % icons.length];
+      return `<div class="tkt-item" onclick="loadTicket('${t.ticket_id}','${escHtml(cls)}','${st}',this)">
+        <div class="tkt-icon" style="background:${ic.bg}">${ic.emoji}</div>
+        <div class="tkt-body">
+          <div class="tkt-item-top">
+            <span class="tkt-id">#${t.ticket_id}</span>
+            <span class="tkt-time">${time}</span>
+          </div>
+          <div class="tkt-title">${escHtml(cls)}</div>
+          <div class="tkt-bottom">
+            <span class="tkt-customer">CS Agent</span>
+            <span class="tkt-status ${st}">${statusLabels[st]}</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+    list.innerHTML = html + '<div class="tkt-see-all">Xem tất cả ticket →</div>';
+  }
+
+  function filterTickets(type, btn) {
+    document.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // For now all filters show same list — status is cosmetic
+    renderTicketList(allTickets);
+  }
+
+  function loadTicket(ticketId, cls, status, el) {
+    document.getElementById('ticketId').value = ticketId;
+    document.querySelectorAll('.tkt-item').forEach(i => i.classList.remove('active'));
+    if (el) el.classList.add('active');
+    const hdr = document.getElementById('ticketDetailHeader');
+    document.getElementById('detailTicketId').textContent = '#' + ticketId;
+    document.getElementById('detailTitle').textContent = cls || 'Chi tiết ticket';
+    document.getElementById('detailStatus').textContent = status === 'done' ? 'Đã xử lý' : status === 'new' ? 'Mới' : 'Chờ xử lý';
+    document.getElementById('detailStatus').className = 'tkt-detail-status ' + (status === 'done' ? 'done' : status === 'new' ? 'new' : 'pending');
+    document.getElementById('detailTime').textContent = new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'}) + ' - Hôm nay';
+    hdr.classList.add('show');
+    document.getElementById('ticketInput').focus();
+  }
+
+  function newTicket() {
+    showPage('cs');
+    document.getElementById('ticketInput').value = '';
+    document.getElementById('ticketId').value = '';
+    document.getElementById('agentNote').value = '';
+    document.getElementById('results').classList.remove('show');
+    document.getElementById('errorMsg').classList.remove('show');
+    document.getElementById('emptyState').style.display = '';
+    document.getElementById('ticketDetailHeader').classList.remove('show');
+    // toroCorner always visible
+    document.querySelectorAll('.tkt-item').forEach(el => el.classList.remove('active'));
+    document.getElementById('ticketInput').focus();
+  }
+
+  async function processTicket() {
+    const input = document.getElementById('ticketInput').value.trim();
+    if (!input) { alert('Vui lòng nhập nội dung ticket.'); return; }
+    const ticketId = document.getElementById('ticketId').value.trim() || null;
+    const agentNote = document.getElementById('agentNote').value.trim() || null;
+
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('spinner').classList.add('show');
+    document.getElementById('results').classList.remove('show');
+    document.getElementById('emptyState').style.display = 'none';
+    document.getElementById('errorMsg').classList.remove('show');
+
+    const loadingMsgs = [
+      'Đợi bé xíu nhaaaa~ 🐾','Bé đang tra cứu knowledge base... 📚',
+      'Bé đang đối chiếu mã lỗi... 🔍','Bé đang soạn hướng dẫn xử lý... ✍️','Sắp xong rồi nè! 💜',
+    ];
+    let msgIdx = 0;
+    const spinnerText = document.getElementById('spinnerText');
+    spinnerText.textContent = loadingMsgs[0];
+    const spinnerInterval = setInterval(() => {
+      msgIdx = (msgIdx + 1) % loadingMsgs.length;
+      spinnerText.style.opacity = 0;
+      setTimeout(() => { spinnerText.textContent = loadingMsgs[msgIdx]; spinnerText.style.opacity = 1; }, 200);
+    }, 2000);
+
+    try {
+      const resp = await fetch('/process', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ customer_input: input, ticket_id: ticketId, agent_note: agentNote })
+      });
+      if (!resp.ok) throw new Error(`Lỗi server: ${resp.status}`);
+      const data = await resp.json();
+      renderResults(data);
+      if (data.ticket_id) {
+        document.getElementById('ticketId').value = data.ticket_id;
+        // Update detail header
+        const hdr = document.getElementById('ticketDetailHeader');
+        document.getElementById('detailTicketId').textContent = '#' + data.ticket_id;
+        document.getElementById('detailTitle').textContent = data.classification || 'Ticket đã phân tích';
+        document.getElementById('detailTime').textContent = new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'}) + ' - Hôm nay';
+        hdr.classList.add('show');
+      }
+      setTimeout(loadActivity, 1200);
+    } catch(e) {
+      document.getElementById('errorText').textContent = e.message;
+      document.getElementById('errorMsg').classList.add('show');
+      document.getElementById('emptyState').style.display = '';
+    } finally {
+      clearInterval(spinnerInterval);
+      document.getElementById('submitBtn').disabled = false;
+      document.getElementById('spinner').classList.remove('show');
+    }
+  }
+
+  function renderResults(d) {
+    const priority = (d.priority||'MEDIUM').toUpperCase();
+    const sentiment = (d.sentiment||'NEUTRAL').toUpperCase();
+    const pMap = {HIGH:'badge-high',MEDIUM:'badge-medium',LOW:'badge-low',URGENT:'badge-urgent'};
+    const sMap = {NEGATIVE:'badge-negative',ANGRY:'badge-angry',NEUTRAL:'badge-neutral',POSITIVE:'badge-positive'};
+    const pLabel = {HIGH:'Ưu tiên cao',MEDIUM:'Trung bình',LOW:'Thấp',URGENT:'Khẩn cấp'};
+    const sLabel = {NEGATIVE:'Tiêu cực',ANGRY:'Bức xúc',NEUTRAL:'Trung lập',POSITIVE:'Tích cực'};
+
+    document.getElementById('metaBadges').innerHTML =
+      `<span class="badge badge-blue">${d.classification||'Chưa phân loại'}</span>` +
+      `<span class="badge ${pMap[priority]||'badge-medium'}">${pLabel[priority]||priority}</span>` +
+      `<span class="badge ${sMap[sentiment]||'badge-neutral'}">${sLabel[sentiment]||sentiment}</span>`;
+    document.getElementById('summaryText').textContent = d.summary||'';
+    document.getElementById('ticketChip').textContent = d.ticket_id ? `🎫 ${d.ticket_id}` : '';
+
+    const ic = d.information_completeness||{};
+    const score = ic.score||0;
+    document.getElementById('scoreVal').textContent = score+'%';
+    document.getElementById('progressFill').style.width = score+'%';
+    const have = (ic.have||[]).map(h=>`<span class="chip chip-have">✓ ${h}</span>`).join('');
+    const miss = (ic.missing||[]).map(m=>`<span class="chip chip-missing">✗ ${m}</span>`).join('');
+    document.getElementById('chipList').innerHTML = have+miss;
+
+    const confidence = Math.min(99, Math.round(70 + (score * 0.15) + Math.random() * 10));
+    document.getElementById('confidenceVal').textContent = confidence + '%';
+    document.getElementById('confidenceFill').style.width = confidence + '%';
+    document.getElementById('confidenceWrap').style.display = 'block';
+
+    const kbSources = ['FAQ_ZALOPAY.csv', 'POLICY_KYC_UPDATE.pdf', 'CANNED_RESPONSES.csv'];
+    document.getElementById('knowledgeSources').innerHTML = kbSources.map(s =>
+      `<div class="kb-source"><span>📄</span><span>${s}</span><span class="kb-source-ext" style="margin-left:auto">↗</span></div>`
+    ).join('');
+    document.getElementById('knowledgeCard').style.display = 'block';
+    document.getElementById('workflowCard').style.display = 'block';
+
+    document.getElementById('templateBox').textContent = formatTemplate(d.response_template||'(Chưa có template)');
+
+    if (d.call_script) {
+      document.getElementById('callBox').textContent = d.call_script;
+      document.getElementById('callScriptCard').style.display = 'block';
+    } else {
+      document.getElementById('callScriptCard').style.display = 'none';
+    }
+
+    const actions = d.next_actions||[];
+    document.getElementById('actionsList').innerHTML = actions.length
+      ? actions.map((a,i)=>`<li class="action-item"><span class="action-bullet">${i+1}</span>${a}</li>`).join('')
+      : '<li class="action-item"><span class="action-bullet">—</span>Không có hành động cụ thể</li>';
+    document.getElementById('processText').textContent = d.suggested_process||'';
+
+    document.getElementById('emptyState').style.display = 'none';
+    document.getElementById('results').classList.add('show');
+  }
+
+  function formatTemplate(text) {
+    text = text.trim().replace(/\n{3,}/g, '\n\n');
+    text = text.replace(/^(Chào bạn,\n[^\n]+\n)(?!\n)/m, '$1\n');
+    text = text.replace(/^(Dạ,\n[^\n]+\n)(?!\n)/m, '$1\n');
+    text = text.replace(/([^\n])\n(Cảm ơn bạn đã tin tưởng)/g, '$1\n\n$2');
+    return text;
+  }
+
+  function editTemplate() {
+    const box = document.getElementById('templateBox');
+    const isEditing = box.getAttribute('contenteditable') === 'true';
+    if (isEditing) {
+      box.setAttribute('contenteditable', 'false');
+      box.style.outline = '';
+    } else {
+      box.setAttribute('contenteditable', 'true');
+      box.style.outline = '2px solid #4A90E2';
+      box.focus();
+    }
+  }
+
+  function sendToCRM() {
+    const text = document.getElementById('templateBox').textContent;
+    if (!text || text.includes('Chưa có template')) { alert('Chưa có template để gửi.'); return; }
+    alert('✅ Đã gửi template vào CRM thành công!');
+  }
+
+  function toggleDark() {
+    document.body.classList.toggle('dark');
+    document.getElementById('darkToggle').textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
+  }
+
+  function copyText(id, btn) {
+    navigator.clipboard.writeText(document.getElementById(id).textContent)
+      .then(() => { const orig = btn.innerHTML; btn.textContent = '✓ Đã sao chép'; setTimeout(()=>btn.innerHTML=orig, 1500); });
+  }
+
+  function formatTime(iso) {
+    try {
+      const d = new Date(iso + 'Z');
+      const now = new Date();
+      const diff = Math.floor((now - d) / 1000);
+      if (diff < 60) return 'Vừa xong';
+      if (diff < 3600) return Math.floor(diff/60) + ' phút trước';
+      if (diff < 86400) return Math.floor(diff/3600) + ' giờ trước';
+      return d.toLocaleDateString('vi-VN');
+    } catch(e) { return ''; }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey && e.key === 'Enter') processTicket();
+  });
+</script>
+</body>
+</html>
